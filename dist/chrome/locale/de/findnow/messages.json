@@ -1,0 +1,89 @@
+{
+  "misc": {
+    "message": "Verschiedenes"
+  },
+  "options": {
+    "message": "Einstellungen"
+  },
+  "filenameFormat": {
+    "message": "Dateinamen"
+  },
+  "MBcaptionlabel1": {
+    "message": "Export-Einstellungen"
+  },
+  "MBlabel1": {
+    "message": "Dateien gleichen Namens im Zielverzeichnis überschreiben"
+  },
+  "addTimestamp": {
+    "message": "Datum den Dateieigenschaften hinzufügen"
+  },
+  "MBlabel2": {
+    "message": "Beim Exportieren einzelner Dateien nur alphanumerische Zeichen verwenden"
+  },
+  "captionCustomize": {
+    "message": "Eigenes Format für Dateinamen"
+  },
+  "customizeFilename": {
+    "message": "Folgendes Format verwenden:"
+  },
+  "subject": {
+    "message": "Betreff"
+  },
+  "date": {
+    "message": "Datum"
+  },
+  "key": {
+    "message": "Eingangsreihenfolge"
+  },
+  "name": {
+    "message": "Name"
+  },
+  "sender": {
+    "message": "Absender"
+  },
+  "recipient": {
+    "message": "Empfänger"
+  },
+  "LayDown": {
+    "message": "Ablegen"
+  },
+  "fileLenCaption": {
+    "message": "Dateinamenlänge"
+  },
+  "cutSub": {
+    "message": "Betreff nach 50 Zeichen abschneiden"
+  },
+  "cutFN": {
+    "message": "Vollständigen Dateipfad nach 256 Zeichen abschneiden"
+  },
+  "filenameCharset": {
+    "message": "Zeichensatz für Dateinamen:"
+  },
+  "addtime.label": {
+    "message": "Uhrzeit zum Datum hinzufügen"
+  },
+  "useisotime.label": {
+    "message": "Uhrzeit zum Datum in ISO benutzen"
+  },
+  "addPrefix": {
+    "message": "Präfix hinzufügen"
+  },
+  "savedirs": {
+    "message": "Verzeichnisse exportieren"
+  },
+  "emlExport": {
+    "message": "Vorgabeverzeichnis für Dateiexport:"
+  },
+  "browse": {
+    "message": "Durchsuchen"
+  },
+  "saveAuto": {
+    "message": "Automatisch in Ziel Speichern"
+  },
+  "defaultButton": {
+    "message": "'Ablegen'-Button in Standardfarbe anzeigen"
+  },
+  "emlExportSub": {
+    "message": "Unterordner für Dateiexport:"
+  }
+}

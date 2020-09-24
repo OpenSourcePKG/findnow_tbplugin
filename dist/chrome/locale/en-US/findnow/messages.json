@@ -1,0 +1,89 @@
+{
+  "misc": {
+    "message": "Misc"
+  },
+  "options": {
+    "message": "Options"
+  },
+  "filenameFormat": {
+    "message": "Filenames"
+  },
+  "MBcaptionlabel1": {
+    "message": "General settings"
+  },
+  "MBlabel1": {
+    "message": "Overwrite the mbox files with the same name in the destination directory"
+  },
+  "addTimestamp": {
+    "message": "Add date to the file properties"
+  },
+  "MBlabel2": {
+    "message": "Only use alphanumeric characters in export"
+  },
+  "captionCustomize": {
+    "message": "Customized format for filenames"
+  },
+  "customizeFilename": {
+    "message": "Use following format:"
+  },
+  "subject": {
+    "message": "Subject"
+  },
+  "date": {
+    "message": "Date"
+  },
+  "key": {
+    "message": "Index"
+  },
+  "name": {
+    "message": "Name"
+  },
+  "sender": {
+    "message": "Sender"
+  },
+  "recipient": {
+    "message": "Recipient"
+  },
+  "LayDown": {
+    "message": "Store"
+  },
+  "fileLenCaption": {
+    "message": "Filename length"
+  },
+  "cutSub": {
+    "message": "Cut subject at 50 characters"
+  },
+  "cutFN": {
+    "message": "Cut complete file path length at 256 characters"
+  },
+  "filenameCharset": {
+    "message": "Charset for filenames: "
+  },
+  "addtime.label": {
+    "message": "Add time to date"
+  },
+  "useisotime.label": {
+    "message": "Use time to date in ISO"
+  },
+  "addPrefix": {
+    "message": "Add prefix"
+  },
+  "savedirs": {
+    "message": "Export directories"
+  },
+  "emlExport": {
+    "message": "Default export folder:"
+  },
+  "browse": {
+    "message": "Browse"
+  },
+  "saveAuto": {
+    "message": "Autosave to destination"
+  },
+  "defaultButton": {
+    "message": "Show default button (not red)"
+  },
+  "emlExportSub": {
+    "message": "Use subfolder:"
+  }
+}
