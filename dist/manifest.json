@@ -15,14 +15,16 @@
             "scripts/background.js"
         ]
     },
-    "legacy": {
-        "options": {
-            "page": "chrome://findnow/content/findnowOptions.xul",
-            "open_in_tab": false
+    "experiment_apis": {
+        "WindowListener": {
+            "schema": "chrome/content/api/WindowListener/schema.json",
+            "parent": {
+                "scopes": ["addon_parent"],
+                "paths": [["WindowListener"]],
+                "script": "chrome/content/api/WindowListener/implementation.js"
+            }
         }
     },
-    "permissions": [
-    ],
     "icons": {
         "64": "chrome/images/findnow.png"
     },

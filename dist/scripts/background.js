@@ -1,30 +1,23 @@
 async function main() {
-  // init ConversionHelper
-  await browser.ConversionHelper.registerChromeUrl([
-    [
-      'content',
-      'findnow',
-      'chrome/content/findnow/'
+  // see https://github.com/thundernest/addon-developer-support/wiki/WindowListener-API:-Getting-Started
+
+  // add preferences
+  messenger.WindowListener.registerDefaultPrefs("defaults/preferences/preferences.js");
+
+  // set chrome manifest
+  messenger.WindowListener.registerChromeUrl([
+    ["content",  "findnow",           "chrome/content/findnow/"],
+    ["locale",   "findnow", "en-US",  "chrome/locale/en-US/findnow/"],
+    ["locale",   "findnow", "de",     "chrome/locale/de/findnow/"]
     ]
-  ]);
-
-  // register and activate overlays
-  await browser.ConversionHelper.setOverlayVerbosity(9);
-
-  // support for filter messages
-  await browser.ConversionHelper.registerOverlay(
-    'chrome://messenger/content/messenger.xhtml',
-    'chrome://findnow/content/findnow.xhtml'
-  );
-  await browser.ConversionHelper.registerOverlay(
-    'chrome://messenger/content/messageWindow.xhtml',
-    'chrome://findnow/content/findnow.xhtml'
   );
 
-  await browser.ConversionHelper.activateOverlays();
+  // add option
+  messenger.WindowListener.registerOptionsPage("chrome://findnow/content/findnowOptions.xhtml");
 
-  // startup completed
-  await messenger.ConversionHelper.notifyStartupCompleted();
+  messenger.WindowListener.registerWindow(
+    "chrome://messenger/content/messenger.xul",
+    "chrome://quicktext/content/scripts/messenger.js");
 }
 
 main();
