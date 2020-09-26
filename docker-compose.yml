@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  thunderbird:
+    image: thunderbird_findnow_addon
+    build:
+      context: ./thunderbird/
+      dockerfile: Dockerfile
+    container_name: thunderbird_findnow_addon
+    volumes:
+      - thunderbirddata:/data
+      - ./dist:/data/.thunderbird/1fwh53bl.default-release/extensions/FindNow@hw-softwareentwicklung.de/
+    ports:
+      - 127.0.0.1:8080:8080
+
+volumes:
+  thunderbirddata:
+    driver: local

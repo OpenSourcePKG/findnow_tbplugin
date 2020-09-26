@@ -21,16 +21,18 @@ if (typeof com_hw_FindNow === 'undefined') {
 com_hw_FindNow.utils = function() {
   var utils = {};
 
-  utils.IETprefs = Components.classes['@mozilla.org/preferences-service;1']
-  .getService(Components.interfaces.nsIPrefBranch);
+  utils.IETprefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
 
-  var MBstrBundleService = Components.classes['@mozilla.org/intl/stringbundle;1']
-  .getService(Components.interfaces.nsIStringBundleService);
+  var MBstrBundleService = Components.classes['@mozilla.org/intl/stringbundle;1'].getService(Components.interfaces.nsIStringBundleService);
 
-  utils.mboximportbundle = MBstrBundleService.createBundle(
-    'chrome://findnow/locale/mboxfindnow.properties');
+  try {
+    //utils.mboximportbundle = MBstrBundleService.createBundle('chrome://findnow/locale/mboxfindnow.properties');
 
-  utils.IETnosub = utils.mboximportbundle.GetStringFromName('nosubjectmsg');
+    //utils.IETnosub = utils.mboximportbundle.GetStringFromName('nosubjectmsg');
+  }
+  catch( e ) {
+    console.log(e);
+  }
 
   /**
    * IETgetComplexPref
@@ -66,8 +68,8 @@ com_hw_FindNow.utils = function() {
       if (!com_hw_FindNow.utils.IETlogger.file) {
         com_hw_FindNow.utils.IETlogger.file =
           Components.classes['@mozilla.org/file/directory_service;1']
-          .getService(Components.interfaces.nsIProperties)
-          .get('ProfD', Components.interfaces.nsIFile);
+            .getService(Components.interfaces.nsIProperties)
+            .get('ProfD', Components.interfaces.nsIFile);
 
         com_hw_FindNow.utils.IETlogger.file.append('FindNow.log');
       }
