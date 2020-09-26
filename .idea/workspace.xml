@@ -33,9 +33,14 @@
   <component name="ChangeListManager">
     <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnow/findnow.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/findnow/findnow.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnow/findnowOptions.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/findnow/findnowOptions.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/defaults/preferences/prefs.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/defaults/preferences/preferences.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Readme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnow/findnow.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnow/findnow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnow/findnow.xhtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnow/findnowOptions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnow/findnowOptions.xhtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnow/utils.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/dist/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/scripts/background.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/scripts/background.js" afterDir="false" />
     </list>
@@ -100,7 +105,9 @@
       <updated>1600763258347</updated>
       <workItem from="1600763259672" duration="9891000" />
       <workItem from="1600783093019" duration="14000" />
-      <workItem from="1600957122302" duration="9021000" />
+      <workItem from="1600957122302" duration="11038000" />
+      <workItem from="1601028864810" duration="3365000" />
+      <workItem from="1601035852129" duration="12730000" />
     </task>
     <task id="LOCAL-00001" summary="add basic ide, add source code by 68.0 version">
       <created>1600776998338</created>
@@ -123,7 +130,21 @@
       <option name="project" value="LOCAL" />
       <updated>1600962497076</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add api wrapper WindowLoader and BootstrapLoader">
+      <created>1601021215114</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1601021215114</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add api wrapper ConversionHelper and LegacyPrefs">
+      <created>1601021803311</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1601021803311</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,17 +178,19 @@
     <MESSAGE value="add basic ide, add source code by 68.0 version" />
     <MESSAGE value="begin new version" />
     <MESSAGE value="change format, add background js" />
-    <option name="LAST_COMMIT_MESSAGE" value="change format, add background js" />
+    <MESSAGE value="add api wrapper WindowLoader and BootstrapLoader" />
+    <MESSAGE value="add api wrapper ConversionHelper and LegacyPrefs" />
+    <option name="LAST_COMMIT_MESSAGE" value="add api wrapper ConversionHelper and LegacyPrefs" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="99" y="136" width="1722" height="844" key="DiffContextDialog" timestamp="1600964304322">
+    <state x="99" y="136" width="1722" height="844" key="DiffContextDialog" timestamp="1601040759506">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="99" y="136" width="1722" height="844" key="DiffContextDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1600964304322" />
-    <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl" timestamp="1600957768932">
+    <state x="99" y="136" width="1722" height="844" key="DiffContextDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1601040759506" />
+    <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl" timestamp="1601022311333">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl/0.36.1920.1044@0.36.1920.1044" timestamp="1600957768932" />
+    <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl/0.36.1920.1044@0.36.1920.1044" timestamp="1601022311333" />
     <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2" timestamp="1600781052585">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
