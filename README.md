@@ -14,6 +14,7 @@ I put Thunderbrid in a Docker container for 2 reasons:
 
 These processes are very frustrating in the long run, especially if only one line in the code changes and this has to be checked. A day can quickly pass with this process.
 
+## Docker
 Now in docker you can set it up as follows:
 File: ```docker-compose.yml``` and change the line:
 ```
@@ -30,6 +31,8 @@ You can now access the Thunderbird via [http://localhost:8080](http://localhost:
 
 Changes to the code are now live in the Thunderbird container, just close Thunderbird in the interface and it will restart automatically after a few seconds.
 
+## Grunt
+Now i add Gruntfile, it has a build Task for creating ```Findnow.xpi```.
 
 # 2. Thunderbird dev documentation links:
 

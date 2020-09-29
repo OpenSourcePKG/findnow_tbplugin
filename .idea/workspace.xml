@@ -34,25 +34,6 @@
     <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/Readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Readme.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/BootstrapLoader/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/BootstrapLoader/implementation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/BootstrapLoader/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/ConversionHelper/ConversionHelper.jsm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/ConversionHelper/OverlayManager.jsm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/ConversionHelper/implementation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/ConversionHelper/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/LegacyPrefs/implementation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/LegacyPrefs/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/WindowListener/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/WindowListener/implementation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/WindowListener/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/dist/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/scripts/background.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/scripts/background.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thunderbird/menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/thunderbird/menu.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thunderbird/supervisord.conf" beforeDir="false" afterPath="$PROJECT_DIR$/thunderbird/supervisord.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +121,7 @@
       <workItem from="1600783093019" duration="14000" />
       <workItem from="1600957122302" duration="11038000" />
       <workItem from="1601028864810" duration="3365000" />
-      <workItem from="1601035852129" duration="30326000" />
+      <workItem from="1601035852129" duration="31010000" />
     </task>
     <task id="LOCAL-00001" summary="add basic ide, add source code by 68.0 version">
       <created>1600776998338</created>
@@ -191,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601215418103</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add grunt, change dockerfile settings, update source, dev part 1">
+      <created>1601411064216</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1601411064216</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,7 +217,8 @@
     <MESSAGE value="add api wrapper ConversionHelper and LegacyPrefs" />
     <MESSAGE value="add dockerfile, change code" />
     <MESSAGE value="update README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="update README.md" />
+    <MESSAGE value="add grunt, change dockerfile settings, update source, dev part 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="add grunt, change dockerfile settings, update source, dev part 1" />
   </component>
   <component name="WindowStateProjectService">
     <state x="99" y="136" width="1722" height="844" key="DiffContextDialog" timestamp="1601200171846">
@@ -264,9 +253,9 @@
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2/0.36.1920.1044@0.36.1920.1044" timestamp="1601215423448" />
-    <state x="691" y="275" width="530" height="560" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1600776957255">
+    <state x="691" y="275" width="530" height="560" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1601411030120">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="691" y="275" width="530" height="560" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1600776957255" />
+    <state x="691" y="275" width="530" height="560" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1601411030120" />
   </component>
 </project>
