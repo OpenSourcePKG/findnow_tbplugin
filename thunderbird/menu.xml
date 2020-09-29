@@ -3,7 +3,7 @@
     <menu id="root-menu" label="Openbox 3">
         <item label="Thunderbird">
             <action name="Execute">
-                <execute>/opt/thunderbird/thunderbird</execute>
+                <execute>/opt/thunderbird/thunderbird -devtools</execute>
             </action>
         </item>
         <item label="Terminal">
