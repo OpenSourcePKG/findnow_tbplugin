@@ -33,6 +33,17 @@ Changes to the code are now live in the Thunderbird container, just close Thunde
 
 # 2. Thunderbird dev documentation links:
 
+### start thunderbird with devtools
+```
+/thunderbird -devtools
+```
+
+### disable prompt dialog for debugger
+```
+devtools.debugger.prompt-connection
+```
+to ```false```
+
 
 ### migration strategy 
 Link [https://developer.thunderbird.net/add-ons/updating/tb78#update-strategies](https://developer.thunderbird.net/add-ons/updating/tb78#update-strategies)

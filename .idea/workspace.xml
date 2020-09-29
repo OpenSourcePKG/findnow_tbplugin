@@ -35,14 +35,24 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/Readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Readme.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnow/findnow.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnow/findnow.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnow/findnow.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnow/findnowOptions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnow/findnowOptions.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnow/utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/BootstrapLoader/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/BootstrapLoader/implementation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/BootstrapLoader/schema.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/ConversionHelper/ConversionHelper.jsm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/ConversionHelper/OverlayManager.jsm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/ConversionHelper/implementation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/ConversionHelper/schema.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/LegacyPrefs/implementation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/LegacyPrefs/schema.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/WindowListener/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/WindowListener/implementation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/WindowListener/schema.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/dist/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/scripts/background.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/scripts/background.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thunderbird/menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/thunderbird/menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thunderbird/supervisord.conf" beforeDir="false" afterPath="$PROJECT_DIR$/thunderbird/supervisord.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +77,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="ProjectId" id="1hrJQ0nTqQ3bmRoucjKxDnFY1ns" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -78,12 +94,14 @@
     <property name="eslint.code.style.apply.dismiss" value="true" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.22.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="10.17.35" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../findnow" />
+    <property name="js.buildTools.grunt.grunt-cli.package" value="$PROJECT_DIR$/node_modules/grunt-cli" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Gruntfile.js" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.TypeScript" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -94,6 +112,21 @@
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Gruntfile.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Gruntfile.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="js.build_tools.grunt">
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.Gruntfile.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -107,7 +140,7 @@
       <workItem from="1600783093019" duration="14000" />
       <workItem from="1600957122302" duration="11038000" />
       <workItem from="1601028864810" duration="3365000" />
-      <workItem from="1601035852129" duration="12730000" />
+      <workItem from="1601035852129" duration="30326000" />
     </task>
     <task id="LOCAL-00001" summary="add basic ide, add source code by 68.0 version">
       <created>1600776998338</created>
@@ -144,7 +177,21 @@
       <option name="project" value="LOCAL" />
       <updated>1601021803311</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add dockerfile, change code">
+      <created>1601114041028</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1601114041028</updated>
+    </task>
+    <task id="LOCAL-00007" summary="update README.md">
+      <created>1601215418103</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1601215418103</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,21 +227,43 @@
     <MESSAGE value="change format, add background js" />
     <MESSAGE value="add api wrapper WindowLoader and BootstrapLoader" />
     <MESSAGE value="add api wrapper ConversionHelper and LegacyPrefs" />
-    <option name="LAST_COMMIT_MESSAGE" value="add api wrapper ConversionHelper and LegacyPrefs" />
+    <MESSAGE value="add dockerfile, change code" />
+    <MESSAGE value="update README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="update README.md" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="99" y="136" width="1722" height="844" key="DiffContextDialog" timestamp="1601040759506">
+    <state x="99" y="136" width="1722" height="844" key="DiffContextDialog" timestamp="1601200171846">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="99" y="136" width="1722" height="844" key="DiffContextDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1601040759506" />
-    <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl" timestamp="1601022311333">
+    <state x="99" y="136" width="1722" height="844" key="DiffContextDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1601200171846" />
+    <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl" timestamp="1601410627378">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl/0.36.1920.1044@0.36.1920.1044" timestamp="1601022311333" />
-    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2" timestamp="1600781052585">
+    <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl/0.36.1920.1044@0.36.1920.1044" timestamp="1601410627378" />
+    <state width="1874" height="277" key="GridCell.Tab.0.bottom" timestamp="1601410817732">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2/0.36.1920.1044@0.36.1920.1044" timestamp="1600781052585" />
+    <state width="1874" height="277" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1601410817732" />
+    <state width="1874" height="277" key="GridCell.Tab.0.center" timestamp="1601410817732">
+      <screen x="0" y="36" width="1920" height="1044" />
+    </state>
+    <state width="1874" height="277" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1601410817732" />
+    <state width="1874" height="277" key="GridCell.Tab.0.left" timestamp="1601410817731">
+      <screen x="0" y="36" width="1920" height="1044" />
+    </state>
+    <state width="1874" height="277" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1601410817731" />
+    <state width="1874" height="277" key="GridCell.Tab.0.right" timestamp="1601410817732">
+      <screen x="0" y="36" width="1920" height="1044" />
+    </state>
+    <state width="1874" height="277" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1601410817732" />
+    <state x="449" y="193" key="SettingsEditor" timestamp="1601299164761">
+      <screen x="0" y="36" width="1920" height="1044" />
+    </state>
+    <state x="449" y="193" key="SettingsEditor/0.36.1920.1044@0.36.1920.1044" timestamp="1601299164761" />
+    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2" timestamp="1601215423448">
+      <screen x="0" y="36" width="1920" height="1044" />
+    </state>
+    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2/0.36.1920.1044@0.36.1920.1044" timestamp="1601215423448" />
     <state x="691" y="275" width="530" height="560" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1600776957255">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
