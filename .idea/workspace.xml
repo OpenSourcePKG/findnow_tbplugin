@@ -32,13 +32,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/built/Findnow.xpi" beforeDir="false" afterPath="$PROJECT_DIR$/built/Findnow.xpi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/findnow/implementation.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/api/findnow/implementation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/api/findnow/schema.json" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/api/findnow/schema.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/overlay.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/overlay.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/utils-old.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/dist/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/scripts/background.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/scripts/background.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
   </component>
   <component name="ComposerSettings">
     <execution />
@@ -86,15 +99,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/dist/chrome/scripts" />
+      <recent name="$PROJECT_DIR$/dist/chrome/api/findnow" />
+      <recent name="$PROJECT_DIR$/dist/chrome" />
+      <recent name="$PROJECT_DIR$/dist" />
+      <recent name="$PROJECT_DIR$/dist/experiment" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Node.js.Gruntfile.js">
     <configuration name="Gruntfile.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Gruntfile.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
@@ -103,8 +120,18 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="default" type="js.build_tools.grunt" temporary="true">
+      <node-interpreter value="project" />
+      <gruntfile value="$PROJECT_DIR$/Gruntfile.js" />
+      <tasks>
+        <task value="default" />
+      </tasks>
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Grunt.js.default" />
         <item itemvalue="Node.js.Gruntfile.js" />
       </list>
     </recent_temporary>
@@ -121,7 +148,7 @@
       <workItem from="1600783093019" duration="14000" />
       <workItem from="1600957122302" duration="11038000" />
       <workItem from="1601028864810" duration="3365000" />
-      <workItem from="1601035852129" duration="31010000" />
+      <workItem from="1601035852129" duration="51264000" />
     </task>
     <task id="LOCAL-00001" summary="add basic ide, add source code by 68.0 version">
       <created>1600776998338</created>
@@ -179,7 +206,21 @@
       <option name="project" value="LOCAL" />
       <updated>1601411064216</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add grunt, change dockerfile settings, update source, dev part 2">
+      <created>1601411674449</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1601411674449</updated>
+    </task>
+    <task id="LOCAL-00010" summary="update README.md">
+      <created>1601411762698</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1601411762698</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,9 +257,10 @@
     <MESSAGE value="add api wrapper WindowLoader and BootstrapLoader" />
     <MESSAGE value="add api wrapper ConversionHelper and LegacyPrefs" />
     <MESSAGE value="add dockerfile, change code" />
-    <MESSAGE value="update README.md" />
     <MESSAGE value="add grunt, change dockerfile settings, update source, dev part 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="add grunt, change dockerfile settings, update source, dev part 1" />
+    <MESSAGE value="add grunt, change dockerfile settings, update source, dev part 2" />
+    <MESSAGE value="update README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="update README.md" />
   </component>
   <component name="WindowStateProjectService">
     <state x="99" y="136" width="1722" height="844" key="DiffContextDialog" timestamp="1601200171846">
@@ -229,33 +271,41 @@
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl/0.36.1920.1044@0.36.1920.1044" timestamp="1601410627378" />
-    <state width="1874" height="277" key="GridCell.Tab.0.bottom" timestamp="1601410817732">
+    <state width="1874" height="277" key="GridCell.Tab.0.bottom" timestamp="1601452499762">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="277" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1601410817732" />
-    <state width="1874" height="277" key="GridCell.Tab.0.center" timestamp="1601410817732">
+    <state width="1874" height="277" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1601452499762" />
+    <state width="1874" height="277" key="GridCell.Tab.0.center" timestamp="1601452499761">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="277" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1601410817732" />
-    <state width="1874" height="277" key="GridCell.Tab.0.left" timestamp="1601410817731">
+    <state width="1874" height="277" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1601452499761" />
+    <state width="1874" height="277" key="GridCell.Tab.0.left" timestamp="1601452499761">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="277" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1601410817731" />
-    <state width="1874" height="277" key="GridCell.Tab.0.right" timestamp="1601410817732">
+    <state width="1874" height="277" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1601452499761" />
+    <state width="1874" height="277" key="GridCell.Tab.0.right" timestamp="1601452499762">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="277" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1601410817732" />
+    <state width="1874" height="277" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1601452499762" />
     <state x="449" y="193" key="SettingsEditor" timestamp="1601299164761">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="449" y="193" key="SettingsEditor/0.36.1920.1044@0.36.1920.1044" timestamp="1601299164761" />
-    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2" timestamp="1601215423448">
+    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2" timestamp="1601411777240">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2/0.36.1920.1044@0.36.1920.1044" timestamp="1601215423448" />
-    <state x="691" y="275" width="530" height="560" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1601411030120">
+    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2/0.36.1920.1044@0.36.1920.1044" timestamp="1601411777240" />
+    <state x="691" y="275" width="530" height="560" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1601411658405">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="691" y="275" width="530" height="560" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1601411030120" />
+    <state x="691" y="275" width="530" height="560" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1601411658405" />
+    <state x="650" y="297" width="620" height="522" key="find.popup" timestamp="1601638405129">
+      <screen x="0" y="36" width="1920" height="1044" />
+    </state>
+    <state x="650" y="297" width="620" height="522" key="find.popup/0.36.1920.1044@0.36.1920.1044" timestamp="1601638405129" />
+    <state x="623" y="266" width="672" height="678" key="search.everywhere.popup" timestamp="1601620450211">
+      <screen x="0" y="36" width="1920" height="1044" />
+    </state>
+    <state x="623" y="266" width="672" height="678" key="search.everywhere.popup/0.36.1920.1044@0.36.1920.1044" timestamp="1601620450211" />
   </component>
 </project>

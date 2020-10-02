@@ -6,6 +6,7 @@ var {ExtensionSupport} = ChromeUtils.import('resource:///modules/ExtensionSuppor
 var findnow = class extends ExtensionCommon.ExtensionAPI {
 
     constructor(extension) {
+        console.log("Test constructor");
         super(extension);
         findnow.i18n = extension.localeData;
     }
@@ -26,7 +27,7 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
                 ]
             );
 
-        ExtensionSupport.registerWindowListener('FindNow@hw-softwareentwicklung.de', {
+        ExtensionSupport.registerWindowListener('findnow@pegenau.de', {
 
             chromeURLs: [
                 'chrome://messenger/content/messenger.xhtml',
@@ -60,7 +61,7 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
 
         Services.obs.notifyObservers(null, 'startupcache-invalidate', null);
 
-        ExtensionSupport.unregisterWindowListener('FindNow@hw-softwareentwicklung.de');
+        ExtensionSupport.unregisterWindowListener('findnow@pegenau.de');
 
         this.chromeHandle.destruct();
         this.chromeHandle = null;
@@ -105,15 +106,25 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
             }
         };
     }
-};
+}
 
 // ------------------------------------------------------------------------------------------------
 
 function loadWindow(win) {
-console.log(win.location.href);
     switch (win.location.href) {
         case 'chrome://messenger/content/messenger.xhtml':
         case 'chrome://messenger/content/messageWindow.xhtml':
+
+            // -----------------------------------
+
+            win.findnow_exporter = {};
+
+            Services.scriptloader.loadSubScript('chrome://findnow/content/exporter.js', win.findnow_exporter);
+
+            win.findnow_exporter.i18n = findnow.i18n;
+            win.findnow_exporter.load(win);
+
+            // -----------------------------------
 
             win.findnow = {};
 
@@ -122,6 +133,7 @@ console.log(win.location.href);
             win.findnow.i18n = findnow.i18n;
             win.findnow.load(win);
 
+            // -----------------------------------
             break;
 
         case 'chrome://findnow/content/findnow.xhtml':

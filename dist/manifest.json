@@ -1,33 +1,48 @@
 {
-    "manifest_version": 2,
-    "name": "__MSG_extensionName__",
-    "version": "2.0",
-    "description": "__MSG_extensionDescription__",
-    "author": "Stefan Werfling",
-    "applications": {
-        "gecko": {
-            "id": "FindNow@hw-softwareentwicklung.de",
-            "strict_min_version": "78.0"
-        }
-    },
-    "experiment_apis": {
-        "mailmerge": {
-            "schema": "chrome/content/api/findnow/schema.json",
-            "parent": {
-                "scopes": ["addon_parent"],
-                "paths": [["findnow"]],
-                "script": "chrome/content/api/findnow/implementation.js",
-                "events": ["startup"]
-            }
-        }
-    },
-    "background": {
-        "scripts": [
-            "scripts/background.js"
+  "name": "FindNow",
+  "version": "2.0",
+  "description": "Ermöglicht das Exportieren von Nachrichten und Ordnern für FindNow",
+  "author": "Stefan Werfling",
+
+  "default_locale": "en-US",
+
+  "applications": {
+    "gecko": {
+      "id": "findnow@pegenau.de",
+      "strict_min_version": "78.0",
+      "strict_max_version": "78.*"
+    }
+  },
+
+  "icons": {
+    "64": "chrome/images/findnow.png"
+  },
+
+  "experiment_apis": {
+    "findnow": {
+      "schema": "chrome/api/findnow/schema.json",
+      "parent": {
+        "scopes": [
+          "addon_parent"
+        ],
+        "paths": [
+          [
+            "findnow"
+          ]
+        ],
+        "script": "chrome/api/findnow/implementation.js",
+        "events": [
+          "startup"
         ]
-    },
-    "icons": {
-        "64": "chrome/images/findnow.png"
-    },
-    "default_locale": "en-US"
+      }
+    }
+  },
+
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+
+  "manifest_version": 2
 }
