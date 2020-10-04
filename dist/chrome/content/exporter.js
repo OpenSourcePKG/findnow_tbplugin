@@ -26,7 +26,7 @@ function saveTo() {
     const emlsArray = [];
     emlsArray.push(msgURI);
 
-    const file = com_hw_FindNow.utils.getMsgDestination();
+    const file = this.win.findnow_utils.getMsgDestination();
 
     this.saveMsgAsEML(msgURI, file, false, emlsArray, null, null, false, false, null, null);
 }
@@ -126,7 +126,7 @@ function saveMsgAsEML(msguri, file, append, uriArray, hdrArray, fileArray, imapF
                 sub = true;
             } else {
                 if (!hdrArray) {
-                    sub = getSubjectForHdr(hdr, file.path);
+                    sub = exporter.win.findnow_utils.getSubjectForHdr(hdr, file.path);
                 } else {
                     let parts = hdrArray[IETexported].split('§][§^^§');
 
@@ -271,15 +271,19 @@ function saveMsgAsEML(msguri, file, append, uriArray, hdrArray, fileArray, imapF
         myEMLlistner.onStopRequest = myEMLlistner.onStopRequest60;
     }
 
-    var mms = messenger.messageServiceFromURI(msguri)
-    .QueryInterface(Ci.nsIMsgMessageService);
-    var hdr = mms.messageURIToMsgHdr(msguri);
+    const mms = this.win.messenger.messageServiceFromURI(msguri)
+        .QueryInterface(Ci.nsIMsgMessageService);
+
+    const hdr = mms.messageURIToMsgHdr(msguri);
+
     try {
-        IETlogger.write("call to saveMsgAsEML - subject = " + hdr.mime2DecodedSubject + " - messageKey = " + hdr.messageKey);
+        console.log("call to saveMsgAsEML - subject = " + hdr.mime2DecodedSubject + " - messageKey = " + hdr.messageKey);
     } catch (e) {
-        IETlogger.write("call to saveMsgAsEML - error = " + e);
+        console.log("call to saveMsgAsEML - error = " + e);
     }
+
     myEMLlistner.file2 = file2;
     myEMLlistner.msgFolder = msgFolder;
-    mms.streamMessage(msguri, myEMLlistner, msgWindow, null, false, null);
+
+    mms.streamMessage(msguri, myEMLlistner, this.win.msgWindow, null, false, null);
 }
