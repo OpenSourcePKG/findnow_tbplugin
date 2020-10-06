@@ -9,6 +9,10 @@ const {Services} = ChromeUtils.import('resource://gre/modules/Services.jsm');
 function load(win) {
     this.win = win;
 
+    this.IETexported = 0;
+    this.IETskipped = 0;
+    this.IETabort = false;
+
     console.log('Load Exporter');
 }
 
@@ -53,6 +57,7 @@ function saveMsgAsEML(msguri, file, append, uriArray, hdrArray, fileArray, imapF
     }
 
     const exporter = this;
+    const document = this.win.document;
 
     // -------------------------------------------------------------------------------------------
 
@@ -88,7 +93,7 @@ function saveMsgAsEML(msguri, file, append, uriArray, hdrArray, fileArray, imapF
             this.scriptStream = null;
 
             if (clipboard) {
-                IETcopyStrToClip(this.emailtext);
+                exporter.win.findnow_utils.IETcopyStrToClip(this.emailtext);
                 return;
             }
 
@@ -116,29 +121,29 @@ function saveMsgAsEML(msguri, file, append, uriArray, hdrArray, fileArray, imapF
                         data = prologue + data;
                     }
 
-                    data = IETescapeBeginningFrom(data);
+                    data = exporter.win.findnow_utils.IETescapeBeginningFrom(data);
                 }
 
                 const fileClone = file.clone();
 
-                IETwriteDataOnDisk(fileClone, data, true, null, null);
+                exporter.win.findnow_utils.IETwriteDataOnDisk(fileClone, data, true, null, null);
 
                 sub = true;
             } else {
                 if (!hdrArray) {
                     sub = exporter.win.findnow_utils.getSubjectForHdr(hdr, file.path);
                 } else {
-                    let parts = hdrArray[IETexported].split('§][§^^§');
+                    let parts = hdrArray[exporter.IETexported].split('§][§^^§');
 
                     sub = parts[4];
                     sub = sub.replace(/[\x00-\x1F]/g, '_');
                 }
 
-                sub = IETstr_converter(sub);
+                sub = exporter.win.findnow_utils.IETstr_converter(sub);
 
                 if (sub) {
                     data = this.emailtext.replace(/^From.+\r?\n/, '');
-                    data = IETescapeBeginningFrom(data);
+                    data = exporter.win.findnow_utils.IETescapeBeginningFrom(data);
 
                     const clone = file.clone();
 
@@ -148,7 +153,7 @@ function saveMsgAsEML(msguri, file, append, uriArray, hdrArray, fileArray, imapF
 
                     const time = (hdr.dateInSeconds) * 1000;
 
-                    IETwriteDataOnDisk(clone, data, false, null, time);
+                    exporter.win.findnow_utils.IETwriteDataOnDisk(clone, data, false, null, time);
 
                     // myEMLlistener.file2 exists just if we need the index
                     if (myEMLlistner.file2) {
@@ -160,41 +165,41 @@ function saveMsgAsEML(msguri, file, append, uriArray, hdrArray, fileArray, imapF
                         if (sub !== nameNoExt) {
                             parts[4] = nameNoExt;
 
-                            hdrArray[IETexported] = parts.join('§][§^^§');
+                            hdrArray[exporter.IETexported] = parts.join('§][§^^§');
                         }
                     }
                 }
             }
 
-            IETexported = IETexported + 1;
+            exporter.IETexported = exporter.IETexported + 1;
 
             if (sub) {
-                IETwritestatus(mboximportbundle.GetStringFromName('exported') +
+                exporter.win.findnow_utils.IETwritestatus(
+                    'exported ' +
+                    exporter.IETexported +
                     ' ' +
-                    IETexported +
+                    'messages ' +
                     ' ' +
-                    mboximportbundle.GetStringFromName('msgs') +
-                    ' ' +
-                    (IETtotal + IETskipped));
+                    (exporter.IETtotal + exporter.IETskipped));
             }
 
-            if (IETabort) {
-                IETabort = false;
+            if (exporter.IETabort) {
+                exporter.IETabort = false;
                 return;
             }
 
-            var nextUri;
-            var nextFile;
+            let nextUri;
+            let nextFile;
 
-            if (IETexported < IETtotal) {
+            if (exporter.IETexported < exporter.IETtotal) {
                 if (fileArray) {
-                    nextUri = uriArray[IETexported];
-                    nextFile = fileArray[IETexported];
+                    nextUri = uriArray[exporter.IETexported];
+                    nextFile = fileArray[exporter.IETexported];
                 } else if (!hdrArray) {
-                    nextUri = uriArray[IETexported];
+                    nextUri = uriArray[exporter.IETexported];
                     nextFile = file;
                 } else {
-                    parts = hdrArray[IETexported].split('§][§^^§');
+                    const parts = hdrArray[exporter.IETexported].split('§][§^^§');
 
                     nextUri = parts[5];
                     nextFile = file;
@@ -213,29 +218,15 @@ function saveMsgAsEML(msguri, file, append, uriArray, hdrArray, fileArray, imapF
                     msgFolder
                 );
             } else {
-                if (myEMLlistner.file2) {
+                /*if (myEMLlistner.file2) {
                     createIndex(0, myEMLlistner.file2, hdrArray, myEMLlistner.msgFolder, false, true);
-                }
+                }*/
 
-                IETexported = 0;
-                IETtotal = 0;
-                IETskipped = 0;
+                exporter.IETexported = 0;
+                exporter.IETtotal = 0;
+                exporter.IETskipped = 0;
 
-                if (IETglobalMsgFolders) {
-                    IETglobalMsgFoldersExported = IETglobalMsgFoldersExported + 1;
-
-                    if (IETglobalMsgFoldersExported && IETglobalMsgFoldersExported < IETglobalMsgFolders.length) {
-                        if (imapFolder) {
-                            setTimeout(function() {
-                                exportIMAPfolder(IETglobalMsgFolders[IETglobalMsgFoldersExported], file.parent);
-                            }, 1000);
-                        } else {
-                            exportAllMsgsStart(0, IETglobalFile, IETglobalMsgFolders[IETglobalMsgFoldersExported]);
-                        }
-                    } else if (document.getElementById('IETabortIcon')) {
-                        document.getElementById('IETabortIcon').collapsed = true;
-                    }
-                } else if (document.getElementById('IETabortIcon')) {
+                if (document.getElementById('IETabortIcon')) {
                     document.getElementById('IETabortIcon').collapsed = true;
                 }
             }

@@ -24,9 +24,9 @@
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:swe" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:swe/78.2.2" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
@@ -35,9 +35,17 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/built/Findnow.xpi" beforeDir="false" afterPath="$PROJECT_DIR$/built/Findnow.xpi" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/chrome/api/findnow/implementation.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/api/findnow/implementation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/api/findnow/schema.json" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/api/findnow/schema.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/chrome/content/exporter.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/exporter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnowOptions.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/findnowOptions-old.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnowOptions.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/findnowOptions.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/chrome/content/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/locale/de/findnow/mboxfindnow.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/locale/de/findnow/messages.json" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/locale/de/findnow/messages.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/locale/en-US/findnow/mboxfindnow.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/locale/en-US/findnow/messages.json" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/locale/en-US/findnow/messages.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/chrome/scripts/background.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/scripts/background.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/dist/manifest.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +63,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -79,6 +89,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="eslint.code.style.apply.dismiss" value="true" />
@@ -86,6 +97,7 @@
     <property name="javascript.nodejs.core.library.typings.version" value="10.17.35" />
     <property name="js.buildTools.grunt.grunt-cli.package" value="$PROJECT_DIR$/node_modules/grunt-cli" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Gruntfile.js" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -144,7 +156,8 @@
       <workItem from="1600783093019" duration="14000" />
       <workItem from="1600957122302" duration="11038000" />
       <workItem from="1601028864810" duration="3365000" />
-      <workItem from="1601035852129" duration="59448000" />
+      <workItem from="1601035852129" duration="66534000" />
+      <workItem from="1601967736257" duration="16626000" />
     </task>
     <task id="LOCAL-00001" summary="add basic ide, add source code by 68.0 version">
       <created>1600776998338</created>
@@ -230,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601642855189</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="update part 3">
+      <created>1601807137247</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1601807137247</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +267,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="swe/78.2.2" />
+                        <option value="origin/master" />
                       </list>
                     </value>
                   </entry>
@@ -271,52 +291,57 @@
     <MESSAGE value="add grunt, change dockerfile settings, update source, dev part 2" />
     <MESSAGE value="update README.md" />
     <MESSAGE value="update part 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="update part 2" />
+    <MESSAGE value="update part 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="update part 3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="99" y="136" width="1722" height="844" key="DiffContextDialog" timestamp="1601200171846">
+    <state x="99" y="136" width="1722" height="844" key="DiffContextDialog" timestamp="1601989643558">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="99" y="136" width="1722" height="844" key="DiffContextDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1601200171846" />
+    <state x="99" y="136" width="1722" height="844" key="DiffContextDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1601989643558" />
     <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl" timestamp="1601410627378">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl/0.36.1920.1044@0.36.1920.1044" timestamp="1601410627378" />
-    <state width="1874" height="277" key="GridCell.Tab.0.bottom" timestamp="1601659096725">
+    <state width="1874" height="277" key="GridCell.Tab.0.bottom" timestamp="1601909120406">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="277" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1601659096725" />
-    <state width="1874" height="277" key="GridCell.Tab.0.center" timestamp="1601659096724">
+    <state width="1874" height="277" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1601909120406" />
+    <state width="1874" height="277" key="GridCell.Tab.0.center" timestamp="1601909120406">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="277" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1601659096724" />
-    <state width="1874" height="277" key="GridCell.Tab.0.left" timestamp="1601659096724">
+    <state width="1874" height="277" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1601909120406" />
+    <state width="1874" height="277" key="GridCell.Tab.0.left" timestamp="1601909120405">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="277" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1601659096724" />
-    <state width="1874" height="277" key="GridCell.Tab.0.right" timestamp="1601659096725">
+    <state width="1874" height="277" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1601909120405" />
+    <state width="1874" height="277" key="GridCell.Tab.0.right" timestamp="1601909120406">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="277" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1601659096725" />
+    <state width="1874" height="277" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1601909120406" />
     <state x="449" y="193" key="SettingsEditor" timestamp="1601299164761">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="449" y="193" key="SettingsEditor/0.36.1920.1044@0.36.1920.1044" timestamp="1601299164761" />
-    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2" timestamp="1601642864283">
+    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2" timestamp="1601807142332">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2/0.36.1920.1044@0.36.1920.1044" timestamp="1601642864283" />
+    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2/0.36.1920.1044@0.36.1920.1044" timestamp="1601807142332" />
     <state x="691" y="275" width="530" height="560" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1601411658405">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="691" y="275" width="530" height="560" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1601411658405" />
-    <state x="650" y="297" width="620" height="522" key="find.popup" timestamp="1601638405129">
+    <state x="650" y="297" width="620" height="522" key="find.popup" timestamp="1601972747713">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="650" y="297" width="620" height="522" key="find.popup/0.36.1920.1044@0.36.1920.1044" timestamp="1601638405129" />
-    <state x="623" y="266" width="672" height="678" key="search.everywhere.popup" timestamp="1601620450211">
+    <state x="650" y="297" width="620" height="522" key="find.popup/0.36.1920.1044@0.36.1920.1044" timestamp="1601972747713" />
+    <state x="623" y="257" key="run.anything.popup" timestamp="1602000570014">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="623" y="266" width="672" height="678" key="search.everywhere.popup/0.36.1920.1044@0.36.1920.1044" timestamp="1601620450211" />
+    <state x="623" y="257" key="run.anything.popup/0.36.1920.1044@0.36.1920.1044" timestamp="1602000570014" />
+    <state x="623" y="266" width="672" height="678" key="search.everywhere.popup" timestamp="1601808209329">
+      <screen x="0" y="36" width="1920" height="1044" />
+    </state>
+    <state x="623" y="266" width="672" height="678" key="search.everywhere.popup/0.36.1920.1044@0.36.1920.1044" timestamp="1601808209329" />
   </component>
 </project>

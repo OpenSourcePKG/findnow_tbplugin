@@ -38,9 +38,21 @@
     }
   },
 
+  "options_ui": {
+    "page": "chrome/content/ui/options.html",
+    "open_in_tab": true,
+    "browser_style": false
+  },
+
+  "permissions": [
+    "theme",
+    "idle",
+    "storage"
+  ],
+
   "background": {
     "scripts": [
-      "background.js"
+      "chrome/scripts/background.js"
     ]
   },
 

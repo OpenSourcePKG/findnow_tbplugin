@@ -13,6 +13,12 @@
         "type": "function",
         "async": false,
         "parameters": []
+      },
+      {
+        "name": "getUtils",
+        "type": "function",
+        "async": false,
+        "parameters": ["win"]
       }
     ]
   }

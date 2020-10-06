@@ -326,6 +326,12 @@ function formatNameForSubject(str, recipients) {
     return str;
 }
 
+/**
+ *
+ * @param hdr
+ * @param dirPath
+ * @returns {*}
+ */
 function getSubjectForHdr(hdr, dirPath) {
     const emlNameType = this.IETprefs.getIntPref('extensions.findnow.exportEML_filename_format');
     const mustcorrectname = this.IETprefs.getBoolPref('extensions.findnow.export_filenames_toascii');
@@ -420,4 +426,151 @@ function getSubjectForHdr(hdr, dirPath) {
     }
 
     return fname;
+}
+
+/**
+ * IETstr_converter
+ * @param str
+ * @returns {*}
+ * @constructor
+ */
+function IETstr_converter(str) {
+    let convStr;
+
+    try {
+        const charset = this.IETprefs.getCharPref('extensions.findnow.export_filename_charset');
+
+        if (charset === '') {
+            return str;
+        }
+
+        const uConv = Cc['@mozilla.org/intl/scriptableunicodeconverter']
+        .createInstance(Ci.nsIScriptableUnicodeConverter);
+
+        uConv.charset = charset;
+        convStr = uConv.ConvertFromUnicode(str);
+    } catch (e) {
+        console.log(e);
+        return str;
+    }
+
+    return convStr;
+}
+
+/**
+ * IETescapeBeginningFrom
+ * @param data
+ * @returns {*}
+ * @constructor
+ */
+function IETescapeBeginningFrom(data) {
+    const datacorrected = data.replace(/\nFrom /g, '\n From ');
+    return datacorrected;
+}
+
+/**
+ * IETwriteDataOnDisk
+ * @param file
+ * @param data
+ * @param append
+ * @param fname
+ * @param time
+ * @constructor
+ */
+function IETwriteDataOnDisk(file, data, append, fname, time) {
+    try {
+        console.log('call to IETwriteDataOnDisk - file path = ' + file.path);
+    } catch (e) {
+        console.log('call to IETwriteDataOnDisk - error = ');
+        console.log(e);
+    }
+
+    var foStream = Cc['@mozilla.org/network/file-output-stream;1']
+    .createInstance(Ci.nsIFileOutputStream);
+
+    if (append) {
+        if (fname) {
+            file.append(fname);
+        }
+
+        foStream.init(file, 0x02 | 0x08 | 0x10, 0o664, 0); // write,  create, append
+    } else {
+        foStream.init(file, 0x02 | 0x08 | 0x20, 0o664, 0); // write, create, truncate
+    }
+
+    if (data) {
+        foStream.write(data, data.length);
+    }
+
+    foStream.close();
+
+    try {
+        if (time && this.IETprefs.getBoolPref('extensions.findnow.export_set_filetime')) {
+            file.lastModifiedTime = time;
+        }
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+/**
+ * IETwritestatus
+ * @param text
+ * @constructor
+ */
+function IETwritestatus(text) {
+    if( typeof this.win.document !== 'undefined' ) {
+        const document = this.win.document;
+
+        if (document.getElementById('statusText')) {
+            document.getElementById('statusText').setAttribute('label', text);
+
+            const delay = this.IETprefs.getIntPref('extensions.findnow.delay_clean_statusbar');
+            const futils = this;
+
+            if (delay > 0) {
+                this.win.setTimeout(function() {
+                    futils.IETdeletestatus(text);
+                }, delay);
+            }
+        }
+    }
+}
+
+/**
+ * IETdeletestatus
+ * @param text
+ * @constructor
+ */
+function IETdeletestatus(text) {
+    if( typeof this.win.document !== 'undefined' ) {
+        const document = this.win.document;
+
+        if (document.getElementById('statusText').getAttribute('label') === text) {
+            document.getElementById('statusText').setAttribute('label', '');
+        }
+    }
+}
+
+/**
+ * IETescapeBeginningFrom
+ * @param data
+ * @returns {*}
+ * @constructor
+ */
+function IETescapeBeginningFrom(data) {
+    const datacorrected = data.replace(/\nFrom /g, '\n From ');
+    return datacorrected;
+}
+
+/**
+ * IETcopyStrToClip
+ * @param str
+ * @constructor
+ */
+function IETcopyStrToClip(str) {
+    const clip = Cc['@mozilla.org/widget/clipboardhelper;1']
+    .getService(Ci.nsIClipboardHelper);
+
+    clip.copyString(str);
 }

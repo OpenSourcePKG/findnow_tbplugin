@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html dir="ltr">
+  <head>
+    <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="chrome://messenger/content/aboutAddonsExtra.css"/>
+      <link rel="stylesheet" href="chrome://global/skin/in-content/common.css"/>
+      <link rel="stylesheet" href="/chrome/content/ui/options.css"/>
+
+      <script type="text/javascript" defer="true" src="/chrome/content/ui/options.js"></script>
+      <title>FindNow Options</title>
+    </head>
+  </head>
+  <body>
+    <div id="full">
+      <div id="sidebar">
+        <categories-box id="categories" orientation="vertical" aria-orientation="vertical" role="tablist">
+          <button class="category" role="tab" name="common" aria-slected="false" data-l10n-id="addon-findnow-options-common" tabindex="1" title="Common">Common</button>
+        </categories-box>
+        <div class="spacer"></div>
+        <sidebar-footer>
+          <ul class="sidebar-footer-list">
+
+          </ul>
+        </sidebar-footer>
+        <scrollbar orient="vertical" clickthrough="always" curpos="0" disabled="true" maxpos="0" pageincrement="636" increment="54">
+        </scrollbar>
+      </div>
+      <div id="content">
+        <addon-page-header id="page-header" page-options-id="page-options" type="extention">
+          <div class="sticky-container">
+            <div class="main-heading">
+              <h1 class="header-name" data-l10n-id="addon-findnow-options-heading-common">FindNow option</h1>
+            </div>
+          </div>
+        </addon-page-header>
+        <div id="main">
+          <div current-view="list">
+            <addon-list type="extension">
+              <section section="0">
+                <h2 class="list-section-heading" data-l10n-id="addon-findnow-options-common">Common</h2>
+                <addon-card>
+                  <div class="card addon">
+                    <input type="checkbox" id="defaultButton" value="1">
+                    <span data-l10n-id="addon-findnow-options-defaultbutton">Show default button (not red)</span>
+                  </div>
+                </addon-card>
+                <addon-card>
+                  <div class="card addon">
+                    <input type="checkbox" id="use_export_eml_dir" oncommand="setTimeout(com_hw_FindNow.options.toggleDirCheck, 200, this);">
+                    <span data-l10n-id="addon-findnow-options-emlexport">Default export folder:</span>
+                    <input typeof="text" id="export_eml_dir" value="" size="35">
+                    <button oncommand="com_hw_FindNow.options.pickFile(this);">Browse</button>
+                  </div>
+                </addon-card>
+                <addon-card>
+                  <div class="card addon">
+                    <input type="checkbox" id="use_export_eml_sub_dir" oncommand="setTimeout(com_hw_FindNow.options.toggleDirCheck, 202, this);">
+                    <span data-l10n-id="addon-findnow-options-emlexportsub">Use subfolder:</span>
+                    <input typeof="text" id="export_eml_sub_dir" value="" size="35">
+                  </div>
+                </addon-card>
+                <addon-card>
+                  <div class="card addon">
+                    <input type="checkbox" id="addtimeCheckbox" value="1">
+                    <span data-l10n-id="addon-findnow-options-addtimelabel">Add time to date</span>
+                  </div>
+                </addon-card>
+              </section>
+            </addon-list>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,89 +1,89 @@
 {
-  "misc": {
+  "findnow.options.misc": {
     "message": "Misc"
   },
-  "options": {
+  "findnow.options.options": {
     "message": "Options"
   },
-  "filenameFormat": {
+  "findnow.options.filenameFormat": {
     "message": "Filenames"
   },
-  "MBcaptionlabel1": {
+  "findnow.options.MBcaptionlabel1": {
     "message": "General settings"
   },
-  "MBlabel1": {
+  "findnow.options.MBlabel1": {
     "message": "Overwrite the mbox files with the same name in the destination directory"
   },
-  "addTimestamp": {
+  "findnow.options.addTimestamp": {
     "message": "Add date to the file properties"
   },
-  "MBlabel2": {
+  "findnow.options.MBlabel2": {
     "message": "Only use alphanumeric characters in export"
   },
-  "captionCustomize": {
+  "findnow.options.captionCustomize": {
     "message": "Customized format for filenames"
   },
-  "customizeFilename": {
+  "findnow.options.customizeFilename": {
     "message": "Use following format:"
   },
-  "subject": {
+  "findnow.options.subject": {
     "message": "Subject"
   },
-  "date": {
+  "findnow.options.date": {
     "message": "Date"
   },
-  "key": {
+  "findnow.options.key": {
     "message": "Index"
   },
-  "name": {
+  "findnow.options.name": {
     "message": "Name"
   },
-  "sender": {
+  "findnow.options.sender": {
     "message": "Sender"
   },
-  "recipient": {
+  "findnow.options.recipient": {
     "message": "Recipient"
   },
-  "LayDown": {
+  "findnow.options.LayDown": {
     "message": "Store"
   },
-  "fileLenCaption": {
+  "findnow.options.fileLenCaption": {
     "message": "Filename length"
   },
-  "cutSub": {
+  "findnow.options.cutSub": {
     "message": "Cut subject at 50 characters"
   },
-  "cutFN": {
+  "findnow.options.cutFN": {
     "message": "Cut complete file path length at 256 characters"
   },
-  "filenameCharset": {
+  "findnow.options.filenameCharset": {
     "message": "Charset for filenames: "
   },
-  "addtime.label": {
+  "findnow.options.addtimelabel": {
     "message": "Add time to date"
   },
-  "useisotime.label": {
+  "findnow.options.useisotime.label": {
     "message": "Use time to date in ISO"
   },
-  "addPrefix": {
+  "findnow.options.addPrefix": {
     "message": "Add prefix"
   },
-  "savedirs": {
+  "findnow.options.savedirs": {
     "message": "Export directories"
   },
-  "emlExport": {
+  "findnow.options.emlexport": {
     "message": "Default export folder:"
   },
-  "browse": {
+  "findnow.options.browse": {
     "message": "Browse"
   },
-  "saveAuto": {
+  "findnow.options.saveAuto": {
     "message": "Autosave to destination"
   },
-  "defaultButton": {
+  "findnow.options.defaultbutton": {
     "message": "Show default button (not red)"
   },
-  "emlExportSub": {
+  "findnow.options.emlexportsub": {
     "message": "Use subfolder:"
   }
 }

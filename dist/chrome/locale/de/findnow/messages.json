@@ -1,89 +1,89 @@
 {
-  "misc": {
+  "findnow.options.misc": {
     "message": "Verschiedenes"
   },
-  "options": {
+  "findnow.options.options": {
     "message": "Einstellungen"
   },
-  "filenameFormat": {
+  "findnow.options.filenameFormat": {
     "message": "Dateinamen"
   },
-  "MBcaptionlabel1": {
+  "findnow.options.MBcaptionlabel1": {
     "message": "Export-Einstellungen"
   },
-  "MBlabel1": {
+  "findnow.options.MBlabel1": {
     "message": "Dateien gleichen Namens im Zielverzeichnis überschreiben"
   },
-  "addTimestamp": {
+  "findnow.options.addTimestamp": {
     "message": "Datum den Dateieigenschaften hinzufügen"
   },
-  "MBlabel2": {
+  "findnow.options.MBlabel2": {
     "message": "Beim Exportieren einzelner Dateien nur alphanumerische Zeichen verwenden"
   },
-  "captionCustomize": {
+  "findnow.options.captionCustomize": {
     "message": "Eigenes Format für Dateinamen"
   },
-  "customizeFilename": {
+  "findnow.options.customizeFilename": {
     "message": "Folgendes Format verwenden:"
   },
-  "subject": {
+  "findnow.options.subject": {
     "message": "Betreff"
   },
-  "date": {
+  "findnow.options.date": {
     "message": "Datum"
   },
-  "key": {
+  "findnow.options.key": {
     "message": "Eingangsreihenfolge"
   },
-  "name": {
+  "findnow.options.name": {
     "message": "Name"
   },
-  "sender": {
+  "findnow.options.sender": {
     "message": "Absender"
   },
-  "recipient": {
+  "findnow.options.recipient": {
     "message": "Empfänger"
   },
-  "LayDown": {
+  "findnow.options.LayDown": {
     "message": "Ablegen"
   },
-  "fileLenCaption": {
+  "findnow.options.fileLenCaption": {
     "message": "Dateinamenlänge"
   },
-  "cutSub": {
+  "findnow.options.cutSub": {
     "message": "Betreff nach 50 Zeichen abschneiden"
   },
-  "cutFN": {
+  "findnow.options.cutFN": {
     "message": "Vollständigen Dateipfad nach 256 Zeichen abschneiden"
   },
-  "filenameCharset": {
+  "findnow.options.filenameCharset": {
     "message": "Zeichensatz für Dateinamen:"
   },
-  "addtime.label": {
+  "findnow.options.addtimelabel": {
     "message": "Uhrzeit zum Datum hinzufügen"
   },
-  "useisotime.label": {
+  "findnow.options.useisotime.label": {
     "message": "Uhrzeit zum Datum in ISO benutzen"
   },
-  "addPrefix": {
+  "findnow.options.addPrefix": {
     "message": "Präfix hinzufügen"
   },
-  "savedirs": {
+  "findnow.options.savedirs": {
     "message": "Verzeichnisse exportieren"
   },
-  "emlExport": {
+  "findnow.options.emlexport": {
     "message": "Vorgabeverzeichnis für Dateiexport:"
   },
-  "browse": {
+  "findnow.options.browse": {
     "message": "Durchsuchen"
   },
-  "saveAuto": {
+  "findnow.options.saveAuto": {
     "message": "Automatisch in Ziel Speichern"
   },
-  "defaultButton": {
+  "findnow.options.defaultbutton": {
     "message": "'Ablegen'-Button in Standardfarbe anzeigen"
   },
-  "emlExportSub": {
+  "findnow.options.emlexportsub": {
     "message": "Unterordner für Dateiexport:"
   }
 }

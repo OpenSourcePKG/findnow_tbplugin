@@ -33,7 +33,8 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
                 'chrome://messenger/content/messenger.xhtml',
                 'chrome://messenger/content/messageWindow.xhtml',
 
-                'chrome://findnow/content/findnow.xhtml'
+                'chrome://findnow/content/findnow.xhtml',
+                'chrome://findnow/content/ui/options.html'
             ],
 
             onLoadWindow: loadWindow,
@@ -104,6 +105,15 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
                     if (recentWindow) {
                         recentWindow.findnow.init();
                     }
+                },
+
+                getUtils(win) {
+                    win.findnow_utils = {};
+
+                    Services.scriptloader.loadSubScript('chrome://findnow/content/utils.js', win.findnow_utils);
+
+                    win.findnow_utils.i18n = findnow.i18n;
+                    win.findnow_utils.load(win);
                 }
             }
         };
@@ -113,6 +123,8 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
 // ------------------------------------------------------------------------------------------------
 
 function loadWindow(win) {
+    console.log(win.location.href);
+
     switch (win.location.href) {
         case 'chrome://messenger/content/messenger.xhtml':
         case 'chrome://messenger/content/messageWindow.xhtml':
@@ -152,6 +164,16 @@ function loadWindow(win) {
             i18n(win);
 
             break;
+
+        case 'chrome://findnow/content/ui/options.html':
+            win.findnow_utils = {};
+
+            Services.scriptloader.loadSubScript('chrome://findnow/content/utils.js', win.findnow_utils);
+
+            win.findnow_utils.i18n = findnow.i18n;
+            win.findnow_utils.load(win);
+
+            break
 
         default:
             ;
