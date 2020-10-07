@@ -24,28 +24,19 @@
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:swe" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:swe/78.2.2" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/built/Findnow.xpi" beforeDir="false" afterPath="$PROJECT_DIR$/built/Findnow.xpi" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/chrome/api/findnow/implementation.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/api/findnow/implementation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/chrome/api/findnow/schema.json" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/api/findnow/schema.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/exporter.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/exporter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnowOptions.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/findnowOptions-old.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnowOptions.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/findnowOptions.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/locale/de/findnow/mboxfindnow.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/locale/de/findnow/messages.json" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/locale/de/findnow/messages.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/locale/en-US/findnow/mboxfindnow.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/locale/en-US/findnow/messages.json" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/locale/en-US/findnow/messages.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/scripts/background.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/scripts/background.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/dist/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/ui/options.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/ui/options.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/ui/options.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/ui/options.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +87,7 @@
     <property name="javascript.nodejs.core.library.configured.version" value="10.22.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="10.17.35" />
     <property name="js.buildTools.grunt.grunt-cli.package" value="$PROJECT_DIR$/node_modules/grunt-cli" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Gruntfile.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../findnow" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -157,7 +148,10 @@
       <workItem from="1600957122302" duration="11038000" />
       <workItem from="1601028864810" duration="3365000" />
       <workItem from="1601035852129" duration="66534000" />
-      <workItem from="1601967736257" duration="16626000" />
+      <workItem from="1601967736257" duration="17508000" />
+      <workItem from="1602054135471" duration="1216000" />
+      <workItem from="1602061871412" duration="9009000" />
+      <workItem from="1602096042060" duration="4306000" />
     </task>
     <task id="LOCAL-00001" summary="add basic ide, add source code by 68.0 version">
       <created>1600776998338</created>
@@ -250,7 +244,21 @@
       <option name="project" value="LOCAL" />
       <updated>1601807137247</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="update">
+      <created>1602002371948</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1602002371948</updated>
+    </task>
+    <task id="LOCAL-00015" summary="update 1">
+      <created>1602002384162</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1602002384162</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,7 +275,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="swe/78.2.2" />
                       </list>
                     </value>
                   </entry>
@@ -292,17 +300,19 @@
     <MESSAGE value="update README.md" />
     <MESSAGE value="update part 2" />
     <MESSAGE value="update part 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="update part 3" />
+    <MESSAGE value="update" />
+    <MESSAGE value="update 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 1" />
   </component>
   <component name="WindowStateProjectService">
     <state x="99" y="136" width="1722" height="844" key="DiffContextDialog" timestamp="1601989643558">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="99" y="136" width="1722" height="844" key="DiffContextDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1601989643558" />
-    <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl" timestamp="1601410627378">
+    <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl" timestamp="1602054148964">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl/0.36.1920.1044@0.36.1920.1044" timestamp="1601410627378" />
+    <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl/0.36.1920.1044@0.36.1920.1044" timestamp="1602054148964" />
     <state width="1874" height="277" key="GridCell.Tab.0.bottom" timestamp="1601909120406">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
@@ -323,10 +333,10 @@
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="449" y="193" key="SettingsEditor/0.36.1920.1044@0.36.1920.1044" timestamp="1601299164761" />
-    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2" timestamp="1601807142332">
+    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2" timestamp="1602002512967">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2/0.36.1920.1044@0.36.1920.1044" timestamp="1601807142332" />
+    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2/0.36.1920.1044@0.36.1920.1044" timestamp="1602002512967" />
     <state x="691" y="275" width="530" height="560" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1601411658405">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
