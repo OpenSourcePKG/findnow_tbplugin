@@ -15,10 +15,27 @@
         "parameters": []
       },
       {
-        "name": "getUtils",
+        "name": "getPref",
         "type": "function",
-        "async": false,
-        "parameters": ["win"]
+        "async": true,
+        "parameters": [
+          {
+            "name": "aType",
+            "type": "string",
+            "description": "Name of the preference."
+          },
+          {
+            "name": "aName",
+            "type": "string",
+            "description": "Name of the preference."
+          }
+        ]
+      },
+      {
+        "name": "pickFile",
+        "type": "function",
+        "async": true,
+        "parameters": []
       }
     ]
   }

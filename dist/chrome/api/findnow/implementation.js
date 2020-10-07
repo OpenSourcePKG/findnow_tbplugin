@@ -33,8 +33,7 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
                 'chrome://messenger/content/messenger.xhtml',
                 'chrome://messenger/content/messageWindow.xhtml',
 
-                'chrome://findnow/content/findnow.xhtml',
-                'chrome://findnow/content/ui/options.html'
+                'chrome://findnow/content/findnow.xhtml'
             ],
 
             onLoadWindow: loadWindow,
@@ -97,6 +96,8 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
                     );
                     prefs.setBoolPref('button_show_default', false);
                     prefs.setBoolPref('exportEML_use_sub_dir', false);
+
+                    // -----------------------------------------------------------------------
                 },
 
                 click() {
@@ -107,13 +108,71 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
                     }
                 },
 
-                getUtils(win) {
-                    win.findnow_utils = {};
+                /**
+                 * getPref
+                 * @param atype
+                 * @param aName
+                 * @returns {null|*}
+                 */
+                getPref(atype, aName) {
+                    let prefs = Services.prefs.getDefaultBranch('extensions.findnow.');
 
-                    Services.scriptloader.loadSubScript('chrome://findnow/content/utils.js', win.findnow_utils);
+                    switch( atype ) {
+                        case "string":
+                            return prefs.getStringPref(aName);
 
-                    win.findnow_utils.i18n = findnow.i18n;
-                    win.findnow_utils.load(win);
+                        case "integer":
+                            return prefs.getIntPref(aName);
+
+                        case "bool":
+                            return prefs.getBoolPref(aName);
+
+                        case "type":
+                            return prefs.getPrefType(aName);
+                    }
+
+                    return null;
+                },
+
+                setPref(atype, aName) {
+
+                },
+
+                pickFile() {
+                    const nsIFilePicker = Ci.nsIFilePicker;
+                    const fp = Cc['@mozilla.org/filepicker;1'].createInstance(nsIFilePicker);
+
+                    let recentWindow = Services.wm.getMostRecentWindow('');
+
+                    fp.init(recentWindow, '', nsIFilePicker.modeGetFolder);
+
+                    let res;
+
+                    if (fp.show) {
+                        res = fp.show();
+                    } else {
+                        let done = false;
+                        let rv, result;
+
+                        fp.open(function(result) {
+                            rv = result;
+                            done = true;
+                        });
+
+                        var thread = Components.classes['@mozilla.org/thread-manager;1'].getService().currentThread;
+
+                        while (!done) {
+                            thread.processNextEvent(true);
+                        }
+
+                        res = rv;
+                    }
+
+                    if (res === nsIFilePicker.returnOK) {
+                        return fp.file.path;
+                    }
+
+                    return null;
                 }
             }
         };
@@ -164,16 +223,6 @@ function loadWindow(win) {
             i18n(win);
 
             break;
-
-        case 'chrome://findnow/content/ui/options.html':
-            win.findnow_utils = {};
-
-            Services.scriptloader.loadSubScript('chrome://findnow/content/utils.js', win.findnow_utils);
-
-            win.findnow_utils.i18n = findnow.i18n;
-            win.findnow_utils.load(win);
-
-            break
 
         default:
             ;
