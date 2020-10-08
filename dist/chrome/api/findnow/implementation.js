@@ -68,34 +68,41 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
     }
 
     getAPI(context) {
+        /*let prefs = Cc["@mozilla.org/preferences-service;1"]
+            .getService(Ci.nsIPrefBranch);*/
+        //let prefs = Services.prefs.getDefaultBranch('extensions.findnow.');
+        let prefs = Services.prefs;
+
+        const PREF_PREFIX = "extensions.findnow.";
+
         return {
             findnow: {
                 init() {
                     console.log('Set Prefs');
 
-                    let prefs = Services.prefs.getDefaultBranch('extensions.findnow.');
+                    let dprefs = prefs.getDefaultBranch('extensions.findnow.');
 
-                    prefs.setBoolPref('export_overwrite', true);
-                    prefs.setBoolPref('export_set_filetime', false);
-                    prefs.setBoolPref('exportEML_use_dir', false);
-                    prefs.setBoolPref('log_enable', false);
-                    prefs.setStringPref('export_filename_charset', '');
-                    prefs.setIntPref('delay_clean_statusbar', 5000);
-                    prefs.setBoolPref('export_filenames_toascii', true);
-                    prefs.setBoolPref('export_filenames_addtime', true);
-                    prefs.setIntPref('exportEML_filename_format', 2);
-                    prefs.setBoolPref('export_cut_subject', true);
-                    prefs.setBoolPref('export_cut_filename', true);
-                    prefs.setBoolPref('export_filename_add_prefix', false);
-                    prefs.setBoolPref('export_filename_useisodate', true);
-                    prefs.setBoolPref('export_save_auto_eml', false);
-                    prefs.setStringPref('export_filename_pattern', '%d %s-%k');
-                    prefs.setStringPref(
+                    dprefs.setBoolPref('export_overwrite', true);
+                    dprefs.setBoolPref('export_set_filetime', false);
+                    dprefs.setBoolPref('exportEML_use_dir', false);
+                    dprefs.setBoolPref('log_enable', false);
+                    dprefs.setStringPref('export_filename_charset', '');
+                    dprefs.setIntPref('delay_clean_statusbar', 5000);
+                    dprefs.setBoolPref('export_filenames_toascii', true);
+                    dprefs.setBoolPref('export_filenames_addtime', true);
+                    dprefs.setIntPref('exportEML_filename_format', 2);
+                    dprefs.setBoolPref('export_cut_subject', true);
+                    dprefs.setBoolPref('export_cut_filename', true);
+                    dprefs.setBoolPref('export_filename_add_prefix', false);
+                    dprefs.setBoolPref('export_filename_useisodate', true);
+                    dprefs.setBoolPref('export_save_auto_eml', false);
+                    dprefs.setStringPref('export_filename_pattern', '%d %s-%k');
+                    dprefs.setStringPref(
                         'export_charset_list',
                         'ARMSCII-8,GEOSTD8,ISO-8859-1,ISO-8859-2,ISO-8859-3,ISO-8859-4,ISO-8859-5,ISO-8859-6,ISO-8859-7,ISO-8859-8,ISO-8859-9,ISO-8859-10,ISO-8859-11,ISO-8859-12,ISO-8859-13,ISO-8859-14,ISO-8859-15,ISO-8859-16,KOI8-R,KOI8-U,UTF-8,UTF-8 (BOM),WINDOWS-1250,WINDOWS-1251,WINDOWS-1252,WINDOWS-1253,WINDOWS-1254,WINDOWS-1255,WINDOWS-1256,WINDOWS-1257,WINDOWS-1258'
                     );
-                    prefs.setBoolPref('button_show_default', false);
-                    prefs.setBoolPref('exportEML_use_sub_dir', false);
+                    dprefs.setBoolPref('button_show_default', false);
+                    dprefs.setBoolPref('exportEML_use_sub_dir', false);
 
                     // -----------------------------------------------------------------------
                 },
@@ -115,7 +122,7 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
                  * @returns {null|*}
                  */
                 getPref(atype, aName) {
-                    let prefs = Services.prefs.getDefaultBranch('extensions.findnow.');
+                    aName = PREF_PREFIX + aName;
 
                     switch( atype ) {
                         case "string":
@@ -134,8 +141,44 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
                     return null;
                 },
 
-                setPref(atype, aName) {
+                setPref(atype, aName, aValue) {
+                    aName = PREF_PREFIX + aName;
 
+                    switch( atype ) {
+                        case "string":
+                            if (prefs.setStringPref) {
+                                prefs.setStringPref(aName, aValue);
+                            }
+                            else {
+                                let str = Cc['@mozilla.org/supports-string;1']
+                                    .createInstance(Ci.nsISupportsString);
+
+                                str.data = aValue;
+
+                                prefs.setComplexValue(prefname, Ci.nsISupportsString, str);
+                            }
+                            break;
+
+                        case "integer":
+                            return prefs.setIntPref(aName, aValue);
+                            break;
+
+                        case "bool":
+                            return prefs.setBoolPref(aName, aValue);
+                            break;
+                    }
+                },
+
+                /**
+                 * setPrefDefault
+                 * @param atype
+                 * @param aName
+                 * @param aValue
+                 */
+                async setPrefDefault(atype, aName, aValue) {
+                    if (await this.getPref('type', aName) == 0) {
+                        await this.setPref(atype, aName, aValue);
+                    }
                 },
 
                 pickFile() {

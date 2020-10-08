@@ -32,6 +32,38 @@
         ]
       },
       {
+        "name": "setPref",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "aType",
+            "type": "string",
+            "description": "Name of the preference."
+          },
+          {
+            "name": "aName",
+            "type": "string",
+            "description": "Name of the preference."
+          },
+          {
+            "name": "aValue",
+            "description": "Name of the preference.",
+            "choices": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "boolean"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "pickFile",
         "type": "function",
         "async": true,
