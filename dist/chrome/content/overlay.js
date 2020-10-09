@@ -8,11 +8,17 @@ function load(win) {
     let element = win.document.getElementById("hdrArchiveButton");
 
     let toolbarbutton = win.document.createXULElement("toolbarbutton");
+
     toolbarbutton.setAttribute("id", "saveToFindnow");
     toolbarbutton.setAttribute("class", "toolbarbutton-1 msgHeaderView-button");
     toolbarbutton.setAttribute("image", "chrome://messenger/skin/icons/getmsg.svg");
-    toolbarbutton.setAttribute("label", "LayDown");
+    toolbarbutton.setAttribute("label", "Ablegen");
     toolbarbutton.setAttribute("oncommand", "findnow_exporter.saveTo();");
+
+    if( !this.win.findnow_utils.IETprefs.getBoolPref("extensions.findnow.button_show_default") ) {
+        toolbarbutton.setAttribute("style", "background-color: red;");
+    }
+
     element.parentNode.insertBefore(toolbarbutton, element);
 
     //Services.prompt.alert(win, "Teste Titel", "Meine Message");
