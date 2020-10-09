@@ -16,7 +16,7 @@
     <div id="full">
       <div id="sidebar">
         <categories-box id="categories" orientation="vertical" aria-orientation="vertical" role="tablist">
-          <button class="category" role="tab" name="common" aria-slected="false" data-l10n-id="addon-findnow-options-common" tabindex="1" title="Common">Common</button>
+          <button class="category" role="tab" name="common" aria-slected="false" data-l10n-id="addon-findnow-options-common" tabindex="1" title="Common">Allgemein</button>
         </categories-box>
         <div class="spacer"></div>
         <sidebar-footer>
@@ -39,39 +39,39 @@
           <div current-view="list">
             <addon-list type="extension">
               <section section="0">
-                <h2 class="list-section-heading" data-l10n-id="addon-findnow-options-common">Common</h2>
+                <h2 class="list-section-heading" data-l10n-id="addon-findnow-options-common">Allgemein</h2>
                 <addon-card>
                   <div class="card addon">
                     <input type="checkbox" id="defaultButton" value="1">
-                    <span data-l10n-id="addon-findnow-options-defaultbutton">Show default button (not red)</span>
+                    <span data-l10n-id="addon-findnow-options-defaultbutton">Ablegen'-Button in Standardfarbe anzeigen</span>
                   </div>
                 </addon-card>
                 <addon-card>
                   <div class="card addon">
                     <input type="checkbox" id="use_export_eml_dir" oncommand="setTimeout(com_hw_FindNow.options.toggleDirCheck, 200, this);">
-                    <span data-l10n-id="addon-findnow-options-emlexport">Default export folder:</span>
+                    <span data-l10n-id="addon-findnow-options-emlexport">Vorgabeverzeichnis für Dateiexport:</span>
                     <input typeof="text" id="export_eml_dir" value="" size="35">
-                    <button id="eml_dir_button"">Browse</button>
+                    <button id="eml_dir_button"">Durchsuchen</button>
                   </div>
                 </addon-card>
                 <addon-card>
                   <div class="card addon">
                     <input type="checkbox" id="use_export_eml_sub_dir" oncommand="setTimeout(com_hw_FindNow.options.toggleDirCheck, 202, this);">
-                    <span data-l10n-id="findnow-options-emlexportsub">Use subfolder:</span>
+                    <span data-l10n-id="findnow-options-emlexportsub">Unterordner für Dateiexport:</span>
                     <input typeof="text" id="export_eml_sub_dir" value="" size="35">
                   </div>
                 </addon-card>
                 <addon-card>
                   <div class="card addon">
                     <input type="checkbox" id="addtimeCheckbox" value="1">
-                    <span data-l10n-id="addon-findnow-options-addtimelabel">Add time to date</span>
+                    <span data-l10n-id="addon-findnow-options-addtimelabel">Uhrzeit zum Datum hinzufügen</span>
                   </div>
                 </addon-card>
               </section>
             </addon-list>
           </div>
           <div id="footer">
-            <button id="commonsave">Save</button>
+            <button id="commonsave">Speichern</button>
           </div>
         </div>
       </div>
