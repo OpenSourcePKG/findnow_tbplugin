@@ -26,17 +26,15 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:swe" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:swe/78.2.2" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:swe/78.4.0" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/built/Findnow.xpi" beforeDir="false" afterPath="$PROJECT_DIR$/built/Findnow.xpi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/overlay.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/overlay.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/ui/options.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/ui/options.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/ui/options.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/ui/options.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thunderbird/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/thunderbird/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +61,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="swe/78.2.2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -87,7 +85,7 @@
     <property name="javascript.nodejs.core.library.configured.version" value="10.22.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="10.17.35" />
     <property name="js.buildTools.grunt.grunt-cli.package" value="$PROJECT_DIR$/node_modules/grunt-cli" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../findnow" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -156,7 +154,10 @@
       <workItem from="1602153949088" duration="2795000" />
       <workItem from="1602168930380" duration="5495000" />
       <workItem from="1602225392988" duration="1746000" />
-      <workItem from="1602233487368" duration="742000" />
+      <workItem from="1602233487368" duration="1622000" />
+      <workItem from="1602609568784" duration="471000" />
+      <workItem from="1603177113099" duration="126000" />
+      <workItem from="1603893110865" duration="1286000" />
     </task>
     <task id="LOCAL-00001" summary="add basic ide, add source code by 68.0 version">
       <created>1600776998338</created>
@@ -277,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602173306653</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="update">
+      <created>1602234291542</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1602234291542</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,7 +302,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="swe/78.2.2" />
+                        <option value="swe/78.4.0" />
                       </list>
                     </value>
                   </entry>
@@ -319,44 +327,44 @@
     <MESSAGE value="update README.md" />
     <MESSAGE value="update part 2" />
     <MESSAGE value="update part 3" />
-    <MESSAGE value="update" />
     <MESSAGE value="update 1" />
     <MESSAGE value="update options" />
-    <option name="LAST_COMMIT_MESSAGE" value="update options" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="WindowStateProjectService">
     <state x="99" y="136" width="1722" height="844" key="DiffContextDialog" timestamp="1602171586447">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="99" y="136" width="1722" height="844" key="DiffContextDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1602171586447" />
-    <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl" timestamp="1602171546931">
+    <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl" timestamp="1603177227889">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl/0.36.1920.1044@0.36.1920.1044" timestamp="1602171546931" />
-    <state width="1874" height="277" key="GridCell.Tab.0.bottom" timestamp="1602232235037">
+    <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl/0.36.1920.1044@0.36.1920.1044" timestamp="1603177227889" />
+    <state width="1874" height="277" key="GridCell.Tab.0.bottom" timestamp="1602255473195">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="277" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1602232235037" />
-    <state width="1874" height="277" key="GridCell.Tab.0.center" timestamp="1602232235036">
+    <state width="1874" height="277" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1602255473195" />
+    <state width="1874" height="277" key="GridCell.Tab.0.center" timestamp="1602255473194">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="277" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1602232235036" />
-    <state width="1874" height="277" key="GridCell.Tab.0.left" timestamp="1602232235035">
+    <state width="1874" height="277" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1602255473194" />
+    <state width="1874" height="277" key="GridCell.Tab.0.left" timestamp="1602255473194">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="277" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1602232235035" />
-    <state width="1874" height="277" key="GridCell.Tab.0.right" timestamp="1602232235036">
+    <state width="1874" height="277" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1602255473194" />
+    <state width="1874" height="277" key="GridCell.Tab.0.right" timestamp="1602255473195">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="277" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1602232235036" />
+    <state width="1874" height="277" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1602255473195" />
     <state x="449" y="193" key="SettingsEditor" timestamp="1601299164761">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="449" y="193" key="SettingsEditor/0.36.1920.1044@0.36.1920.1044" timestamp="1601299164761" />
-    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2" timestamp="1602173317782">
+    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2" timestamp="1602234297107">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2/0.36.1920.1044@0.36.1920.1044" timestamp="1602173317782" />
+    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2/0.36.1920.1044@0.36.1920.1044" timestamp="1602234297107" />
     <state x="691" y="275" width="530" height="560" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1601411658405">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
