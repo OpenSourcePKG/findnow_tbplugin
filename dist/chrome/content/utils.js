@@ -38,6 +38,27 @@ function IETgetComplexPref(prefname) {
 }
 
 /**
+ * FNisFileExist
+ * @param aFile
+ * @returns {boolean|*}
+ * @constructor
+ */
+function FNisFileExist(aFile) {
+    try {
+        const localFile = Components.classes['@mozilla.org/file/local;1']
+            .createInstance(Components.interfaces.nsIFile);
+
+        localFile.initWithPath(aFile);
+
+        return localFile.exists();
+    } catch (e) {
+        console.log(e);
+    }
+
+    return false;
+}
+
+/**
  * getPredefinedFolder
  * @returns {null}
  */
