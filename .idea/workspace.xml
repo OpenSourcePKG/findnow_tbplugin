@@ -33,7 +33,10 @@
   <component name="ChangeListManager">
     <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/api/findnow/implementation.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/api/findnow/implementation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/chrome/content/exporter.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/exporter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/ui/options.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/ui/options.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/ui/options.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/ui/options.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/chrome/content/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -158,7 +161,7 @@
       <workItem from="1602233487368" duration="1622000" />
       <workItem from="1602609568784" duration="471000" />
       <workItem from="1603177113099" duration="126000" />
-      <workItem from="1603893110865" duration="6477000" />
+      <workItem from="1603893110865" duration="9423000" />
     </task>
     <task id="LOCAL-00001" summary="add basic ide, add source code by 68.0 version">
       <created>1600776998338</created>
@@ -293,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603894436781</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="add error dialog for file save">
+      <created>1603984351207</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1603984351207</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,7 +349,8 @@
     <MESSAGE value="update options" />
     <MESSAGE value="update" />
     <MESSAGE value="update to 78_4_0" />
-    <option name="LAST_COMMIT_MESSAGE" value="update to 78_4_0" />
+    <MESSAGE value="add error dialog for file save" />
+    <option name="LAST_COMMIT_MESSAGE" value="add error dialog for file save" />
   </component>
   <component name="WindowStateProjectService">
     <state x="99" y="136" width="1722" height="844" key="DiffContextDialog" timestamp="1602171586447">

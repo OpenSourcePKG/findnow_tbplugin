@@ -69,6 +69,27 @@ const FNOptions = {
             }
         };
 
+        // row use_filename_abbreviation
+        document.getElementById('use_filename_abbreviation').checked = await findnow.getPref('bool', 'use_filename_abbreviation');
+
+        document.getElementById("use_filename_abbreviation").onclick = function() {
+            const isChecked = document.getElementById("use_filename_abbreviation").checked;
+
+            if( isChecked ) {
+                document.getElementById("filename_abbreviation").removeAttribute("disabled");
+            }
+            else {
+                document.getElementById("filename_abbreviation").setAttribute("disabled", "true");
+            }
+        };
+
+        if( await findnow.getPref('type',  "filename_abbreviation") > 0 ) {
+            document.getElementById("filename_abbreviation").value = await findnow.getPref('string', "filename_abbreviation");
+        }
+
+        // row allow_edit_subject
+        document.getElementById('allow_edit_subject').checked = await findnow.getPref('bool', 'allow_edit_subject');
+
         // -----------------------------------------------------------------------
 
         document.getElementById("commonsave").onclick = async function() {
@@ -94,6 +115,17 @@ const FNOptions = {
                 );
             }
 
+            await findnow.setPref('bool', 'use_filename_abbreviation', document.getElementById("use_filename_abbreviation").checked);
+
+            if( document.getElementById("filename_abbreviation").value !== "" ) {
+                await findnow.setPref(
+                    'string',
+                    'filename_abbreviation',
+                    document.getElementById("filename_abbreviation").value
+                );
+            }
+
+            await findnow.setPref('bool', 'allow_edit_subject', document.getElementById("allow_edit_subject").checked);
         };
     }
 };
