@@ -156,7 +156,7 @@ function saveMsgAsEML(msguri, file, append, uriArray, hdrArray, fileArray, imapF
                         // The name is taken from the subject "corrected"
                         clone.append(sub + '.eml');
 
-                        savePath = fileClone.path;
+                        savePath = clone.path;
 
                         clone.createUnique(0, 0o644);
 

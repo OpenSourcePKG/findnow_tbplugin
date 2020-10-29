@@ -361,6 +361,9 @@ function getSubjectForHdr(hdr, dirPath) {
     const useIsoDate = this.IETprefs.getBoolPref('extensions.findnow.export_filename_useisodate');
     const subMaxLen = cutSubject ? 50 : -1;
 
+    const useFilenameAbbreviation = this.IETprefs.getBoolPref('extensions.findnow.use_filename_abbreviation');
+    const allowEditSubject = this.IETprefs.getBoolPref('extensions.findnow.allow_edit_subject');
+
     // Subject
     let subj;
 
@@ -372,6 +375,16 @@ function getSubjectForHdr(hdr, dirPath) {
         }
     } else {
         subj = this.IETnosub;
+    }
+
+    if( allowEditSubject ) {
+        subj = this.win.prompt('Bitte geben Sie ihre Änderung im Betreff an:', subj);
+    }
+
+    if( useFilenameAbbreviation ) {
+        const filenameAbbreviation = this.IETprefs.getCharPref('extensions.findnow.filename_abbreviation');
+
+        subj = filenameAbbreviation + " " + subj;
     }
 
     if (subMaxLen > 0) {

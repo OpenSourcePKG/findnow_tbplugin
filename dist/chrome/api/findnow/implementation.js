@@ -103,6 +103,9 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
                     );
                     dprefs.setBoolPref('button_show_default', false);
                     dprefs.setBoolPref('exportEML_use_sub_dir', false);
+                    dprefs.setBoolPref('use_filename_abbreviation', false);
+                    dprefs.setStringPref('filename_abbreviation', '');
+                    dprefs.setBoolPref('allow_edit_subject', false);
 
                     // -----------------------------------------------------------------------
                 },
