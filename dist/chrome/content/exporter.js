@@ -58,6 +58,7 @@ function saveMsgAsEML(msguri, file, append, uriArray, hdrArray, fileArray, imapF
 
     const exporter = this;
     const document = this.win.document;
+    let hdr = null;
 
     // -------------------------------------------------------------------------------------------
 
@@ -87,147 +88,169 @@ function saveMsgAsEML(msguri, file, append, uriArray, hdrArray, fileArray, imapF
         },
 
         onStopRequest68: function(aRequest, aStatusCode) {
-            let sub;
-            let data;
+            let savePath = null;
 
-            this.scriptStream = null;
+            try {
+                let sub;
+                let data;
 
-            if (clipboard) {
-                exporter.win.findnow_utils.IETcopyStrToClip(this.emailtext);
-                return;
-            }
+                this.scriptStream = null;
 
-            const tags = hdr.getStringProperty('keywords');
+                if (clipboard) {
+                    exporter.win.findnow_utils.IETcopyStrToClip(this.emailtext);
+                    return;
+                }
 
-            if (tags && this.emailtext.substring(0, 5000).includes('X-Mozilla-Keys')) {
-                this.emailtext = 'X-Mozilla-Keys: ' + tags + '\r\n' + this.emailtext;
-            }
+                const tags = hdr.getStringProperty('keywords');
 
-            if (append) {
-                if (this.emailtext !== '') {
-                    data = this.emailtext + '\n';
+                if (tags && this.emailtext.substring(0, 5000).includes('X-Mozilla-Keys')) {
+                    this.emailtext = 'X-Mozilla-Keys: ' + tags + '\r\n' + this.emailtext;
+                }
 
-                    // Some Imap servers don't add to the message the "From" prologue
-                    if (data && !data.match(/^From/)) {
-                        const da = new Date;
+                if (append) {
+                    if (this.emailtext !== '') {
+                        data = this.emailtext + '\n';
 
-                        // Mbox format requires that the date in "From" first line is 24 characters long
-                        let now = da.toString().substring(0, 24);
+                        // Some Imap servers don't add to the message the "From" prologue
+                        if (data && !data.match(/^From/)) {
+                            const da = new Date;
 
-                        now = now.replace(da.getFullYear() + ' ', '') + ' ' + da.getFullYear();
+                            // Mbox format requires that the date in "From" first line is 24 characters long
+                            let now = da.toString().substring(0, 24);
 
-                        const prologue = 'From - ' + now + '\n';
+                            now = now.replace(da.getFullYear() + ' ', '') + ' ' + da.getFullYear();
 
-                        data = prologue + data;
+                            const prologue = 'From - ' + now + '\n';
+
+                            data = prologue + data;
+                        }
+
+                        data = exporter.win.findnow_utils.IETescapeBeginningFrom(data);
                     }
 
-                    data = exporter.win.findnow_utils.IETescapeBeginningFrom(data);
-                }
+                    const fileClone = file.clone();
 
-                const fileClone = file.clone();
+                    savePath = fileClone.path;
 
-                exporter.win.findnow_utils.IETwriteDataOnDisk(fileClone, data, true, null, null);
+                    exporter.win.findnow_utils.IETwriteDataOnDisk(fileClone, data, true, null, null);
 
-                sub = true;
-            } else {
-                if (!hdrArray) {
-                    sub = exporter.win.findnow_utils.getSubjectForHdr(hdr, file.path);
+                    sub = true;
                 } else {
-                    let parts = hdrArray[exporter.IETexported].split('§][§^^§');
+                    if (!hdrArray) {
+                        sub = exporter.win.findnow_utils.getSubjectForHdr(hdr, file.path);
+                    } else {
+                        let parts = hdrArray[exporter.IETexported].split('§][§^^§');
 
-                    sub = parts[4];
-                    sub = sub.replace(/[\x00-\x1F]/g, '_');
-                }
+                        sub = parts[4];
+                        sub = sub.replace(/[\x00-\x1F]/g, '_');
+                    }
 
-                sub = exporter.win.findnow_utils.IETstr_converter(sub);
+                    sub = exporter.win.findnow_utils.IETstr_converter(sub);
 
-                if (sub) {
-                    data = this.emailtext.replace(/^From.+\r?\n/, '');
-                    data = exporter.win.findnow_utils.IETescapeBeginningFrom(data);
+                    if (sub) {
+                        data = this.emailtext.replace(/^From.+\r?\n/, '');
+                        data = exporter.win.findnow_utils.IETescapeBeginningFrom(data);
 
-                    const clone = file.clone();
+                        const clone = file.clone();
 
-                    // The name is taken from the subject "corrected"
-                    clone.append(sub + '.eml');
-                    clone.createUnique(0, 0o644);
+                        // The name is taken from the subject "corrected"
+                        clone.append(sub + '.eml');
 
-                    const time = (hdr.dateInSeconds) * 1000;
+                        savePath = fileClone.path;
 
-                    exporter.win.findnow_utils.IETwriteDataOnDisk(clone, data, false, null, time);
+                        clone.createUnique(0, 0o644);
 
-                    // myEMLlistener.file2 exists just if we need the index
-                    if (myEMLlistner.file2) {
-                        const nameNoExt = clone.leafName.replace(/\.eml$/, '');
+                        const time = (hdr.dateInSeconds) * 1000;
 
-                        // If the leafName of the file is not equal to "sub", we must change also
-                        // the corrispondent section of hdrArray[IETexported], otherwise the link
-                        // in the index will be wrong
-                        if (sub !== nameNoExt) {
-                            parts[4] = nameNoExt;
+                        exporter.win.findnow_utils.IETwriteDataOnDisk(clone, data, false, null, time);
 
-                            hdrArray[exporter.IETexported] = parts.join('§][§^^§');
+                        // myEMLlistener.file2 exists just if we need the index
+                        if (myEMLlistner.file2) {
+                            const nameNoExt = clone.leafName.replace(/\.eml$/, '');
+
+                            // If the leafName of the file is not equal to "sub", we must change also
+                            // the corrispondent section of hdrArray[IETexported], otherwise the link
+                            // in the index will be wrong
+                            if (sub !== nameNoExt) {
+                                parts[4] = nameNoExt;
+
+                                hdrArray[exporter.IETexported] = parts.join('§][§^^§');
+                            }
                         }
                     }
                 }
-            }
 
-            exporter.IETexported = exporter.IETexported + 1;
+                exporter.IETexported = exporter.IETexported + 1;
 
-            if (sub) {
-                exporter.win.findnow_utils.IETwritestatus(
-                    'exported ' +
-                    exporter.IETexported +
-                    ' ' +
-                    'messages ' +
-                    ' ' +
-                    (exporter.IETtotal + exporter.IETskipped));
-            }
-
-            if (exporter.IETabort) {
-                exporter.IETabort = false;
-                return;
-            }
-
-            let nextUri;
-            let nextFile;
-
-            if (exporter.IETexported < exporter.IETtotal) {
-                if (fileArray) {
-                    nextUri = uriArray[exporter.IETexported];
-                    nextFile = fileArray[exporter.IETexported];
-                } else if (!hdrArray) {
-                    nextUri = uriArray[exporter.IETexported];
-                    nextFile = file;
-                } else {
-                    const parts = hdrArray[exporter.IETexported].split('§][§^^§');
-
-                    nextUri = parts[5];
-                    nextFile = file;
+                if (sub) {
+                    exporter.win.findnow_utils.IETwritestatus(
+                        'exported ' +
+                        exporter.IETexported +
+                        ' ' +
+                        'messages ' +
+                        ' ' +
+                        (exporter.IETtotal + exporter.IETskipped));
                 }
 
-                exporter.saveMsgAsEML(
-                    nextUri,
-                    nextFile,
-                    append,
-                    uriArray,
-                    hdrArray,
-                    fileArray,
-                    imapFolder,
-                    false,
-                    file2,
-                    msgFolder
-                );
-            } else {
-                /*if (myEMLlistner.file2) {
-                    createIndex(0, myEMLlistner.file2, hdrArray, myEMLlistner.msgFolder, false, true);
-                }*/
+                if (exporter.IETabort) {
+                    exporter.IETabort = false;
+                    return;
+                }
 
-                exporter.IETexported = 0;
-                exporter.IETtotal = 0;
-                exporter.IETskipped = 0;
+                let nextUri;
+                let nextFile;
 
-                if (document.getElementById('IETabortIcon')) {
-                    document.getElementById('IETabortIcon').collapsed = true;
+                if (exporter.IETexported < exporter.IETtotal) {
+                    if (fileArray) {
+                        nextUri = uriArray[exporter.IETexported];
+                        nextFile = fileArray[exporter.IETexported];
+                    } else if (!hdrArray) {
+                        nextUri = uriArray[exporter.IETexported];
+                        nextFile = file;
+                    } else {
+                        const parts = hdrArray[exporter.IETexported].split('§][§^^§');
+
+                        nextUri = parts[5];
+                        nextFile = file;
+                    }
+
+                    exporter.saveMsgAsEML(
+                        nextUri,
+                        nextFile,
+                        append,
+                        uriArray,
+                        hdrArray,
+                        fileArray,
+                        imapFolder,
+                        false,
+                        file2,
+                        msgFolder
+                    );
+                } else {
+                    /*if (myEMLlistner.file2) {
+                        createIndex(0, myEMLlistner.file2, hdrArray, myEMLlistner.msgFolder, false, true);
+                    }*/
+
+                    exporter.IETexported = 0;
+                    exporter.IETtotal = 0;
+                    exporter.IETskipped = 0;
+
+                    if (document.getElementById('IETabortIcon')) {
+                        document.getElementById('IETabortIcon').collapsed = true;
+                    }
+                }
+            }
+            catch( et ) {
+                console.log("call to saveMsgAsEML.onStopRequest68 - error = ");
+                console.log(et);
+
+                if( savePath !== null ) {
+                    if (!exporter.win.findnow_utils.FNisFileExist(savePath)) {
+                        exporter.win.alert("Die Email konnte nicht abgelegt werden unter: " + savePath);
+                    }
+                }
+                else {
+                    exporter.win.alert("Beim Speichern der Email trat ein Fehler auf, bitte kontrollieren sie das Ziel!");
                 }
             }
         },
@@ -265,16 +288,16 @@ function saveMsgAsEML(msguri, file, append, uriArray, hdrArray, fileArray, imapF
     const mms = this.win.messenger.messageServiceFromURI(msguri)
         .QueryInterface(Ci.nsIMsgMessageService);
 
-    const hdr = mms.messageURIToMsgHdr(msguri);
-
     try {
+        hdr = mms.messageURIToMsgHdr(msguri);
+
         console.log("call to saveMsgAsEML - subject = " + hdr.mime2DecodedSubject + " - messageKey = " + hdr.messageKey);
+
+        myEMLlistner.file2 = file2;
+        myEMLlistner.msgFolder = msgFolder;
+
+        mms.streamMessage(msguri, myEMLlistner, this.win.msgWindow, null, false, null);
     } catch (e) {
         console.log("call to saveMsgAsEML - error = " + e);
     }
-
-    myEMLlistner.file2 = file2;
-    myEMLlistner.msgFolder = msgFolder;
-
-    mms.streamMessage(msguri, myEMLlistner, this.win.msgWindow, null, false, null);
 }

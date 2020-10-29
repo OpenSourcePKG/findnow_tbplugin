@@ -33,8 +33,8 @@
   <component name="ChangeListManager">
     <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thunderbird/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/thunderbird/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/exporter.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/exporter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +78,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -157,7 +158,7 @@
       <workItem from="1602233487368" duration="1622000" />
       <workItem from="1602609568784" duration="471000" />
       <workItem from="1603177113099" duration="126000" />
-      <workItem from="1603893110865" duration="1286000" />
+      <workItem from="1603893110865" duration="6477000" />
     </task>
     <task id="LOCAL-00001" summary="add basic ide, add source code by 68.0 version">
       <created>1600776998338</created>
@@ -285,7 +286,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602234291542</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="update to 78_4_0">
+      <created>1603894436781</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1603894436781</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,7 +338,8 @@
     <MESSAGE value="update 1" />
     <MESSAGE value="update options" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="update to 78_4_0" />
+    <option name="LAST_COMMIT_MESSAGE" value="update to 78_4_0" />
   </component>
   <component name="WindowStateProjectService">
     <state x="99" y="136" width="1722" height="844" key="DiffContextDialog" timestamp="1602171586447">
@@ -369,10 +378,10 @@
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="691" y="275" width="530" height="560" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1601411658405" />
-    <state x="650" y="297" width="620" height="522" key="find.popup" timestamp="1601972747713">
+    <state x="650" y="297" width="763" height="522" key="find.popup" timestamp="1603968485104">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="650" y="297" width="620" height="522" key="find.popup/0.36.1920.1044@0.36.1920.1044" timestamp="1601972747713" />
+    <state x="650" y="297" width="763" height="522" key="find.popup/0.36.1920.1044@0.36.1920.1044" timestamp="1603968485104" />
     <state x="623" y="257" key="run.anything.popup" timestamp="1602000570014">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
