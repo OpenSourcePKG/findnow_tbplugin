@@ -2,6 +2,8 @@
 
 const {Services} = ChromeUtils.import('resource://gre/modules/Services.jsm');
 const {OS} = ChromeUtils.import('resource://gre/modules/osfile.jsm');
+const {MailUtils} = ChromeUtils.import("resource:///modules/MailUtils.jsm");
+const {MailServices} = ChromeUtils.import("resource:///modules/MailServices.jsm");
 
 /**
  * load
@@ -11,7 +13,7 @@ function load(win) {
     this.win = win;
 
     this.IETprefs = Components.classes['@mozilla.org/preferences-service;1']
-    .getService(Components.interfaces.nsIPrefBranch);
+        .getService(Components.interfaces.nsIPrefBranch);
 
     this.IETnosub = 'None_subject';
 
@@ -607,4 +609,69 @@ function IETcopyStrToClip(str) {
     .getService(Ci.nsIClipboardHelper);
 
     clip.copyString(str);
+}
+
+/**
+ * FNgetTrashFolderURI
+ * @param hdr
+ * @returns {*}
+ * @constructor
+ */
+function FNgetTrashFolderURI(hdr) {
+    let folder = MailUtils.getExistingFolder(hdr.folder.URI);
+    let rootFolder = folder.rootFolder;
+
+    return rootFolder.getFolderWithFlags(Components.interfaces.nsMsgFolderFlags.Trash);
+}
+
+/**
+ * FNmoveMessage
+ * @param msguri
+ * @param folderuri
+ * @returns {boolean}
+ * @constructor
+ */
+function FNmoveMessage(msguri, folderuri) {
+    try {
+        const messenger = Components.classes['@mozilla.org/messenger;1'].createInstance()
+            .QueryInterface(Components.interfaces.nsIMessenger);
+
+        const msgHdr = messenger.messageServiceFromURI(msguri).messageURIToMsgHdr(msguri);
+
+        if( msgHdr.folder.URI != folderuri ) {
+            const folder = MailUtils.getExistingFolder(folderuri);
+
+            if (!folder) {
+                console.log('target folder for "' + folderuri + '" not found');
+                return false;
+            }
+
+            const copyService = MailServices.copy;
+
+            let msgs = Components.classes["@mozilla.org/array;1"]
+                .createInstance(Components.interfaces.nsIMutableArray);
+
+            msgs.appendElement(msgHdr, false);
+
+            copyService.CopyMessages(
+                msgHdr.folder,
+                msgs,
+                folder,
+                true /* isMove */,
+                null/*listener*/,
+                null /*msgWindow*/,
+                true /* allow undo */
+                );
+
+            return true;
+        }
+        else {
+            console('target folder is same source folder: "' + folderuri + '"');
+        }
+    }
+    catch( e ) {
+        console.log(e);
+    }
+
+    return false;
 }

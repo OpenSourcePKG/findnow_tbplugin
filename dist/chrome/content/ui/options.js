@@ -90,6 +90,9 @@ const FNOptions = {
         // row allow_edit_subject
         document.getElementById('allow_edit_subject').checked = await findnow.getPref('bool', 'allow_edit_subject');
 
+        // row move to trash
+        document.getElementById('move_to_trash').checked = await findnow.getPref('bool', 'move_to_trash');
+
         // -----------------------------------------------------------------------
 
         document.getElementById("commonsave").onclick = async function() {
@@ -126,6 +129,7 @@ const FNOptions = {
             }
 
             await findnow.setPref('bool', 'allow_edit_subject', document.getElementById("allow_edit_subject").checked);
+            await findnow.setPref('bool', 'move_to_trash', document.getElementById("move_to_trash").checked);
         };
     }
 };

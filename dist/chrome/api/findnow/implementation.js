@@ -106,6 +106,7 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
                     dprefs.setBoolPref('use_filename_abbreviation', false);
                     dprefs.setStringPref('filename_abbreviation', '');
                     dprefs.setBoolPref('allow_edit_subject', false);
+                    dprefs.setBoolPref('move_to_trash', false);
 
                     // -----------------------------------------------------------------------
                 },
