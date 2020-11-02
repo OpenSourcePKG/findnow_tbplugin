@@ -253,6 +253,13 @@ function saveMsgAsEML(msguri, file, append, uriArray, hdrArray, fileArray, imapF
                     exporter.win.alert("Beim Speichern der Email trat ein Fehler auf, bitte kontrollieren sie das Ziel!");
                 }
             }
+
+            if (exporter.win.findnow_utils.FNisFileExist(savePath)) {
+                if (exporter.win.findnow_utils.IETprefs.getBoolPref('extensions.findnow.move_to_trash')) {
+                    let trashFodler = exporter.win.findnow_utils.FNgetTrashFolderURI(hdr);
+                    exporter.win.findnow_utils.FNmoveMessage(msguri, trashFodler.URI);
+                }
+            }
         },
 
         // cleidigh - Handle old/new streamlisteners signatures after TB67
