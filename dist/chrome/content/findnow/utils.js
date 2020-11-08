@@ -679,6 +679,27 @@ com_hw_FindNow.utils = function() {
 		return file;
 	}
 
+	/**
+	 * FNisFileExist
+	 * @param aFile
+	 * @returns {boolean|*}
+	 * @constructor
+	 */
+	utils.FNisFileExist = function(aFile) {
+		try {
+			var localFile = Components.classes['@mozilla.org/file/local;1']
+			.createInstance(Components.interfaces.nsIFile);
+
+			localFile.initWithPath(aFile);
+
+			return localFile.exists();
+		} catch (e) {
+			console.log(e);
+		}
+
+		return false;
+	}
+
 	return utils;
 }();
 
