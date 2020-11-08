@@ -42,6 +42,15 @@
 					<checkbox id="addtimeCheckbox" label="&addtime.label;" checked="false" />
 				</hbox>
 			</row>
+			<row>
+				<checkbox id="use_filename_abbreviation" label="&useFilenameAbbreviation;" />
+				<textbox id="filename_abbreviation" value="" size="35" />
+			</row>
+			<row>
+				<hbox align="center">
+					<checkbox id="allow_edit_subject" label="&allwo_edit_subject.label;" checked="false" />
+				</hbox>
+			</row>
 			<!--<row>
 				<hbox align="center">
 					<checkbox id="save_auto_eml" label="&saveAuto;" checked="false" />

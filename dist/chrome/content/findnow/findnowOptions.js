@@ -176,6 +176,30 @@ com_hw_FindNow.options = function() {
 			document.getElementById("export_eml_sub_dir").setAttribute("disabled", "true");
 			document.getElementById("export_eml_sub_dir").nextSibling.setAttribute("disabled", "true");
 		}
+
+		// ---------------------------------------------------------------------------
+
+		if( com_hw_FindNow.utils.IETprefs.getBoolPref("extensions.findnow.use_filename_abbreviation") ) {
+			document.getElementById("use_filename_abbreviation").checked = true;
+
+			document.getElementById("filename_abbreviation").removeAttribute("disabled");
+			document.getElementById("filename_abbreviation").nextSibling.removeAttribute("disabled");
+		}
+		else {
+			document.getElementById("use_filename_abbreviation").checked = false;
+
+			document.getElementById("filename_abbreviation").setAttribute("disabled", "true");
+			document.getElementById("filename_abbreviation").nextSibling.setAttribute("disabled", "true");
+		}
+
+		// ----------------------------------------------------------------------------
+
+		if( com_hw_FindNow.utils.IETprefs.getBoolPref("extensions.findnow.allow_edit_subject") ) {
+			document.getElementById("allow_edit_subject").checked = true;
+		}
+		else {
+			document.getElementById("allow_edit_subject").checked = false;
+		}
 	}
 
 	/**
@@ -241,6 +265,24 @@ com_hw_FindNow.options = function() {
 		else {
 			com_hw_FindNow.utils.IETprefs.deleteBranch("extensions.findnow.exportEML.sub_dir");
 		}
+
+		// -----------------------------------------------------------------------
+
+		com_hw_FindNow.utils.IETprefs.setBoolPref("extensions.findnow.use_filename_abbreviation",
+			document.getElementById("use_filename_abbreviation").checked);
+
+		if( document.getElementById("filename_abbreviation").value !== "" ) {
+			com_hw_FindNow.utils.IETsetComplexPref("extensions.findnow.filename_abbreviation",
+				document.getElementById("filename_abbreviation").value);
+		}
+		else {
+			com_hw_FindNow.utils.IETprefs.deleteBranch("extensions.findnow.filename_abbreviation");
+		}
+
+		// -----------------------------------------------------------------------
+
+		com_hw_FindNow.utils.IETprefs.setBoolPref("extensions.findnow.allow_edit_subject",
+			document.getElementById("allow_edit_subject").checked);
 	}
 
 	/**

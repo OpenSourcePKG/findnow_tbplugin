@@ -455,6 +455,9 @@ com_hw_FindNow.utils = function() {
 		var useIsoDate		= this.IETprefs.getBoolPref("extensions.findnow.export.filename_useisodate");
 		var subMaxLen		= cutSubject ? 50 : -1;
 
+		var useFilenameAbbreviation = this.IETprefs.getBoolPref('extensions.findnow.use_filename_abbreviation');
+		var allowEditSubject = this.IETprefs.getBoolPref('extensions.findnow.allow_edit_subject');
+
 		// Subject
 		var subj;
 
@@ -467,6 +470,16 @@ com_hw_FindNow.utils = function() {
 		}
 		else {
 			subj = this.IETnosub;
+		}
+
+		if( allowEditSubject ) {
+			subj = prompt('Bitte geben Sie ihre Änderung im Betreff an:', subj);
+		}
+
+		if( useFilenameAbbreviation ) {
+			const filenameAbbreviation = this.IETprefs.getCharPref('extensions.findnow.filename_abbreviation');
+
+			subj = filenameAbbreviation + " " + subj;
 		}
 
 		if( subMaxLen > 0 ) {
