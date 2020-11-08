@@ -26,13 +26,14 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:swe" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:swe/78.4.0" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:swe/68.12.1" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thunderbird/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/thunderbird/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +60,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="swe/78.2.2" />
+        <entry key="$PROJECT_DIR$" value="swe/78.4.0" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -84,7 +85,7 @@
     <property name="javascript.nodejs.core.library.configured.version" value="10.22.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="10.17.35" />
     <property name="js.buildTools.grunt.grunt-cli.package" value="$PROJECT_DIR$/node_modules/grunt-cli" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../findnow" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -158,6 +159,7 @@
       <workItem from="1603177113099" duration="126000" />
       <workItem from="1603893110865" duration="20596000" />
       <workItem from="1604301829636" duration="3671000" />
+      <workItem from="1604835865611" duration="2302000" />
     </task>
     <task id="LOCAL-00001" summary="add basic ide, add source code by 68.0 version">
       <created>1600776998338</created>
@@ -320,7 +322,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604304529351</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="update">
+      <created>1604835910494</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1604835910494</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,7 +346,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="swe/78.4.0" />
+                        <option value="swe/68.12.1" />
                       </list>
                     </value>
                   </entry>
@@ -364,13 +373,13 @@
     <MESSAGE value="update part 3" />
     <MESSAGE value="update 1" />
     <MESSAGE value="update options" />
-    <MESSAGE value="update" />
     <MESSAGE value="update to 78_4_0" />
     <MESSAGE value="add error dialog for file save" />
     <MESSAGE value="add abbreviation, subject edit, update options" />
     <MESSAGE value="project clearing" />
     <MESSAGE value="add move to trash" />
-    <option name="LAST_COMMIT_MESSAGE" value="add move to trash" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="WindowStateProjectService">
     <state x="99" y="136" width="1722" height="844" key="DiffContextDialog" timestamp="1604305149605">

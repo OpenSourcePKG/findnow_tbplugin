@@ -1,60 +1,25 @@
 {
-  "name": "FindNow",
-  "version": "2.0",
-  "description": "Ermöglicht das Exportieren von Nachrichten und Ordnern für FindNow",
-  "author": "Stefan Werfling",
-
-  "default_locale": "en-US",
-
-  "applications": {
-    "gecko": {
-      "id": "findnow@pegenau.de",
-      "strict_min_version": "78.0",
-      "strict_max_version": "78.*"
-    }
-  },
-
-  "icons": {
-    "64": "chrome/images/findnow.png"
-  },
-
-  "experiment_apis": {
-    "findnow": {
-      "schema": "chrome/api/findnow/schema.json",
-      "parent": {
-        "scopes": [
-          "addon_parent"
-        ],
-        "paths": [
-          [
-            "findnow"
-          ]
-        ],
-        "script": "chrome/api/findnow/implementation.js",
-        "events": [
-          "startup"
-        ]
-      }
-    }
-  },
-
-  "options_ui": {
-    "page": "chrome/content/ui/options.html",
-    "open_in_tab": true,
-    "browser_style": false
-  },
-
-  "permissions": [
-    "theme",
-    "idle",
-    "storage"
-  ],
-
-  "background": {
-    "scripts": [
-      "chrome/scripts/background.js"
-    ]
-  },
-
-  "manifest_version": 2
+    "manifest_version": 2,
+    "name": "__MSG_extensionName__",
+    "version": "1.0",
+    "description": "__MSG_extensionDescription__",
+    "author": "Stefan Werfling",
+    "applications": {
+        "gecko": {
+            "id": "FindNow@hw-softwareentwicklung.de",
+            "strict_min_version": "68.0"
+        }
+    },
+    "legacy": {
+        "options": {
+            "page": "chrome://findnow/content/findnowOptions.xul",
+            "open_in_tab": false
+        }
+    },
+    "permissions": [
+    ],
+    "icons": {
+        "64": "chrome/images/findnow.png"
+    },
+    "default_locale": "en-US"
 }
