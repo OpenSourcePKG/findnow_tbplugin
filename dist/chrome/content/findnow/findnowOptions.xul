@@ -43,12 +43,18 @@
 				</hbox>
 			</row>
 			<row>
-				<checkbox id="use_filename_abbreviation" label="&useFilenameAbbreviation;" />
+				<checkbox id="use_filename_abbreviation" label="&useFilenameAbbreviation;"
+				  	oncommand="setTimeout(com_hw_FindNow.options.toggleDirCheck, 200, this);" />
 				<textbox id="filename_abbreviation" value="" size="35" />
 			</row>
 			<row>
 				<hbox align="center">
 					<checkbox id="allow_edit_subject" label="&allwo_edit_subject.label;" checked="false" />
+				</hbox>
+			</row>
+			<row>
+				<hbox align="center">
+					<checkbox id="move_to_trash" label="&move_to_trash.label;" checked="false" />
 				</hbox>
 			</row>
 			<!--<row>

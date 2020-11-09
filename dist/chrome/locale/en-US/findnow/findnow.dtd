@@ -28,3 +28,6 @@
 <!ENTITY saveAuto "Autosave to destination">
 <!ENTITY defaultButton "Show default button (not red)">
 <!ENTITY emlExportSub "Use subfolder:">
+<!ENTITY useFilenameAbbreviation "Abbreviation in the file name:">
+<!ENTITY allwo_edit_subject.label "Subject can be changed with extra dialog">
+<!ENTITY move_to_trash.label "After save, put the email in the trash">

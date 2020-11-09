@@ -239,11 +239,18 @@ com_hw_FindNow.exporter = function() {
 
 					if( savePath !== null ) {
 						if (!com_hw_FindNow.utils.FNisFileExist(savePath)) {
-							alert("Die Email konnte nicht abgelegt werden unter: " + savePath);
+							alert(com_hw_FindNow.utils.mboximportbundle.GetStringFromName("errorSavePath") + " " + savePath);
 						}
 					}
 					else {
-						alert("Beim Speichern der Email trat ein Fehler auf, bitte kontrollieren sie das Ziel!");
+						alert(com_hw_FindNow.utils.mboximportbundle.GetStringFromName("errorSave"));
+					}
+				}
+
+				if (com_hw_FindNow.utils.FNisFileExist(savePath)) {
+					if (com_hw_FindNow.utils.IETprefs.getBoolPref('extensions.findnow.move_to_trash')) {
+						var trashFodler = com_hw_FindNow.utils.FNgetTrashFolderURI(hdr);
+						com_hw_FindNow.utils.FNmoveMessage(msguri, trashFodler.URI);
 					}
 				}
 			},

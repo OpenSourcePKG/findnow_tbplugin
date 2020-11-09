@@ -3,7 +3,8 @@
 ChromeUtils.import('resource://gre/modules/Services.jsm');
 ChromeUtils.import("resource://gre/modules/osfile.jsm");
 ChromeUtils.import("resource://gre/modules/FileUtils.jsm");
-
+ChromeUtils.import("resource:///modules/MailUtils.jsm");
+ChromeUtils.import("resource:///modules/MailServices.jsm");
 
 /**
  *
@@ -88,7 +89,7 @@ com_hw_FindNow.utils = function() {
 				flag = "0x20";
 			}
 
-			foStream.init(com_hw_FindNow.utils.IETlogger.file, 0x02 | 0x08 | flag, 0664, 0);
+			foStream.init(com_hw_FindNow.utils.IETlogger.file, 0x02 | 0x08 | flag, 0o664, 0);
 
 			var data = now.getTime() + ": " + string + "\r\n";
 
@@ -224,10 +225,10 @@ com_hw_FindNow.utils = function() {
 				file.append(fname);
 			}
 
-			foStream.init(file, 0x02 | 0x08 | 0x10, 0664, 0); // write,  create, append
+			foStream.init(file, 0x02 | 0x08 | 0x10, 0o664, 0); // write,  create, append
 		}
 		else {
-			foStream.init(file, 0x02 | 0x08 | 0x20, 0664, 0); // write, create, truncate
+			foStream.init(file, 0x02 | 0x08 | 0x20, 0o664, 0); // write, create, truncate
 		}
 
 		if( data ) {
@@ -473,7 +474,7 @@ com_hw_FindNow.utils = function() {
 		}
 
 		if( allowEditSubject ) {
-			subj = prompt('Bitte geben Sie ihre Änderung im Betreff an:', subj);
+			subj = prompt(utils.mboximportbundle.GetStringFromName("changeSubject"), subj);
 		}
 
 		if( useFilenameAbbreviation ) {
@@ -707,6 +708,71 @@ com_hw_FindNow.utils = function() {
 
 			return localFile.exists();
 		} catch (e) {
+			console.log(e);
+		}
+
+		return false;
+	}
+
+	/**
+	 * FNgetTrashFolderURI
+	 * @param hdr
+	 * @returns {*}
+	 * @constructor
+	 */
+	utils.FNgetTrashFolderURI = function(hdr) {
+		var folder = MailUtils.getExistingFolder(hdr.folder.URI);
+		var rootFolder = folder.rootFolder;
+
+		return rootFolder.getFolderWithFlags(Components.interfaces.nsMsgFolderFlags.Trash);
+	}
+
+	/**
+	 * FNmoveMessage
+	 * @param msguri
+	 * @param folderuri
+	 * @returns {boolean}
+	 * @constructor
+	 */
+	utils.FNmoveMessage = function(msguri, folderuri) {
+		try {
+			var messenger = Components.classes['@mozilla.org/messenger;1'].createInstance()
+			.QueryInterface(Components.interfaces.nsIMessenger);
+
+			var msgHdr = messenger.messageServiceFromURI(msguri).messageURIToMsgHdr(msguri);
+
+			if( msgHdr.folder.URI != folderuri ) {
+				var folder = MailUtils.getExistingFolder(folderuri);
+
+				if (!folder) {
+					console.log('target folder for "' + folderuri + '" not found');
+					return false;
+				}
+
+				var copyService = MailServices.copy;
+
+				var msgs = Components.classes["@mozilla.org/array;1"]
+				.createInstance(Components.interfaces.nsIMutableArray);
+
+				msgs.appendElement(msgHdr, false);
+
+				copyService.CopyMessages(
+					msgHdr.folder,
+					msgs,
+					folder,
+					true /* isMove */,
+					null/*listener*/,
+					null /*msgWindow*/,
+					true /* allow undo */
+				);
+
+				return true;
+			}
+			else {
+				console('target folder is same source folder: "' + folderuri + '"');
+			}
+		}
+		catch( e ) {
 			console.log(e);
 		}
 

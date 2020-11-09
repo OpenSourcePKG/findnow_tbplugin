@@ -28,3 +28,6 @@
 <!ENTITY saveAuto "Automatisch in Ziel Speichern">
 <!ENTITY defaultButton "'Ablegen'-Button in Standardfarbe anzeigen">
 <!ENTITY emlExportSub "Unterordner für Dateiexport:">
+<!ENTITY useFilenameAbbreviation "Kürzel im Dateinamen:">
+<!ENTITY allwo_edit_subject.label "Betreff kann mit extra Dialog geändert werden">
+<!ENTITY move_to_trash.label "Nach Ablegen, Email in den Papierkorb schieben">

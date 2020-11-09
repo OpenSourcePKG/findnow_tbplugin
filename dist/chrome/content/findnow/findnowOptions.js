@@ -200,6 +200,15 @@ com_hw_FindNow.options = function() {
 		else {
 			document.getElementById("allow_edit_subject").checked = false;
 		}
+
+		// ----------------------------------------------------------------------------
+
+		if( com_hw_FindNow.utils.IETprefs.getBoolPref("extensions.findnow.move_to_trash") ) {
+			document.getElementById("move_to_trash").checked = true;
+		}
+		else {
+			document.getElementById("move_to_trash").checked = false;
+		}
 	}
 
 	/**
@@ -283,6 +292,11 @@ com_hw_FindNow.options = function() {
 
 		com_hw_FindNow.utils.IETprefs.setBoolPref("extensions.findnow.allow_edit_subject",
 			document.getElementById("allow_edit_subject").checked);
+
+		// ----------------------------------------------------------------------
+
+		com_hw_FindNow.utils.IETprefs.setBoolPref("extensions.findnow.move_to_trash",
+			document.getElementById("move_to_trash").checked);
 	}
 
 	/**

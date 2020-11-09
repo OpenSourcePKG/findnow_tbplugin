@@ -17,5 +17,6 @@ pref("extensions.findnow.export.charset_list", "ARMSCII-8,GEOSTD8,ISO-8859-1,ISO
 pref("extensions.findnow.button.show_default", false);
 pref("extensions.findnow.exportEML.use_sub_dir", false);
 pref("extensions.findnow.use_filename_abbreviation", false);
-pref("extensions.filename_abbreviation", "");
-pref("extensions.allow_edit_subject", false);
+pref("extensions.findnow.filename_abbreviation", "");
+pref("extensions.findnow.allow_edit_subject", false);
+pref("extensions.findnow.move_to_trash", false);
