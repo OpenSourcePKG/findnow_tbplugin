@@ -164,7 +164,7 @@ com_hw_FindNow.exporter = function() {
 
 							savePath = clone.path;
 
-							clone.createUnique(0, 0644);
+							clone.createUnique(0, 0o644);
 
 							var time = (hdr.dateInSeconds) * 1000;
 

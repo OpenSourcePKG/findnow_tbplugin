@@ -33,15 +33,7 @@
   <component name="ChangeListManager">
     <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnow/findnow.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/findnow/findnow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnow/findnowOptions.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/findnow/findnowOptions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnow/findnowOptions.xul" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/findnow/findnowOptions.xul" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnow/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/findnow/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/locale/de/findnow/findnow.dtd" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/locale/de/findnow/findnow.dtd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/locale/de/findnow/mboxfindnow.properties" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/locale/de/findnow/mboxfindnow.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/locale/en-US/findnow/findnow.dtd" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/locale/en-US/findnow/findnow.dtd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/locale/en-US/findnow/mboxfindnow.properties" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/locale/en-US/findnow/mboxfindnow.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/defaults/preferences/prefs.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/defaults/preferences/prefs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/built/Findnow.xpi" beforeDir="false" afterPath="$PROJECT_DIR$/built/Findnow.xpi" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +169,7 @@
       <workItem from="1603177113099" duration="126000" />
       <workItem from="1603893110865" duration="20596000" />
       <workItem from="1604301829636" duration="3671000" />
-      <workItem from="1604835865611" duration="12369000" />
+      <workItem from="1604835865611" duration="13977000" />
     </task>
     <task id="LOCAL-00001" summary="add basic ide, add source code by 68.0 version">
       <created>1600776998338</created>
@@ -382,7 +374,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604867873498</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="add move to trash, add translation">
+      <created>1604907965222</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1604907965222</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -434,7 +433,8 @@
     <MESSAGE value="update" />
     <MESSAGE value="add error dialog for file save" />
     <MESSAGE value="add abbreviation, subject edit, update options" />
-    <option name="LAST_COMMIT_MESSAGE" value="add abbreviation, subject edit, update options" />
+    <MESSAGE value="add move to trash, add translation" />
+    <option name="LAST_COMMIT_MESSAGE" value="add move to trash, add translation" />
   </component>
   <component name="WindowStateProjectService">
     <state x="99" y="272" width="1781" height="708" key="DiffContextDialog" timestamp="1604907837806">
@@ -445,34 +445,34 @@
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl/0.36.1920.1044@0.36.1920.1044" timestamp="1604868220210" />
-    <state x="737" y="461" key="Git.Rebase.Log.Action.NewCommitMessage.Dialog" timestamp="1604867851821">
+    <state x="737" y="461" key="Git.Rebase.Log.Action.NewCommitMessage.Dialog" timestamp="1604907949192">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="737" y="461" key="Git.Rebase.Log.Action.NewCommitMessage.Dialog/0.36.1920.1044@0.36.1920.1044" timestamp="1604867851821" />
-    <state width="1874" height="277" key="GridCell.Tab.0.bottom" timestamp="1604855878992">
+    <state x="737" y="461" key="Git.Rebase.Log.Action.NewCommitMessage.Dialog/0.36.1920.1044@0.36.1920.1044" timestamp="1604907949192" />
+    <state width="1874" height="277" key="GridCell.Tab.0.bottom" timestamp="1604914166236">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="277" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1604855878992" />
-    <state width="1874" height="277" key="GridCell.Tab.0.center" timestamp="1604855878990">
+    <state width="1874" height="277" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1604914166236" />
+    <state width="1874" height="277" key="GridCell.Tab.0.center" timestamp="1604914166235">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="277" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1604855878990" />
-    <state width="1874" height="277" key="GridCell.Tab.0.left" timestamp="1604855878989">
+    <state width="1874" height="277" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1604914166235" />
+    <state width="1874" height="277" key="GridCell.Tab.0.left" timestamp="1604914166234">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="277" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1604855878989" />
-    <state width="1874" height="277" key="GridCell.Tab.0.right" timestamp="1604855878991">
+    <state width="1874" height="277" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1604914166234" />
+    <state width="1874" height="277" key="GridCell.Tab.0.right" timestamp="1604914166235">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="277" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1604855878991" />
+    <state width="1874" height="277" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1604914166235" />
     <state x="449" y="193" key="SettingsEditor" timestamp="1601299164761">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="449" y="193" key="SettingsEditor/0.36.1920.1044@0.36.1920.1044" timestamp="1601299164761" />
-    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2" timestamp="1604867909848">
+    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2" timestamp="1604907974727">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2/0.36.1920.1044@0.36.1920.1044" timestamp="1604867909848" />
+    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2/0.36.1920.1044@0.36.1920.1044" timestamp="1604907974727" />
     <state x="691" y="275" width="530" height="560" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1601411658405">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
