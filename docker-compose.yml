@@ -10,7 +10,7 @@ services:
     volumes:
       - thunderbirddata:/data
       - ./built/Findnow.xpi:/data/Findnow.xpi
-      - ./dist:/data/.thunderbird/1fwh53bl.default-release/extensions/findnow@pegenau.de/
+      #- ./dist:/data/.thunderbird/Og3joltt.default/extensions/findnow@pegenau.de/
     ports:
       - 127.0.0.1:8080:8080
 
