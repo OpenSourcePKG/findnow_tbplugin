@@ -67,3 +67,8 @@ aspects of the migration process below, including links to many advanced topics 
 interested in.
 ```
 
+### How find current used Profile
+1. Go in Help
+2. Go to Information and Error...
+3. Go "Profile" -> Open direktory
+

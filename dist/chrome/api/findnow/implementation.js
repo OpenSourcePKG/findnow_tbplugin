@@ -84,7 +84,6 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
 
                     dprefs.setBoolPref('export_overwrite', true);
                     dprefs.setBoolPref('export_set_filetime', false);
-                    dprefs.setBoolPref('exportEML_use_dir', false);
                     dprefs.setBoolPref('log_enable', false);
                     dprefs.setStringPref('export_filename_charset', '');
                     dprefs.setIntPref('delay_clean_statusbar', 5000);
@@ -102,9 +101,17 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
                         'ARMSCII-8,GEOSTD8,ISO-8859-1,ISO-8859-2,ISO-8859-3,ISO-8859-4,ISO-8859-5,ISO-8859-6,ISO-8859-7,ISO-8859-8,ISO-8859-9,ISO-8859-10,ISO-8859-11,ISO-8859-12,ISO-8859-13,ISO-8859-14,ISO-8859-15,ISO-8859-16,KOI8-R,KOI8-U,UTF-8,UTF-8 (BOM),WINDOWS-1250,WINDOWS-1251,WINDOWS-1252,WINDOWS-1253,WINDOWS-1254,WINDOWS-1255,WINDOWS-1256,WINDOWS-1257,WINDOWS-1258'
                     );
                     dprefs.setBoolPref('button_show_default', false);
+
+                    dprefs.setBoolPref('exportEML_use_dir', false);
+                    dprefs.setBoolPref('exportEML_dir', '');
+
                     dprefs.setBoolPref('exportEML_use_sub_dir', false);
+                    dprefs.setBoolPref('exportEML_sub_dir', '');
+
+
                     dprefs.setBoolPref('use_filename_abbreviation', false);
                     dprefs.setStringPref('filename_abbreviation', '');
+
                     dprefs.setBoolPref('allow_edit_subject', false);
                     dprefs.setBoolPref('move_to_trash', false);
 
@@ -128,18 +135,24 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
                 getPref(atype, aName) {
                     aName = PREF_PREFIX + aName;
 
-                    switch( atype ) {
-                        case "string":
-                            return prefs.getStringPref(aName);
+                    try {
+                        switch (atype) {
+                            case "string":
+                                return prefs.getStringPref(aName);
 
-                        case "integer":
-                            return prefs.getIntPref(aName);
+                            case "integer":
+                                return prefs.getIntPref(aName);
 
-                        case "bool":
-                            return prefs.getBoolPref(aName);
+                            case "bool":
+                                return prefs.getBoolPref(aName);
 
-                        case "type":
-                            return prefs.getPrefType(aName);
+                            case "type":
+                                return prefs.getPrefType(aName);
+                        }
+                    }
+                    catch( ex ) {
+                        console.log('error on pref:');
+                        console.log(ex);
                     }
 
                     return null;

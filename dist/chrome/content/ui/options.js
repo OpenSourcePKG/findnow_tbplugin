@@ -33,10 +33,12 @@ const FNOptions = {
             document.getElementById("export_eml_sub_dir").value = await findnow.getPref('string', "exportEML_sub_dir");
         }
 
-        if( await findnow.getPref('type', "use_export_eml_sub_dir") ) {
+        if( await findnow.getPref('bool', "exportEML_use_sub_dir") ) {
+            document.getElementById("use_export_eml_sub_dir").checked = true;
             document.getElementById("export_eml_sub_dir").removeAttribute("disabled");
         }
         else {
+            document.getElementById("use_export_eml_sub_dir").checked = false;
             document.getElementById("export_eml_sub_dir").setAttribute("disabled", "true");
         }
 
@@ -110,7 +112,7 @@ const FNOptions = {
 
             await findnow.setPref('bool', 'exportEML_use_sub_dir', document.getElementById("use_export_eml_sub_dir").checked);
 
-            if( document.getElementById("export_eml_dir").value !== "" ) {
+            if( document.getElementById("export_eml_sub_dir").value !== "" ) {
                 await findnow.setPref(
                     'string',
                     'exportEML_sub_dir',
@@ -130,6 +132,8 @@ const FNOptions = {
 
             await findnow.setPref('bool', 'allow_edit_subject', document.getElementById("allow_edit_subject").checked);
             await findnow.setPref('bool', 'move_to_trash', document.getElementById("move_to_trash").checked);
+
+            alert('Die Optionen wurden gespeichert.');
         };
     }
 };
