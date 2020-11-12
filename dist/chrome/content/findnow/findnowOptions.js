@@ -168,28 +168,29 @@ com_hw_FindNow.options = function() {
 			document.getElementById("use_export_eml_sub_dir").checked = true;
 
 			document.getElementById("export_eml_sub_dir").removeAttribute("disabled");
-			document.getElementById("export_eml_sub_dir").nextSibling.removeAttribute("disabled");
 		}
 		else {
 			document.getElementById("use_export_eml_sub_dir").checked = false;
 
 			document.getElementById("export_eml_sub_dir").setAttribute("disabled", "true");
-			document.getElementById("export_eml_sub_dir").nextSibling.setAttribute("disabled", "true");
 		}
 
 		// ---------------------------------------------------------------------------
+
+		if( com_hw_FindNow.utils.IETprefs.getPrefType("extensions.findnow.filename_abbreviation") > 0 ) {
+			document.getElementById("filename_abbreviation").value =
+				com_hw_FindNow.utils.IETgetComplexPref("extensions.findnow.filename_abbreviation");
+		}
 
 		if( com_hw_FindNow.utils.IETprefs.getBoolPref("extensions.findnow.use_filename_abbreviation") ) {
 			document.getElementById("use_filename_abbreviation").checked = true;
 
 			document.getElementById("filename_abbreviation").removeAttribute("disabled");
-			document.getElementById("filename_abbreviation").nextSibling.removeAttribute("disabled");
 		}
 		else {
 			document.getElementById("use_filename_abbreviation").checked = false;
 
 			document.getElementById("filename_abbreviation").setAttribute("disabled", "true");
-			document.getElementById("filename_abbreviation").nextSibling.setAttribute("disabled", "true");
 		}
 
 		// ----------------------------------------------------------------------------
