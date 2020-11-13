@@ -32,6 +32,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/built/Findnow.xpi" beforeDir="false" afterPath="$PROJECT_DIR$/built/Findnow.xpi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnow/findnow.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/findnow/findnow.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnow/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/findnow/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -396,7 +399,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605260753813</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="fix variable">
+      <created>1605261101037</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1605261101037</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -459,7 +469,8 @@
     <MESSAGE value="add abbreviation, subject edit, update options" />
     <MESSAGE value="add move to trash, add translation" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="fix variable" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix variable" />
   </component>
   <component name="WindowStateProjectService">
     <state x="99" y="136" width="1722" height="844" key="DiffContextDialog" timestamp="1605261086550">
@@ -474,22 +485,22 @@
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="737" y="461" key="Git.Rebase.Log.Action.NewCommitMessage.Dialog/0.36.1920.1044@0.36.1920.1044" timestamp="1604907949192" />
-    <state width="1874" height="408" key="GridCell.Tab.0.bottom" timestamp="1605260930058">
+    <state width="1874" height="408" key="GridCell.Tab.0.bottom" timestamp="1605261150380">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="408" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1605260930058" />
-    <state width="1874" height="408" key="GridCell.Tab.0.center" timestamp="1605260930057">
+    <state width="1874" height="408" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1605261150380" />
+    <state width="1874" height="408" key="GridCell.Tab.0.center" timestamp="1605261150378">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="408" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1605260930057" />
-    <state width="1874" height="408" key="GridCell.Tab.0.left" timestamp="1605260930056">
+    <state width="1874" height="408" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1605261150378" />
+    <state width="1874" height="408" key="GridCell.Tab.0.left" timestamp="1605261150377">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="408" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1605260930056" />
-    <state width="1874" height="408" key="GridCell.Tab.0.right" timestamp="1605260930057">
+    <state width="1874" height="408" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1605261150377" />
+    <state width="1874" height="408" key="GridCell.Tab.0.right" timestamp="1605261150379">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="408" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1605260930057" />
+    <state width="1874" height="408" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1605261150379" />
     <state x="449" y="193" key="SettingsEditor" timestamp="1601299164761">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>

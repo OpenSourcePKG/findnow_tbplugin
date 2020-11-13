@@ -413,10 +413,7 @@ com_hw_FindNow.utils = function() {
 				min = msgDate.getMinutes();
 			}
 
-			// without seconds
-			//sec = msgDate.getSeconds();
-
-			msgDateIsostring += " " + hours.toString() + "-" + min.toString() /*+ "-" + sec.toString()*/;
+			msgDateIsostring += " " + hours.toString() + "-" + min.toString();
 		}
 
 		return msgDateIsostring;

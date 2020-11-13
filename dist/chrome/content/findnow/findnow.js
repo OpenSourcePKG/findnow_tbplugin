@@ -36,6 +36,8 @@ com_hw_FindNow.exporter = function() {
 	 */
 	exp.saveTo = function() {
 		if( typeof gFolderDisplay.selectedMessageUris[0] === 'undefined' ) {
+			com_hw_FindNow.utils.IETlogger.write(
+				'exporter - saveTo: None Email is selected!');
 			alert('None Email is selected!');
 			return;
 		}
@@ -45,6 +47,8 @@ com_hw_FindNow.exporter = function() {
 
 		// cancel by user dialog
 		if( file === null ) {
+			com_hw_FindNow.utils.IETlogger.write(
+				'exporter - saveTo: canceled by utils.getMsgDestination');
 			return;
 		}
 
@@ -85,6 +89,8 @@ com_hw_FindNow.exporter = function() {
 	 */
 	exp.saveMsgAsEML = function(msguri, file, append, uriArray, hdrArray, fileArray, imapFolder, clipboard, file2, msgFolder) {
 		if( file === null ) {
+			com_hw_FindNow.utils.IETlogger.write(
+				'exporter - saveMsgAsEML: canceled by file variable is null');
 			//alert(com_hw_FindNow.utils.mboximportbundle.GetStringFromName("fileEmpty"));
 			return;
 		}
@@ -120,6 +126,10 @@ com_hw_FindNow.exporter = function() {
 
 					if (clipboard) {
 						com_hw_FindNow.utils.IETcopyStrToClip(this.emailtext);
+
+						com_hw_FindNow.utils.IETlogger.write(
+							'exporter - saveMsgAsEML: canceled used utils.IETcopyStrToClip');
+
 						return;
 					}
 
@@ -157,6 +167,8 @@ com_hw_FindNow.exporter = function() {
 							sub = com_hw_FindNow.utils.getSubjectForHdr(hdr, file.path);
 
 							if( sub === null ) {
+								com_hw_FindNow.utils.IETlogger.write(
+									'exporter - saveMsgAsEML: canceled utils.getSubjectForHdr');
 								return;
 							}
 
@@ -268,6 +280,10 @@ com_hw_FindNow.exporter = function() {
 						var trashFodler = com_hw_FindNow.utils.FNgetTrashFolderURI(hdr);
 						com_hw_FindNow.utils.FNmoveMessage(msguri, trashFodler.URI);
 					}
+				}
+				else {
+					com_hw_FindNow.utils.IETlogger.write(
+						'exporter - saveMsgAsEML: file not found: ' + savePath);
 				}
 			},
 
