@@ -35,8 +35,18 @@ com_hw_FindNow.exporter = function() {
 	 * @returns {undefined}
 	 */
 	exp.saveTo = function() {
+		if( typeof gFolderDisplay.selectedMessageUris[0] === 'undefined' ) {
+			alert('None Email is selected!');
+			return;
+		}
+
 		var msguri		= gFolderDisplay.selectedMessageUris[0];
 		var file		= com_hw_FindNow.utils.getMsgDestination();
+
+		// cancel by user dialog
+		if( file === null ) {
+			return;
+		}
 
 		var emlsArray = [];
 
@@ -145,8 +155,14 @@ com_hw_FindNow.exporter = function() {
 					} else {
 						if (!hdrArray) {
 							sub = com_hw_FindNow.utils.getSubjectForHdr(hdr, file.path);
+
+							if( sub === null ) {
+								return;
+							}
+
 						} else {
 							var parts = hdrArray[IETexported].split("§][§^^§");
+
 							sub = parts[4];
 							sub = sub.replace(/[\x00-\x1F]/g, "_");
 						}

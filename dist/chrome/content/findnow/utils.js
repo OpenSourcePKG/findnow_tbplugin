@@ -413,7 +413,8 @@ com_hw_FindNow.utils = function() {
 				min = msgDate.getMinutes();
 			}
 
-			sec = msgDate.getSeconds();
+			// without seconds
+			//sec = msgDate.getSeconds();
 
 			msgDateIsostring += " " + hours.toString() + "-" + min.toString() + "-" + sec.toString();
 		}
@@ -446,7 +447,7 @@ com_hw_FindNow.utils = function() {
 	 * getSubjectForHdr
 	 * @param {type} hdr
 	 * @param {type} dirPath
-	 * @returns {@exp;utils_L16@pro;utils@pro;getSubjectForHdr@pro;pattern|@exp;utils_L16@pro;utils@pro;getSubjectForHdr@pro;prefix|@exp;pattern@call;replace|utils_L16.utils@pro;IETprefs@call;getCharPref|@call;IETgetComplexPref|String}
+	 * @returns {string|null}
 	 */
 	utils.getSubjectForHdr = function(hdr, dirPath) {
 		var emlNameType		= this.IETprefs.getIntPref("extensions.findnow.exportEML.filename_format");
@@ -475,12 +476,19 @@ com_hw_FindNow.utils = function() {
 
 		if( allowEditSubject ) {
 			subj = prompt(utils.mboximportbundle.GetStringFromName("changeSubject"), subj);
+
+			// canel by subject edit
+			if (subj === null) {
+				return null;
+			}
 		}
 
 		if( useFilenameAbbreviation ) {
 			const filenameAbbreviation = this.IETprefs.getCharPref('extensions.findnow.filename_abbreviation');
 
-			subj = filenameAbbreviation + " " + subj;
+			if (filenameAbbreviation != '') {
+				subj = filenameAbbreviation + " " + subj;
+			}
 		}
 
 		if( subMaxLen > 0 ) {
@@ -609,7 +617,7 @@ com_hw_FindNow.utils = function() {
 	/**
 	 * getMsgDestination
 	 * @param {type} type
-	 * @returns {undefined}
+	 * @returns {File|null}
 	 */
 	utils.getMsgDestination = function() {
 		var bfile		= this.getPredefinedFolder();
@@ -646,6 +654,10 @@ com_hw_FindNow.utils = function() {
 			if( res === nsIFilePicker.returnOK ) {
 				file = fp.file;
 			}
+			else {
+				// cancel by user
+				return null;
+			}
 		}
 
 		// create sub dir
@@ -677,15 +689,17 @@ com_hw_FindNow.utils = function() {
 					}
 					catch( ex ) {
 						com_hw_FindNow.utils.IETlogger.write(
-							"call getMsgDestination (sub dir) - error = " + e);
+							"call getMsgDestination (sub dir) - error = " + ex);
 
-						// TODO Alert
-						return null;
+						// TODO
+						//return null;
 					}
 				//}
 			}
 		}
 		catch( e ) {
+			com_hw_FindNow.utils.IETlogger.write(
+				"call getMsgDestination (use sub dir) - error = " + e);
 		}
 
 		//----------------------------------------------------------------------
