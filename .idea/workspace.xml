@@ -26,18 +26,14 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:swe" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:swe/68.12.1" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:swe/78.4.0" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/built/Findnow.xpi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/api/findnow/implementation.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/api/findnow/implementation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/ui/options.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/ui/options.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +60,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="swe/78.2.2" />
+        <entry key="$PROJECT_DIR$" value="swe/68.12.1" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -142,8 +138,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Grunt.js.compress" />
-        <item itemvalue="Grunt.js.default" />
         <item itemvalue="Node.js.Gruntfile.js" />
+        <item itemvalue="Grunt.js.default" />
+        <item itemvalue="Grunt.js.compress" />
+        <item itemvalue="Grunt.js.default" />
       </list>
     </recent_temporary>
   </component>
@@ -353,7 +351,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="swe/68.12.1" />
+                        <option value="swe/78.4.0" />
                       </list>
                     </value>
                   </entry>
@@ -397,22 +395,22 @@
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl/0.36.1920.1044@0.36.1920.1044" timestamp="1604389891112" />
-    <state width="1874" height="408" key="GridCell.Tab.0.bottom" timestamp="1605094848527">
+    <state width="1874" height="408" key="GridCell.Tab.0.bottom" timestamp="1605186621411">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="408" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1605094848527" />
-    <state width="1874" height="408" key="GridCell.Tab.0.center" timestamp="1605094848526">
+    <state width="1874" height="408" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1605186621411" />
+    <state width="1874" height="408" key="GridCell.Tab.0.center" timestamp="1605186621410">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="408" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1605094848525" />
-    <state width="1874" height="408" key="GridCell.Tab.0.left" timestamp="1605094848524">
+    <state width="1874" height="408" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1605186621410" />
+    <state width="1874" height="408" key="GridCell.Tab.0.left" timestamp="1605186621410">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="408" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1605094848524" />
-    <state width="1874" height="408" key="GridCell.Tab.0.right" timestamp="1605094848526">
+    <state width="1874" height="408" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1605186621410" />
+    <state width="1874" height="408" key="GridCell.Tab.0.right" timestamp="1605186621410">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="408" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1605094848526" />
+    <state width="1874" height="408" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1605186621410" />
     <state x="449" y="193" key="SettingsEditor" timestamp="1601299164761">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
