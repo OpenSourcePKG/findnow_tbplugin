@@ -416,7 +416,7 @@ com_hw_FindNow.utils = function() {
 			// without seconds
 			//sec = msgDate.getSeconds();
 
-			msgDateIsostring += " " + hours.toString() + "-" + min.toString() + "-" + sec.toString();
+			msgDateIsostring += " " + hours.toString() + "-" + min.toString() /*+ "-" + sec.toString()*/;
 		}
 
 		return msgDateIsostring;
