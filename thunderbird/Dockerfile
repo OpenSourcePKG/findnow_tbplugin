@@ -26,8 +26,8 @@ RUN apt-get -y install wget bzip2 pwgen && \
     rm -rf /var/lib/apt/lists
 
 RUN cd /opt \
-    && wget https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/78.4.0/linux-x86_64/de/thunderbird-78.4.0.tar.bz2 \
-    && tar -xvf thunderbird-78.4.0.tar.bz2
+    && wget https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/78.5.0/linux-x86_64/de/thunderbird-78.5.0.tar.bz2 \
+    && tar -xvf thunderbird-78.5.0.tar.bz2
 
 COPY --from=easy-novnc-build /bin/easy-novnc /usr/local/bin/
 COPY menu.xml /etc/xdg/openbox/
