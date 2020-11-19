@@ -33,9 +33,8 @@
   <component name="ChangeListManager">
     <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/built/Findnow. 68 v1.1_2xpi" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/built/Findnow.xpi" beforeDir="false" afterPath="$PROJECT_DIR$/built/Findnow.xpi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnow/findnow.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/findnow/findnow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnow/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/findnow/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -406,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605261101037</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="update logging">
+      <created>1605261588867</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1605261588867</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -470,37 +476,38 @@
     <MESSAGE value="add move to trash, add translation" />
     <MESSAGE value="update" />
     <MESSAGE value="fix variable" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix variable" />
+    <MESSAGE value="update logging" />
+    <option name="LAST_COMMIT_MESSAGE" value="update logging" />
   </component>
   <component name="WindowStateProjectService">
     <state x="99" y="136" width="1722" height="844" key="DiffContextDialog" timestamp="1605261086550">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="99" y="136" width="1722" height="844" key="DiffContextDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1605261086550" />
-    <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl" timestamp="1605256905099">
+    <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl" timestamp="1605271988151">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl/0.36.1920.1044@0.36.1920.1044" timestamp="1605256905099" />
+    <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl/0.36.1920.1044@0.36.1920.1044" timestamp="1605271988151" />
     <state x="737" y="461" key="Git.Rebase.Log.Action.NewCommitMessage.Dialog" timestamp="1604907949192">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="737" y="461" key="Git.Rebase.Log.Action.NewCommitMessage.Dialog/0.36.1920.1044@0.36.1920.1044" timestamp="1604907949192" />
-    <state width="1874" height="408" key="GridCell.Tab.0.bottom" timestamp="1605261150380">
+    <state width="1874" height="408" key="GridCell.Tab.0.bottom" timestamp="1605366515180">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="408" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1605261150380" />
-    <state width="1874" height="408" key="GridCell.Tab.0.center" timestamp="1605261150378">
+    <state width="1874" height="408" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1605366515180" />
+    <state width="1874" height="408" key="GridCell.Tab.0.center" timestamp="1605366515179">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="408" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1605261150378" />
-    <state width="1874" height="408" key="GridCell.Tab.0.left" timestamp="1605261150377">
+    <state width="1874" height="408" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1605366515179" />
+    <state width="1874" height="408" key="GridCell.Tab.0.left" timestamp="1605366515178">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="408" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1605261150377" />
-    <state width="1874" height="408" key="GridCell.Tab.0.right" timestamp="1605261150379">
+    <state width="1874" height="408" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1605366515178" />
+    <state width="1874" height="408" key="GridCell.Tab.0.right" timestamp="1605366515180">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="408" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1605261150379" />
+    <state width="1874" height="408" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1605366515180" />
     <state x="449" y="193" key="SettingsEditor" timestamp="1601299164761">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
