@@ -72,3 +72,7 @@ interested in.
 2. Go to Information and Error...
 3. Go "Profile" -> Open direktory
 
+
+### setStringPref 0x8000ffff
+Check your default variable type, a boolean can not save a string and except a 0x8000ffff error on component.
+

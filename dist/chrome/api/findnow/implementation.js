@@ -89,7 +89,7 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
                     dprefs.setIntPref('delay_clean_statusbar', 5000);
                     dprefs.setBoolPref('export_filenames_toascii', true);
                     dprefs.setBoolPref('export_filenames_addtime', true);
-                    dprefs.setIntPref('exportEML_filename_format', 2);
+                    dprefs.setIntPref('export_eml_filename_format', 2);
                     dprefs.setBoolPref('export_cut_subject', true);
                     dprefs.setBoolPref('export_cut_filename', true);
                     dprefs.setBoolPref('export_filename_add_prefix', false);
@@ -102,11 +102,11 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
                     );
                     dprefs.setBoolPref('button_show_default', false);
 
-                    dprefs.setBoolPref('exportEML_use_dir', false);
-                    dprefs.setBoolPref('exportEML_dir', '');
+                    dprefs.setBoolPref('export_eml_use_dir', false);
+                    dprefs.setStringPref('export_eml_dir', '');
 
-                    dprefs.setBoolPref('exportEML_use_sub_dir', false);
-                    dprefs.setBoolPref('exportEML_sub_dir', '');
+                    dprefs.setBoolPref('export_eml_use_sub_dir', false);
+                    dprefs.setStringPref('export_eml_sub_dir', '');
 
 
                     dprefs.setBoolPref('use_filename_abbreviation', false);
@@ -159,29 +159,45 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
                 },
 
                 setPref(atype, aName, aValue) {
-                    aName = PREF_PREFIX + aName;
+                    const nName = PREF_PREFIX + aName;
 
                     switch( atype ) {
                         case "string":
-                            if (prefs.setStringPref) {
-                                prefs.setStringPref(aName, aValue);
+                            if (typeof aValue !== 'string') {
+                                console.log('setPref->string: value is not a string!');
+                                return;
                             }
-                            else {
-                                let str = Cc['@mozilla.org/supports-string;1']
-                                    .createInstance(Ci.nsISupportsString);
 
-                                str.data = aValue;
+                            try {
+                                if (prefs.setStringPref) {
+                                    return prefs.setStringPref(nName, aValue);
+                                } else {
+                                    let str = Cc['@mozilla.org/supports-string;1']
+                                        .createInstance(Ci.nsISupportsString);
 
-                                prefs.setComplexValue(prefname, Ci.nsISupportsString, str);
+                                    str.data = aValue;
+
+                                    return prefs.setComplexValue(nName, Ci.nsISupportsString, str);
+                                }
+                            } catch ( tex) {
+                                console.log(tex);
+
+                                try {
+                                    return prefs.setCharPref(nName, aValue);
+                                }
+                                catch (tex2 ){
+                                    console.log(tex2);
+                                }
                             }
                             break;
 
+                        case "int":
                         case "integer":
-                            return prefs.setIntPref(aName, aValue);
+                            return prefs.setIntPref(nName, aValue);
                             break;
 
                         case "bool":
-                            return prefs.setBoolPref(aName, aValue);
+                            return prefs.setBoolPref(nName, aValue);
                             break;
                     }
                 },

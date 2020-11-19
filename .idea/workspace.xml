@@ -26,15 +26,18 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:swe" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:swe/78.4.0" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:swe/78.5.0" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thunderbird/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/thunderbird/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/api/findnow/implementation.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/api/findnow/implementation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/ui/options.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/ui/options.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/defaults/preferences/preferences.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +64,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="swe/68.12.1" />
+        <entry key="$PROJECT_DIR$" value="swe/78.4.0" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -335,7 +338,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604304529351</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="update docker file to 78.5.0">
+      <created>1605781660368</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1605781660368</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,7 +362,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="swe/78.4.0" />
+                        <option value="swe/78.5.0" />
                       </list>
                     </value>
                   </entry>
@@ -385,49 +395,50 @@
     <MESSAGE value="add abbreviation, subject edit, update options" />
     <MESSAGE value="project clearing" />
     <MESSAGE value="add move to trash" />
-    <option name="LAST_COMMIT_MESSAGE" value="add move to trash" />
+    <MESSAGE value="update docker file to 78.5.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="update docker file to 78.5.0" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="99" y="136" width="1722" height="844" key="DiffContextDialog" timestamp="1605103401730">
+    <state x="99" y="136" width="1722" height="844" key="DiffContextDialog" timestamp="1605791152067">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="99" y="136" width="1722" height="844" key="DiffContextDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1605103401730" />
+    <state x="99" y="136" width="1722" height="844" key="DiffContextDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1605791152067" />
     <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl" timestamp="1604389891112">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl/0.36.1920.1044@0.36.1920.1044" timestamp="1604389891112" />
-    <state width="1874" height="408" key="GridCell.Tab.0.bottom" timestamp="1605186621411">
+    <state width="1874" height="408" key="GridCell.Tab.0.bottom" timestamp="1605793532567">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="408" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1605186621411" />
-    <state width="1874" height="408" key="GridCell.Tab.0.center" timestamp="1605186621410">
+    <state width="1874" height="408" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1605793532567" />
+    <state width="1874" height="408" key="GridCell.Tab.0.center" timestamp="1605793532566">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="408" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1605186621410" />
-    <state width="1874" height="408" key="GridCell.Tab.0.left" timestamp="1605186621410">
+    <state width="1874" height="408" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1605793532566" />
+    <state width="1874" height="408" key="GridCell.Tab.0.left" timestamp="1605793532565">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="408" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1605186621410" />
-    <state width="1874" height="408" key="GridCell.Tab.0.right" timestamp="1605186621410">
+    <state width="1874" height="408" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1605793532565" />
+    <state width="1874" height="408" key="GridCell.Tab.0.right" timestamp="1605793532566">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="408" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1605186621410" />
+    <state width="1874" height="408" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1605793532566" />
     <state x="449" y="193" key="SettingsEditor" timestamp="1601299164761">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="449" y="193" key="SettingsEditor/0.36.1920.1044@0.36.1920.1044" timestamp="1601299164761" />
-    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2" timestamp="1604305194800">
+    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2" timestamp="1605781670735">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2/0.36.1920.1044@0.36.1920.1044" timestamp="1604305194800" />
+    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2/0.36.1920.1044@0.36.1920.1044" timestamp="1605781670735" />
     <state x="691" y="275" width="530" height="560" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1601411658405">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="691" y="275" width="530" height="560" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1601411658405" />
-    <state x="650" y="297" width="763" height="522" key="find.popup" timestamp="1605089693241">
+    <state x="650" y="297" width="763" height="522" key="find.popup" timestamp="1605792832248">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="650" y="297" width="763" height="522" key="find.popup/0.36.1920.1044@0.36.1920.1044" timestamp="1605089693241" />
+    <state x="650" y="297" width="763" height="522" key="find.popup/0.36.1920.1044@0.36.1920.1044" timestamp="1605792832248" />
     <state x="623" y="257" key="run.anything.popup" timestamp="1602000570014">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>

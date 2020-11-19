@@ -65,8 +65,8 @@ function FNisFileExist(aFile) {
  * @returns {null}
  */
 function getPredefinedFolder() {
-    const use_dir = 'extensions.findnow.exportEML_use_dir';
-    const dir_path = 'extensions.findnow.exportEML_dir';
+    const use_dir = 'extensions.findnow.export_eml_use_dir';
+    const dir_path = 'extensions.findnow.export_eml_dir';
 
     try {
         if (!this.IETprefs.getBoolPref(use_dir)) {
@@ -169,9 +169,9 @@ function getMsgDestination() {
     // ---------------------------------------------------------------------
 
     try {
-        if (this.IETprefs.getBoolPref('extensions.findnow.exportEML_use_sub_dir')) {
+        if (this.IETprefs.getBoolPref('extensions.findnow.export_eml_use_sub_dir')) {
             //if( bfile.path === file.path ) {
-            const subDir = this.IETgetComplexPref('extensions.findnow.exportEML_sub_dir');
+            const subDir = this.IETgetComplexPref('extensions.findnow.export_eml_sub_dir');
             const subDirDes = OS.Path.join(file.path, subDir);
 
             try {
@@ -239,7 +239,7 @@ function dateInISO(secs) {
 
     let msgDateIsostring = msgDate8601.toString() + '-' + month.toString() + '-' + day.toString();
 
-    if (addTime && this.IETprefs.getIntPref('extensions.findnow.exportEML_filename_format') === 2) {
+    if (addTime && this.IETprefs.getIntPref('extensions.findnow.export_eml_filename_format') === 2) {
         if (msgDate.getHours() < 10) {
             hours = '0' + msgDate.getHours();
         } else {
@@ -289,7 +289,7 @@ function dateInSecondsTo8601(secs) {
 
     let msgDate8601string = msgDate8601.toString() + month.toString() + day.toString();
 
-    if (addTime && this.IETprefs.getIntPref('extensions.findnow.exportEML_filename_format') === 2) {
+    if (addTime && this.IETprefs.getIntPref('extensions.findnow.export_eml_filename_format') === 2) {
         if (msgDate.getHours() < 10) {
             hours = '0' + msgDate.getHours();
         } else {
@@ -356,7 +356,7 @@ function formatNameForSubject(str, recipients) {
  * @returns {*}
  */
 function getSubjectForHdr(hdr, dirPath) {
-    const emlNameType = this.IETprefs.getIntPref('extensions.findnow.exportEML_filename_format');
+    const emlNameType = this.IETprefs.getIntPref('extensions.findnow.export_eml_filename_format');
     const mustcorrectname = this.IETprefs.getBoolPref('extensions.findnow.export_filenames_toascii');
     const cutSubject = this.IETprefs.getBoolPref('extensions.findnow.export_cut_subject');
     const cutFileName = this.IETprefs.getBoolPref('extensions.findnow.export_cut_filename');
