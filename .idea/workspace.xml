@@ -33,11 +33,6 @@
   <component name="ChangeListManager">
     <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/api/findnow/implementation.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/api/findnow/implementation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/ui/options.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/ui/options.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/defaults/preferences/preferences.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,8 +81,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="eslint.code.style.apply.dismiss" value="true" />
-    <property name="javascript.nodejs.core.library.configured.version" value="10.22.0" />
-    <property name="javascript.nodejs.core.library.typings.version" value="10.17.35" />
+    <property name="javascript.nodejs.core.library.configured.version" value="10.23.0" />
+    <property name="javascript.nodejs.core.library.typings.version" value="10.17.48" />
     <property name="js.buildTools.grunt.grunt-cli.package" value="$PROJECT_DIR$/node_modules/grunt-cli" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -176,6 +171,7 @@
       <workItem from="1603893110865" duration="20596000" />
       <workItem from="1604301829636" duration="3671000" />
       <workItem from="1605087148598" duration="7944000" />
+      <workItem from="1607527366459" duration="604000" />
     </task>
     <task id="LOCAL-00001" summary="add basic ide, add source code by 68.0 version">
       <created>1600776998338</created>
@@ -345,7 +341,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605781660368</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="update options save">
+      <created>1605793618772</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1605793618772</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -396,41 +399,42 @@
     <MESSAGE value="project clearing" />
     <MESSAGE value="add move to trash" />
     <MESSAGE value="update docker file to 78.5.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="update docker file to 78.5.0" />
+    <MESSAGE value="update options save" />
+    <option name="LAST_COMMIT_MESSAGE" value="update options save" />
   </component>
   <component name="WindowStateProjectService">
     <state x="99" y="136" width="1722" height="844" key="DiffContextDialog" timestamp="1605791152067">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="99" y="136" width="1722" height="844" key="DiffContextDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1605791152067" />
-    <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl" timestamp="1604389891112">
+    <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl" timestamp="1605796511786">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl/0.36.1920.1044@0.36.1920.1044" timestamp="1604389891112" />
-    <state width="1874" height="408" key="GridCell.Tab.0.bottom" timestamp="1605793532567">
+    <state x="743" y="316" width="426" height="478" key="FileChooserDialogImpl/0.36.1920.1044@0.36.1920.1044" timestamp="1605796511786" />
+    <state width="1874" height="408" key="GridCell.Tab.0.bottom" timestamp="1605855343249">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="408" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1605793532567" />
-    <state width="1874" height="408" key="GridCell.Tab.0.center" timestamp="1605793532566">
+    <state width="1874" height="408" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1605855343249" />
+    <state width="1874" height="408" key="GridCell.Tab.0.center" timestamp="1605855343248">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="408" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1605793532566" />
-    <state width="1874" height="408" key="GridCell.Tab.0.left" timestamp="1605793532565">
+    <state width="1874" height="408" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1605855343248" />
+    <state width="1874" height="408" key="GridCell.Tab.0.left" timestamp="1605855343247">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="408" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1605793532565" />
-    <state width="1874" height="408" key="GridCell.Tab.0.right" timestamp="1605793532566">
+    <state width="1874" height="408" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1605855343247" />
+    <state width="1874" height="408" key="GridCell.Tab.0.right" timestamp="1605855343248">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="408" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1605793532566" />
+    <state width="1874" height="408" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1605855343248" />
     <state x="449" y="193" key="SettingsEditor" timestamp="1601299164761">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="449" y="193" key="SettingsEditor/0.36.1920.1044@0.36.1920.1044" timestamp="1601299164761" />
-    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2" timestamp="1605781670735">
+    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2" timestamp="1605793623356">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2/0.36.1920.1044@0.36.1920.1044" timestamp="1605781670735" />
+    <state x="555" y="294" width="802" height="522" key="Vcs.Push.Dialog.v2/0.36.1920.1044@0.36.1920.1044" timestamp="1605793623356" />
     <state x="691" y="275" width="530" height="560" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1601411658405">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
