@@ -8,12 +8,12 @@ services:
       dockerfile: Dockerfile
     container_name: thunderbird_findnow_addon
     volumes:
-      - thunderbirddata:/data
+      - thunderbirddata68:/data
       - ./built/Findnow.xpi:/data/Findnow.xpi
       - ./dist:/data/.thunderbird/1fwh53bl.default-release/extensions/findnow@pegenau.de/
     ports:
       - 127.0.0.1:8080:8080
 
 volumes:
-  thunderbirddata:
+  thunderbirddata68:
     driver: local

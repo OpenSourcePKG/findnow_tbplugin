@@ -14,6 +14,7 @@
 <!ENTITY sender "Sender">
 <!ENTITY recipient "Recipient">
 <!ENTITY LayDown "Store">
+<!ENTITY EmailToClip "Copy to clip">
 <!ENTITY fileLenCaption "Filename length">
 <!ENTITY cutSub "Cut subject at 50 characters">
 <!ENTITY cutFN "Cut complete file path length at 256 characters">
@@ -31,3 +32,5 @@
 <!ENTITY useFilenameAbbreviation "Abbreviation in the file name:">
 <!ENTITY allwo_edit_subject.label "Subject can be changed with extra dialog">
 <!ENTITY move_to_trash.label "After save, put the email in the trash">
+<!ENTITY subjectTitle "Subject:">
+<!ENTITY changeSubject "Please indicate your change in the subject:">

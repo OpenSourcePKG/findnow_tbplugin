@@ -34,6 +34,11 @@ com_hw_FindNow.utils = function() {
 	utils.IETnosub = utils.mboximportbundle.GetStringFromName("nosubjectmsg");
 
 	/**
+	 * move to trash
+	 */
+	utils._moveToTrash = utils.IETprefs.getBoolPref('extensions.findnow.move_to_trash');
+
+	/**
 	 * IETgetComplexPref
 	 * @param {type} prefname
 	 * @returns {utils_L16.utils.IETprefs.getStringPref|utils_L16.utils.IETprefs.getComplexValue.data}
@@ -146,16 +151,22 @@ com_hw_FindNow.utils = function() {
 	/**
 	 * IETstr_converter
 	 * @param {type} str
+	 * @param defaultCharset
 	 * @returns {unresolved}
 	 */
-	utils.IETstr_converter = function(str) {
+	utils.IETstr_converter = function(str, defaultCharset=null) {
 		var convStr;
 
 		try {
 			var charset = this.IETprefs.getCharPref("extensions.findnow.export.filename_charset");
 
 			if( charset === "" ) {
-				return str;
+
+				if( defaultCharset == null ) {
+					return str;
+				}
+
+				charset = defaultCharset;
 			}
 
 			var uConv = Cc["@mozilla.org/intl/scriptableunicodeconverter"]
@@ -472,7 +483,18 @@ com_hw_FindNow.utils = function() {
 		}
 
 		if( allowEditSubject ) {
-			subj = prompt(utils.mboximportbundle.GetStringFromName("changeSubject"), subj);
+			var returns = {
+				subject: subj,
+				returnsubject: null,
+				moveToTrash: this.IETprefs.getBoolPref("extensions.findnow.move_to_trash")
+			};
+
+			window.openDialog("chrome://findnow/content/findnowDialogSubject.xul", "dlg", "modal", returns);
+
+			subj = returns.returnsubject;
+			this.FNsetMoveToTrash(returns.moveToTrash);
+
+			//subj = prompt(utils.mboximportbundle.GetStringFromName("changeSubject"), subj);
 
 			// canel by subject edit
 			if (subj === null) {
@@ -788,6 +810,56 @@ com_hw_FindNow.utils = function() {
 		}
 
 		return false;
+	}
+
+	/**
+	 * FNmessageToClipString
+	 * @param hdr
+	 * @param emailtext
+	 * @returns {string}
+	 * @constructor
+	 */
+	utils.FNmessageToClipString = function(hdr, emailtext) {
+		var msgStr = '';
+
+		var titleFrom = utils.mboximportbundle.GetStringFromName("titleFrom");
+		var titleTo = utils.mboximportbundle.GetStringFromName("titleTo");
+		var titleDate = utils.mboximportbundle.GetStringFromName("titleDate");
+		var titleSubject = utils.mboximportbundle.GetStringFromName("titleSubject");
+
+		msgStr += titleFrom + " " + hdr.mime2DecodedAuthor + "\r\n";
+		msgStr += titleTo + " " + hdr.mime2DecodedRecipients + "\r\n";
+		msgStr += titleDate + " " + this.dateInISO(hdr.dateInSeconds) + "\r\n";
+		msgStr += titleSubject + " " + hdr.mime2DecodedSubject + "\r\n";
+
+		emailtext = this.IETstr_converter(emailtext, "ISO-8859-1");
+		var parts = emailtext.split("\r\n\r\n");
+
+		if( parts.length >= 2 ) {
+			for( var e=1; e<parts.length; e++) {
+				msgStr += "\r\n\r\n" + parts[e];
+			}
+		}
+
+		return msgStr;
+	}
+
+	/**
+	 * FNisMoveToTrash
+	 * @returns {*}
+	 * @constructor
+	 */
+	utils.FNisMoveToTrash = function() {
+		return this._moveToTrash;
+	}
+
+	/**
+	 * FNsetMoveToTrash
+	 * @param enable
+	 * @constructor
+	 */
+	utils.FNsetMoveToTrash = function(enable) {
+		this._moveToTrash = enable;
 	}
 
 	return utils;

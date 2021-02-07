@@ -15,5 +15,8 @@
 		<toolbarbutton class="toolbarbutton-1 msgHeaderView-button"
 			id="saveToFindnow" image="chrome://messenger/skin/icons/getmsg.svg"
 			label="&LayDown;" oncommand="com_hw_FindNow.exporter.saveTo();"/>
+		<toolbarbutton class="toolbarbutton-1 msgHeaderView-button"
+		   id="clipToFindnow" image="chrome://messenger/skin/icons/getmsg.svg"
+		   label="&EmailToClip;" oncommand="com_hw_FindNow.exporter.clipTo();"/>
 	</toolbar>
 </overlay>

@@ -64,6 +64,30 @@ com_hw_FindNow.exporter = function() {
 	}
 
 	/**
+	 * clipTo
+	 */
+	exp.clipTo = function() {
+		if( typeof gFolderDisplay.selectedMessageUris[0] === 'undefined' ) {
+			com_hw_FindNow.utils.IETlogger.write(
+				'exporter - saveTo: None Email is selected!');
+			alert('None Email is selected!');
+			return;
+		}
+
+		var msguri		= gFolderDisplay.selectedMessageUris[0];
+
+		var emlsArray = [];
+
+		emlsArray.push(msguri);
+
+		IETtotal	= emlsArray.length;
+		IETexported = 0;
+		IETskipped	= 0;
+
+		this.saveMsgAsEML(msguri, null, false, emlsArray, null, null, false, true, null, null);
+	}
+
+	/**
 	 * load
 	 * @returns {undefined}
 	 */
@@ -88,12 +112,17 @@ com_hw_FindNow.exporter = function() {
 	 * @returns {undefined}
 	 */
 	exp.saveMsgAsEML = function(msguri, file, append, uriArray, hdrArray, fileArray, imapFolder, clipboard, file2, msgFolder) {
-		if( file === null ) {
+		if( (file === null) && (!clipboard) ) {
 			com_hw_FindNow.utils.IETlogger.write(
 				'exporter - saveMsgAsEML: canceled by file variable is null');
 			//alert(com_hw_FindNow.utils.mboximportbundle.GetStringFromName("fileEmpty"));
 			return;
 		}
+
+		var mms = messenger.messageServiceFromURI(msguri)
+			.QueryInterface(Ci.nsIMsgMessageService);
+
+		var hdr = mms.messageURIToMsgHdr(msguri);
 
 		var myEMLlistner = {
 			scriptStream: null,
@@ -125,7 +154,9 @@ com_hw_FindNow.exporter = function() {
 					this.scriptStream = null;
 
 					if (clipboard) {
-						com_hw_FindNow.utils.IETcopyStrToClip(this.emailtext);
+						com_hw_FindNow.utils.IETcopyStrToClip(
+							com_hw_FindNow.utils.FNmessageToClipString(hdr, this.emailtext)
+							);
 
 						com_hw_FindNow.utils.IETlogger.write(
 							'exporter - saveMsgAsEML: canceled used utils.IETcopyStrToClip');
@@ -276,7 +307,7 @@ com_hw_FindNow.exporter = function() {
 				}
 
 				if (com_hw_FindNow.utils.FNisFileExist(savePath)) {
-					if (com_hw_FindNow.utils.IETprefs.getBoolPref('extensions.findnow.move_to_trash')) {
+					if (com_hw_FindNow.utils.FNisMoveToTrash()) {
 						var trashFodler = com_hw_FindNow.utils.FNgetTrashFolderURI(hdr);
 						com_hw_FindNow.utils.FNmoveMessage(msguri, trashFodler.URI);
 					}
@@ -316,11 +347,6 @@ com_hw_FindNow.exporter = function() {
 			myEMLlistner.onStartRequest = myEMLlistner.onStartRequest60;
 			myEMLlistner.onStopRequest = myEMLlistner.onStopRequest60;
 		}
-
-		var mms = messenger.messageServiceFromURI(msguri)
-			.QueryInterface(Ci.nsIMsgMessageService);
-
-		var hdr = mms.messageURIToMsgHdr(msguri);
 
 		try {
 			com_hw_FindNow.utils.IETlogger.write(
