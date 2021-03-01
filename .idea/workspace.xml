@@ -33,15 +33,6 @@
   <component name="ChangeListManager">
     <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/built/Findnow.xpi" beforeDir="false" afterPath="$PROJECT_DIR$/built/Findnow.xpi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnow/findnow.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/findnow/findnow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnow/findnow.xul" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/findnow/findnow.xul" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/findnow/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/findnow/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/locale/de/findnow/findnow.dtd" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/locale/de/findnow/findnow.dtd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/locale/de/findnow/mboxfindnow.properties" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/locale/de/findnow/mboxfindnow.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/locale/en-US/findnow/findnow.dtd" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/locale/en-US/findnow/findnow.dtd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/locale/en-US/findnow/mboxfindnow.properties" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/locale/en-US/findnow/mboxfindnow.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +84,7 @@
     <property name="javascript.nodejs.core.library.configured.version" value="10.23.1" />
     <property name="javascript.nodejs.core.library.typings.version" value="10.17.51" />
     <property name="js.buildTools.grunt.grunt-cli.package" value="$PROJECT_DIR$/node_modules/grunt-cli" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../findnow" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -180,7 +171,8 @@
       <workItem from="1603893110865" duration="20596000" />
       <workItem from="1604301829636" duration="3671000" />
       <workItem from="1604835865611" duration="15467000" />
-      <workItem from="1612611807700" duration="5121000" />
+      <workItem from="1612611807700" duration="5790000" />
+      <workItem from="1614592863694" duration="365000" />
     </task>
     <task id="LOCAL-00001" summary="add basic ide, add source code by 68.0 version">
       <created>1600776998338</created>
@@ -420,7 +412,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605261588867</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="update subject dialog, add copy to clip">
+      <created>1612732058255</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1612732058255</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -485,6 +484,7 @@
     <MESSAGE value="update" />
     <MESSAGE value="fix variable" />
     <MESSAGE value="update logging" />
-    <option name="LAST_COMMIT_MESSAGE" value="update logging" />
+    <MESSAGE value="update subject dialog, add copy to clip" />
+    <option name="LAST_COMMIT_MESSAGE" value="update subject dialog, add copy to clip" />
   </component>
 </project>
