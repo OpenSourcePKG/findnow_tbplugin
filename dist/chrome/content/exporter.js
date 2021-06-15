@@ -255,7 +255,7 @@ function saveMsgAsEML(msguri, file, append, uriArray, hdrArray, fileArray, imapF
             }
 
             if (exporter.win.findnow_utils.FNisFileExist(savePath)) {
-                if (exporter.win.findnow_utils.IETprefs.getBoolPref('extensions.findnow.move_to_trash')) {
+                if (exporter.win.findnow_utils.FNisMoveToTrash()) {
                     let trashFodler = exporter.win.findnow_utils.FNgetTrashFolderURI(hdr);
                     exporter.win.findnow_utils.FNmoveMessage(msguri, trashFodler.URI);
                 }

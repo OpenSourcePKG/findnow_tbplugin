@@ -17,6 +17,8 @@ function load(win) {
 
     this.IETnosub = 'None_subject';
 
+    this._moveToTrash = this.IETprefs.getBoolPref('extensions.findnow.move_to_trash');
+
     console.log('Findnow Utils: Load');
 }
 
@@ -382,7 +384,29 @@ function getSubjectForHdr(hdr, dirPath) {
     }
 
     if( allowEditSubject ) {
-        subj = this.win.prompt('Bitte geben Sie ihre Änderung im Betreff an:', subj);
+        var returns = {
+            subject: subj,
+            returnsubject: null,
+            moveToTrash: this.IETprefs.getBoolPref("extensions.findnow.move_to_trash"),
+            resulte: false
+        };
+
+        this.win.openDialog("chrome://findnow/content/ui/editsubject.html", "dlg", "modal", returns);
+
+        // Cancel -> exit
+        if( !returns.resulte ) {
+            return null;
+        }
+
+        subj = returns.returnsubject;
+        this.FNsetMoveToTrash(returns.moveToTrash);
+
+        //subj = this.win.prompt('Bitte geben Sie ihre Änderung im Betreff an:', subj);
+
+        // canel by subject edit
+        if (subj === null) {
+            return null;
+        }
     }
 
     if( useFilenameAbbreviation ) {
@@ -676,4 +700,20 @@ function FNmoveMessage(msguri, folderuri) {
     }
 
     return false;
+}
+
+/**
+ * FNisMoveToTrash
+ * @returns {boolean}
+ */
+function FNisMoveToTrash() {
+    return this._moveToTrash;
+}
+
+/**
+ * FNsetMoveToTrash
+ * @param enable
+ */
+function FNsetMoveToTrash(enable) {
+    this._moveToTrash = enable;
 }
