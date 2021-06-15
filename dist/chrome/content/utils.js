@@ -321,7 +321,9 @@ function nametoascii(str) {
     }
 
     if (str) {
-        str = str.replace(/[^a-zA-Z0-9\- ]/g, '_');
+        //str = str.replace(/[^a-zA-Z0-9ÄäÖöÜüß\- ]/g, '_');
+        //str = str.replace(/[<>:"/\|?*]/g, '_');
+        str = str.replace(/\n/g," ").replace(/[<>:"/\\|?*\x00-\x1F]| +$/g,"").replace(/^(CON|PRN|AUX|NUL|COM[1-9]|LPT[1-9])$/, x=> x + "_");
     } else {
         str = 'Undefinied_or_empty';
     }
