@@ -31,10 +31,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="update set dialog center">
+    <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="update docker container to 91.1.2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thunderbird/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/thunderbird/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/dist/manifest.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +186,7 @@
       <workItem from="1623871058422" duration="17000" />
       <workItem from="1624002620101" duration="972000" />
       <workItem from="1633356060924" duration="1792000" />
-      <workItem from="1633421021818" duration="420000" />
+      <workItem from="1633421021818" duration="940000" />
     </task>
     <task id="LOCAL-00001" summary="add basic ide, add source code by 68.0 version">
       <created>1600776998338</created>
@@ -392,7 +391,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623853158471</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="update docker container to 91.1.2">
+      <created>1633421502859</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1633421502859</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -423,7 +429,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add basic ide, add source code by 68.0 version" />
     <MESSAGE value="begin new version" />
     <MESSAGE value="change format, add background js" />
     <MESSAGE value="add api wrapper WindowLoader and BootstrapLoader" />
@@ -448,6 +453,7 @@
     <MESSAGE value="update version to 2.1" />
     <MESSAGE value="add dialog with checkbox for email move to trash quest" />
     <MESSAGE value="update set dialog center" />
-    <option name="LAST_COMMIT_MESSAGE" value="update set dialog center" />
+    <MESSAGE value="update docker container to 91.1.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="update docker container to 91.1.2" />
   </component>
 </project>
