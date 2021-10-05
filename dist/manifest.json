@@ -1,6 +1,6 @@
 {
   "name": "FindNow",
-  "version": "2.1",
+  "version": "2.2",
   "description": "Ermöglicht das Exportieren von Nachrichten und Ordnern für FindNow",
   "author": "Stefan Werfling",
 
@@ -10,7 +10,7 @@
     "gecko": {
       "id": "findnow@pegenau.de",
       "strict_min_version": "78.0",
-      "strict_max_version": "78.*"
+      "strict_max_version": "91.*"
     }
   },
 
