@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
   thunderbird:
-    image: thunderbird_findnow_addon_78_5_0
+    image: thunderbird_findnow_addon_91_1_2
     build:
       context: ./thunderbird/
       dockerfile: Dockerfile
