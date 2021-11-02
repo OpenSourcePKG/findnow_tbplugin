@@ -214,35 +214,15 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
                     }
                 },
 
-                pickFile() {
-                    const nsIFilePicker = Ci.nsIFilePicker;
-                    const fp = Cc['@mozilla.org/filepicker;1'].createInstance(nsIFilePicker);
+                async pickFile() {
+                    const fp = Cc['@mozilla.org/filepicker;1'].createInstance(Ci.nsIFilePicker);
 
                     let recentWindow = Services.wm.getMostRecentWindow('');
 
                     fp.init(recentWindow, '', nsIFilePicker.modeGetFolder);
-
-                    let res;
-
-                    if (fp.show) {
-                        res = fp.show();
-                    } else {
-                        let done = false;
-                        let rv, result;
-
-                        fp.open(function(result) {
-                            rv = result;
-                            done = true;
-                        });
-
-                        var thread = Components.classes['@mozilla.org/thread-manager;1'].getService().currentThread;
-
-                        while (!done) {
-                            thread.processNextEvent(true);
-                        }
-
-                        res = rv;
-                    }
+                    let res = await new Promise(resolve => {
+                        fp.open(resolve);
+                    });
 
                     if (res === nsIFilePicker.returnOK) {
                         return fp.file.path;
