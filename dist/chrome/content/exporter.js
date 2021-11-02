@@ -19,7 +19,7 @@ function load(win) {
 /**
  * saveTo
  */
-function saveTo() {
+async function saveTo() {
     console.log('Exporter: SaveTo');
 
     const selectedMsg = this.win.gFolderDisplay.selectedMessage;
@@ -30,7 +30,7 @@ function saveTo() {
     const emlsArray = [];
     emlsArray.push(msgURI);
 
-    const file = this.win.findnow_utils.getMsgDestination();
+    const file = await this.win.findnow_utils.getMsgDestination();
 
     this.saveMsgAsEML(msgURI, file, false, emlsArray, null, null, false, false, null, null);
 }

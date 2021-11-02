@@ -103,34 +103,10 @@ function getPredefinedFolder() {
 }
 
 /**
- * IETopenFPsync
- * @param fp
- * @returns {*}
- * @constructor
- */
-function IETopenFPsync(fp) {
-    let done = false;
-    let rv;
-
-    fp.open(function(result) {
-        rv = result;
-        done = true;
-    });
-
-    var thread = Components.classes['@mozilla.org/thread-manager;1'].getService().currentThread;
-
-    while (!done) {
-        thread.processNextEvent(true);
-    }
-
-    return rv;
-}
-
-/**
  * getMsgDestination
  * @returns {null|*|unresolved|string|undefined}
  */
-function getMsgDestination() {
+async function getMsgDestination() {
     const bfile = this.getPredefinedFolder();
 
     let file = bfile;
@@ -145,8 +121,7 @@ function getMsgDestination() {
     }
 
     if (showPicker) {
-        const nsIFilePicker = Components.interfaces.nsIFilePicker;
-        const fp = Components.classes['@mozilla.org/filepicker;1'].createInstance(nsIFilePicker);
+        const fp = Components.classes['@mozilla.org/filepicker;1'].createInstance(Ci.nsIFilePicker);
 
         fp.init(this.win, '', nsIFilePicker.modeGetFolder);
 
@@ -154,13 +129,9 @@ function getMsgDestination() {
             fp.displayDirectory = bfile;
         }
 
-        let res = null;
-
-        if (fp.show) {
-            res = fp.show();
-        } else {
-            res = this.IETopenFPsync(fp);
-        }
+        let res = await new Promise(resolve => {
+            fp.open(resolve);
+        });
 
         if (res === nsIFilePicker.returnOK) {
             file = fp.file;
