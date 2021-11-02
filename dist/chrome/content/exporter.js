@@ -19,7 +19,7 @@ function load(win) {
 /**
  * saveTo
  */
-function saveTo() {
+async function saveTo() {
     console.log('Exporter: SaveTo');
 
     const selectedMsg = this.win.gFolderDisplay.selectedMessage;
