@@ -31,8 +31,18 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="update docker container to 91.1.2">
+    <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="update appliaction id">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/_locales/en-US/messages.json" beforeDir="false" afterPath="$PROJECT_DIR$/dist/_locales/en_US/messages.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome.manifest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/api/findnow/implementation.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/api/findnow/implementation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/images/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/images/findnow.png" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/images/findnow.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/locale/de/findnow/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/locale/en-US/findnow/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/locale/mboxfindnow.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/scripts/background.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/scripts/background.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/dist/manifest.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,11 +112,11 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/dist/chrome/content" />
       <recent name="$PROJECT_DIR$/dist/chrome/scripts" />
       <recent name="$PROJECT_DIR$/dist/chrome/api/findnow" />
       <recent name="$PROJECT_DIR$/dist/chrome" />
       <recent name="$PROJECT_DIR$/dist" />
-      <recent name="$PROJECT_DIR$/dist/experiment" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.Gruntfile.js">
@@ -186,7 +196,17 @@
       <workItem from="1623871058422" duration="17000" />
       <workItem from="1624002620101" duration="972000" />
       <workItem from="1633356060924" duration="1792000" />
-      <workItem from="1633421021818" duration="940000" />
+      <workItem from="1633421021818" duration="1497000" />
+      <workItem from="1633422602998" duration="134000" />
+      <workItem from="1633431584481" duration="596000" />
+      <workItem from="1633598010523" duration="12000" />
+      <workItem from="1633953375003" duration="493000" />
+      <workItem from="1635161674221" duration="1568000" />
+      <workItem from="1635496674389" duration="1290000" />
+      <workItem from="1635753944456" duration="6020000" />
+      <workItem from="1635762707454" duration="783000" />
+      <workItem from="1635789266096" duration="254000" />
+      <workItem from="1635851352234" duration="1341000" />
     </task>
     <task id="LOCAL-00001" summary="add basic ide, add source code by 68.0 version">
       <created>1600776998338</created>
@@ -398,7 +418,21 @@
       <option name="project" value="LOCAL" />
       <updated>1633421502859</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="update plugin to thunderbird 91.1.2, new version 2.2">
+      <created>1633421980012</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1633421980012</updated>
+    </task>
+    <task id="LOCAL-00032" summary="update appliaction id">
+      <created>1633953584928</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1633953584929</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -415,7 +449,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="swe/91.1.2" />
+                        <option value="origin/remove_thread_stepping" />
                       </list>
                     </value>
                   </entry>
@@ -429,8 +463,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="begin new version" />
-    <MESSAGE value="change format, add background js" />
     <MESSAGE value="add api wrapper WindowLoader and BootstrapLoader" />
     <MESSAGE value="add api wrapper ConversionHelper and LegacyPrefs" />
     <MESSAGE value="add dockerfile, change code" />
@@ -454,6 +486,8 @@
     <MESSAGE value="add dialog with checkbox for email move to trash quest" />
     <MESSAGE value="update set dialog center" />
     <MESSAGE value="update docker container to 91.1.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="update docker container to 91.1.2" />
+    <MESSAGE value="update plugin to thunderbird 91.1.2, new version 2.2" />
+    <MESSAGE value="update appliaction id" />
+    <option name="LAST_COMMIT_MESSAGE" value="update appliaction id" />
   </component>
 </project>

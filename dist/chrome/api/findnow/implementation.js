@@ -31,9 +31,7 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
 
             chromeURLs: [
                 'chrome://messenger/content/messenger.xhtml',
-                'chrome://messenger/content/messageWindow.xhtml',
-
-                'chrome://findnow/content/findnow.xhtml'
+                'chrome://messenger/content/messageWindow.xhtml'
             ],
 
             onLoadWindow: loadWindow,
@@ -292,12 +290,6 @@ function loadWindow(win) {
             win.findnow.load(win);
 
             // -----------------------------------
-            break;
-
-        case 'chrome://findnow/content/findnow.xhtml':
-            win.findnow.i18n = findnow.i18n;
-            i18n(win);
-
             break;
 
         default:
