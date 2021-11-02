@@ -30,7 +30,7 @@ async function saveTo() {
     const emlsArray = [];
     emlsArray.push(msgURI);
 
-    const file = this.win.findnow_utils.getMsgDestination();
+    const file = await this.win.findnow_utils.getMsgDestination();
 
     this.saveMsgAsEML(msgURI, file, false, emlsArray, null, null, false, false, null, null);
 }
