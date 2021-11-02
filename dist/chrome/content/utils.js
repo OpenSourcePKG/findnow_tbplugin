@@ -391,7 +391,7 @@ function getSubjectForHdr(hdr, dirPath) {
             resulte: false
         };
 
-        this.win.openDialog("chrome://findnow/content/ui/editsubject.html", "dlg", "modal; center= yes;", returns);
+        this.win.openDialog("chrome://findnow/content/ui/editsubject.html", "dlg", "modal", returns);
 
         // Cancel -> exit
         if( !returns.resulte ) {

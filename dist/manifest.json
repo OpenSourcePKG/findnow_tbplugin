@@ -1,10 +1,11 @@
 {
-  "name": "FindNow",
-  "version": "2.2",
-  "description": "Ermöglicht das Exportieren von Nachrichten und Ordnern für FindNow",
+  "manifest_version": 2,
+  "name": "__MSG_extensionName__",
+  "version": "2.3",
+  "description": "__MSG_extensionDescription__",
   "author": "Stefan Werfling",
 
-  "default_locale": "en-US",
+  "default_locale": "de",
 
   "applications": {
     "gecko": {
@@ -15,7 +16,7 @@
   },
 
   "icons": {
-    "64": "chrome/images/findnow.png"
+    "64": "chrome/content/images/findnow.png"
   },
 
   "experiment_apis": {
@@ -54,7 +55,5 @@
     "scripts": [
       "chrome/scripts/background.js"
     ]
-  },
-
-  "manifest_version": 2
+  }
 }
