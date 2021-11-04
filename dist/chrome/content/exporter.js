@@ -1,6 +1,34 @@
+/*
+ * This file is provided by
+ * Company Pegenau GmbH & Co. KG
+ *
+ * Info: info@pegenau.de
+ * Author: Stefan Werfling (stefan.werfling@pegenau.de)
+ *
+ * Special thanks to:
+ * John Bieling (john@thunderbird.net)
+ *
+ * Credits:
+ * ImportExportTools NG (https://github.com/thundernest/import-export-tools-ng)
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 'use strict';
 
 const {Services} = ChromeUtils.import('resource://gre/modules/Services.jsm');
+
+/**
+ * DEBUG enable/disable
+ * @type {boolean}
+ */
+const DEBUG = false;
 
 /**
  * load
@@ -13,14 +41,18 @@ function load(win) {
     this.IETskipped = 0;
     this.IETabort = false;
 
-    console.log('Load Exporter');
+    if (DEBUG) {
+        console.log('Load Exporter');
+    }
 }
 
 /**
  * saveTo
  */
 async function saveTo() {
-    console.log('Exporter: SaveTo');
+    if (DEBUG) {
+        console.log('Exporter: SaveTo');
+    }
 
     const selectedMsg = this.win.gFolderDisplay.selectedMessage;
     const msgURI = selectedMsg.folder.getUriForMsg(selectedMsg);
@@ -32,7 +64,18 @@ async function saveTo() {
 
     const file = await this.win.findnow_utils.getMsgDestination();
 
-    this.saveMsgAsEML(msgURI, file, false, emlsArray, null, null, false, false, null, null);
+    this.saveMsgAsEML(
+        msgURI,
+        file,
+        false,
+        emlsArray,
+        null,
+        null,
+        false,
+        false,
+        null,
+        null
+    );
 }
 
 /**
@@ -227,10 +270,6 @@ function saveMsgAsEML(msguri, file, append, uriArray, hdrArray, fileArray, imapF
                         msgFolder
                     );
                 } else {
-                    /*if (myEMLlistner.file2) {
-                        createIndex(0, myEMLlistner.file2, hdrArray, myEMLlistner.msgFolder, false, true);
-                    }*/
-
                     exporter.IETexported = 0;
                     exporter.IETtotal = 0;
                     exporter.IETskipped = 0;
@@ -241,8 +280,10 @@ function saveMsgAsEML(msguri, file, append, uriArray, hdrArray, fileArray, imapF
                 }
             }
             catch( et ) {
-                console.log("call to saveMsgAsEML.onStopRequest68 - error = ");
-                console.log(et);
+                if (DEBUG) {
+                    console.log("call to saveMsgAsEML.onStopRequest68 - error = ");
+                    console.log(et);
+                }
 
                 if( savePath !== null ) {
                     if (!exporter.win.findnow_utils.FNisFileExist(savePath)) {
@@ -298,13 +339,22 @@ function saveMsgAsEML(msguri, file, append, uriArray, hdrArray, fileArray, imapF
     try {
         hdr = mms.messageURIToMsgHdr(msguri);
 
-        console.log("call to saveMsgAsEML - subject = " + hdr.mime2DecodedSubject + " - messageKey = " + hdr.messageKey);
+        if (DEBUG) {
+            console.log("call to saveMsgAsEML - subject = " +
+                hdr.mime2DecodedSubject +
+                " - messageKey = " +
+                hdr.messageKey);
+        }
 
         myEMLlistner.file2 = file2;
         myEMLlistner.msgFolder = msgFolder;
 
         mms.streamMessage(msguri, myEMLlistner, this.win.msgWindow, null, false, null);
     } catch (e) {
-        console.log("call to saveMsgAsEML - error = " + e);
+        if (DEBUG) {
+            console.log("call to saveMsgAsEML - error = " + e);
+        } else {
+            console.log(e);
+        }
     }
 }

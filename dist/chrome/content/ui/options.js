@@ -1,8 +1,48 @@
+/*
+ * This file is provided by
+ * Company Pegenau GmbH & Co. KG
+ *
+ * Info: info@pegenau.de
+ * Author: Stefan Werfling (stefan.werfling@pegenau.de)
+ *
+ * Special thanks to:
+ * John Bieling (john@thunderbird.net)
+ *
+ * Credits:
+ * ImportExportTools NG (https://github.com/thundernest/import-export-tools-ng)
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 'use strict';
 
+/**
+ * DEBUG enable/disable
+ * @type {boolean}
+ */
+const DEBUG = false;
+
+/**
+ * FNOptions
+ * @type {{onLoad(): Promise<void>}}
+ */
 const FNOptions = {
+
+    /**
+     * load
+     * option form
+     * @returns {Promise<void>}
+     */
     async onLoad() {
-        console.log('Options');
+        if (DEBUG) {
+            console.log('Options');
+        }
 
         const findnowbg = browser.extension.getBackgroundPage();
         const findnow = findnowbg.browser.findnow;
@@ -42,11 +82,20 @@ const FNOptions = {
             document.getElementById("export_eml_sub_dir").setAttribute("disabled", "true");
         }
 
+        /**
+         * onclick
+         * eml dir button
+         * @returns {Promise<void>}
+         */
         document.getElementById("eml_dir_button").onclick = async function() {
             const path = await findnow.pickFile();
             document.getElementById("export_eml_dir").value = path;
         };
 
+        /**
+         * onclick
+         * use export eml dir
+         */
         document.getElementById("use_export_eml_dir").onclick = function() {
             const isChecked = document.getElementById("use_export_eml_dir").checked;
 
@@ -60,6 +109,10 @@ const FNOptions = {
             }
         };
 
+        /**
+         * onclick
+         * use export eml sub dir
+         */
         document.getElementById("use_export_eml_sub_dir").onclick = function() {
             const isChecked = document.getElementById("use_export_eml_sub_dir").checked;
 
@@ -74,6 +127,10 @@ const FNOptions = {
         // row use_filename_abbreviation
         document.getElementById('use_filename_abbreviation').checked = await findnow.getPref('bool', 'use_filename_abbreviation');
 
+        /**
+         * onclick
+         * use filename abbreviation
+         */
         document.getElementById("use_filename_abbreviation").onclick = function() {
             const isChecked = document.getElementById("use_filename_abbreviation").checked;
 
@@ -97,6 +154,11 @@ const FNOptions = {
 
         // -----------------------------------------------------------------------
 
+        /**
+         * onclick
+         * common save
+         * @returns {Promise<void>}
+         */
         document.getElementById("commonsave").onclick = async function() {
             await findnow.setPref('bool', 'button_show_default', document.getElementById("defaultButton").checked);
             await findnow.setPref('bool', 'export_filenames_addtime', document.getElementById("addtimeCheckbox").checked);

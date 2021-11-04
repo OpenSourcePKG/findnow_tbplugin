@@ -1,11 +1,18 @@
-# findnow_tbplugin
+# FindNow Thunderbird Addon
+
+[FindNow](https://addons.thunderbird.net/addon/findnow/) adds export functions for messages.
+
+[Click here to view this add-on’s version history](https://addons.thunderbird.net/addon/findnow/versions/).
+
+[![License: GPL 3.0](https://img.shields.io/badge/License-GPL%203.0-red.png)](https://opensource.org/licenses/GPL-3.0)
+
 ## Generals
-* Version: ```78.1```
-* Project: ```Findnow TB for Version 78 Thunderbird```
+* Version: ```91.1```
+* Project: ```Findnow TB for Version 91.* Thunderbird```
 * Author: ```Stefan Werfling```
 * Lang: ```js, ts```
 * Tools: ```phpstorm```
-* Last update: ```26.09.2020```
+* Last update: ```04.11.2021```
 
 # 1. begin dev over docker
 I put Thunderbrid in a Docker container for 2 reasons:
@@ -76,3 +83,43 @@ interested in.
 ### setStringPref 0x8000ffff
 Check your default variable type, a boolean can not save a string and except a 0x8000ffff error on component.
 
+# Thunderbird Docs:
+Info by: John Bieling (john@thunderbird.net)
+
+> Thunderbird is currently transitioning to WebExtension APIs. 
+> In the beginning of 2021 Firefox/MDN has pulled the plug and removed allmost all internal 
+> documentation of XPCOM and friends, which would be relevant for legacy coding. 
+> Your only resource for legacy coding now is the source:
+
+[https://searchfox.org/](https://searchfox.org/)
+
+
+> For the new WebExtension API approach we have put together a few resources:
+
+
+[https://developer.thunderbird.net/add-ons/mailextensions](https://developer.thunderbird.net/add-ons/mailextensions)
+[https://webextension-api.thunderbird.net/en/91/](https://webextension-api.thunderbird.net/en/91/)
+[https://github.com/thundernest/sample-extensions](https://github.com/thundernest/sample-extensions)
+
+> We also have active community channels:
+
+[https://developer.thunderbird.net/add-ons/community](https://developer.thunderbird.net/add-ons/community)
+
+> For transitioning add-ons, we have created a dedicatded repository:
+    
+[https://github.com/thundernest/addon-developer-support](https://github.com/thundernest/addon-developer-support)
+
+> The mentioned wrapper APIs are no longer relevant to you, as you have manually switched 
+> to an Experiment using similar techniques. But some of the auxiliary APIs could be of 
+> interest for you (to not have to reinvent the wheel):
+
+[https://github.com/thundernest/addon-developer-support/tree/master/auxiliary-apis](https://github.com/thundernest/addon-developer-support/tree/master/auxiliary-apis)
+
+> Specifically the notifyTools API is a big helper to cross the boundary between legacy 
+> coding and WebExtension coding. See also the update steps tutorials:
+    
+[https://github.com/thundernest/addon-developer-support/issues/37](https://github.com/thundernest/addon-developer-support/issues/37)
+
+# Credits:
+* John Bieling (john@thunderbird.net)
+* ImportExportTools NG (https://github.com/thundernest/import-export-tools-ng)
