@@ -1,16 +1,58 @@
+/*
+ * This file is provided by
+ * Company Pegenau GmbH & Co. KG
+ *
+ * Info: info@pegenau.de
+ * Author: Stefan Werfling (stefan.werfling@pegenau.de)
+ *
+ * Special thanks to:
+ * John Bieling (john@thunderbird.net)
+ *
+ * Credits:
+ * ImportExportTools NG (https://github.com/thundernest/import-export-tools-ng)
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 'use strict';
 
 var {Services} = ChromeUtils.import('resource://gre/modules/Services.jsm');
 var {ExtensionSupport} = ChromeUtils.import('resource:///modules/ExtensionSupport.jsm');
 
+/**
+ * DEBUG enable/disable
+ * @type {boolean}
+ */
+const DEBUG = false;
+
+/**
+ * findnow extension api
+ * @type {findnow}
+ */
 var findnow = class extends ExtensionCommon.ExtensionAPI {
 
+    /**
+     * constructor
+     * @param extension
+     */
     constructor(extension) {
-        console.log("Test constructor");
+        if (DEBUG) {
+            console.log("Test constructor");
+        }
+
         super(extension);
         findnow.i18n = extension.localeData;
     }
 
+    /**
+     * onStartup
+     */
     onStartup() {
         const aomStartup = Cc['@mozilla.org/addons/addon-manager-startup;1'].getService(Ci.amIAddonManagerStartup);
         const manifestURI = Services.io.newURI('manifest.json', null, this.extension.rootURI);
@@ -40,6 +82,9 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
         });
     }
 
+    /**
+     * onShutdown
+     */
     onShutdown() {
         for (let win of Services.wm.getEnumerator('findnow')) {
             Services.prompt.alert(
@@ -65,18 +110,28 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
         this.chromeHandle = null;
     }
 
+    /**
+     * getAPI
+     * return api definiation
+     * @param context
+     * @returns {null|{findnow}}
+     */
     getAPI(context) {
-        /*let prefs = Cc["@mozilla.org/preferences-service;1"]
-            .getService(Ci.nsIPrefBranch);*/
-        //let prefs = Services.prefs.getDefaultBranch('extensions.findnow.');
         let prefs = Services.prefs;
 
         const PREF_PREFIX = "extensions.findnow.";
 
         return {
             findnow: {
+
+                /**
+                 * init
+                 * init findnow api
+                 */
                 init() {
-                    console.log('Set Prefs');
+                    if (DEBUG) {
+                        console.log('Set Prefs');
+                    }
 
                     let dprefs = prefs.getDefaultBranch('extensions.findnow.');
 
@@ -116,6 +171,9 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
                     // -----------------------------------------------------------------------
                 },
 
+                /**
+                 * click event
+                 */
                 click() {
                     let recentWindow = Services.wm.getMostRecentWindow('');
 
@@ -126,8 +184,9 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
 
                 /**
                  * getPref
-                 * @param atype
-                 * @param aName
+                 * return pref
+                 * @param atype variable type
+                 * @param aName variable name
                  * @returns {null|*}
                  */
                 getPref(atype, aName) {
@@ -149,20 +208,33 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
                         }
                     }
                     catch( ex ) {
-                        console.log('error on pref:');
+                        if (DEBUG) {
+                            console.log('error on pref:');
+                        }
+
                         console.log(ex);
                     }
 
                     return null;
                 },
 
+                /**
+                 * set pref
+                 * @param atype variable type
+                 * @param aName variable name
+                 * @param aValue variable value
+                 * @returns {*}
+                 */
                 setPref(atype, aName, aValue) {
                     const nName = PREF_PREFIX + aName;
 
                     switch( atype ) {
                         case "string":
                             if (typeof aValue !== 'string') {
-                                console.log('setPref->string: value is not a string!');
+                                if (DEBUG) {
+                                    console.log('setPref->string: value is not a string!');
+                                }
+
                                 return;
                             }
 
@@ -202,6 +274,7 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
 
                 /**
                  * setPrefDefault
+                 * set default preferend
                  * @param atype
                  * @param aName
                  * @param aValue
@@ -212,17 +285,23 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
                     }
                 },
 
+                /**
+                 * pickFile
+                 * pickup a file by extensionAPI
+                 * @returns {Promise<null|*>}
+                 */
                 async pickFile() {
                     const fp = Cc['@mozilla.org/filepicker;1'].createInstance(Ci.nsIFilePicker);
 
                     let recentWindow = Services.wm.getMostRecentWindow('');
 
-                    fp.init(recentWindow, '', nsIFilePicker.modeGetFolder);
+                    fp.init(recentWindow, '', Ci.nsIFilePicker.modeGetFolder);
+
                     let res = await new Promise(resolve => {
                         fp.open(resolve);
                     });
 
-                    if (res === nsIFilePicker.returnOK) {
+                    if (res === Ci.nsIFilePicker.returnOK) {
                         return fp.file.path;
                     }
 
@@ -235,6 +314,11 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
 
 // ------------------------------------------------------------------------------------------------
 
+/**
+ * loadWindow
+ * load and register all findnow objects
+ * @param win
+ */
 function loadWindow(win) {
     console.log(win.location.href);
 
@@ -278,6 +362,11 @@ function loadWindow(win) {
     }
 }
 
+/**
+ * unloadWindow
+ * unload and unregister all findnow objects
+ * @param win
+ */
 function unloadWindow(win) {
     switch (win.location.href) {
         case 'chrome://messenger/content/messenger.xhtml':
@@ -299,6 +388,11 @@ function unloadWindow(win) {
     }
 }
 
+/**
+ * i18n
+ * convert all i18n attributtes to lang
+ * @param win
+ */
 function i18n(win) {
     let elements = win.document.querySelectorAll('[i18n]');
 

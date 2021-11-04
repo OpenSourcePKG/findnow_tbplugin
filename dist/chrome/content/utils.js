@@ -1,9 +1,37 @@
+/*
+ * This file is provided by
+ * Company Pegenau GmbH & Co. KG
+ *
+ * Info: info@pegenau.de
+ * Author: Stefan Werfling (stefan.werfling@pegenau.de)
+ *
+ * Special thanks to:
+ * John Bieling (john@thunderbird.net)
+ *
+ * Credits:
+ * ImportExportTools NG (https://github.com/thundernest/import-export-tools-ng)
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 'use strict';
 
 const {Services} = ChromeUtils.import('resource://gre/modules/Services.jsm');
 const {OS} = ChromeUtils.import('resource://gre/modules/osfile.jsm');
 const {MailUtils} = ChromeUtils.import("resource:///modules/MailUtils.jsm");
 const {MailServices} = ChromeUtils.import("resource:///modules/MailServices.jsm");
+
+/**
+ * DEBUG enable/disable
+ * @type {boolean}
+ */
+const DEBUG = false;
 
 /**
  * load
@@ -19,7 +47,9 @@ function load(win) {
 
     this._moveToTrash = this.IETprefs.getBoolPref('extensions.findnow.move_to_trash');
 
-    console.log('Findnow Utils: Load');
+    if (DEBUG) {
+        console.log('Findnow Utils: Load');
+    }
 }
 
 /**
@@ -75,7 +105,11 @@ function getPredefinedFolder() {
             return null;
         }
     } catch (e) {
-        console.log('Findnow Utils: setting not exist');
+        if (DEBUG) {
+            console.log('Findnow Utils: setting not exist');
+            console.log(e);
+        }
+
         return null;
     }
 
@@ -123,7 +157,7 @@ async function getMsgDestination() {
     if (showPicker) {
         const fp = Components.classes['@mozilla.org/filepicker;1'].createInstance(Ci.nsIFilePicker);
 
-        fp.init(this.win, '', nsIFilePicker.modeGetFolder);
+        fp.init(this.win, '', Ci.nsIFilePicker.modeGetFolder);
 
         if (bfile) {
             fp.displayDirectory = bfile;
@@ -133,7 +167,7 @@ async function getMsgDestination() {
             fp.open(resolve);
         });
 
-        if (res === nsIFilePicker.returnOK) {
+        if (res === Ci.nsIFilePicker.returnOK) {
             file = fp.file;
         }
     }
@@ -143,35 +177,27 @@ async function getMsgDestination() {
 
     try {
         if (this.IETprefs.getBoolPref('extensions.findnow.export_eml_use_sub_dir')) {
-            //if( bfile.path === file.path ) {
             const subDir = this.IETgetComplexPref('extensions.findnow.export_eml_sub_dir');
             const subDirDes = OS.Path.join(file.path, subDir);
 
             try {
-                // not work!
-                //OS.File.makeDir(subDirDes, {ignoreExisting: true});
-                //FileUtils.getDir("ProfD", [subDirDes], true);
-
                 const localFile = Components.classes['@mozilla.org/file/local;1']
-                .createInstance(Components.interfaces.nsIFile);
+                    .createInstance(Components.interfaces.nsIFile);
 
                 localFile.initWithPath(subDirDes);
-
-                //if( localFile.exists() ) {
-                //localFile.create(localFile.DIRECTORY_TYPE, 0777);
-                //}
 
                 if (localFile.exists()) {
                     file = localFile;
                 }
             } catch (ex) {
-                console.log('Findnow Utils: ' +
-                    'call getMsgDestination (sub dir) - error = ');
+                if (DEBUG) {
+                    console.log('Findnow Utils: call getMsgDestination (sub dir) - error = ');
+                }
+
                 console.log(ex);
 
                 return null;
             }
-            //}
         }
     } catch (e) {
         console.log(e);
@@ -294,8 +320,6 @@ function nametoascii(str) {
     }
 
     if (str) {
-        //str = str.replace(/[^a-zA-Z0-9ÄäÖöÜüß\- ]/g, '_');
-        //str = str.replace(/[<>:"/\|?*]/g, '_');
         str = str.replace(/\n/g," ").replace(/[<>:"/\\|?*\x00-\x1F]| +$/g,"").replace(/^(CON|PRN|AUX|NUL|COM[1-9]|LPT[1-9])$/, x=> x + "_");
     } else {
         str = 'Undefinied_or_empty';
@@ -341,7 +365,7 @@ function getSubjectForHdr(hdr, dirPath) {
     const useFilenameAbbreviation = this.IETprefs.getBoolPref('extensions.findnow.use_filename_abbreviation');
     const allowEditSubject = this.IETprefs.getBoolPref('extensions.findnow.allow_edit_subject');
 
-    // Subject
+    // Subject ---------------------------------------------------------------------------------------------------------
     let subj;
 
     if (hdr.mime2DecodedSubject) {
@@ -372,8 +396,6 @@ function getSubjectForHdr(hdr, dirPath) {
         subj = returns.returnsubject;
         this.FNsetMoveToTrash(returns.moveToTrash);
 
-        //subj = this.win.prompt('Bitte geben Sie ihre Änderung im Betreff an:', subj);
-
         // canel by subject edit
         if (subj === null) {
             return null;
@@ -392,7 +414,7 @@ function getSubjectForHdr(hdr, dirPath) {
 
     subj = this.nametoascii(subj);
 
-    // Date - Key
+    // Date - Key ------------------------------------------------------------------------------------------------------
     const dateInSec = hdr.dateInSeconds;
     let msgDate8601string;
 
@@ -477,8 +499,7 @@ function IETstr_converter(str) {
             return str;
         }
 
-        const uConv = Cc['@mozilla.org/intl/scriptableunicodeconverter']
-        .createInstance(Ci.nsIScriptableUnicodeConverter);
+        const uConv = Cc['@mozilla.org/intl/scriptableunicodeconverter'].createInstance(Ci.nsIScriptableUnicodeConverter);
 
         uConv.charset = charset;
         convStr = uConv.ConvertFromUnicode(str);
@@ -518,17 +539,18 @@ function IETwriteDataOnDisk(file, data, append, fname, time) {
         console.log(e);
     }
 
-    var foStream = Cc['@mozilla.org/network/file-output-stream;1']
-    .createInstance(Ci.nsIFileOutputStream);
+    var foStream = Cc['@mozilla.org/network/file-output-stream;1'].createInstance(Ci.nsIFileOutputStream);
 
     if (append) {
         if (fname) {
             file.append(fname);
         }
 
-        foStream.init(file, 0x02 | 0x08 | 0x10, 0o664, 0); // write,  create, append
+        // write,  create, append
+        foStream.init(file, 0x02 | 0x08 | 0x10, 0o664, 0);
     } else {
-        foStream.init(file, 0x02 | 0x08 | 0x20, 0o664, 0); // write, create, truncate
+        // write, create, truncate
+        foStream.init(file, 0x02 | 0x08 | 0x20, 0o664, 0);
     }
 
     if (data) {
@@ -602,9 +624,7 @@ function IETescapeBeginningFrom(data) {
  * @constructor
  */
 function IETcopyStrToClip(str) {
-    const clip = Cc['@mozilla.org/widget/clipboardhelper;1']
-    .getService(Ci.nsIClipboardHelper);
-
+    const clip = Cc['@mozilla.org/widget/clipboardhelper;1'].getService(Ci.nsIClipboardHelper);
     clip.copyString(str);
 }
 
@@ -639,7 +659,10 @@ function FNmoveMessage(msguri, folderuri) {
             const folder = MailUtils.getExistingFolder(folderuri);
 
             if (!folder) {
-                console.log('target folder for "' + folderuri + '" not found');
+                if (DEBUG) {
+                    console.log('target folder for "' + folderuri + '" not found');
+                }
+
                 return false;
             }
 
@@ -663,7 +686,9 @@ function FNmoveMessage(msguri, folderuri) {
             return true;
         }
         else {
-            console('target folder is same source folder: "' + folderuri + '"');
+            if (DEBUG) {
+                console('target folder is same source folder: "' + folderuri + '"');
+            }
         }
     }
     catch( e ) {

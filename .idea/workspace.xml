@@ -31,17 +31,16 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="update appliaction id">
+    <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="update remove old files, clear code, move files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/_locales/en-US/messages.json" beforeDir="false" afterPath="$PROJECT_DIR$/dist/_locales/en_US/messages.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome.manifest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Readme.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/chrome/api/findnow/implementation.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/api/findnow/implementation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/exporter.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/exporter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/overlay.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/overlay.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/ui/editsubject.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/ui/editsubject.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/ui/options.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/ui/options.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/chrome/content/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/images/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/images/findnow.png" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/content/images/findnow.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/locale/de/findnow/messages.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/locale/en-US/findnow/messages.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/locale/mboxfindnow.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/chrome/scripts/background.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chrome/scripts/background.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/dist/manifest.json" afterDir="false" />
     </list>
@@ -104,6 +103,7 @@
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.TypeScript" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -206,7 +206,9 @@
       <workItem from="1635753944456" duration="6020000" />
       <workItem from="1635762707454" duration="783000" />
       <workItem from="1635789266096" duration="254000" />
-      <workItem from="1635851352234" duration="1341000" />
+      <workItem from="1635851352234" duration="3951000" />
+      <workItem from="1635876985043" duration="355000" />
+      <workItem from="1636022236130" duration="8396000" />
     </task>
     <task id="LOCAL-00001" summary="add basic ide, add source code by 68.0 version">
       <created>1600776998338</created>
@@ -432,11 +434,28 @@
       <option name="project" value="LOCAL" />
       <updated>1633953584929</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="update remove old files, clear code, move files">
+      <created>1635858118282</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1635858118282</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -449,7 +468,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/remove_thread_stepping" />
+                        <option value="swe/91.1.2" />
                       </list>
                     </value>
                   </entry>
@@ -463,7 +482,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add api wrapper WindowLoader and BootstrapLoader" />
     <MESSAGE value="add api wrapper ConversionHelper and LegacyPrefs" />
     <MESSAGE value="add dockerfile, change code" />
     <MESSAGE value="add grunt, change dockerfile settings, update source, dev part 1" />
@@ -488,6 +506,7 @@
     <MESSAGE value="update docker container to 91.1.2" />
     <MESSAGE value="update plugin to thunderbird 91.1.2, new version 2.2" />
     <MESSAGE value="update appliaction id" />
-    <option name="LAST_COMMIT_MESSAGE" value="update appliaction id" />
+    <MESSAGE value="update remove old files, clear code, move files" />
+    <option name="LAST_COMMIT_MESSAGE" value="update remove old files, clear code, move files" />
   </component>
 </project>
