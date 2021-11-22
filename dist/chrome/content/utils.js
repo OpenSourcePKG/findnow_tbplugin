@@ -668,14 +668,9 @@ function FNmoveMessage(msguri, folderuri) {
 
             const copyService = MailServices.copy;
 
-            let msgs = Components.classes["@mozilla.org/array;1"]
-                .createInstance(Components.interfaces.nsIMutableArray);
-
-            msgs.appendElement(msgHdr, false);
-
-            copyService.CopyMessages(
+            copyService.copyMessages(
                 msgHdr.folder,
-                msgs,
+                [msgHdr],
                 folder,
                 true /* isMove */,
                 null/*listener*/,
