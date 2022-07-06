@@ -45,11 +45,28 @@ function load(win) {
 
     this.IETnosub = 'None_subject';
 
-    this._moveToTrash = this.IETprefs.getBoolPref('extensions.findnow.move_to_trash');
+    this._moveToTrash = this.getBoolPref('extensions.findnow.move_to_trash');
 
     if (DEBUG) {
         console.log('Findnow Utils: Load');
     }
+}
+
+/**
+ * getBoolPref
+ * @param name
+ * @returns {boolean}
+ */
+function getBoolPref(name) {
+    if (typeof this.IETprefs === 'undefine' ) {
+        return false;
+    }
+
+    if (this.IETprefs.getBoolPref(name)) {
+        return true;
+    }
+
+    return false;
 }
 
 /**
@@ -101,7 +118,7 @@ function getPredefinedFolder() {
     const dir_path = 'extensions.findnow.export_eml_dir';
 
     try {
-        if (!this.IETprefs.getBoolPref(use_dir)) {
+        if (!this.getBoolPref(use_dir)) {
             return null;
         }
     } catch (e) {
@@ -150,7 +167,7 @@ async function getMsgDestination() {
         showPicker = true;
     }
 
-    if (!showPicker && !this.IETprefs.getBoolPref('extensions.findnow.export_save_auto_eml')) {
+    if (!showPicker && !this.getBoolPref('extensions.findnow.export_save_auto_eml')) {
         showPicker = true;
     }
 
@@ -176,7 +193,7 @@ async function getMsgDestination() {
     // ---------------------------------------------------------------------
 
     try {
-        if (this.IETprefs.getBoolPref('extensions.findnow.export_eml_use_sub_dir')) {
+        if (this.getBoolPref('extensions.findnow.export_eml_use_sub_dir')) {
             const subDir = this.IETgetComplexPref('extensions.findnow.export_eml_sub_dir');
             const subDirDes = OS.Path.join(file.path, subDir);
 
@@ -214,7 +231,7 @@ async function getMsgDestination() {
  * @returns {string}
  */
 function dateInISO(secs) {
-    const addTime = this.IETprefs.getBoolPref('extensions.findnow.export_filenames_addtime');
+    const addTime = this.getBoolPref('extensions.findnow.export_filenames_addtime');
     const msgDate = new Date(secs * 1000);
     const msgDate8601 = msgDate.getFullYear();
 
@@ -265,7 +282,7 @@ function dateInISO(secs) {
  * @returns {string}
  */
 function dateInSecondsTo8601(secs) {
-    const addTime = this.IETprefs.getBoolPref('extensions.findnow.export_filenames_addtime');
+    const addTime = this.getBoolPref('extensions.findnow.export_filenames_addtime');
     const msgDate = new Date(secs * 1000);
     const msgDate8601 = msgDate.getFullYear();
 
@@ -313,7 +330,7 @@ function dateInSecondsTo8601(secs) {
  * @returns {string|*}
  */
 function nametoascii(str) {
-    if (!this.IETprefs.getBoolPref('extensions.findnow.export_filenames_toascii')) {
+    if (!this.getBoolPref('extensions.findnow.export_filenames_toascii')) {
         str = str.replace(/[\x00-\x19]/g, '_');
 
         return str.replace(/[\/\\:,<>*\?\"\|]/g, '_');
@@ -356,14 +373,14 @@ function formatNameForSubject(str, recipients) {
  */
 function getSubjectForHdr(hdr, dirPath) {
     const emlNameType = this.IETprefs.getIntPref('extensions.findnow.export_eml_filename_format');
-    const mustcorrectname = this.IETprefs.getBoolPref('extensions.findnow.export_filenames_toascii');
-    const cutSubject = this.IETprefs.getBoolPref('extensions.findnow.export_cut_subject');
-    const cutFileName = this.IETprefs.getBoolPref('extensions.findnow.export_cut_filename');
-    const useIsoDate = this.IETprefs.getBoolPref('extensions.findnow.export_filename_useisodate');
+    const mustcorrectname = this.getBoolPref('extensions.findnow.export_filenames_toascii');
+    const cutSubject = this.getBoolPref('extensions.findnow.export_cut_subject');
+    const cutFileName = this.getBoolPref('extensions.findnow.export_cut_filename');
+    const useIsoDate = this.getBoolPref('extensions.findnow.export_filename_useisodate');
     const subMaxLen = cutSubject ? 50 : -1;
 
-    const useFilenameAbbreviation = this.IETprefs.getBoolPref('extensions.findnow.use_filename_abbreviation');
-    const allowEditSubject = this.IETprefs.getBoolPref('extensions.findnow.allow_edit_subject');
+    const useFilenameAbbreviation = this.getBoolPref('extensions.findnow.use_filename_abbreviation');
+    const allowEditSubject = this.getBoolPref('extensions.findnow.allow_edit_subject');
 
     // Subject ---------------------------------------------------------------------------------------------------------
     let subj;
@@ -382,7 +399,7 @@ function getSubjectForHdr(hdr, dirPath) {
         var returns = {
             subject: subj,
             returnsubject: null,
-            moveToTrash: this.IETprefs.getBoolPref("extensions.findnow.move_to_trash"),
+            moveToTrash: this.getBoolPref("extensions.findnow.move_to_trash"),
             resulte: false
         };
 
@@ -453,7 +470,7 @@ function getSubjectForHdr(hdr, dirPath) {
         pattern = pattern.replace('%r', recName);
         pattern = pattern.replace(/-%e/g, '');
 
-        if (this.IETprefs.getBoolPref('extensions.findnow.export_filename_add_prefix')) {
+        if (this.getBoolPref('extensions.findnow.export_filename_add_prefix')) {
             const prefix = this.IETgetComplexPref('extensions.findnow.export_filename_prefix');
 
             pattern = prefix + pattern;
@@ -560,7 +577,7 @@ function IETwriteDataOnDisk(file, data, append, fname, time) {
     foStream.close();
 
     try {
-        if (time && this.IETprefs.getBoolPref('extensions.findnow.export_set_filetime')) {
+        if (time && this.getBoolPref('extensions.findnow.export_set_filetime')) {
             file.lastModifiedTime = time;
         }
     } catch (e) {
