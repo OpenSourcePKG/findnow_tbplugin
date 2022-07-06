@@ -7,12 +7,12 @@
 [![License: GPL 3.0](https://img.shields.io/badge/License-GPL%203.0-red.png)](https://opensource.org/licenses/GPL-3.0)
 
 ## Generals
-* Version: ```91.1```
+* Version: ```102.0```
 * Project: ```Findnow TB for Version 91.* Thunderbird```
 * Author: ```Stefan Werfling```
 * Lang: ```js, ts```
 * Tools: ```phpstorm```
-* Last update: ```04.11.2021```
+* Last update: ```06.07.2022```
 
 # 1. begin dev over docker
 I put Thunderbrid in a Docker container for 2 reasons:
