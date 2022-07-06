@@ -8,7 +8,7 @@
 
 ## Generals
 * Version: ```102.0```
-* Project: ```Findnow TB for Version 91.* Thunderbird```
+* Project: ```Findnow TB for Version 102.* Thunderbird```
 * Author: ```Stefan Werfling```
 * Lang: ```js, ts```
 * Tools: ```phpstorm```
