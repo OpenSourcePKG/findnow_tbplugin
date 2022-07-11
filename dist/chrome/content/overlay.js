@@ -42,7 +42,7 @@ function load(win) {
     let toolbarbutton = win.document.createXULElement("toolbarbutton");
 
     toolbarbutton.setAttribute("id", "saveToFindnow");
-    toolbarbutton.setAttribute("class", "toolbarbutton-1 msgHeaderView-button");
+    toolbarbutton.setAttribute("class", "toolbarbutton-1 msgHeaderView-button message-header-view-button");
     toolbarbutton.setAttribute("image", "chrome://messenger/skin/icons/getmsg.svg");
     toolbarbutton.setAttribute("label", "Ablegen");
     toolbarbutton.setAttribute("oncommand", "findnow_exporter.saveTo();");

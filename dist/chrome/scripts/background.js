@@ -26,7 +26,7 @@
  * DEBUG enable/disable
  * @type {boolean}
  */
-const DEBUG = false;
+const DEBUG = true;
 
 if (DEBUG) {
     console.log('Findnow background.js');

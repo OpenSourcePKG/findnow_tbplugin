@@ -48,12 +48,17 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
 
         super(extension);
         findnow.i18n = extension.localeData;
+        findnow._prefs = null;
     }
 
     /**
      * onStartup
      */
     onStartup() {
+        this._initPref();
+
+        // -------------------------------------------------------------------------------------------------------------
+
         const aomStartup = Cc['@mozilla.org/addons/addon-manager-startup;1'].getService(Ci.amIAddonManagerStartup);
         const manifestURI = Services.io.newURI('manifest.json', null, this.extension.rootURI);
 
@@ -80,6 +85,54 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
             onUnloadWindow: unloadWindow
 
         });
+
+
+    }
+
+    /**
+     * _initPref
+     * @private
+     */
+    _initPref() {
+        if (DEBUG) {
+            console.log('Set Prefs');
+        }
+
+        findnow._prefs = Services.prefs;
+        let dprefs = findnow._prefs.getDefaultBranch('extensions.findnow.');
+
+        dprefs.setBoolPref('export_overwrite', true);
+        dprefs.setBoolPref('export_set_filetime', false);
+        dprefs.setBoolPref('log_enable', false);
+        dprefs.setStringPref('export_filename_charset', '');
+        dprefs.setIntPref('delay_clean_statusbar', 5000);
+        dprefs.setBoolPref('export_filenames_toascii', true);
+        dprefs.setBoolPref('export_filenames_addtime', true);
+        dprefs.setIntPref('export_eml_filename_format', 2);
+        dprefs.setBoolPref('export_cut_subject', true);
+        dprefs.setBoolPref('export_cut_filename', true);
+        dprefs.setBoolPref('export_filename_add_prefix', false);
+        dprefs.setBoolPref('export_filename_useisodate', true);
+        dprefs.setBoolPref('export_save_auto_eml', false);
+        dprefs.setStringPref('export_filename_pattern', '%d %s-%k');
+        dprefs.setStringPref(
+            'export_charset_list',
+            'ARMSCII-8,GEOSTD8,ISO-8859-1,ISO-8859-2,ISO-8859-3,ISO-8859-4,ISO-8859-5,ISO-8859-6,ISO-8859-7,ISO-8859-8,ISO-8859-9,ISO-8859-10,ISO-8859-11,ISO-8859-12,ISO-8859-13,ISO-8859-14,ISO-8859-15,ISO-8859-16,KOI8-R,KOI8-U,UTF-8,UTF-8 (BOM),WINDOWS-1250,WINDOWS-1251,WINDOWS-1252,WINDOWS-1253,WINDOWS-1254,WINDOWS-1255,WINDOWS-1256,WINDOWS-1257,WINDOWS-1258'
+        );
+        dprefs.setBoolPref('button_show_default', false);
+
+        dprefs.setBoolPref('export_eml_use_dir', false);
+        dprefs.setStringPref('export_eml_dir', '');
+
+        dprefs.setBoolPref('export_eml_use_sub_dir', false);
+        dprefs.setStringPref('export_eml_sub_dir', '');
+
+
+        dprefs.setBoolPref('use_filename_abbreviation', false);
+        dprefs.setStringPref('filename_abbreviation', '');
+
+        dprefs.setBoolPref('allow_edit_subject', false);
+        dprefs.setBoolPref('move_to_trash', false);
     }
 
     /**
@@ -117,7 +170,7 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
      * @returns {null|{findnow}}
      */
     getAPI(context) {
-        let prefs = Services.prefs;
+        let prefs = findnow._prefs;
 
         const PREF_PREFIX = "extensions.findnow.";
 
@@ -130,45 +183,8 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
                  */
                 init() {
                     if (DEBUG) {
-                        console.log('Set Prefs');
+                        console.log('Findnow Init');
                     }
-
-                    let dprefs = prefs.getDefaultBranch('extensions.findnow.');
-
-                    dprefs.setBoolPref('export_overwrite', true);
-                    dprefs.setBoolPref('export_set_filetime', false);
-                    dprefs.setBoolPref('log_enable', false);
-                    dprefs.setStringPref('export_filename_charset', '');
-                    dprefs.setIntPref('delay_clean_statusbar', 5000);
-                    dprefs.setBoolPref('export_filenames_toascii', true);
-                    dprefs.setBoolPref('export_filenames_addtime', true);
-                    dprefs.setIntPref('export_eml_filename_format', 2);
-                    dprefs.setBoolPref('export_cut_subject', true);
-                    dprefs.setBoolPref('export_cut_filename', true);
-                    dprefs.setBoolPref('export_filename_add_prefix', false);
-                    dprefs.setBoolPref('export_filename_useisodate', true);
-                    dprefs.setBoolPref('export_save_auto_eml', false);
-                    dprefs.setStringPref('export_filename_pattern', '%d %s-%k');
-                    dprefs.setStringPref(
-                        'export_charset_list',
-                        'ARMSCII-8,GEOSTD8,ISO-8859-1,ISO-8859-2,ISO-8859-3,ISO-8859-4,ISO-8859-5,ISO-8859-6,ISO-8859-7,ISO-8859-8,ISO-8859-9,ISO-8859-10,ISO-8859-11,ISO-8859-12,ISO-8859-13,ISO-8859-14,ISO-8859-15,ISO-8859-16,KOI8-R,KOI8-U,UTF-8,UTF-8 (BOM),WINDOWS-1250,WINDOWS-1251,WINDOWS-1252,WINDOWS-1253,WINDOWS-1254,WINDOWS-1255,WINDOWS-1256,WINDOWS-1257,WINDOWS-1258'
-                    );
-                    dprefs.setBoolPref('button_show_default', false);
-
-                    dprefs.setBoolPref('export_eml_use_dir', false);
-                    dprefs.setStringPref('export_eml_dir', '');
-
-                    dprefs.setBoolPref('export_eml_use_sub_dir', false);
-                    dprefs.setStringPref('export_eml_sub_dir', '');
-
-
-                    dprefs.setBoolPref('use_filename_abbreviation', false);
-                    dprefs.setStringPref('filename_abbreviation', '');
-
-                    dprefs.setBoolPref('allow_edit_subject', false);
-                    dprefs.setBoolPref('move_to_trash', false);
-
-                    // -----------------------------------------------------------------------
                 },
 
                 /**
