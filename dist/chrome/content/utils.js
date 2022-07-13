@@ -155,7 +155,10 @@ function getPredefinedFolder() {
 
 /**
  * getMsgDestination
- * @returns {null|*|unresolved|string|undefined}
+ * return: false = cancel by user
+ * return: null = error by select file
+ * return: file = path for file
+ * @returns {Promise<null|boolean|*>}
  */
 async function getMsgDestination() {
     const bfile = this.getPredefinedFolder();
@@ -186,6 +189,8 @@ async function getMsgDestination() {
 
         if (res === Ci.nsIFilePicker.returnOK) {
             file = fp.file;
+        } else if (res === Ci.nsIFilePicker.returnCancel) {
+            return false;
         }
     }
 

@@ -51,7 +51,7 @@ function load(win) {
  */
 async function saveTo() {
     if (DEBUG) {
-        console.log('Exporter: SaveTo');
+        console.log('Exporter::SaveTo: SaveTo');
     }
 
     const selectedMsg = this.win.gFolderDisplay.selectedMessage;
@@ -64,18 +64,33 @@ async function saveTo() {
 
     const file = await this.win.findnow_utils.getMsgDestination();
 
-    this.saveMsgAsEML(
-        msgURI,
-        file,
-        false,
-        emlsArray,
-        null,
-        null,
-        false,
-        false,
-        null,
-        null
-    );
+    if (file === null) {
+        this.win.alert(
+            'Bei der Auswahl des Ordners für das Speichern der EMail ist ein ' +
+            'Fehler aufgetreten! EMail konnte nicht gespeichert werden.'
+        );
+
+        return;
+    }
+
+    if (file !== false) {
+        this.saveMsgAsEML(
+            msgURI,
+            file,
+            false,
+            emlsArray,
+            null,
+            null,
+            false,
+            false,
+            null,
+            null
+        );
+    } else {
+        if (DEBUG) {
+            console.log('Exporter::SaveTo: cancel msg destincation by user');
+        }
+    }
 }
 
 /**
