@@ -32,4 +32,8 @@ if (DEBUG) {
     console.log('Findnow background.js');
 }
 
-browser.findnow.init();
+if (browser) {
+    browser.findnow.init();
+} else {
+    console.log('Findnow::background: browser object not found!');
+}

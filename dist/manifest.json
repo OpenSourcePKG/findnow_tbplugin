@@ -10,7 +10,8 @@
   "applications": {
     "gecko": {
       "id": "FindNow@hw-softwareentwicklung.de",
-      "strict_min_version": "78.0"
+      "strict_min_version": "78.0",
+      "strict_max_version": "102.*"
     }
   },
 
