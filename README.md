@@ -1,6 +1,7 @@
 # FindNow Thunderbird Addon
+The FindNow plugin helps to store emails from Thunderbird in the file system as eml. These can then be scanned by FindNow.
 
-[FindNow](https://addons.thunderbird.net/addon/findnow/) adds export functions for messages.
+[FindNow on Addons.thunderbird.net](https://addons.thunderbird.net/addon/findnow/)
 
 [Click here to view this add-on’s version history](https://addons.thunderbird.net/addon/findnow/versions/).
 
@@ -12,7 +13,7 @@
 * Author: ```Stefan Werfling```
 * Lang: ```js, ts```
 * Tools: ```phpstorm```
-* Last update: ```06.07.2022```
+* Last update: ```26.08.2022```
 
 # 1. begin dev over docker
 I put Thunderbrid in a Docker container for 2 reasons:
@@ -20,6 +21,12 @@ I put Thunderbrid in a Docker container for 2 reasons:
 2) Always copy the add-on to Zip (xpi) and then install it by hand.
 
 These processes are very frustrating in the long run, especially if only one line in the code changes and this has to be checked. A day can quickly pass with this process.
+
+## NPM
+First install all npm packets for grunt.
+```shell
+npm install
+```
 
 ## Docker
 Now in docker you can set it up as follows:
@@ -119,6 +126,31 @@ Info by: John Bieling (john@thunderbird.net)
 > coding and WebExtension coding. See also the update steps tutorials:
     
 [https://github.com/thundernest/addon-developer-support/issues/37](https://github.com/thundernest/addon-developer-support/issues/37)
+
+# Contributors
+
+Special thanks to the following contributors:
+
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+	<tr>
+		<td align="center">
+			<a href="https://github.com/Choppel">
+				<img src="https://avatars.githubusercontent.com/u/14126324?v=4" width="80" alt=""/>
+				<br /><sub><b>Choppel</b></sub>
+			</a>
+		</td>
+        <td align="center">
+			<a href="https://github.com/jobisoft">
+				<img src="https://avatars.githubusercontent.com/u/5830621?v=4" width="80" alt=""/>
+				<br /><sub><b>John Bieling</b></sub>
+			</a>
+		</td>
+	</tr>
+</table>
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
 
 # Credits:
 * John Bieling (john@thunderbird.net)
