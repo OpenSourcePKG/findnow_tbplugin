@@ -31,7 +31,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="update">
+    <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="update and clear repo">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/built/Findnow.xpi" beforeDir="false" afterPath="$PROJECT_DIR$/built/Findnow.xpi" afterDir="false" />
     </list>
@@ -213,7 +214,7 @@
       <workItem from="1657708432850" duration="36000" />
       <workItem from="1657808720430" duration="1882000" />
       <workItem from="1657817926766" duration="610000" />
-      <workItem from="1661498114693" duration="845000" />
+      <workItem from="1661498114693" duration="1556000" />
     </task>
     <task id="LOCAL-00001" summary="add basic ide, add source code by 68.0 version">
       <created>1600776998338</created>
@@ -516,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657809833858</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="update and clear repo">
+      <created>1661499616404</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1661499616404</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,7 +565,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update to 78_4_0" />
     <MESSAGE value="add error dialog for file save" />
     <MESSAGE value="add abbreviation, subject edit, update options" />
     <MESSAGE value="project clearing" />
@@ -582,6 +589,7 @@
     <MESSAGE value="update prefs init, update ui button" />
     <MESSAGE value="update version, update path selection handel, update translaten" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="update and clear repo" />
+    <option name="LAST_COMMIT_MESSAGE" value="update and clear repo" />
   </component>
 </project>
