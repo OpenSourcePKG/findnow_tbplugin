@@ -7,6 +7,11 @@ The FindNow plugin helps to store emails from Thunderbird in the file system as 
 
 [![License: GPL 3.0](https://img.shields.io/badge/License-GPL%203.0-red.png)](https://opensource.org/licenses/GPL-3.0)
 
+# Maintainer
+This is a project of Pegenau GmbH & Co. KG
+
+https://www.pegenau.de/
+
 ## Generals
 * Version: ```102.0```
 * Project: ```Findnow TB for Version 102.* Thunderbird```
