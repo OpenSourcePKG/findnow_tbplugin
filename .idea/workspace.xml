@@ -31,10 +31,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="npm update">
+    <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/built/Findnow.xpi" beforeDir="false" afterPath="$PROJECT_DIR$/built/Findnow.xpi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thunderbird/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/thunderbird/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,17 +78,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;js.buildTools.grunt.grunt-cli.package&quot;: &quot;/home/swe/Dokumente/Projekte/xd/findnow_tbplugin/node_modules/grunt-cli&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/swe/Dokumente/Projekte/github/flyingfish&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "js.buildTools.grunt.grunt-cli.package": "/home/swe/Dokumente/Projekte/xd/findnow_tbplugin/node_modules/grunt-cli",
+    "last_opened_file_path": "/home/swe/Dokumente/Projekte/xd/findnow_tbplugin",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
@@ -200,6 +201,19 @@
       <workItem from="1647540574161" duration="16000" />
       <workItem from="1656943381824" duration="614000" />
       <workItem from="1656951340375" duration="28000" />
+      <workItem from="1657179921114" duration="1584000" />
+      <workItem from="1657524752753" duration="5441000" />
+      <workItem from="1657554375183" duration="88000" />
+      <workItem from="1657554800401" duration="31000" />
+      <workItem from="1657609065134" duration="18000" />
+      <workItem from="1657614663034" duration="1214000" />
+      <workItem from="1657636066129" duration="796000" />
+      <workItem from="1657660083247" duration="26000" />
+      <workItem from="1657699708743" duration="2434000" />
+      <workItem from="1657708432850" duration="36000" />
+      <workItem from="1657808720430" duration="1882000" />
+      <workItem from="1657817926766" duration="610000" />
+      <workItem from="1661498114693" duration="845000" />
     </task>
     <task id="LOCAL-00001" summary="add basic ide, add source code by 68.0 version">
       <created>1600776998338</created>
@@ -474,7 +488,35 @@
       <option name="project" value="LOCAL" />
       <updated>1657115226235</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="update thunderbird docker">
+      <created>1657119977697</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1657119977697</updated>
+    </task>
+    <task id="LOCAL-00041" summary="update prefs init, update ui button">
+      <created>1657526757396</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1657526757396</updated>
+    </task>
+    <task id="LOCAL-00042" summary="update version, update path selection handel, update translaten">
+      <created>1657705133976</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1657705133976</updated>
+    </task>
+    <task id="LOCAL-00043" summary="update">
+      <created>1657809833858</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1657809833858</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -487,6 +529,7 @@
         <option value="Default.Author" />
         <option value="Default.Date" />
         <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
       </list>
     </option>
   </component>
@@ -514,10 +557,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update part 3" />
-    <MESSAGE value="update 1" />
-    <MESSAGE value="update options" />
-    <MESSAGE value="update" />
     <MESSAGE value="update to 78_4_0" />
     <MESSAGE value="add error dialog for file save" />
     <MESSAGE value="add abbreviation, subject edit, update options" />
@@ -539,6 +578,10 @@
     <MESSAGE value="update thunderbird version" />
     <MESSAGE value="update readme" />
     <MESSAGE value="npm update" />
-    <option name="LAST_COMMIT_MESSAGE" value="npm update" />
+    <MESSAGE value="update thunderbird docker" />
+    <MESSAGE value="update prefs init, update ui button" />
+    <MESSAGE value="update version, update path selection handel, update translaten" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
 </project>
