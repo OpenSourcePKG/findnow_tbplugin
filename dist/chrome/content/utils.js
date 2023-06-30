@@ -22,7 +22,9 @@
 
 'use strict';
 
-const {Services} = ChromeUtils.import('resource://gre/modules/Services.jsm');
+const Services = globalThis.Services || ChromeUtils.import(
+  'resource://gre/modules/Services.jsm'
+).Services;
 const {OS} = ChromeUtils.import('resource://gre/modules/osfile.jsm');
 const {MailUtils} = ChromeUtils.import("resource:///modules/MailUtils.jsm");
 const {MailServices} = ChromeUtils.import("resource:///modules/MailServices.jsm");
