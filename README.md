@@ -152,6 +152,12 @@ Special thanks to the following contributors:
 				<br /><sub><b>John Bieling</b></sub>
 			</a>
 		</td>
+	<td align="center">
+			<a href="https://github.com/arai-a">
+				<img src="https://avatars.githubusercontent.com/u/6299746?v=4" width="80" alt=""/>
+				<br /><sub><b>John Bieling</b></sub>
+			</a>
+		</td>
 	</tr>
 </table>
 <!-- markdownlint-enable -->
