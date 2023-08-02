@@ -16,7 +16,12 @@ module.exports = (grunt) => {
                     mode: "zip",
                 },
                 files: [
-                    { expand: true, cwd: outDirExtracted, src: ["**"], dest: "/" }, // makes all src relative to cwd
+                    {
+                        expand: true,
+                        cwd: outDirExtracted,
+                        src: ["**"],
+                        dest: "/"
+                    }, // makes all src relative to cwd
                 ],
             },
         },

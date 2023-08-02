@@ -25,13 +25,14 @@
 var Services = globalThis.Services || ChromeUtils.import(
   'resource://gre/modules/Services.jsm'
 ).Services;
+
 var {ExtensionSupport} = ChromeUtils.import('resource:///modules/ExtensionSupport.jsm');
 
 /**
  * DEBUG enable/disable
  * @type {boolean}
  */
-const DEBUG = false;
+const DEBUG = true;
 
 /**
  * findnow extension api
@@ -348,7 +349,7 @@ function loadWindow(win) {
 
             win.findnow_utils = {};
 
-            Services.scriptloader.loadSubScript('chrome://findnow/content/utils.js', win.findnow_utils);
+            Services.scriptloader.loadSubScript('chrome://findnow/content/utils.js', win.findnow_utils, 'UTF-8');
 
             win.findnow_utils.i18n = findnow.i18n;
             win.findnow_utils.load(win);
@@ -357,7 +358,7 @@ function loadWindow(win) {
 
             win.findnow_exporter = {};
 
-            Services.scriptloader.loadSubScript('chrome://findnow/content/exporter.js', win.findnow_exporter);
+            Services.scriptloader.loadSubScript('chrome://findnow/content/exporter.js', win.findnow_exporter, 'UTF-8');
 
             win.findnow_exporter.i18n = findnow.i18n;
             win.findnow_exporter.load(win);
@@ -366,7 +367,7 @@ function loadWindow(win) {
 
             win.findnow = {};
 
-            Services.scriptloader.loadSubScript('chrome://findnow/content/overlay.js', win.findnow);
+            Services.scriptloader.loadSubScript('chrome://findnow/content/overlay.js', win.findnow, 'UTF-8');
 
             win.findnow.i18n = findnow.i18n;
             win.findnow.load(win);

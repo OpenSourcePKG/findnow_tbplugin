@@ -25,7 +25,13 @@
 const Services = globalThis.Services || ChromeUtils.import(
   'resource://gre/modules/Services.jsm'
 ).Services;
-const {OS} = ChromeUtils.import('resource://gre/modules/osfile.jsm');
+
+if (!PathUtils) {
+    const {OS} = ChromeUtils.import('resource://gre/modules/osfile.jsm');
+
+    const PathUtils = OS.Path;
+}
+
 const {MailUtils} = ChromeUtils.import("resource:///modules/MailUtils.jsm");
 const {MailServices} = ChromeUtils.import("resource:///modules/MailServices.jsm");
 
@@ -202,7 +208,7 @@ async function getMsgDestination() {
     try {
         if (this.getBoolPref('extensions.findnow.export_eml_use_sub_dir')) {
             const subDir = this.IETgetComplexPref('extensions.findnow.export_eml_sub_dir');
-            const subDirDes = OS.Path.join(file.path, subDir);
+            const subDirDes = PathUtils.join(file.path, subDir);
 
             try {
                 const localFile = Components.classes['@mozilla.org/file/local;1']

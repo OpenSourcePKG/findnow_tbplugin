@@ -132,6 +132,9 @@ Info by: John Bieling (john@thunderbird.net)
     
 [https://github.com/thundernest/addon-developer-support/issues/37](https://github.com/thundernest/addon-developer-support/issues/37)
 
+### Version changes
+* [103 - 115](https://developer.thunderbird.net/add-ons/updating/tb115/adapt-to-changes-in-thunderbird-103-115)
+
 # Contributors
 
 Special thanks to the following contributors:

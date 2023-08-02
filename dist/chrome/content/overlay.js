@@ -30,7 +30,7 @@ const Services = globalThis.Services || ChromeUtils.import(
  * DEBUG enable/disable
  * @type {boolean}
  */
-const DEBUG = false;
+const DEBUG = true;
 
 /**
  * load
@@ -40,6 +40,11 @@ function load(win) {
     this.win = win;
 
     let element = win.document.getElementById("hdrArchiveButton");
+
+    if (element === null) {
+        console.log("Overlayer Findnow hdrArchiveButton not found! Maybe setup first your account?");
+        return;
+    }
 
     let toolbarbutton = win.document.createXULElement("toolbarbutton");
 
