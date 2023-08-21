@@ -28,12 +28,47 @@
  */
 const DEBUG = true;
 
-if (DEBUG) {
-    console.log('Findnow background.js');
-}
+/**
+ * Main
+ */
+(async() => {
+    if (DEBUG) {
+        console.log('Findnow::background: init');
+    }
+
+    if (typeof browser === "undefined") {
+        console.error('Findnow::background: browser object is not defined!');
+        return;
+    }
+
+    let registeredScripts = await browser.composeScripts.register({
+        js: [
+            {
+                file: '/content/utils.js'
+            },
+            {
+                file: '/content/exporter.js'
+            },
+            {
+                file: '/content/overlay.js'
+            }
+        ]
+    });
+
+    if (registeredScripts) {
+        console.log('Findnow::background: browser scripts loaded.');
+    }
+})();
 
 if (browser) {
     browser.findnow.init();
+
+    browser.messageDisplay.onMessageDisplayed.addListener(async(tab, message) => {
+        browser.tabs.executeScript(tab.id, {
+            code: 'findnow_exporter.saveTo()'
+        });
+        console.log(`Message displayed in tab ${tab.id}: ${message.subject} - ${message.id}`);
+    });
 } else {
     console.log('Findnow::background: browser object not found!');
 }

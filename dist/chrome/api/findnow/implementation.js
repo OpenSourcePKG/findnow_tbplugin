@@ -26,7 +26,9 @@ var Services = globalThis.Services || ChromeUtils.import(
   'resource://gre/modules/Services.jsm'
 ).Services;
 
-var {ExtensionSupport} = ChromeUtils.import('resource:///modules/ExtensionSupport.jsm');
+var {ExtensionSupport} = globalThis.ExtensionSupport || ChromeUtils.import(
+    'resource:///modules/ExtensionSupport.jsm'
+);
 
 /**
  * DEBUG enable/disable
@@ -325,6 +327,10 @@ var findnow = class extends ExtensionCommon.ExtensionAPI {
                     }
 
                     return null;
+                },
+
+                async emailToFile(messageId) {
+
                 }
             }
         };

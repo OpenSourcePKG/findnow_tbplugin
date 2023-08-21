@@ -1,59 +1,63 @@
 {
-  "manifest_version": 2,
-  "name": "__MSG_extensionName__",
-  "version": "2.6",
-  "description": "__MSG_extensionDescription__",
-  "author": "Stefan Werfling",
-
-  "default_locale": "de",
-
   "applications": {
     "gecko": {
       "id": "FindNow@hw-softwareentwicklung.de",
-      "strict_min_version": "78.0",
-      "strict_max_version": "115.*"
+      "strict_max_version": "115.*",
+      "strict_min_version": "103.0"
     }
   },
-
-  "icons": {
-    "64": "chrome/content/images/findnow.png"
+  "author": "Stefan Werfling",
+  "background": {
+    "scripts": [
+      "chrome/scripts/background.js"
+    ]
   },
-
+  "default_locale": "de",
+  "description": "__MSG_extensionDescription__",
   "experiment_apis": {
     "findnow": {
-      "schema": "chrome/api/findnow/schema.json",
       "parent": {
-        "scopes": [
-          "addon_parent"
+        "events": [
+          "startup"
         ],
         "paths": [
           [
             "findnow"
           ]
         ],
-        "script": "chrome/api/findnow/implementation.js",
-        "events": [
-          "startup"
-        ]
-      }
+        "scopes": [
+          "addon_parent"
+        ],
+        "script": "chrome/api/findnow/implementation.js"
+      },
+      "schema": "chrome/api/findnow/schema.json"
     }
   },
-
-  "options_ui": {
-    "page": "chrome/content/ui/options.html",
-    "open_in_tab": true,
-    "browser_style": false
+  "icons": {
+    "64": "chrome/content/images/findnow.png"
   },
-
+  "manifest_version": 2,
+  "message_display_action": {
+    "default_title": "__MSG_message_display_action_default_title__",
+    "type": "button"
+  },
+  "name": "__MSG_extensionName__",
+  "options_ui": {
+    "browser_style": false,
+    "open_in_tab": true,
+    "page": "chrome/content/ui/options.html"
+  },
   "permissions": [
-    "theme",
+    "accountsRead",
+    "compose",
     "idle",
-    "storage"
+    "messagesDelete",
+    "messagesModify",
+    "messagesMove",
+    "messagesRead",
+    "storage",
+    "tabs",
+    "theme"
   ],
-
-  "background": {
-    "scripts": [
-      "chrome/scripts/background.js"
-    ]
-  }
+  "version": "2.7"
 }

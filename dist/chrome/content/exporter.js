@@ -30,7 +30,7 @@ const Services = globalThis.Services || ChromeUtils.import(
  * DEBUG enable/disable
  * @type {boolean}
  */
-const DEBUG = false;
+const DEBUG = true;
 
 /**
  * load

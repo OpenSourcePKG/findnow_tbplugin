@@ -4,5 +4,8 @@
 	},
 	"extensionDescription": {
 		"message": "Ermöglicht das Exportieren von Nachrichten und Ordnern für FindNow"
+	},
+	"message_display_action_default_title": {
+		"message": "Ablegen"
 	}
 }

@@ -738,3 +738,27 @@ function FNisMoveToTrash() {
 function FNsetMoveToTrash(enable) {
     this._moveToTrash = enable;
 }
+
+/**
+ * FNwaitForWindow
+ * @param win
+ * @returns {Promise<unknown>}
+ * @constructor
+ */
+function FNwaitForWindow(win) {
+    return new Promise((resolve) => {
+        if (win.document.readyState == "complete") {
+            resolve();
+        } else {
+            win.addEventListener(
+                "load",
+                () => {
+                    resolve();
+                },
+                {
+                    once: true
+                }
+            );
+        }
+    });
+}
