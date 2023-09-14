@@ -9,7 +9,7 @@
   "author": "Stefan Werfling",
   "background": {
     "scripts": [
-      "chrome/scripts/background.js"
+      "chrome/background.js"
     ]
   },
   "default_locale": "de",

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -31,10 +34,30 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="update and clear repo">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="first update test for 115">
+      <change beforePath="$PROJECT_DIR$/.idea/findnow_tbplugin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/findnow_tbplugin.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/built/Findnow.xpi" beforeDir="false" afterPath="$PROJECT_DIR$/built/Findnow.xpi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gruntfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/Gruntfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/assets/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/_locales/de/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/_locales/en_US/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/api/findnow/implementation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/api/findnow/schema.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/exporter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/images/findnow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/overlay.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/ui/editsubject.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/ui/editsubject.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/ui/options.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/ui/options.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/ui/options.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/content/utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chrome/scripts/background.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/.eslintrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +78,7 @@
         <option value="CSS File" />
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -70,10 +94,17 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/docker-compose.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/thunderbird/Dockerfile" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../mozilla-webext-types/src/WebExtensions/ExtensionCommon.d.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../mozilla-webext-types/src/WebExtensions/Extensions/BaseContext.d.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../mozilla-webext-types/src/WebExtensions/Extensions/ExtensionAPI.d.ts" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/bin/php" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="1hrJQ0nTqQ3bmRoucjKxDnFY1ns" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -84,31 +115,38 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;js.buildTools.grunt.grunt-cli.package&quot;: &quot;/home/swe/Dokumente/Projekte/xd/findnow_tbplugin/node_modules/grunt-cli&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/swe/Dokumente/Projekte/xd/findnow_tbplugin&quot;,
+    &quot;eslint.code.style.apply.dismiss&quot;: &quot;true&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;18.17.1&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.17.1&quot;,
+    &quot;js.buildTools.grunt.grunt-cli.package&quot;: &quot;/home/swe/Dokumente/Projekte/pkg/findnow_tbplugin/node_modules/grunt-cli&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/swe/Dokumente/Projekte/pkg/findnow_tbplugin/assets/chrome/content/images&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/swe/Dokumente/Projekte/pkg/findnow_tbplugin/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/chrome/content/images" />
+      <recent name="$PROJECT_DIR$/assets" />
+      <recent name="$PROJECT_DIR$/assets/chrome/api/findnow" />
+      <recent name="$PROJECT_DIR$/src/types" />
       <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/dist/chrome/content" />
-      <recent name="$PROJECT_DIR$/dist/chrome/scripts" />
-      <recent name="$PROJECT_DIR$/dist/chrome/api/findnow" />
       <recent name="$PROJECT_DIR$/dist/chrome" />
-      <recent name="$PROJECT_DIR$/dist" />
+      <recent name="$PROJECT_DIR$/dist/chrome/content/ui" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/chrome" />
     </key>
   </component>
-  <component name="RunManager" selected="Grunt.js.compress">
-    <configuration name="Gruntfile.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Gruntfile.js" working-dir="$PROJECT_DIR$">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Grunt.js.release">
     <configuration default="true" type="js.build_tools.grunt">
       <node-interpreter value="project" />
       <envs />
@@ -132,13 +170,40 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="exec" type="js.build_tools.grunt" temporary="true">
+      <node-interpreter value="project" />
+      <gruntfile value="$PROJECT_DIR$/Gruntfile.js" />
+      <tasks>
+        <task value="exec" />
+      </tasks>
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="release" type="js.build_tools.grunt" temporary="true">
+      <node-interpreter value="project" />
+      <gruntfile value="$PROJECT_DIR$/Gruntfile.js" />
+      <tasks>
+        <task value="release" />
+      </tasks>
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="webpack:release" type="js.build_tools.grunt" temporary="true">
+      <node-interpreter value="project" />
+      <gruntfile value="$PROJECT_DIR$/Gruntfile.js" />
+      <tasks>
+        <task value="webpack:release" />
+      </tasks>
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Grunt.js.compress" />
+        <item itemvalue="Grunt.js.release" />
         <item itemvalue="Grunt.js.default" />
-        <item itemvalue="Node.js.Gruntfile.js" />
+        <item itemvalue="Grunt.js.webpack:release" />
+        <item itemvalue="Grunt.js.exec" />
         <item itemvalue="Grunt.js.compress" />
-        <item itemvalue="Grunt.js.default" />
       </list>
     </recent_temporary>
   </component>
@@ -215,6 +280,46 @@
       <workItem from="1657808720430" duration="1882000" />
       <workItem from="1657817926766" duration="610000" />
       <workItem from="1661498114693" duration="1556000" />
+      <workItem from="1661539025596" duration="22000" />
+      <workItem from="1690898796434" duration="1389000" />
+      <workItem from="1690960618011" duration="16000" />
+      <workItem from="1690969699656" duration="6688000" />
+      <workItem from="1691046728908" duration="3868000" />
+      <workItem from="1691051445995" duration="11239000" />
+      <workItem from="1691133429724" duration="15000" />
+      <workItem from="1691138404339" duration="1340000" />
+      <workItem from="1691395440892" duration="3489000" />
+      <workItem from="1691651453471" duration="1609000" />
+      <workItem from="1692274183112" duration="621000" />
+      <workItem from="1692617881403" duration="8445000" />
+      <workItem from="1692631992503" duration="576000" />
+      <workItem from="1692687834328" duration="8453000" />
+      <workItem from="1692704582581" duration="11795000" />
+      <workItem from="1692766144768" duration="11192000" />
+      <workItem from="1693298362828" duration="113000" />
+      <workItem from="1693298502987" duration="7658000" />
+      <workItem from="1693308528169" duration="512000" />
+      <workItem from="1693309054708" duration="531000" />
+      <workItem from="1693312406495" duration="7890000" />
+      <workItem from="1693386660372" duration="2534000" />
+      <workItem from="1693471319908" duration="6271000" />
+      <workItem from="1693479860843" duration="3553000" />
+      <workItem from="1693483505129" duration="2542000" />
+      <workItem from="1693554657524" duration="467000" />
+      <workItem from="1693815510693" duration="8450000" />
+      <workItem from="1693898047056" duration="3573000" />
+      <workItem from="1693915021405" duration="34000" />
+      <workItem from="1693915082264" duration="64000" />
+      <workItem from="1693915230456" duration="570000" />
+      <workItem from="1693915887209" duration="2684000" />
+      <workItem from="1693983721522" duration="8315000" />
+      <workItem from="1694071130342" duration="703000" />
+      <workItem from="1694083981178" duration="7697000" />
+      <workItem from="1694158206846" duration="599000" />
+      <workItem from="1694347902229" duration="6000" />
+      <workItem from="1694437639698" duration="3801000" />
+      <workItem from="1694511736198" duration="9990000" />
+      <workItem from="1694595024410" duration="11209000" />
     </task>
     <task id="LOCAL-00001" summary="add basic ide, add source code by 68.0 version">
       <created>1600776998338</created>
@@ -524,7 +629,44 @@
       <option name="project" value="LOCAL" />
       <updated>1661499616404</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="update and clear repo">
+      <created>1661499823979</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1661499823979</updated>
+    </task>
+    <task id="LOCAL-00046" summary="update readme">
+      <created>1661500335275</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1661500335275</updated>
+    </task>
+    <task id="LOCAL-00047" summary="update readme">
+      <created>1661500503494</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1661500503494</updated>
+    </task>
+    <task id="LOCAL-00048" summary="update to 115 Thunderbird, fix imports, change global objects">
+      <option name="closed" value="true" />
+      <created>1690984486415</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1690984486416</updated>
+    </task>
+    <task id="LOCAL-00049" summary="first update test for 115">
+      <option name="closed" value="true" />
+      <created>1692617914906</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1692617914906</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -552,7 +694,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="swe/102" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -565,8 +707,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add error dialog for file save" />
-    <MESSAGE value="add abbreviation, subject edit, update options" />
     <MESSAGE value="project clearing" />
     <MESSAGE value="add move to trash" />
     <MESSAGE value="update docker file to 78.5.0" />
@@ -583,13 +723,15 @@
     <MESSAGE value="update change api rename" />
     <MESSAGE value="new branch for version 102" />
     <MESSAGE value="update thunderbird version" />
-    <MESSAGE value="update readme" />
     <MESSAGE value="npm update" />
     <MESSAGE value="update thunderbird docker" />
     <MESSAGE value="update prefs init, update ui button" />
     <MESSAGE value="update version, update path selection handel, update translaten" />
     <MESSAGE value="update" />
     <MESSAGE value="update and clear repo" />
-    <option name="LAST_COMMIT_MESSAGE" value="update and clear repo" />
+    <MESSAGE value="update readme" />
+    <MESSAGE value="update to 115 Thunderbird, fix imports, change global objects" />
+    <MESSAGE value="first update test for 115" />
+    <option name="LAST_COMMIT_MESSAGE" value="first update test for 115" />
   </component>
 </project>

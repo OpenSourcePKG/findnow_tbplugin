@@ -1,17 +1,29 @@
 {
   "compilerOptions": {
-    "downlevelIteration": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "CommonJS",
-    "moduleResolution": "Node",
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "outDir": "../dist/chrome/content/findnow",
-    "sourceMap": true,
+    "baseUrl": ".",
+    "outDir": "../dist/chrome",
+    "types": [
+      "node",
+    ],
+    "typeRoots": [
+      "../node_modules/@types",
+      "../node_modules/mozilla-webext-types"
+    ],
+    "target": "es2019",
+    "module": "esnext",
+    "sourceMap": false,
+    "allowJs": true,
+    "rootDir": ".",
     "strict": true,
-    "target": "ES2018"
-  }
+    "noImplicitAny": false,
+    "noImplicitReturns": false,
+    "noUnusedLocals": false,
+    "removeComments": false,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "./**/*"
+  ],
 }

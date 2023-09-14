@@ -2,7 +2,13 @@
   "env": {
     "amd": true,
     "es6": true,
-    "node": true
+    "node": true,
+    "browser": true
+  },
+  "globals": {
+    "browser": true,
+    "chromeUtils": true,
+    "components": true
   },
   "extends": [
     "eslint:all"
