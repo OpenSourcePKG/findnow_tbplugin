@@ -1,13 +1,13 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <head>
-    <script type="text/javascript" defer="true" src="chrome://findnow/content/ui/editsubject.js"></script>
-    <title>Betreff bearbeiten</title>
-  </head>
+  <meta charset="utf-8" />
+  <title>Betreff bearbeiten</title>
+  <script src="../utils/translation.js" type="module"></script>
 </head>
 <body>
   <div id="full">
-    <span>Bitte geben Sie ihre Änderung im Betreff an:</span><br>
+    <span data-i18n="dialog.editsubject.subject"></span><br>
     <input typeof="text" id="subject_text" value="" size="45">
     <br><br>
     <input type="checkbox" id="move_to_trash" value="1">
@@ -16,6 +16,7 @@
     <span style="width: 100%; align-content: center;">
       <button type="button" onclick="Editsubject.save();">Speichern</button>&nbsp;<button type="button" onclick="Editsubject.cancel();">Abbrechen</button>
     </span>
+    <script src="editsubject.js" type="module"></script>
   </div>
 </body>
 </html>

@@ -1,6 +1,8 @@
-class Editsubject {
+export class Editsubject {
 
     public static async onLoad(): Promise<void> {
+        console.log('Findnow::Editsubject: onLoad');
+
         if ((window as any).arguments) {
             const retVals = (window as any).arguments[0];
 
@@ -13,11 +15,7 @@ class Editsubject {
             const mTt = document.getElementById('move_to_trash') as HTMLInputElement|null;
 
             if (mTt) {
-                if (retVals.moveToTrash) {
-                    mTt.checked = true;
-                } else {
-                    mTt.checked = false;
-                }
+                mTt.checked = Boolean(retVals.moveToTrash);
             }
         }
     }
@@ -50,5 +48,6 @@ class Editsubject {
 }
 
 (async(): Promise<void> => {
+    console.log('Findnow::Editsubject: addEventListener');
     window.addEventListener('load', Editsubject.onLoad, false);
 })();

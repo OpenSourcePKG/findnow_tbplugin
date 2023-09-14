@@ -12,7 +12,7 @@ export class Utils {
 
         // -------------------------------------------------------------------------------------------------------------
 
-        let subj: string|null = null;
+        let subj: string|null;
 
         if (hdr.mime2DecodedSubject) {
             subj = hdr.mime2DecodedSubject;
@@ -33,10 +33,12 @@ export class Utils {
                 resulte: false
             };
 
+            // const win = Services.wm.getMostRecentWindow('navigator:browser');
             const win = Services.wm.getMostRecentWindow(null);
-            //https://github.com/Quantumplation/chrome-promise/blob/e9bb2819b2ae0ec942292c68ae084451d07b6290/chrome-promise.d.ts#L2132
-            //https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages
-            win.create
+            // https://github.com/Quantumplation/chrome-promise/blob/e9bb2819b2ae0ec942292c68ae084451d07b6290/chrome-promise.d.ts#L2132
+
+            // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages
+
             win.openDialog('chrome://findnow/content/ui/editsubject.html', 'dlg', 'modal', returns);
 
             if (!returns.resulte) {

@@ -34,30 +34,14 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="first update test for 115">
-      <change beforePath="$PROJECT_DIR$/.idea/findnow_tbplugin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/findnow_tbplugin.iml" afterDir="false" />
+    <list default="true" id="40432fc9-03e3-4ace-8ffc-4ae208adc437" name="Default Changelist" comment="work in progess typescript for Thunderbird 115.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gruntfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/Gruntfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/assets/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/_locales/de/messages.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/_locales/en_US/messages.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/api/findnow/implementation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/api/findnow/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/exporter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/images/findnow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/overlay.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/ui/editsubject.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/ui/editsubject.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/ui/options.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/ui/options.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/ui/options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/content/utils.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/chrome/scripts/background.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/.eslintrc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/_locales/de/messages.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/_locales/de/messages.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/_locales/en_US/messages.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/_locales/en_US/messages.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/chrome/content/ui/editsubject.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/chrome/content/ui/editsubject.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chrome/api/findnow/inc/Utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/chrome/api/findnow/inc/Utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chrome/content/ui/editsubject.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/chrome/content/ui/editsubject.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,33 +94,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;eslint.code.style.apply.dismiss&quot;: &quot;true&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;18.17.1&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.17.1&quot;,
-    &quot;js.buildTools.grunt.grunt-cli.package&quot;: &quot;/home/swe/Dokumente/Projekte/pkg/findnow_tbplugin/node_modules/grunt-cli&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/swe/Dokumente/Projekte/pkg/findnow_tbplugin/assets/chrome/content/images&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/swe/Dokumente/Projekte/pkg/findnow_tbplugin/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "eslint.code.style.apply.dismiss": "true",
+    "javascript.nodejs.core.library.configured.version": "18.17.1",
+    "javascript.nodejs.core.library.typings.version": "18.17.1",
+    "js.buildTools.grunt.grunt-cli.package": "/home/swe/Dokumente/Projekte/pkg/findnow_tbplugin/node_modules/grunt-cli",
+    "last_opened_file_path": "/home/swe/Dokumente/Projekte/pkg/findnow_tbplugin/assets/chrome/content/ui",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/home/swe/Dokumente/Projekte/pkg/findnow_tbplugin/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/chrome/content/ui" />
       <recent name="$PROJECT_DIR$/assets/chrome/content/images" />
       <recent name="$PROJECT_DIR$/assets" />
       <recent name="$PROJECT_DIR$/assets/chrome/api/findnow" />
       <recent name="$PROJECT_DIR$/src/types" />
-      <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/dist/chrome" />
@@ -320,6 +304,7 @@
       <workItem from="1694437639698" duration="3801000" />
       <workItem from="1694511736198" duration="9990000" />
       <workItem from="1694595024410" duration="11209000" />
+      <workItem from="1694677568364" duration="12891000" />
     </task>
     <task id="LOCAL-00001" summary="add basic ide, add source code by 68.0 version">
       <created>1600776998338</created>
@@ -650,14 +635,6 @@
       <option name="project" value="LOCAL" />
       <updated>1661500503494</updated>
     </task>
-    <task id="LOCAL-00048" summary="update to 115 Thunderbird, fix imports, change global objects">
-      <option name="closed" value="true" />
-      <created>1690984486415</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1690984486416</updated>
-    </task>
     <task id="LOCAL-00049" summary="first update test for 115">
       <option name="closed" value="true" />
       <created>1692617914906</created>
@@ -666,7 +643,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692617914906</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="work in progess typescript for Thunderbird 115.">
+      <option name="closed" value="true" />
+      <created>1694677639050</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1694677639050</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -707,7 +692,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="project clearing" />
     <MESSAGE value="add move to trash" />
     <MESSAGE value="update docker file to 78.5.0" />
     <MESSAGE value="update options save" />
@@ -732,6 +716,7 @@
     <MESSAGE value="update readme" />
     <MESSAGE value="update to 115 Thunderbird, fix imports, change global objects" />
     <MESSAGE value="first update test for 115" />
-    <option name="LAST_COMMIT_MESSAGE" value="first update test for 115" />
+    <MESSAGE value="work in progess typescript for Thunderbird 115." />
+    <option name="LAST_COMMIT_MESSAGE" value="work in progess typescript for Thunderbird 115." />
   </component>
 </project>

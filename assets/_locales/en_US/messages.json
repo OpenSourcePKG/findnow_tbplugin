@@ -7,5 +7,43 @@
 	},
 	"message_display_action_default_title": {
 		"message": "Take off"
+	},
+
+	"options.common": {
+		"message": "Common"
+	},
+	"options.heading.common": {
+		"message": "FindNow Settings"
+	},
+	"options.defaultbutton": {
+		"message": "Show drop button in default color"
+	},
+	"options.emlexport": {
+		"message": "Default directory for file export:"
+	},
+	"options.button.search": {
+		"message": "Search"
+	},
+	"options.emlexportsub": {
+		"message": "Subfolder for file export:"
+	},
+	"options.addtimelabel": {
+		"message": "Add time to date"
+	},
+	"options.abbreviation": {
+		"message": "Abbreviation in the file name:"
+	},
+	"options.editsubject": {
+		"message": "Subject can be changed with extra dialog"
+	},
+	"options.movetotrash": {
+		"message": "After filing, move the email to the trash"
+	},
+	"options.button.save": {
+		"message": "Save"
+	},
+
+	"dialog.editsubject.subject": {
+		"message": "Please indicate your change in the subject:"
 	}
 }

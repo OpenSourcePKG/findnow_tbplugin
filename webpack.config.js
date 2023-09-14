@@ -23,6 +23,8 @@ module.exports = [
         entry: {
             'background': `./src/chrome/background.ts`,
             'content/ui/editsubject': `./src/chrome/content/ui/editsubject.ts`,
+            'content/ui/options': `./src/chrome/content/ui/options.ts`,
+            'content/utils/translation': `./src/chrome/content/utils/translation.ts`,
         },
         experiments: {
             syncWebAssembly: true,

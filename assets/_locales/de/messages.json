@@ -7,5 +7,43 @@
 	},
 	"message_display_action_default_title": {
 		"message": "Ablegen"
+	},
+
+	"options.common": {
+		"message": "Allgemein"
+	},
+	"options.heading.common": {
+		"message": "FindNow Einstellungen"
+	},
+	"options.defaultbutton": {
+		"message": "Ablegen'-Button in Standardfarbe anzeigen"
+	},
+	"options.emlexport": {
+		"message": "Vorgabeverzeichnis für Dateiexport:"
+	},
+	"options.button.search": {
+		"message": "Durchsuchen"
+	},
+	"options.emlexportsub": {
+		"message": "Unterordner für Dateiexport:"
+	},
+	"options.addtimelabel": {
+		"message": "Uhrzeit zum Datum hinzufügen"
+	},
+	"options.abbreviation": {
+		"message": "Kürzel im Dateinamen:"
+	},
+	"options.editsubject": {
+		"message": "Betreff kann mit extra Dialog geändert werden"
+	},
+	"options.movetotrash": {
+		"message": "Nach Ablegen, Email in den Papierkorb schieben"
+	},
+	"options.button.save": {
+		"message": "Speichern"
+	},
+
+	"dialog.editsubject.subject": {
+		"message": "Bitte geben Sie ihre Änderung im Betreff an:"
 	}
 }
