@@ -3,8 +3,30 @@ import {FindnowOptions} from '../types/FindnowOptions';
 
 declare const browser: FindnowBrowser;
 
+/**
+ * Options UI Object.
+ */
 export class Options {
 
+    /**
+     * Return an HTMLInputElement in short call.
+     * @param {string} name - Name of HTMLInputElement
+     * @returns {HTMLInputElement}
+     * @throws {Error}
+     */
+    public static getElm(name: string): HTMLInputElement {
+        const elm = document.getElementById(name);
+
+        if (elm) {
+            return elm as HTMLInputElement;
+        }
+
+        throw Error(`FindNow::Options: Element not found by name: ${name}`);
+    }
+
+    /**
+     * Call by window laod event.
+     */
     public static async onLoad(): Promise<void> {
         console.log('Findnow::Options: onLoad');
 
@@ -37,34 +59,63 @@ export class Options {
             }
         }
 
-        (document.getElementById('defaultButton')! as HTMLInputElement).checked = options.button_show_default;
-        (document.getElementById('addtimeCheckbox')! as HTMLInputElement).checked = options.export_filenames_addtime;
-        (document.getElementById('export_eml_dir')! as HTMLInputElement).value = options.export_eml_dir;
+        // inputs & etc ... --------------------------------------------------------------------------------------------
 
-        (document.getElementById('use_export_eml_dir')! as HTMLInputElement).checked = options.export_eml_use_dir;
+        const inputDefaultButton = Options.getElm('defaultButton');
+        const inputAddtimeCheckbox = Options.getElm('addtimeCheckbox');
+        const inputExportEmlDir = Options.getElm('export_eml_dir');
+        const inputUseExportEmlDir = Options.getElm('use_export_eml_dir');
+        const inputEmlDirButton = Options.getElm('eml_dir_button');
+        const inputExportEmlSubDir = Options.getElm('export_eml_sub_dir');
+        const inputUseExportEmlSubDir = Options.getElm('use_export_eml_sub_dir');
+
+        // fill and show -----------------------------------------------------------------------------------------------
+
+        if (options.button_show_default) {
+            inputDefaultButton.setAttribute('checked', 'true');
+        }
+
+        if (options.export_filenames_addtime) {
+            inputAddtimeCheckbox.setAttribute('checked', 'true');
+        }
+
+        inputExportEmlDir.setAttribute('value', options.export_eml_dir);
 
         if (options.export_eml_use_dir) {
-            (document.getElementById('export_eml_dir')! as HTMLInputElement).removeAttribute('disabled');
-            (document.getElementById('eml_dir_button')! as HTMLInputElement).removeAttribute('disabled');
+            inputUseExportEmlDir.setAttribute('checked', 'true');
+            inputExportEmlDir.removeAttribute('disabled');
+            inputEmlDirButton.removeAttribute('disabled');
         } else {
-            (document.getElementById('export_eml_dir')! as HTMLInputElement).setAttribute('disabled', 'true');
-            (document.getElementById('eml_dir_button')! as HTMLInputElement).setAttribute('disabled', 'true');
+            inputExportEmlDir.setAttribute('disabled', 'true');
+            inputEmlDirButton.setAttribute('disabled', 'true');
+            inputUseExportEmlDir.removeAttribute('checked');
         }
 
-        (document.getElementById('export_eml_sub_dir')! as HTMLInputElement).value = options.export_eml_sub_dir;
+        inputExportEmlSubDir.setAttribute('value', options.export_eml_sub_dir);
 
-        (document.getElementById('use_export_eml_sub_dir')! as HTMLInputElement).checked = options.export_eml_use_sub_dir;
+        inputUseExportEmlSubDir.checked = options.export_eml_use_sub_dir;
 
         if (options.export_eml_use_sub_dir) {
-            (document.getElementById('export_eml_sub_dir')! as HTMLInputElement).removeAttribute('disabled');
+            inputUseExportEmlSubDir.setAttribute('checked', 'true');
+            inputExportEmlSubDir.removeAttribute('disabled');
         } else {
-            (document.getElementById('export_eml_sub_dir')! as HTMLInputElement).setAttribute('disabled', 'true');
+            inputExportEmlSubDir.setAttribute('disabled', 'true');
+            inputUseExportEmlSubDir.removeAttribute('checked');
         }
+
+        // save --------------------------------------------------------------------------------------------------------
 
         const btnSave = document.getElementById('commonsave');
 
         if (btnSave) {
             btnSave.onclick = async(): Promise<void> => {
+
+                options.button_show_default = inputDefaultButton.checked;
+                options.export_filenames_addtime = inputAddtimeCheckbox.checked;
+                options.export_eml_dir = inputExportEmlDir.value;
+                options.export_eml_use_dir = inputUseExportEmlDir.checked;
+                options.export_eml_sub_dir = inputExportEmlSubDir.value;
+                options.export_eml_use_sub_dir = inputUseExportEmlSubDir.checked;
 
                 await browser.storage.local.set({
                     findnow: options
@@ -75,6 +126,9 @@ export class Options {
 
 }
 
+/**
+ * Main registiert function.
+ */
 (async(): Promise<void> => {
     console.log('Findnow::Options: addEventListener');
     window.addEventListener('load', Options.onLoad, false);
