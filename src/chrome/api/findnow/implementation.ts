@@ -87,6 +87,24 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
                     }
 
                     return false;
+                },
+                pickPath: async(): Promise<string|null> => {
+                    console.log('pickPath');
+                    const fp = Cc['@mozilla.org/filepicker;1'].createInstance(Ci.nsIFilePicker);
+
+                    const recentWindow = Services.wm.getMostRecentWindow('');
+
+                    fp.init(recentWindow, '', Ci.nsIFilePicker.modeGetFolder);
+
+                    const res = await new Promise((resolve) => {
+                        fp.open(resolve);
+                    });
+
+                    if (res === Ci.nsIFilePicker.returnOK) {
+                        return fp.file.path;
+                    }
+
+                    return null;
                 }
             }
         };
