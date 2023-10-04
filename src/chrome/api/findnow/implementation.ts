@@ -5,6 +5,8 @@ import {
 } from 'mozilla-webext-types';
 
 import {Exporter} from './inc/Exporter';
+import {SaveToOptions} from './inc/SaveToOptions';
+import {SaveToResulte} from './inc/SaveToResulte';
 
 declare const Components: C;
 declare const Services: S;
@@ -77,16 +79,24 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
     public getAPI(): Record<string, unknown> {
         return {
             findnow: {
-                saveTo: async(messageId: number): Promise<boolean> => {
+                saveTo: async(messageId: number, options: SaveToOptions): Promise<SaveToResulte> => {
                     const exporter = new Exporter();
                     const msgUri = this._getMessageUriById(messageId);
 
                     if (msgUri) {
-                        await exporter.saveTo(msgUri);
-                        return true;
+                        const saveResulte = await exporter.saveTo(msgUri, options);
+
+                        if (saveResulte) {
+                            return {
+                                success: true
+                            };
+                        }
                     }
 
-                    return false;
+                    return {
+                        success: false,
+                        error: 'Message not found!'
+                    };
                 },
                 pickPath: async(): Promise<string|null> => {
                     console.log('pickPath');

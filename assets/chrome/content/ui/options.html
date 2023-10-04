@@ -1,99 +1,93 @@
 <!DOCTYPE html>
-
 <html dir="ltr">
-  <head>
-    <head>
-      <meta charset="utf-8">
-      <link rel="stylesheet" href="chrome://messenger/content/aboutAddonsExtra.css"/>
-      <link rel="stylesheet" href="chrome://global/skin/in-content/common.css"/>
-      <link rel="stylesheet" href="/chrome/content/ui/options.css"/>
-      <script src="../utils/translation.js" type="module"></script>
-      <title data-i18n="options.heading.common"></title>
-    </head>
-  </head>
-  <body>
-    <div id="full">
-      <div id="sidebar">
-        <categories-box id="categories" orientation="vertical" aria-orientation="vertical" role="tablist">
-          <button class="category" role="tab" name="common" aria-slected="false" data-i18n="options.common" tabindex="1" title="Common"></button>
-        </categories-box>
-        <div class="spacer"></div>
-        <sidebar-footer>
-          <ul class="sidebar-footer-list">
-          </ul>
-        </sidebar-footer>
-        <scrollbar orient="vertical" clickthrough="always" curpos="0" disabled="true" maxpos="0" pageincrement="636" increment="54">
-        </scrollbar>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="chrome://messenger/content/aboutAddonsExtra.css"/>
+  <link rel="stylesheet" href="chrome://global/skin/in-content/common.css"/>
+  <link rel="stylesheet" href="options.css"/>
+  <script type="text/javascript" defer="defer" src="../inc/utils/Translation.js"></script>
+  <script type="text/javascript" defer="defer" src="options.js"></script>
+  <title data-i18n="options.heading.common"></title>
+</head>
+<body>
+<div id="full">
+  <div id="sidebar">
+    <categories-box id="categories" orientation="vertical" aria-orientation="vertical" role="tablist">
+      <!-- placeholder -->
+    </categories-box>
+    <div class="spacer"></div>
+    <sidebar-footer>
+      <ul class="sidebar-footer-list">
+      </ul>
+    </sidebar-footer>
+    <scrollbar orient="vertical" clickthrough="always" curpos="0" disabled="true" maxpos="0" pageincrement="636" increment="54">
+    </scrollbar>
+  </div>
+  <div id="content">
+    <addon-page-header id="page-header" page-options-id="page-options" type="extention">
+      <div class="main-heading">
+        <h1 class="header-name" data-i18n="options.heading.common"></h1>
       </div>
-      <div id="content">
-        <addon-page-header id="page-header" page-options-id="page-options" type="extention">
-          <div class="sticky-container">
-            <div class="main-heading">
-              <h1 class="header-name" data-i18n="options.heading.common"></h1>
-            </div>
-          </div>
-        </addon-page-header>
-        <div id="main">
-          <div current-view="list">
-            <addon-list type="extension">
-              <section section="0">
-                <h2 class="list-section-heading" data-i18n="options.common"></h2>
-                <addon-card>
-                  <div class="card addon">
-                    <input type="checkbox" id="defaultButton" value="1">
-                    <span data-i18n="options.defaultbutton"></span>
-                  </div>
-                </addon-card>
-                <addon-card>
-                  <div class="card addon">
-                    <input type="checkbox" id="use_export_eml_dir">
-                    <span data-i18n="options.emlexport"></span>
-                    <input type="text" id="export_eml_dir" value="" size="35">
-                    <button id="eml_dir_button" data-i18n="options.button.search"></button>
-                  </div>
-                </addon-card>
-                <addon-card>
-                  <div class="card addon">
-                    <input type="checkbox" id="use_export_eml_sub_dir">
-                    <span data-i18n="options.emlexportsub"></span>
-                    <input type="text" id="export_eml_sub_dir" value="" size="35">
-                  </div>
-                </addon-card>
-                <addon-card>
-                  <div class="card addon">
-                    <input type="checkbox" id="addtimeCheckbox" value="1">
-                    <span data-i18n="options.addtimelabel"></span>
-                  </div>
-                </addon-card>
-                <addon-card>
-                  <div class="card addon">
-                    <input type="checkbox" id="use_filename_abbreviation">
-                    <span data-i18n="options.abbreviation"></span>
-                    <input type="text" id="filename_abbreviation" value="" size="35">
-                  </div>
-                </addon-card>
-                <addon-card>
-                  <div class="card addon">
-                    <input type="checkbox" id="allow_edit_subject">
-                    <span data-i18n="options.editsubject"></span>
-                  </div>
-                </addon-card>
-                <addon-card>
-                  <div class="card addon">
-                    <input type="checkbox" id="move_to_trash">
-                    <span data-i18n="options.movetotrash"></span>
-                  </div>
-                </addon-card>
-              </section>
-            </addon-list>
-          </div>
-          <div id="footer">
-            <button id="commonsave" data-i18n="options.button.save"></button>
-          </div>
-        </div>
+    </addon-page-header>
+    <div id="main">
+      <div current-view="list">
+        <addon-list type="extension">
+          <section section="0">
+            <h2 class="list-section-heading" data-i18n="options.common"></h2>
+            <addon-card>
+              <div class="card addon">
+                <input type="checkbox" id="defaultButton" value="1">
+                <label for="defaultButton" data-i18n="options.defaultbutton"></label>
+              </div>
+            </addon-card>
+            <addon-card>
+              <div class="card addon">
+                <input type="checkbox" id="use_export_eml_dir">
+                <label for="use_export_eml_dir" data-i18n="options.emlexport"></label>
+                <input type="text" id="export_eml_dir" value="" size="35">
+                <button id="eml_dir_button" data-i18n="options.button.search"></button>
+              </div>
+            </addon-card>
+            <addon-card>
+              <div class="card addon">
+                <input type="checkbox" id="use_export_eml_sub_dir">
+                <label for="use_export_eml_sub_dir" data-i18n="options.emlexportsub"></label>
+                <input type="text" id="export_eml_sub_dir" value="" size="35">
+              </div>
+            </addon-card>
+            <addon-card>
+              <div class="card addon">
+                <input type="checkbox" id="addtimeCheckbox" value="1">
+                <label for="addtimeCheckbox" data-i18n="options.addtimelabel"></label>
+              </div>
+            </addon-card>
+            <addon-card>
+              <div class="card addon">
+                <input type="checkbox" id="use_filename_abbreviation">
+                <label for="use_filename_abbreviation" data-i18n="options.abbreviation"></label>
+                <input type="text" id="filename_abbreviation" value="" size="35">
+              </div>
+            </addon-card>
+            <addon-card>
+              <div class="card addon">
+                <input type="checkbox" id="allow_edit_subject">
+                <label for="allow_edit_subject" data-i18n="options.editsubject"></label>
+              </div>
+            </addon-card>
+            <addon-card>
+              <div class="card addon">
+                <input type="checkbox" id="move_to_trash">
+                <label for="move_to_trash" data-i18n="options.movetotrash"></label>
+              </div>
+            </addon-card>
+          </section>
+        </addon-list>
+      </div>
+      <div id="footer">
+        <button id="commonsave" data-i18n="options.button.save"></button>
       </div>
     </div>
-
-    <script type="text/javascript" defer="true" src="options.js"></script>
-  </body>
+  </div>
+</div>
+</body>
 </html>

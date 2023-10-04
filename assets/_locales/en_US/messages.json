@@ -43,7 +43,19 @@
 		"message": "Save"
 	},
 
+	"dialog.editsubject.heading.common": {
+		"message": "Edit subject"
+	},
 	"dialog.editsubject.subject": {
 		"message": "Please indicate your change in the subject:"
+	},
+	"dialog.editsubject.move_to_trash": {
+		"message": "After filing, move the email to the trash"
+	},
+	"dialog.editsubject.save": {
+		"message": "Save"
+	},
+	"dialog.editsubject.cancle": {
+		"message": "Cancel"
 	}
 }

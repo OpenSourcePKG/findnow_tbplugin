@@ -39,7 +39,8 @@ export class Utils {
 
             // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages
 
-            win.openDialog('chrome://findnow/content/ui/editsubject.html', 'dlg', 'modal', returns);
+            // https://github.com/thundernest/import-export-tools-ng/blob/a1d06c1011190dbafed5b4125ee23ae4c36ecfe5/src/api/WindowListener/implementation.js#L507C9-L519C11
+            win.openDialog('chrome://findnow/content/ui/editsubject.html', 'dlg', 'modal,chrome,dependent', returns);
 
             if (!returns.resulte) {
                 return null;

@@ -1,5 +1,6 @@
-import {FindnowBrowser} from '../../api/findnow/api';
-import {FindnowOptions} from '../types/FindnowOptions';
+import {Translation} from '../inc/Utils/Translation';
+import {Settings} from './../inc/Settings';
+import {FindnowBrowser} from './../../api/findnow/api';
 
 declare const browser: FindnowBrowser;
 
@@ -30,34 +31,7 @@ export class Options {
     public static async onLoad(): Promise<void> {
         console.log('Findnow::Options: onLoad');
 
-        /**
-         * Set default options.
-         */
-        let options: FindnowOptions = {
-            export_overwrite: true,
-            export_set_filetime: false,
-            log_enable: false,
-            export_filename_charset: '',
-
-            button_show_default: false,
-            export_eml_use_dir: false,
-            export_eml_dir: '',
-            use_filename_abbreviation: false,
-            filename_abbreviation: '',
-            allow_edit_subject: false,
-            move_to_trash: false,
-            export_filenames_addtime: true,
-            export_eml_use_sub_dir: false,
-            export_eml_sub_dir: ''
-        };
-
-        const storeData = await browser.storage.local.get();
-
-        if (storeData) {
-            if (storeData.findnow) {
-                options = storeData.findnow as FindnowOptions;
-            }
-        }
+        const options = await new Settings().get();
 
         // inputs & etc ... --------------------------------------------------------------------------------------------
 
@@ -197,11 +171,11 @@ export class Options {
                 options.allow_edit_subject = inputAllowEditSubject.checked;
                 options.move_to_trash = inputMoveToTrash.checked;
 
-                await browser.storage.local.set({
-                    findnow: options
-                });
+                await new Settings().set(options);
             };
         }
+
+        Translation.lang();
     }
 
 }

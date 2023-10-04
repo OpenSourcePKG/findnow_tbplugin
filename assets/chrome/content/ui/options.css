@@ -70,3 +70,12 @@ body {
   font-weight: 600;
   margin-bottom: 16px;
 }
+
+.card.addon {
+  display: flex;
+  align-items: center;
+}
+
+.card.addon label {
+  margin-right: 5px;
+}

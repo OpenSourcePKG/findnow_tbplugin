@@ -43,7 +43,19 @@
 		"message": "Speichern"
 	},
 
+	"dialog.editsubject.heading.common": {
+		"message": "Betreff bearbeiten"
+	},
 	"dialog.editsubject.subject": {
 		"message": "Bitte geben Sie ihre Änderung im Betreff an:"
+	},
+	"dialog.editsubject.move_to_trash": {
+		"message": "Nach Ablegen, Email in den Papierkorb schieben"
+	},
+	"dialog.editsubject.save": {
+		"message": "Speichern"
+	},
+	"dialog.editsubject.cancle": {
+		"message": "Abbrechen"
 	}
 }

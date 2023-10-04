@@ -21,6 +21,7 @@ module.exports = (grunt) => {
                     {
                         expand: true,
                         cwd: 'assets/',
+                        // src: ['**/*.{json,html}'],
                         src: ['**/*'],
                         dest: outDirExtracted
                     }

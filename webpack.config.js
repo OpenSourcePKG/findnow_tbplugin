@@ -23,21 +23,25 @@ module.exports = [
         entry: {
             'background': `./src/chrome/background.ts`,
             'content/ui/editsubject': `./src/chrome/content/ui/editsubject.ts`,
-            'content/ui/options': `./src/chrome/content/ui/options.ts`,
-            'content/utils/translation': `./src/chrome/content/utils/translation.ts`,
+            'content/ui/options': './src/chrome/content/ui/options.ts',
         },
         experiments: {
             syncWebAssembly: true,
             topLevelAwait: true
         },
         output: {
-            path: `${outputPath}/chrome/`,
+            path: path.join(outputPath, 'chrome'),
+            library: 'findnowui',
+            libraryExport: 'default'
             //filename: `${entry}.js`,
         },
         module: {
             rules: [
                 ...tsLoaderRules
             ]
+        },
+        resolve: {
+            extensions
         },
         optimization: {
             minimize: false
@@ -49,7 +53,7 @@ module.exports = [
         entry: './src/chrome/api/findnow/implementation.ts',
         output: {
             filename: 'implementation.js',
-            path: `${outputPath}/chrome/api/findnow/`,
+            path: path.join(outputPath, 'chrome', 'api', 'findnow'),
             library: 'findnow',
             libraryExport: 'default'
         },

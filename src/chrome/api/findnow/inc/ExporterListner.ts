@@ -6,6 +6,7 @@ import {
     nsresult,
     Components as C, nsIMsgDBHdr
 } from 'mozilla-webext-types';
+import {SaveToOptions} from './SaveToOptions';
 import {Utils} from './Utils';
 
 declare const Components: C;
@@ -22,11 +23,13 @@ export class ExporterListner implements nsIStreamListener {
     [x: string]: unknown;
 
     private _hdr: nsIMsgDBHdr;
+    private _options: SaveToOptions;
     private _scriptStream?: any;
     private _emailtext: string = '';
 
-    public constructor(hdr: nsIMsgDBHdr) {
+    public constructor(hdr: nsIMsgDBHdr, options: SaveToOptions) {
         this._hdr = hdr;
+        this._options = options;
     }
 
     public QueryInterface<I extends Interfaces[keyof Interfaces]>(aIID: I): I {
@@ -36,7 +39,9 @@ export class ExporterListner implements nsIStreamListener {
     public onDataAvailable(
         aRequest: nsIRequest,
         aInputStream: nsIInputStream,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         _aOffset: number,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         _aCount: number
     ): void {
         this._scriptStream = Cc['@mozilla.org/scriptableinputstream;1'].createInstance(Ci.nsIScriptableInputStream);
@@ -62,7 +67,7 @@ export class ExporterListner implements nsIStreamListener {
                 this._emailtext = `X-Mozilla-Keys: ${tags}\r\n${this._emailtext}`;
             }
 
-            const subject = Utils.getSubjectForHdr(this._hdr);
+            const subject = this._options.editsubject_subject;
             console.log(subject);
         } catch (et) {
             console.log(et);

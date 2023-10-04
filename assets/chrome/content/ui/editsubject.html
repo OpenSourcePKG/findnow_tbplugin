@@ -1,22 +1,27 @@
 <!DOCTYPE html>
+
 <html>
 <head>
-  <meta charset="utf-8" />
-  <title>Betreff bearbeiten</title>
-  <script src="../utils/translation.js" type="module"></script>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="chrome://messenger/content/aboutAddonsExtra.css"/>
+  <link rel="stylesheet" href="chrome://global/skin/in-content/common.css"/>
+  <link rel="stylesheet" href="editsubject.css"/>
+  <script type="text/javascript" defer="defer" src="../inc/utils/Translation.js"></script>
+  <script type="text/javascript" defer="defer" src="editsubject.js"></script>
+  <title data-i18n="dialog.editsubject.heading.common"></title>
 </head>
 <body>
-  <div id="full">
-    <span data-i18n="dialog.editsubject.subject"></span><br>
-    <input typeof="text" id="subject_text" value="" size="45">
-    <br><br>
-    <input type="checkbox" id="move_to_trash" value="1">
-    <span>Nach Ablegen, Email in den Papierkorb schieben</span>
-    <br><br>
-    <span style="width: 100%; align-content: center;">
-      <button type="button" onclick="Editsubject.save();">Speichern</button>&nbsp;<button type="button" onclick="Editsubject.cancel();">Abbrechen</button>
-    </span>
-    <script src="editsubject.js" type="module"></script>
-  </div>
+<div id="full">
+  <span data-i18n="dialog.editsubject.subject"></span><br>
+  <input typeof="text" id="subject_text" value="" size="45">
+  <br><br>
+  <input type="checkbox" id="move_to_trash" value="1">
+  <span data-i18n="dialog.editsubject.move_to_trash"></span>
+  <br><br>
+  <span style="width: 100%; align-content: center;">
+    <button type="button" id="editsubject_save" class="button button-primary icon-button" data-i18n="dialog.editsubject.save"></button>&nbsp
+    <button type="button" id="editsubject_cancle" data-i18n="dialog.editsubject.cancle"></button>
+  </span>
+</div>
 </body>
 </html>

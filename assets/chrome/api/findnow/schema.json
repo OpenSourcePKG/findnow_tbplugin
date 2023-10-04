@@ -11,6 +11,25 @@
             "name": "tabId",
             "type": "number",
             "description": "tab id"
+          },
+          {
+            "name": "options",
+            "type": "object",
+            "protperties": {
+
+              "editsubject_subject": {
+                "type": "string",
+                "description": "Subject from user input.",
+                "optional": true
+              },
+
+              "editsubject_move_to_trash": {
+                "type": "boolean",
+                "description": "Move to trash from user input.",
+                "optional": true
+              }
+
+            }
           }
         ]
       },
