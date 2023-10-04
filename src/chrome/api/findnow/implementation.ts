@@ -98,7 +98,7 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
                         error: 'Message not found!'
                     };
                 },
-                pickPath: async(): Promise<string|null> => {
+                pickPath: async(defaultPath: string): Promise<string|null> => {
                     console.log('pickPath');
                     const fp = Cc['@mozilla.org/filepicker;1'].createInstance(Ci.nsIFilePicker);
 
@@ -106,12 +106,37 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
 
                     fp.init(recentWindow, '', Ci.nsIFilePicker.modeGetFolder);
 
+                    if (defaultPath !== '') {
+                        const localFile = Components.classes['@mozilla.org/file/local;1'].createInstance(Components.interfaces.nsIFile);
+                        localFile.initWithPath(defaultPath);
+
+                        if (localFile.exists()) {
+                            fp.displayDirectory = localFile;
+                        }
+                    }
+
                     const res = await new Promise((resolve) => {
                         fp.open(resolve);
                     });
 
                     if (res === Ci.nsIFilePicker.returnOK) {
                         return fp.file.path;
+                    }
+
+                    return null;
+                },
+                createPath: async(path: string): Promise<string|null> => {
+                    try {
+                        const localFile = Components.classes['@mozilla.org/file/local;1']
+                        .createInstance(Components.interfaces.nsIFile);
+
+                        localFile.initWithPath(path);
+
+                        if (localFile.exists()) {
+                            return localFile.path;
+                        }
+                    } catch (ex) {
+                        console.log(ex);
                     }
 
                     return null;

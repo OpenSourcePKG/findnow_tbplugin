@@ -14,9 +14,17 @@ export declare interface Findnow {
 
     /**
      * Return a path by user input select.
+     * @param {string} defaultPath
      * @returns {string|null}
      */
-    pickPath(): Promise<string|null>;
+    pickPath(defaultPath: string): Promise<string|null>;
+
+    /**
+     * Return a created path.
+     * @param {string} path - Path for creating.
+     * @returns {string|null}
+     */
+    createPath(path: string): Promise<string|null>;
 }
 
 /**

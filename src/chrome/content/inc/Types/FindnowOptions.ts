@@ -17,4 +17,6 @@ export type FindnowOptions = {
     filename_abbreviation: string;
     allow_edit_subject: boolean;
     move_to_trash: boolean;
+
+    export_save_auto_eml: boolean;
 };

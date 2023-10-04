@@ -28,7 +28,9 @@ export class Settings {
             move_to_trash: false,
             export_filenames_addtime: true,
             export_eml_use_sub_dir: false,
-            export_eml_sub_dir: ''
+            export_eml_sub_dir: '',
+
+            export_save_auto_eml: false
         };
     }
 

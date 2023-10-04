@@ -1,4 +1,5 @@
 import {FindnowBrowser} from './api/findnow/api';
+import {Settings} from './content/inc/Settings';
 import {WindowEditsubject} from './content/inc/Window/WindowEditsubject';
 
 declare const browser: FindnowBrowser;
@@ -38,9 +39,14 @@ const DEBUG = true;
             const header = await browser.messageDisplay.getDisplayedMessage(tab.id);
 
             if (header) {
-                const win = winEditSubject.open({header});
+                const settings = await new Settings().get();
 
-                console.debug(win);
+                if (settings.allow_edit_subject) {
+                    const win = winEditSubject.open({
+                        header,
+                        settings
+                    });
+                }
 
                 // https://github.com/thunderbird-conversations/thunderbird-conversations/blob/7c1334532f10a532d72407f7133de0b2cd50ac5e/addon/experiment-api/schema.json
                 /*const resulte = await browser.findnow.saveTo(header.id, {

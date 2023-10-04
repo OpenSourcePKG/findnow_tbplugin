@@ -37,7 +37,25 @@
         "name": "pickPath",
         "type": "function",
         "async": true,
-        "parameters": []
+        "parameters": [
+          {
+            "name": "defaultPath",
+            "type": "string",
+            "description": "A default path for folder picking."
+          }
+        ]
+      },
+      {
+        "name": "createPath",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "path",
+            "type": "string",
+            "description": "A path for create."
+          }
+        ]
       }
     ]
   }
