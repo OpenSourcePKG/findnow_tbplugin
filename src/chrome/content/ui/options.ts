@@ -82,7 +82,7 @@ export class Options {
         };
 
         inputEmlDirButton.onclick = async(): Promise<void> => {
-            const path = await browser.findnow.pickPath();
+            const path = await browser.findnow.pickPath(inputExportEmlDir.value);
 
             if (path) {
                 inputExportEmlDir.setAttribute('value', path);

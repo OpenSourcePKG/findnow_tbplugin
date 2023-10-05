@@ -1,4 +1,4 @@
-import {FindnowBrowser} from './../../api/findnow/api';
+import {FindnowBrowser} from '../../api/findnow/api';
 import {FindnowOptions} from './Types/FindnowOptions';
 
 declare const browser: FindnowBrowser;

@@ -1,10 +1,14 @@
 FROM golang:1.14-buster AS easy-novnc-build
+
 WORKDIR /src
+
 RUN go mod init build && \
     go get github.com/geek1011/easy-novnc@v1.1.0 && \
     go build -o /bin/easy-novnc github.com/geek1011/easy-novnc
 
 FROM debian:11
+
+ARG TB_URL="https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/115.3.1/linux-x86_64/de/thunderbird-115.3.1.tar.bz2"
 
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends openbox tigervnc-standalone-server supervisor gosu && \
@@ -28,9 +32,7 @@ RUN apt-get -y install wget bzip2 pwgen && \
 RUN apt-get update && apt-get upgrade -y --fix-missing
 RUN apt-get install libasound2 -y
 
-RUN cd /opt \
-    && wget https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/115.0.1/linux-x86_64/de/thunderbird-115.0.1.tar.bz2 \
-    && tar -xvf thunderbird-115.0.1.tar.bz2
+RUN cd /opt && wget -O thunderbird.tar.bz2 "$TB_URL" && tar -xvf thunderbird.tar.bz2
 
 COPY --from=easy-novnc-build /bin/easy-novnc /usr/local/bin/
 COPY menu.xml /etc/xdg/openbox/

@@ -37,7 +37,9 @@ export class Folder {
 
         try {
             if (settings.export_eml_use_sub_dir) {
+                const subDir = `${file}/${settings.export_eml_sub_dir}`;
 
+                file = await browser.findnow.createPath(subDir);
             }
         } catch (e) {
             console.log(e);

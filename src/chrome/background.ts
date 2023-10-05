@@ -1,5 +1,6 @@
 import {FindnowBrowser} from './api/findnow/api';
 import {Settings} from './content/inc/Settings';
+import {Folder} from './content/inc/Utils/Folder';
 import {WindowEditsubject} from './content/inc/Window/WindowEditsubject';
 
 declare const browser: FindnowBrowser;
@@ -40,12 +41,21 @@ const DEBUG = true;
 
             if (header) {
                 const settings = await new Settings().get();
+                const file = await Folder.getSaveFolder(settings);
 
-                if (settings.allow_edit_subject) {
-                    const win = winEditSubject.open({
-                        header,
-                        settings
-                    });
+                if (file) {
+                    if (settings.allow_edit_subject) {
+                        await winEditSubject.open({
+                            header,
+                            settings
+                        });
+                    } else {
+                        await browser.findnow.saveTo(header.id, {
+                            file
+                        });
+                    }
+                } else {
+                    console.log('Destination can not use for email save!');
                 }
 
                 // https://github.com/thunderbird-conversations/thunderbird-conversations/blob/7c1334532f10a532d72407f7133de0b2cd50ac5e/addon/experiment-api/schema.json

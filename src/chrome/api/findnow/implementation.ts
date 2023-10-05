@@ -98,6 +98,12 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
                         error: 'Message not found!'
                     };
                 },
+
+                /**
+                 * Pick the path by dialog.
+                 * @param {string} defaultPath - The path is ignored when the string is empty.
+                 * @returns {string|null} Selected path from dialog.
+                 */
                 pickPath: async(defaultPath: string): Promise<string|null> => {
                     console.log('pickPath');
                     const fp = Cc['@mozilla.org/filepicker;1'].createInstance(Ci.nsIFilePicker);
@@ -125,6 +131,12 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
 
                     return null;
                 },
+
+                /**
+                 * Create a path.
+                 * @param {string} path
+                 * @returns {string|null} Return the path when this path is created.
+                 */
                 createPath: async(path: string): Promise<string|null> => {
                     try {
                         const localFile = Components.classes['@mozilla.org/file/local;1']

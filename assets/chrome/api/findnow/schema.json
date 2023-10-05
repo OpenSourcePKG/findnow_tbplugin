@@ -5,6 +5,7 @@
       {
         "name": "saveTo",
         "type": "function",
+        "description": "Save the email to a eml file.",
         "async": true,
         "parameters": [
           {
@@ -27,8 +28,12 @@
                 "type": "boolean",
                 "description": "Move to trash from user input.",
                 "optional": true
-              }
+              },
 
+              "file": {
+                "type": "string",
+                "description": "File destination for save the eml file."
+              }
             }
           }
         ]
@@ -36,6 +41,7 @@
       {
         "name": "pickPath",
         "type": "function",
+        "description": "Pick the path by Dialog.",
         "async": true,
         "parameters": [
           {
@@ -48,6 +54,7 @@
       {
         "name": "createPath",
         "type": "function",
+        "description": "Create a path.",
         "async": true,
         "parameters": [
           {
