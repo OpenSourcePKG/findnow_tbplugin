@@ -15,8 +15,9 @@ body {
 }
 
 .card.addon {
-  display: flex;
   align-items: center;
+  display: flex;
+  overflow: auto;
 }
 
 .card.addon label {
@@ -24,5 +25,10 @@ body {
 }
 
 .card.addon input[type=text] {
-  min-width: 350px;
+  width: 350px;
+}
+
+#eml_dir_button {
+  border: 1px solid var(--in-content-box-border-color);
+  min-width: 125px;
 }
