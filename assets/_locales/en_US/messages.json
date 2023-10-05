@@ -6,7 +6,7 @@
 		"message": "Allows exporting messages and folders for FindNow"
 	},
 	"message_display_action_default_title": {
-		"message": "Take off"
+		"message": "Store mail"
 	},
 
 	"options.common": {
@@ -16,7 +16,7 @@
 		"message": "FindNow Settings"
 	},
 	"options.defaultbutton": {
-		"message": "Show drop button in default color"
+		"message": "Show 'Store' button in default color"
 	},
 	"options.emlexport": {
 		"message": "Default directory for file export:"
@@ -37,7 +37,7 @@
 		"message": "Subject can be changed with extra dialog"
 	},
 	"options.movetotrash": {
-		"message": "After filing, move the email to the trash"
+		"message": "After storing, move the email to the trash"
 	},
 	"options.button.save": {
 		"message": "Save"
@@ -50,12 +50,12 @@
 		"message": "Please indicate your change in the subject:"
 	},
 	"dialog.editsubject.move_to_trash": {
-		"message": "After filing, move the email to the trash"
+		"message": "After storing, move the email to the trash"
 	},
 	"dialog.editsubject.save": {
 		"message": "Save"
 	},
-	"dialog.editsubject.cancle": {
+	"dialog.editsubject.cancel": {
 		"message": "Cancel"
 	}
 }

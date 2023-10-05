@@ -32,10 +32,10 @@ export class Editsubject {
         }
 
         const btnSave = document.getElementById('editsubject_save') as HTMLButtonElement|null;
-        const btnCancle = document.getElementById('editsubject_cancle') as HTMLButtonElement|null;
+        const btnCancel = document.getElementById('editsubject_cancel') as HTMLButtonElement|null;
 
-        if (btnCancle) {
-            btnCancle.onclick = (): void => {
+        if (btnCancel) {
+            btnCancel.onclick = (): void => {
                 window.close();
             };
         }

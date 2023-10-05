@@ -16,7 +16,7 @@
 		"message": "FindNow Einstellungen"
 	},
 	"options.defaultbutton": {
-		"message": "Ablegen'-Button in Standardfarbe anzeigen"
+		"message": "'Ablegen'-Button in Standardfarbe anzeigen"
 	},
 	"options.emlexport": {
 		"message": "Vorgabeverzeichnis für Dateiexport:"
@@ -55,7 +55,7 @@
 	"dialog.editsubject.save": {
 		"message": "Speichern"
 	},
-	"dialog.editsubject.cancle": {
+	"dialog.editsubject.cancel": {
 		"message": "Abbrechen"
 	}
 }

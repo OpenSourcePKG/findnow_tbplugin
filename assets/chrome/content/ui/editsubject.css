@@ -1,9 +1,56 @@
-body {
-  background-color: var(--in-content-categories-background);
-  height: 100%;
-  weight: 100%
+* {
+  box-sizing: border-box;
 }
 
-#full {
-  margin: 10px;
+html, body {
+  background-color: var(--in-content-categories-background);
+  height: 100%;
+  width: 100%
+}
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 10px;
+}
+
+.dialog .dialog-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.dialog .dialog-content :not(:first-child) {
+  margin-top: 5px;
+}
+
+.dialog .dialog-content #move_to_trash_container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.dialog .dialog-footer {
+  display: flex;
+  justify-content: end;
+}
+
+#subject_text_label,
+#move_to_trash {
+  margin: 4px;
+}
+
+#editsubject_save,
+#editsubject_cancel {
+  border: 1px solid var(--in-content-box-border-color);
+}
+
+#editsubject_save {
+  background-color: #1373d9;
+  color: white;
+}
+
+#editsubject_save:hover {
+  background-color: #1c83e4;
 }

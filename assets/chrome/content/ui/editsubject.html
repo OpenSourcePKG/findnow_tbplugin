@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-
-<html>
-<head>
-  <meta charset="utf-8"/>
-  <link rel="stylesheet" href="chrome://messenger/content/aboutAddonsExtra.css"/>
-  <link rel="stylesheet" href="chrome://global/skin/in-content/common.css"/>
-  <link rel="stylesheet" href="editsubject.css"/>
-  <script type="text/javascript" defer="defer" src="../inc/utils/Translation.js"></script>
-  <script type="text/javascript" defer="defer" src="editsubject.js"></script>
-  <title data-i18n="dialog.editsubject.heading.common"></title>
-</head>
-<body>
-<div id="full">
-  <span data-i18n="dialog.editsubject.subject"></span><br>
-  <input typeof="text" id="subject_text" value="" size="45">
-  <br><br>
-  <input type="checkbox" id="move_to_trash" value="1">
-  <span data-i18n="dialog.editsubject.move_to_trash"></span>
-  <br><br>
-  <span style="width: 100%; align-content: center;">
-    <button type="button" id="editsubject_save" class="button button-primary icon-button" data-i18n="dialog.editsubject.save"></button>&nbsp
-    <button type="button" id="editsubject_cancle" data-i18n="dialog.editsubject.cancle"></button>
-  </span>
-</div>
-</body>
+<html lang="de">
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="chrome://global/skin/in-content/common.css"/>
+    <link rel="stylesheet" href="editsubject.css"/>
+    <script type="text/javascript" defer="defer" src="../inc/utils/Translation.js"></script>
+    <script type="text/javascript" defer="defer" src="editsubject.js"></script>
+    <title data-i18n="dialog.editsubject.heading.common"></title>
+  </head>
+  <body>
+    <div class="dialog">
+      <div class="dialog-content">
+        <label id="subject_text_label" data-i18n="dialog.editsubject.subject"></label>
+        <input id="subject_text" type="text" value="">
+        <div id="move_to_trash_container">
+          <input type="checkbox" id="move_to_trash" value="1">
+          <span data-i18n="dialog.editsubject.move_to_trash"></span>
+        </div>
+      </div>
+      <div class="dialog-footer">
+        <button type="button" id="editsubject_save" data-i18n="dialog.editsubject.save"></button>
+        <button type="button" id="editsubject_cancel" data-i18n="dialog.editsubject.cancel"></button>
+      </div>
+    </div>
+  </body>
 </html>
