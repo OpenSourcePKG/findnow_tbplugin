@@ -21,7 +21,7 @@ html, body {
   flex-direction: column;
 }
 
-.dialog .dialog-content :not(:first-child) {
+.dialog .dialog-content > :not(:first-child) {
   margin-top: 5px;
 }
 
