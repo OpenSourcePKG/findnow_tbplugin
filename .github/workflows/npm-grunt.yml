@@ -2,9 +2,8 @@ name: NodeJS with Grunt
 
 on:
   release:
-    types: [published]
     tags:
-      - 'v*.*.*'
+      - 'v*'
 
 jobs:
   build:
