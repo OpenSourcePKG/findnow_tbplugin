@@ -1,6 +1,6 @@
 import {Translation} from '../inc/Utils/Translation';
-import {Settings} from './../inc/Settings';
-import {FindnowBrowser} from './../../api/findnow/api';
+import {Settings} from '../inc/Settings';
+import {FindnowBrowser} from '../../api/findnow/FindnowBrowser';
 
 declare const browser: FindnowBrowser;
 

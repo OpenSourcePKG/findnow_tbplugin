@@ -50,6 +50,7 @@
   "permissions": [
     "accountsRead",
     "compose",
+    "downloads",
     "idle",
     "messagesDelete",
     "messagesModify",

@@ -1,5 +1,5 @@
 import {CreateData, Window} from 'mozilla-webext-types';
-import {FindnowBrowser} from '../../api/findnow/api';
+import {FindnowBrowser} from '../../api/findnow/FindnowBrowser';
 
 declare const browser: FindnowBrowser;
 
@@ -57,14 +57,14 @@ export class WindowHandler {
         }
 
         if (this._isReady) {
-            browser.runtime.sendMessage(message);
+            browser.runtime.sendMessage(message).then();
         } else {
             this._messageQueue.push(message);
         }
     }
 
     public async open(data?: object): Promise<Window> {
-        let ret: Window|null = null;
+        let ret: Window|null;
 
         try {
             ret = await browser.windows.get(this._windowId);
@@ -78,7 +78,7 @@ export class WindowHandler {
         }
 
         if (data) {
-            this.sendMessage(data);
+            this.sendMessage(data).then();
         }
 
         return ret;
@@ -87,7 +87,8 @@ export class WindowHandler {
     public async close(): Promise<void> {
         try {
             await browser.windows.get(this._windowId);
-            await browser.windows.remove(this._windowId);
+            browser.windows.remove(this._windowId);
+
             this._windowId = 0;
             this._isReady = false;
         } catch (e) {

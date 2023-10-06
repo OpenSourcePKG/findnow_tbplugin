@@ -1,4 +1,4 @@
-import {FindnowBrowser} from '../../api/findnow/api';
+import {FindnowBrowser} from '../../api/findnow/FindnowBrowser';
 import {Consts} from '../inc/Consts';
 import {SendMessageEditSubject} from '../inc/SendMessageEditSubject';
 import {Settings} from '../inc/Settings';

@@ -1,12 +1,14 @@
-import {ThunderbirdBrowser} from 'mozilla-webext-types';
 import {SaveToOptions} from './inc/SaveToOptions';
 import {SaveToResulte} from './inc/SaveToResulte';
 
-export declare interface Findnow {
+/**
+ * Interface for Findnow implementation.
+ */
+export declare interface IFindnow {
 
     /**
      * Save a message to file.
-     * @param {number} messageId - Id of a message
+     * @param {number} messageId - ID of a message
      * @param {SaveToOptions} options
      * @returns {SaveToResulte}
      */
@@ -20,21 +22,17 @@ export declare interface Findnow {
     pickPath(defaultPath: string): Promise<string|null>;
 
     /**
-     * Return a created path.
-     * @param {string} path - Path for creating.
-     * @returns {string|null}
+     * Joint 2 paths to a string
+     * @param {string} path
+     * @param {string} subdir
+     * @returns {string}
      */
-    createPath(path: string): Promise<string|null>;
-}
-
-/**
- * Findow Browser extention.
- */
-export declare interface FindnowBrowser extends ThunderbirdBrowser {
+    joinPath(path: string, subdir: string): Promise<string>;
 
     /**
-     * Findnow api implementation.
-     * @member {Findnow}
+     * Exist a path.
+     * @param {string} path
+     * @returns {boolean}
      */
-    findnow: Findnow;
+    existPath(path: string): Promise<boolean>;
 }

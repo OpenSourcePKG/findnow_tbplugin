@@ -1,4 +1,4 @@
-import {FindnowBrowser} from '../../../api/findnow/api';
+import {FindnowBrowser} from '../../../api/findnow/FindnowBrowser';
 import {FindnowOptions} from '../Types/FindnowOptions';
 
 declare const browser: FindnowBrowser;
@@ -36,10 +36,18 @@ export class Folder {
         // create sub dir ----------------------------------------------------------------------------------------------
 
         try {
-            if (settings.export_eml_use_sub_dir) {
-                const subDir = `${file}/${settings.export_eml_sub_dir}`;
+            if (file && settings.export_eml_use_sub_dir) {
+                const subdir = settings.export_eml_sub_dir;
 
-                file = await browser.findnow.createPath(subDir);
+                if (subdir === '') {
+                    console.log('Folder::getSaveFolder: subdir string is empty!');
+                } else {
+                    const tSubdir = await browser.findnow.joinPath(file, subdir);
+
+                    if (await browser.findnow.existPath(tSubdir)) {
+                        file = tSubdir;
+                    }
+                }
             }
         } catch (e) {
             console.log(e);

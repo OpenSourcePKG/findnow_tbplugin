@@ -1,8 +1,12 @@
 import {
     Components as C,
     ExtensionMail,
-    IExtensionAPI, nsIJSRAIIHelper, Services as S
+    IExtensionAPI, nsIJSRAIIHelper,
+    Services as S,
+    ChromeUtils as ChUt,
+    PathUtils as ph
 } from 'mozilla-webext-types';
+import {IFindnow} from './IFindnow';
 
 import {Exporter} from './inc/Exporter';
 import {SaveToOptions} from './inc/SaveToOptions';
@@ -11,11 +15,19 @@ import {SaveToResulte} from './inc/SaveToResulte';
 declare const Components: C;
 declare const Services: S;
 declare const ExtensionAPI: any;
+declare const ChromeUtils: ChUt;
+declare let PathUtils: ph | { join: (...args: string[]) => string;};
 
 const {
     classes: Cc,
     interfaces: Ci
 } = Components;
+
+if (!PathUtils) {
+    const {OS} = ChromeUtils.import('resource://gre/modules/osfile.jsm');
+
+    PathUtils = OS.Path;
+}
 
 /**
  * Findnow implementations.
@@ -113,7 +125,9 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
                     fp.init(recentWindow, '', Ci.nsIFilePicker.modeGetFolder);
 
                     if (defaultPath !== '') {
-                        const localFile = Components.classes['@mozilla.org/file/local;1'].createInstance(Components.interfaces.nsIFile);
+                        const localFile = Components.classes['@mozilla.org/file/local;1']
+                        .createInstance(Components.interfaces.nsIFile);
+
                         localFile.initWithPath(defaultPath);
 
                         if (localFile.exists()) {
@@ -133,11 +147,21 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
                 },
 
                 /**
-                 * Create a path.
+                 * Joint two paths to a string
                  * @param {string} path
-                 * @returns {string|null} Return the path when this path is created.
+                 * @param {string} subdir
+                 * @returns {string}
                  */
-                createPath: async(path: string): Promise<string|null> => {
+                joinPath: async(path: string, subdir: string): Promise<string> => {
+                    return PathUtils.join(path, subdir);
+                },
+
+                /**
+                 * Exist a path.
+                 * @param {string} path
+                 * @returns {boolean}
+                 */
+                existPath: async(path: string): Promise<boolean> => {
                     try {
                         const localFile = Components.classes['@mozilla.org/file/local;1']
                         .createInstance(Components.interfaces.nsIFile);
@@ -145,15 +169,15 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
                         localFile.initWithPath(path);
 
                         if (localFile.exists()) {
-                            return localFile.path;
+                            return true;
                         }
                     } catch (ex) {
                         console.log(ex);
                     }
 
-                    return null;
+                    return false;
                 }
-            }
+            } as IFindnow
         };
     }
 

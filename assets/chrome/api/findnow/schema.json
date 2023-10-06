@@ -52,15 +52,33 @@
         ]
       },
       {
-        "name": "createPath",
+        "name": "joinPath",
         "type": "function",
-        "description": "Create a path.",
+        "description": "Join 2 paths to a string.",
         "async": true,
         "parameters": [
           {
             "name": "path",
             "type": "string",
-            "description": "A path for create."
+            "description": "A main path."
+          },
+          {
+            "name": "subdir",
+            "type": "string",
+            "description": "A sub path."
+          }
+        ]
+      },
+      {
+        "name": "existPath",
+        "type": "function",
+        "description": "Exist a path.",
+        "async": true,
+        "parameters": [
+          {
+            "name": "path",
+            "type": "string",
+            "description": "A path for check."
           }
         ]
       }
