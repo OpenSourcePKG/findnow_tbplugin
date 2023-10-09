@@ -1,6 +1,32 @@
 [
   {
     "namespace": "findnow",
+    "types": [
+      {
+        "id": "SaveToOptions",
+        "type": "object",
+        "description": "Save to options.",
+        "properties": {
+          "savefile": {
+            "type": "string",
+            "description": "File destination for save the eml file."
+          },
+
+          "editsubject_subject": {
+            "type": "string",
+            "description": "Subject from user input.",
+            "optional": true
+          },
+
+          "editsubject_move_to_trash": {
+            "type": "boolean",
+            "description": "Move to trash from user input.",
+            "optional": true
+          }
+        }
+      }
+    ],
+
     "functions": [
       {
         "name": "saveTo",
@@ -15,26 +41,7 @@
           },
           {
             "name": "options",
-            "type": "object",
-            "protperties": {
-
-              "editsubject_subject": {
-                "type": "string",
-                "description": "Subject from user input.",
-                "optional": true
-              },
-
-              "editsubject_move_to_trash": {
-                "type": "boolean",
-                "description": "Move to trash from user input.",
-                "optional": true
-              },
-
-              "file": {
-                "type": "string",
-                "description": "File destination for save the eml file."
-              }
-            }
+            "$ref": "findnow.SaveToOptions"
           }
         ]
       },
@@ -51,6 +58,7 @@
           }
         ]
       },
+
       {
         "name": "joinPath",
         "type": "function",
@@ -69,6 +77,7 @@
           }
         ]
       },
+
       {
         "name": "existPath",
         "type": "function",

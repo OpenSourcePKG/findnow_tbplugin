@@ -11,6 +11,7 @@ import {IFindnow} from './IFindnow';
 import {Exporter} from './inc/Exporter';
 import {SaveToOptions} from './inc/SaveToOptions';
 import {SaveToResulte} from './inc/SaveToResulte';
+import {Utils} from './inc/Utils';
 
 declare const Components: C;
 declare const Services: S;
@@ -92,6 +93,8 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
         return {
             findnow: {
                 saveTo: async(messageId: number, options: SaveToOptions): Promise<SaveToResulte> => {
+                    console.log(`Findnow::implementation::saveTo: messageid: ${messageId}`);
+
                     const exporter = new Exporter();
                     const msgUri = this._getMessageUriById(messageId);
 
@@ -163,12 +166,9 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
                  */
                 existPath: async(path: string): Promise<boolean> => {
                     try {
-                        const localFile = Components.classes['@mozilla.org/file/local;1']
-                        .createInstance(Components.interfaces.nsIFile);
+                        const localFile = Utils.fileStrToNsIFile(path, true);
 
-                        localFile.initWithPath(path);
-
-                        if (localFile.exists()) {
+                        if (localFile) {
                             return true;
                         }
                     } catch (ex) {

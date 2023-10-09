@@ -3,6 +3,9 @@ import {FindnowBrowser} from '../../api/findnow/FindnowBrowser';
 
 declare const browser: FindnowBrowser;
 
+/**
+ * Helper window handler.
+ */
 export class WindowHandler {
 
     /**
@@ -29,6 +32,10 @@ export class WindowHandler {
      */
     protected _messageQueue: object[] = [];
 
+    /**
+     * Constructor with window data init.
+     * @param {CreateData} windowData
+     */
     public constructor(windowData: CreateData) {
         this._windowData = windowData;
 
@@ -47,7 +54,7 @@ export class WindowHandler {
 
     /**
      * Send a message object to the window.
-     * @param message
+     * @param {object} message
      */
     public async sendMessage(message: object): Promise<void> {
         try {
@@ -63,6 +70,11 @@ export class WindowHandler {
         }
     }
 
+    /**
+     * Open the window, when the window exists, then set the focus.
+     * @param {object} data
+     * @returns {Window}
+     */
     public async open(data?: object): Promise<Window> {
         let ret: Window|null;
 
@@ -84,6 +96,9 @@ export class WindowHandler {
         return ret;
     }
 
+    /**
+     * Close the window and reset all variables.
+     */
     public async close(): Promise<void> {
         try {
             await browser.windows.get(this._windowId);

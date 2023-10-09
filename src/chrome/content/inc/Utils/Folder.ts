@@ -3,8 +3,15 @@ import {FindnowOptions} from '../Types/FindnowOptions';
 
 declare const browser: FindnowBrowser;
 
+/**
+ * Helper folder object. Help to build the path for eml saving.
+ */
 export class Folder {
 
+    /**
+     * Return the main directory by settings.
+     * @param settings
+     */
     public static async getPredefinedFolder(settings: FindnowOptions): Promise<string|null> {
         if (!settings.export_eml_use_dir) {
             return null;
@@ -13,6 +20,10 @@ export class Folder {
         return settings.export_eml_dir;
     }
 
+    /**
+     * Return the directory for eml saving by settings, can call pickup dialog.
+     * @param {FindnowOptions} settings
+     */
     public static async getSaveFolder(settings: FindnowOptions): Promise<string|null> {
         let file = await Folder.getPredefinedFolder(settings);
         let showPicker = false;

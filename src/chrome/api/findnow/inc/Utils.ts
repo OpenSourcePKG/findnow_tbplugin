@@ -1,59 +1,84 @@
-import {nsIMsgDBHdr, Services as S} from 'mozilla-webext-types';
+import {Components as C} from 'mozilla-webext-types';
+import {nsIFile} from '../../../../../../mozilla-webext-types/src/WebExtensions/Base/nsIFile';
 
-declare const Services: S;
+declare const Components: C;
 
+const {
+    classes: Cc,
+    interfaces: Ci
+} = Components;
+
+/**
+ * Utils object.
+ */
 export class Utils {
 
-    public static getSubjectForHdr(hdr: nsIMsgDBHdr): string|null {
-        // extensions.findnow.move_to_trash
-        const moveToTrash = '';
-        // extensions.findnow.allow_edit_subject
-        const allowEditSubject = true;
+    /**
+     * Write date to disk by a file.
+     * @param {nsIFile} file
+     * @param {string} data
+     * @param {boolean} append
+     * @param {[string]} fname
+     * @param {[number]} time
+     * @returns {boolean}
+     */
+    public static writeDataOnDisk(file: nsIFile, data: string, append: boolean, fname?: string, time?: number): boolean {
+        try {
+            const foStream = Cc['@mozilla.org/network/file-output-stream;1'].createInstance(Ci.nsIFileOutputStream);
 
-        // -------------------------------------------------------------------------------------------------------------
+            if (append) {
+                if (fname) {
+                    file.append(fname);
+                }
 
-        let subj: string|null;
-
-        if (hdr.mime2DecodedSubject) {
-            subj = hdr.mime2DecodedSubject;
-
-            // eslint-disable-next-line no-bitwise
-            if (hdr.flags & 0x0010) {
-                subj = `Re_${subj}`;
+                foStream.init(file, 26, 0o664, 0);
+            } else {
+                foStream.init(file, 42, 0o664, 0);
             }
-        } else {
-            subj = 'None_subject';
+
+            if (data) {
+                foStream.write(data, data.length);
+            }
+
+            foStream.close();
+
+            try {
+                if (time) {
+                    file.lastModifiedTime = time;
+                }
+            } catch (e) {
+                console.log(e);
+            }
+
+            return true;
+        } catch (ex) {
+            console.log(ex);
         }
 
-        if (allowEditSubject) {
-            const returns = {
-                subject: subj,
-                returnsubject: null,
-                moveToTrash,
-                resulte: false
-            };
+        return false;
+    }
 
-            // const win = Services.wm.getMostRecentWindow('navigator:browser');
-            const win = Services.wm.getMostRecentWindow(null);
-            // https://github.com/Quantumplation/chrome-promise/blob/e9bb2819b2ae0ec942292c68ae084451d07b6290/chrome-promise.d.ts#L2132
+    /**
+     * Helper file string to nsIFile convert.
+     * @param {string} file
+     * @param {boolean} isExistCheck
+     * @returns {nsIFile|null}
+     */
+    public static fileStrToNsIFile(file: string, isExistCheck: boolean): nsIFile|null {
+        const localFile = Components.classes['@mozilla.org/file/local;1']
+        .createInstance(Components.interfaces.nsIFile);
 
-            // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages
+        localFile.initWithPath(file);
 
-            // https://github.com/thundernest/import-export-tools-ng/blob/a1d06c1011190dbafed5b4125ee23ae4c36ecfe5/src/api/WindowListener/implementation.js#L507C9-L519C11
-            win.openDialog('chrome://findnow/content/ui/editsubject.html', 'dlg', 'modal,chrome,dependent', returns);
-
-            if (!returns.resulte) {
-                return null;
+        if (isExistCheck) {
+            if (localFile.exists()) {
+                return localFile;
             }
 
-            subj = returns.returnsubject;
-
-            if (subj) {
-                console.log(subj);
-            }
+            return null;
         }
 
-        return null;
+        return localFile;
     }
 
 }

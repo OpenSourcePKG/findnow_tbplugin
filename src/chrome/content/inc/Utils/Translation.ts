@@ -2,8 +2,14 @@ import {FindnowBrowser} from '../../../api/findnow/FindnowBrowser';
 
 declare const browser: FindnowBrowser;
 
+/**
+ * Helper tanslation object.
+ */
 export class Translation {
 
+    /**
+     * Search all elements on DOM document and translate "data-i18n" key to text.
+     */
     public static lang(): void {
         console.log('Findnow::Translation: DOMContentLoaded');
 

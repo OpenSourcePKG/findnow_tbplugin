@@ -6,13 +6,15 @@ import {
     nsresult,
     Components as C, nsIMsgDBHdr
 } from 'mozilla-webext-types';
+import {nsISupports} from '../../../../../../mozilla-webext-types/src/WebExtensions/Base/nsISupports';
 import {SaveToOptions} from './SaveToOptions';
 import {Utils} from './Utils';
 
 declare const Components: C;
 const {
     interfaces: Ci,
-    classes: Cc
+    classes: Cc,
+    results: Cr
 } = Components;
 
 /**
@@ -33,25 +35,33 @@ export class ExporterListner implements nsIStreamListener {
     }
 
     public QueryInterface<I extends Interfaces[keyof Interfaces]>(aIID: I): I {
-        return this as unknown as I;
+        console.log(`Findnow::ExporterListner: QueryInterface: ${aIID}`);
+
+        if (aIID.equals(Ci.nsIStreamListener) || aIID.equals(Ci.nsISupports)) {
+            return this as unknown as I;
+        }
+
+        return Cr.NS_NOINTERFACE as unknown as I;
     }
 
     public onDataAvailable(
         aRequest: nsIRequest,
         aInputStream: nsIInputStream,
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         _aOffset: number,
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         _aCount: number
     ): void {
         this._scriptStream = Cc['@mozilla.org/scriptableinputstream;1'].createInstance(Ci.nsIScriptableInputStream);
-
         this._scriptStream.init(aInputStream);
 
         this._emailtext += this._scriptStream.read(this._scriptStream.available());
     }
 
+    /**
+     * Listner start reaquest, we're doing nothing and wait for stop.
+     * @param {nsIRequest} aRequest
+     */
     public onStartRequest(aRequest: nsIRequest): void {
+        console.log(`Findnow::ExporterListner: onStartRequest: ${aRequest.name}`);
     }
 
     public onStopRequest(
@@ -68,10 +78,32 @@ export class ExporterListner implements nsIStreamListener {
             }
 
             const subject = this._options.editsubject_subject;
-            console.log(subject);
+
+            const emlFile = Utils.fileStrToNsIFile(this._options.savefile, false);
+
+            if (emlFile) {
+                emlFile.append('test.eml');
+
+                const time = this._hdr.dateInSeconds * 1000;
+
+                Utils.writeDataOnDisk(emlFile, this._emailtext, false, undefined, time);
+            }
         } catch (et) {
             console.log(et);
         }
+    }
+
+    /**
+     * Is obj equals to ExporterListner.
+     * @param {nsISupports} obj
+     * @returns {boolean}
+     */
+    public equals(obj: nsISupports): boolean {
+        if (obj instanceof ExporterListner) {
+            return true;
+        }
+
+        return false;
     }
 
 }

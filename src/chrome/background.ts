@@ -44,11 +44,12 @@ const DEBUG: boolean = true;
                     if (settings.allow_edit_subject) {
                         await winEditSubject.open({
                             header,
-                            settings
+                            settings,
+                            file
                         });
                     } else {
                         await browser.findnow.saveTo(header.id, {
-                            file
+                            savefile: file
                         });
                     }
                 } else {

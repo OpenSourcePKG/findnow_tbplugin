@@ -8,11 +8,15 @@ declare const browser: FindnowBrowser;
 
 export class Editsubject {
 
-    public static setSubjectText(text: string): void {
+    protected static _data: SendMessageEditSubject|null;
+
+    public static setMsgData(data: SendMessageEditSubject): void {
+        Editsubject._data = data;
+
         const subText = window.document.getElementById('subject_text') as HTMLInputElement|null;
 
         if (subText) {
-            subText.value = text;
+            subText.value = data.header.subject;
         }
     }
 
@@ -41,8 +45,8 @@ export class Editsubject {
         }
 
         if (btnSave) {
-            btnSave.onclick = (): void => {
-                console.log('test');
+            btnSave.onclick = async(): Promise<void> => {
+                await Editsubject.save();
             };
         }
 
@@ -53,15 +57,19 @@ export class Editsubject {
     }
 
     public static async save(): Promise<void> {
-        if ((window as any).arguments) {
-            const retVals = (window as any).arguments[0];
+        console.log('Findnow::Editsubject: save');
 
-            const subText = window.document.getElementById('subject_text') as HTMLInputElement|null;
-            const mTt = document.getElementById('move_to_trash') as HTMLInputElement|null;
+        /*const subText = window.document.getElementById('subject_text') as HTMLInputElement|null;
+        const mTt = document.getElementById('move_to_trash') as HTMLInputElement|null;
 
-            retVals.returnsubject = subText ? subText.value : '';
-            retVals.moveToTrash = mTt ? mTt.checked : false;
-            retVals.resulte = true;
+        retVals.returnsubject = subText ? subText.value : '';
+        retVals.moveToTrash = mTt ? mTt.checked : false;
+        retVals.resulte = true;*/
+
+        if (Editsubject._data) {
+            await browser.findnow.saveTo(Editsubject._data.header.id, {
+                savefile: Editsubject._data.file
+            });
         }
 
         window.close();
@@ -98,6 +106,6 @@ browser.runtime.onMessage.addListener((message, sender) => {
     if (sender.id && (sender.id === Consts.ID)) {
         const esMsg = message as SendMessageEditSubject;
 
-        Editsubject.setSubjectText(esMsg.header.subject);
+        Editsubject.setMsgData(esMsg);
     }
 });
