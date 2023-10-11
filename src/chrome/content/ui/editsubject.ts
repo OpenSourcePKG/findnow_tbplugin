@@ -69,24 +69,24 @@ export class Editsubject {
                 dirPath: Editsubject._data.file,
                 filenames_toascii: true,
                 cutFilename: true,
-                abbreviation: '',
-                add_time_to_name: false,
+                use_abbreviation: Editsubject._data.settings.use_filename_abbreviation,
+                abbreviation: Editsubject._data.settings.filename_abbreviation,
+                add_time_to_name: Editsubject._data.settings.export_filenames_addtime,
                 cutSubject: true,
                 filenameFormat: SubjectBuilder.FILENAME_FORMAT_SIMPLE,
-                use_abbreviation: false,
                 use_iso_date: true,
                 pattern: ''
             });
 
-            console.log(`Filename: ${filename}`);
+            const file = await browser.findnow.joinPath(Editsubject._data.file, `${filename}.eml`);
 
             await browser.findnow.saveTo(Editsubject._data.header.id, {
-                savefile: Editsubject._data.file,
+                savefile: file,
                 editsubject_move_to_trash: mTt ? mTt.checked : false
             });
-        }
 
-        window.close();
+            window.close();
+        }
     }
 
     public static async cancel(): Promise<void> {

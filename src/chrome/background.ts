@@ -1,4 +1,5 @@
 import {FindnowBrowser} from './api/findnow/FindnowBrowser';
+import {SubjectBuilder} from './api/findnow/inc/Subject/SubjectBuilder';
 import {Settings} from './content/inc/Settings';
 import {Folder} from './content/inc/Utils/Folder';
 import {WindowEditsubject} from './content/inc/Window/WindowEditsubject';
@@ -48,8 +49,25 @@ const DEBUG: boolean = true;
                             file
                         });
                     } else {
+                        const filename = await browser.findnow.buildFilename(header.id, {
+                            subject: '',
+                            dirPath: file,
+                            filenames_toascii: true,
+                            cutFilename: true,
+                            use_abbreviation: settings.use_filename_abbreviation,
+                            abbreviation: settings.filename_abbreviation,
+                            add_time_to_name: settings.export_filenames_addtime,
+                            cutSubject: true,
+                            filenameFormat: SubjectBuilder.FILENAME_FORMAT_SIMPLE,
+                            use_iso_date: true,
+                            pattern: ''
+                        });
+
+                        const newfile = await browser.findnow.joinPath(file, `${filename}.eml`);
+
                         await browser.findnow.saveTo(header.id, {
-                            savefile: file
+                            savefile: newfile,
+                            editsubject_move_to_trash: settings.move_to_trash
                         });
                     }
                 } else {
