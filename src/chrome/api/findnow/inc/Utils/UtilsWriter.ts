@@ -1,5 +1,4 @@
-import {Components as C} from 'mozilla-webext-types';
-import {nsIFile} from '../../../../../../mozilla-webext-types/src/WebExtensions/Base/nsIFile';
+import {Components as C, nsIFile} from 'mozilla-webext-types';
 
 declare const Components: C;
 
@@ -9,9 +8,9 @@ const {
 } = Components;
 
 /**
- * Utils object.
+ * Helper for writing.
  */
-export class Utils {
+export class UtilsWriter {
 
     /**
      * Write date to disk by a file.
@@ -56,29 +55,6 @@ export class Utils {
         }
 
         return false;
-    }
-
-    /**
-     * Helper file string to nsIFile convert.
-     * @param {string} file
-     * @param {boolean} isExistCheck
-     * @returns {nsIFile|null}
-     */
-    public static fileStrToNsIFile(file: string, isExistCheck: boolean): nsIFile|null {
-        const localFile = Components.classes['@mozilla.org/file/local;1']
-        .createInstance(Components.interfaces.nsIFile);
-
-        localFile.initWithPath(file);
-
-        if (isExistCheck) {
-            if (localFile.exists()) {
-                return localFile;
-            }
-
-            return null;
-        }
-
-        return localFile;
     }
 
 }

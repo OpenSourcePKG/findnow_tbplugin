@@ -8,10 +8,12 @@ import {
 } from 'mozilla-webext-types';
 import {IFindnow} from './IFindnow';
 
-import {Exporter} from './inc/Exporter';
+import {Exporter} from './inc/Exporter/Exporter';
 import {SaveToOptions} from './inc/SaveToOptions';
 import {SaveToResulte} from './inc/SaveToResulte';
-import {Utils} from './inc/Utils';
+import {SubjectBuilder} from './inc/Subject/SubjectBuilder';
+import {SubjectOptions} from './inc/Subject/SubjectOptions';
+import {UtilsFile} from './inc/Utils/UtilsFile';
 
 declare const Components: C;
 declare const Services: S;
@@ -106,20 +108,26 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
                     console.log(`Findnow::implementation::getRawSubject: messageid: ${messageId}`);
 
                     const msgHdr = this.getMsgHdr(messageId);
-                    let subj = '';
+
+                    return msgHdr ? SubjectBuilder.getRawSubject(msgHdr) : '';
+                },
+
+                /**
+                 * Return a filename for eml.
+                 * @param {number} messageId
+                 * @param {SubjectOptions} options
+                 * @returns {string}
+                 */
+                buildFilename: async(messageId: number, options: SubjectOptions): Promise<string> => {
+                    console.log(`Findnow::implementation::buildSubject: messageid: ${messageId}`);
+
+                    const msgHdr = this.getMsgHdr(messageId);
 
                     if (msgHdr) {
-                        if (msgHdr.mime2DecodedSubject) {
-                            subj = msgHdr.mime2DecodedSubject;
-
-                            // eslint-disable-next-line no-bitwise
-                            if (msgHdr.flags & Ci.nsMsgMessageFlags.HasRe) {
-                                subj = `Re_${subj}`;
-                            }
-                        }
+                        return SubjectBuilder.buildFilename(msgHdr, options);
                     }
 
-                    return subj;
+                    return '';
                 },
 
                 /**
@@ -132,7 +140,7 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
                     console.log(`Findnow::implementation::saveTo: messageid: ${messageId}`);
 
                     const exporter = new Exporter();
-                    const msgUri = this._imp.getMessageUriById(messageId);
+                    const msgUri = this.getMessageUriById(messageId);
 
                     if (msgUri) {
                         const saveResulte = await exporter.saveTo(msgUri, options);
@@ -203,7 +211,7 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
                  */
                 existPath: async(path: string): Promise<boolean> => {
                     try {
-                        const localFile = Utils.fileStrToNsIFile(path, true);
+                        const localFile = UtilsFile.fileStrToNsIFile(path, true);
 
                         if (localFile) {
                             return true;

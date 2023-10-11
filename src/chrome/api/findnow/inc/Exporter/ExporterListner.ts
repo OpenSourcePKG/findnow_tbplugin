@@ -4,11 +4,12 @@ import {
     nsIInputStream,
     nsIRequest,
     nsresult,
-    Components as C, nsIMsgDBHdr
+    Components as C, nsIMsgDBHdr,
+    nsISupports
 } from 'mozilla-webext-types';
-import {nsISupports} from '../../../../../../mozilla-webext-types/src/WebExtensions/Base/nsISupports';
-import {SaveToOptions} from './SaveToOptions';
-import {Utils} from './Utils';
+import {UtilsFile} from '../Utils/UtilsFile';
+import {UtilsWriter} from '../Utils/UtilsWriter';
+import {SaveToOptions} from './../SaveToOptions';
 
 declare const Components: C;
 const {
@@ -77,16 +78,14 @@ export class ExporterListner implements nsIStreamListener {
                 this._emailtext = `X-Mozilla-Keys: ${tags}\r\n${this._emailtext}`;
             }
 
-            const subject = this._options.editsubject_subject;
-
-            const emlFile = Utils.fileStrToNsIFile(this._options.savefile, false);
+            const emlFile = UtilsFile.fileStrToNsIFile(this._options.savefile, false);
 
             if (emlFile) {
                 emlFile.append('test.eml');
 
                 const time = this._hdr.dateInSeconds * 1000;
 
-                Utils.writeDataOnDisk(emlFile, this._emailtext, false, undefined, time);
+                UtilsWriter.writeDataOnDisk(emlFile, this._emailtext, false, undefined, time);
             }
         } catch (et) {
             console.log(et);

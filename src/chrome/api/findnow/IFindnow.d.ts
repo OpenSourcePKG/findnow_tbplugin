@@ -1,5 +1,6 @@
 import {SaveToOptions} from './inc/SaveToOptions';
 import {SaveToResulte} from './inc/SaveToResulte';
+import {SubjectOptions} from './inc/Subject/SubjectOptions';
 
 /**
  * Interface for Findnow implementation.
@@ -42,5 +43,13 @@ export declare interface IFindnow {
      * @returns {string}
      */
     getRawSubject(messageId: number): Promise<string>;
+
+    /**
+     * Return a filename for eml.
+     * @param {number} messageId
+     * @param {SubjectOptions} options
+     * @returns {string}
+     */
+    buildFilename(messageId: number, options: SubjectOptions): Promise<string>;
 
 }

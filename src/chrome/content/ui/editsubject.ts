@@ -1,4 +1,5 @@
 import {FindnowBrowser} from '../../api/findnow/FindnowBrowser';
+import {SubjectBuilder} from '../../api/findnow/inc/Subject/SubjectBuilder';
 import {Consts} from '../inc/Consts';
 import {SendMessageEditSubject} from '../inc/SendMessageEditSubject';
 import {Settings} from '../inc/Settings';
@@ -59,16 +60,29 @@ export class Editsubject {
     public static async save(): Promise<void> {
         console.log('Findnow::Editsubject: save');
 
-        /*const subText = window.document.getElementById('subject_text') as HTMLInputElement|null;
         const mTt = document.getElementById('move_to_trash') as HTMLInputElement|null;
-
-        retVals.returnsubject = subText ? subText.value : '';
-        retVals.moveToTrash = mTt ? mTt.checked : false;
-        retVals.resulte = true;*/
+        const subText = window.document.getElementById('subject_text') as HTMLInputElement|null;
 
         if (Editsubject._data) {
+            const filename = await browser.findnow.buildFilename(Editsubject._data.header.id, {
+                subject: subText ? subText.value : '',
+                dirPath: Editsubject._data.file,
+                filenames_toascii: true,
+                cutFilename: true,
+                abbreviation: '',
+                add_time_to_name: false,
+                cutSubject: true,
+                filenameFormat: SubjectBuilder.FILENAME_FORMAT_SIMPLE,
+                use_abbreviation: false,
+                use_iso_date: true,
+                pattern: ''
+            });
+
+            console.log(`Filename: ${filename}`);
+
             await browser.findnow.saveTo(Editsubject._data.header.id, {
-                savefile: Editsubject._data.file
+                savefile: Editsubject._data.file,
+                editsubject_move_to_trash: mTt ? mTt.checked : false
             });
         }
 

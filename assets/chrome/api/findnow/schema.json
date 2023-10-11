@@ -24,6 +24,68 @@
             "optional": true
           }
         }
+      },
+
+      {
+        "id": "SubjectOptions",
+        "type": "object",
+        "description": "Subject to options.",
+        "properties": {
+          "subject": {
+            "type": "string",
+            "description": "Subject by user input."
+          },
+
+          "dirPath": {
+            "type": "string",
+            "description": "Directory path."
+          },
+
+          "use_abbreviation": {
+            "type": "boolean",
+            "description": "use abbreviation string"
+          },
+
+          "abbreviation": {
+            "type": "string",
+            "description": "Abbreviation string"
+          },
+
+          "filenameFormat": {
+            "type": "number",
+            "description": "Filename format"
+          },
+
+          "cutSubject": {
+            "type": "boolean",
+            "description": "cut the subject short, default use is true"
+          },
+
+          "cutFilename": {
+            "type": "boolean",
+            "description": "cut the filename short, default use is true"
+          },
+
+          "filenames_toascii": {
+            "type": "boolean",
+            "description": "convert the filenames to ascii"
+          },
+
+          "use_iso_date": {
+            "type": "boolean",
+            "description": "user for date generate iso format"
+          },
+
+          "add_time_to_name": {
+            "type": "boolean",
+            "description": "add the time to the filenname"
+          },
+
+          "pattern": {
+            "type": "string",
+            "description": "a pattern string for build filename, only use by filenameFormat = 2"
+          }
+        }
       }
     ],
 
@@ -38,6 +100,23 @@
             "name": "messageId",
             "type": "number",
             "description": "message id"
+          }
+        ]
+      },
+      {
+        "name": "buildFilename",
+        "type": "function",
+        "description": "Return the filename from message ID.",
+        "async": true,
+        "parameters": [
+          {
+            "name": "messageId",
+            "type": "number",
+            "description": "message id"
+          },
+          {
+            "name": "options",
+            "$ref": "findnow.SubjectOptions"
           }
         ]
       },
