@@ -16,6 +16,8 @@ export class Editsubject {
         const subText = window.document.getElementById('subject_text') as HTMLInputElement|null;
 
         if (subText) {
+            if (data.header.tags)
+
             subText.value = data.header.subject;
         }
     }

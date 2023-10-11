@@ -29,15 +29,28 @@
 
     "functions": [
       {
+        "name": "getRawSubject",
+        "type": "function",
+        "description": "Return the raw subject from message ID.",
+        "async": true,
+        "parameters": [
+          {
+            "name": "messageId",
+            "type": "number",
+            "description": "message id"
+          }
+        ]
+      },
+      {
         "name": "saveTo",
         "type": "function",
         "description": "Save the email to a eml file.",
         "async": true,
         "parameters": [
           {
-            "name": "tabId",
+            "name": "messageId",
             "type": "number",
-            "description": "tab id"
+            "description": "message id"
           },
           {
             "name": "options",

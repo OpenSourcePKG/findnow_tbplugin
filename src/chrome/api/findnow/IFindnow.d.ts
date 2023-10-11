@@ -35,4 +35,12 @@ export declare interface IFindnow {
      * @returns {boolean}
      */
     existPath(path: string): Promise<boolean>;
+
+    /**
+     * Return the raw subject from message ID.
+     * @param {number} messageId
+     * @returns {string}
+     */
+    getRawSubject(messageId: number): Promise<string>;
+
 }

@@ -40,12 +40,17 @@ export class Settings {
      */
     public async get(): Promise<FindnowOptions> {
         let options: FindnowOptions = this._getDefaults();
-        const storeData = await browser.storage.local.get();
 
-        if (storeData) {
-            if (storeData.findnow) {
-                options = storeData.findnow as FindnowOptions;
+        try {
+            const storeData = await browser.storage.local.get();
+
+            if (storeData) {
+                if (storeData.findnow) {
+                    options = storeData.findnow as FindnowOptions;
+                }
             }
+        } catch (e) {
+            console.log(e);
         }
 
         return options;
