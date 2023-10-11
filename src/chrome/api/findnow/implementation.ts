@@ -6,7 +6,6 @@ import {
     ChromeUtils as ChUt,
     PathUtils as ph, nsIMsgDBHdr
 } from 'mozilla-webext-types';
-import {FindnowApi} from './FindnowApi';
 import {IFindnow} from './IFindnow';
 
 import {Exporter} from './inc/Exporter';
@@ -43,19 +42,12 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
     public chromeHandle: nsIJSRAIIHelper|null = null;
 
     /**
-     * Api for Findnow.
-     * @member {FindnowApi}
-     */
-    protected _findnow: FindnowApi;
-
-    /**
      * Construct FindNow implementation.
      * @param {ExtensionMail} ext
      */
     public constructor(ext: ExtensionMail) {
         super(ext);
         this.extension = ext;
-        this._findnow = new FindnowApi(this);
     }
 
     /**
@@ -103,7 +95,126 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
      */
     public getAPI(): Record<string, unknown> {
         return {
-            findnow: this._findnow
+            findnow: {
+
+                /**
+                 * Return the raw subject from message ID.
+                 * @param {number} messageId
+                 * @returns {string}
+                 */
+                getRawSubject: async(messageId: number): Promise<string> => {
+                    console.log(`Findnow::implementation::getRawSubject: messageid: ${messageId}`);
+
+                    const msgHdr = this.getMsgHdr(messageId);
+                    let subj = '';
+
+                    if (msgHdr) {
+                        if (msgHdr.mime2DecodedSubject) {
+                            subj = msgHdr.mime2DecodedSubject;
+
+                            // eslint-disable-next-line no-bitwise
+                            if (msgHdr.flags & Ci.nsMsgMessageFlags.HasRe) {
+                                subj = `Re_${subj}`;
+                            }
+                        }
+                    }
+
+                    return subj;
+                },
+
+                /**
+                 * Save a message to file.
+                 * @param {number} messageId - ID of a message
+                 * @param {SaveToOptions} options
+                 * @returns {SaveToResulte}
+                 */
+                saveTo: async(messageId: number, options: SaveToOptions): Promise<SaveToResulte> => {
+                    console.log(`Findnow::implementation::saveTo: messageid: ${messageId}`);
+
+                    const exporter = new Exporter();
+                    const msgUri = this._imp.getMessageUriById(messageId);
+
+                    if (msgUri) {
+                        const saveResulte = await exporter.saveTo(msgUri, options);
+
+                        if (saveResulte) {
+                            return {
+                                success: true
+                            };
+                        }
+                    }
+
+                    return {
+                        success: false,
+                        error: 'Message not found!'
+                    };
+                },
+
+                /**
+                 * Pick the path by dialog.
+                 * @param {string} defaultPath - The path is ignored when the string is empty.
+                 * @returns {string|null} Selected path from dialog.
+                 */
+                pickPath: async(defaultPath: string): Promise<string|null> => {
+                    console.log('pickPath');
+
+                    const fp = Cc['@mozilla.org/filepicker;1'].createInstance(Ci.nsIFilePicker);
+
+                    const recentWindow = Services.wm.getMostRecentWindow('');
+
+                    fp.init(recentWindow, '', Ci.nsIFilePicker.modeGetFolder);
+
+                    if (defaultPath !== '') {
+                        const localFile = Components.classes['@mozilla.org/file/local;1']
+                        .createInstance(Components.interfaces.nsIFile);
+
+                        localFile.initWithPath(defaultPath);
+
+                        if (localFile.exists()) {
+                            fp.displayDirectory = localFile;
+                        }
+                    }
+
+                    const res = await new Promise((resolve) => {
+                        fp.open(resolve);
+                    });
+
+                    if (res === Ci.nsIFilePicker.returnOK) {
+                        return fp.file.path;
+                    }
+
+                    return null;
+                },
+
+                /**
+                 * Joint two paths to a string
+                 * @param {string} path
+                 * @param {string} subdir
+                 * @returns {string}
+                 */
+                joinPath: async(path: string, subdir: string): Promise<string> => {
+                    return PathUtils.join(path, subdir);
+                },
+
+                /**
+                 * Exist a path.
+                 * @param {string} path
+                 * @returns {boolean}
+                 */
+                existPath: async(path: string): Promise<boolean> => {
+                    try {
+                        const localFile = Utils.fileStrToNsIFile(path, true);
+
+                        if (localFile) {
+                            return true;
+                        }
+                    } catch (ex) {
+                        console.log(ex);
+                    }
+
+                    return false;
+                }
+            } as IFindnow
         };
     }
 

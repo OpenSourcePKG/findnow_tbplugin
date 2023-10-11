@@ -10,15 +10,13 @@ export class Editsubject {
 
     protected static _data: SendMessageEditSubject|null;
 
-    public static setMsgData(data: SendMessageEditSubject): void {
+    public static async setMsgData(data: SendMessageEditSubject): Promise<void> {
         Editsubject._data = data;
 
-        const subText = window.document.getElementById('subject_text') as HTMLInputElement|null;
+        const subText = window.document.getElementById('subject_text') as HTMLInputElement | null;
 
         if (subText) {
-            if (data.header.tags)
-
-            subText.value = data.header.subject;
+            subText.value = await browser.findnow.getRawSubject(data.header.id);
         }
     }
 
@@ -108,6 +106,6 @@ browser.runtime.onMessage.addListener((message, sender) => {
     if (sender.id && (sender.id === Consts.ID)) {
         const esMsg = message as SendMessageEditSubject;
 
-        Editsubject.setMsgData(esMsg);
+        Editsubject.setMsgData(esMsg).then();
     }
 });
