@@ -8,6 +8,7 @@ import {
     nsISupports
 } from 'mozilla-webext-types';
 import {UtilsFile} from '../Utils/UtilsFile';
+import {UtilsMail} from '../Utils/UtilsMail';
 import {UtilsWriter} from '../Utils/UtilsWriter';
 import {SaveToOptions} from './../SaveToOptions';
 
@@ -23,9 +24,10 @@ const {
  */
 export class ExporterListner implements nsIStreamListener {
 
+    // eslint-disable-next-line no-undef
     [x: string]: unknown;
 
-    private _hdr: nsIMsgDBHdr;
+    private readonly _hdr: nsIMsgDBHdr;
     private _options: SaveToOptions;
     private _scriptStream?: any;
     private _emailtext: string = '';
@@ -46,9 +48,11 @@ export class ExporterListner implements nsIStreamListener {
     }
 
     public onDataAvailable(
-        aRequest: nsIRequest,
+        _aRequest: nsIRequest,
         aInputStream: nsIInputStream,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         _aOffset: number,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         _aCount: number
     ): void {
         this._scriptStream = Cc['@mozilla.org/scriptableinputstream;1'].createInstance(Ci.nsIScriptableInputStream);
@@ -66,8 +70,10 @@ export class ExporterListner implements nsIStreamListener {
     }
 
     public onStopRequest(
-        aRequest: nsIRequest,
-        aStatusCode: nsresult
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        _aRequest: nsIRequest,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        _aStatusCode: nsresult
     ): void {
         try {
             this._scriptStream = null;
@@ -81,11 +87,17 @@ export class ExporterListner implements nsIStreamListener {
             const emlFile = UtilsFile.fileStrToNsIFile(this._options.savefile, false);
 
             if (emlFile) {
-                emlFile.append('test.eml');
-
                 const time = this._hdr.dateInSeconds * 1000;
 
                 UtilsWriter.writeDataOnDisk(emlFile, this._emailtext, false, undefined, time);
+
+                if (this._options.editsubject_move_to_trash) {
+                    if (UtilsFile.existFile(emlFile.path)) {
+                        const trashFolder = UtilsMail.getTrashFolder(this._hdr);
+
+                        UtilsMail.moveTo(this._hdr, trashFolder);
+                    }
+                }
             }
         } catch (et) {
             console.log(et);
@@ -98,11 +110,7 @@ export class ExporterListner implements nsIStreamListener {
      * @returns {boolean}
      */
     public equals(obj: nsISupports): boolean {
-        if (obj instanceof ExporterListner) {
-            return true;
-        }
-
-        return false;
+        return obj instanceof ExporterListner;
     }
 
 }

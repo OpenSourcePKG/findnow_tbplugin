@@ -42,4 +42,24 @@ export class UtilsFile {
         .replace(/[/\\:,<>*?"|]/gu, '_');
     }
 
+    /**
+     * Check is exist a file on disk.
+     * @param {string} aFile
+     * @returns {boolean}
+     */
+    public static existFile(aFile: string): boolean {
+        try {
+            const localFile = Components.classes['@mozilla.org/file/local;1']
+            .createInstance(Components.interfaces.nsIFile);
+
+            localFile.initWithPath(aFile);
+
+            return localFile.exists();
+        } catch (e) {
+            console.log(e);
+        }
+
+        return false;
+    }
+
 }
