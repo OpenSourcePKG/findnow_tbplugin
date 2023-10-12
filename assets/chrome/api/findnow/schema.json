@@ -147,6 +147,11 @@
             "name": "defaultPath",
             "type": "string",
             "description": "A default path for folder picking."
+          },
+          {
+            "name": "dlgTitle",
+            "type": "string",
+            "description": "Title for dialog."
           }
         ]
       },

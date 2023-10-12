@@ -57,5 +57,8 @@
 	},
 	"dialog.editsubject.cancel": {
 		"message": "Abbrechen"
+	},
+	"dialog.pickup.title": {
+		"message": "Speichern unter"
 	}
 }

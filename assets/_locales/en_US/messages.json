@@ -60,5 +60,8 @@
 	},
 	"dialog.editsubject.howIsTheWeather": {
 		"message": "Shift without end"
+	},
+	"dialog.pickup.title": {
+		"message": "Save to"
 	}
 }

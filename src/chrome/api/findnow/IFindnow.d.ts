@@ -17,10 +17,11 @@ export declare interface IFindnow {
 
     /**
      * Return a path by user input select.
-     * @param {string} defaultPath
+     * @param {string} defaultPath - The path is ignored when the string is empty.
+     * @param {string} dlgTitle - Title for dialog.
      * @returns {string|null}
      */
-    pickPath(defaultPath: string): Promise<string|null>;
+    pickPath(defaultPath: string, dlgTitle: string): Promise<string|null>;
 
     /**
      * Joint 2 paths to a string
