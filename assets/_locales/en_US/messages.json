@@ -60,5 +60,8 @@
 	},
 	"dialog.pickup.title": {
 		"message": "Save to"
+	},
+	"dialog.pickup.btn_title": {
+		"message": "Save"
 	}
 }

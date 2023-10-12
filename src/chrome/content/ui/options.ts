@@ -77,7 +77,8 @@ export class Options {
         inputEmlDirButton.onclick = async(): Promise<void> => {
             const path = await browser.findnow.pickPath(
                 inputExportEmlDir.value,
-                browser.i18n.getMessage('dialog.pickup.title')
+                browser.i18n.getMessage('dialog.pickup.title'),
+                browser.i18n.getMessage('dialog.pickup.btn_title')
             );
 
             if (path) {

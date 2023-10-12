@@ -162,9 +162,10 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
                  * Pick the path by dialog.
                  * @param {string} defaultPath - The path is ignored when the string is empty.
                  * @param {string} dlgTitle - Title for dialog.
+                 * @param {string} btnTitle - Title for button.
                  * @returns {string|null} Selected path from dialog.
                  */
-                pickPath: async(defaultPath: string, dlgTitle: string): Promise<string|null> => {
+                pickPath: async(defaultPath: string, dlgTitle: string, btnTitle: string): Promise<string|null> => {
                     console.log('pickPath');
 
                     const fp = Cc['@mozilla.org/filepicker;1'].createInstance(Ci.nsIFilePicker);
@@ -172,7 +173,10 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
                     const recentWindow = Services.wm.getMostRecentWindow('');
 
                     fp.init(recentWindow, dlgTitle, Ci.nsIFilePicker.modeGetFolder);
-                    // fp.okButtonLabel = '';
+
+                    if (btnTitle !== '') {
+                        fp.okButtonLabel = btnTitle;
+                    }
 
                     if (defaultPath !== '') {
                         const localFile = Components.classes['@mozilla.org/file/local;1']

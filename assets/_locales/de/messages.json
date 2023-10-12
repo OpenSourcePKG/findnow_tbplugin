@@ -57,5 +57,8 @@
 	},
 	"dialog.pickup.title": {
 		"message": "Speichern unter"
+	},
+	"dialog.pickup.btn_title": {
+		"message": "Speichern"
 	}
 }

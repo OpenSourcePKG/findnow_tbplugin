@@ -152,6 +152,11 @@
             "name": "dlgTitle",
             "type": "string",
             "description": "Title for dialog."
+          },
+          {
+            "name": "btnTitle",
+            "type": "string",
+            "description": "Title for button."
           }
         ]
       },

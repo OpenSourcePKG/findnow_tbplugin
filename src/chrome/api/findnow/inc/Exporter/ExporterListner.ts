@@ -10,7 +10,7 @@ import {
 import {UtilsFile} from '../Utils/UtilsFile';
 import {UtilsMail} from '../Utils/UtilsMail';
 import {UtilsWriter} from '../Utils/UtilsWriter';
-import {SaveToOptions} from './../SaveToOptions';
+import {SaveToOptions} from '../SaveToOptions';
 
 declare const Components: C;
 const {
