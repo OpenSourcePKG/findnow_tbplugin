@@ -35,7 +35,6 @@ export class Options {
 
         // inputs & etc ... --------------------------------------------------------------------------------------------
 
-        const inputDefaultButton = Options.getElm('defaultButton');
         const inputAddtimeCheckbox = Options.getElm('addtimeCheckbox');
         const inputExportEmlDir = Options.getElm('export_eml_dir');
         const inputUseExportEmlDir = Options.getElm('use_export_eml_dir');
@@ -46,12 +45,6 @@ export class Options {
         const inputFilenameAbbreviation = Options.getElm('filename_abbreviation');
         const inputAllowEditSubject = Options.getElm('allow_edit_subject');
         const inputMoveToTrash = Options.getElm('move_to_trash');
-
-        // fill and show -----------------------------------------------------------------------------------------------
-
-        if (options.button_show_default) {
-            inputDefaultButton.setAttribute('checked', 'true');
-        }
 
         // row usw export default dir ----------------------------------------------------------------------------------
 
@@ -163,7 +156,6 @@ export class Options {
         if (btnSave) {
             btnSave.onclick = async(): Promise<void> => {
 
-                options.button_show_default = inputDefaultButton.checked;
                 options.export_filenames_addtime = inputAddtimeCheckbox.checked;
                 options.export_eml_dir = inputExportEmlDir.value;
                 options.export_eml_use_dir = inputUseExportEmlDir.checked;

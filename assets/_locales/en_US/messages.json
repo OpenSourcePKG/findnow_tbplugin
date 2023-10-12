@@ -15,9 +15,6 @@
 	"options.heading.common": {
 		"message": "FindNow Settings"
 	},
-	"options.defaultbutton": {
-		"message": "Show 'Store' button in default color"
-	},
 	"options.emlexport": {
 		"message": "Default directory for file export:"
 	},

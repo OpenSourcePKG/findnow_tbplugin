@@ -19,7 +19,6 @@ export class Settings {
             log_enable: false,
             export_filename_charset: '',
 
-            button_show_default: false,
             export_eml_use_dir: false,
             export_eml_dir: '',
             use_filename_abbreviation: false,

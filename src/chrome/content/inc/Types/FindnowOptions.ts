@@ -7,7 +7,6 @@ export type FindnowOptions = {
     log_enable: boolean;
     export_filename_charset: string;
 
-    button_show_default: boolean;
     export_filenames_addtime: boolean;
     export_eml_use_dir: boolean;
     export_eml_dir: string;
