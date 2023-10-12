@@ -1,5 +1,6 @@
 import {FindnowBrowser} from './api/findnow/FindnowBrowser';
 import {SubjectBuilder} from './api/findnow/inc/Subject/SubjectBuilder';
+import {SubjectBuilderFormat} from './api/findnow/inc/Subject/SubjectBuilderFormat';
 import {Settings} from './content/inc/Settings';
 import {Folder} from './content/inc/Utils/Folder';
 import {WindowEditsubject} from './content/inc/Window/WindowEditsubject';
@@ -58,7 +59,7 @@ const DEBUG: boolean = true;
                             abbreviation: settings.filename_abbreviation,
                             add_time_to_name: settings.export_filenames_addtime,
                             cutSubject: true,
-                            filenameFormat: SubjectBuilder.FILENAME_FORMAT_SIMPLE,
+                            filenameFormat: SubjectBuilderFormat.SIMPLE,
                             use_iso_date: true,
                             pattern: ''
                         });

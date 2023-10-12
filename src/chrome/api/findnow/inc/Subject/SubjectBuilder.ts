@@ -12,9 +12,6 @@ const {
 
 export class SubjectBuilder {
 
-    public static FILENAME_FORMAT_SIMPLE = 0;
-    public static FILENAME_FORMAT_PATTERN = 2;
-
     public static getRawSubject(msgHdr: nsIMsgDBHdr): string {
         let subj = '';
 

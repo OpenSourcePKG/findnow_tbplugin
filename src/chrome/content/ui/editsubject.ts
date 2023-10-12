@@ -1,5 +1,6 @@
 import {FindnowBrowser} from '../../api/findnow/FindnowBrowser';
 import {SubjectBuilder} from '../../api/findnow/inc/Subject/SubjectBuilder';
+import {SubjectBuilderFormat} from '../../api/findnow/inc/Subject/SubjectBuilderFormat';
 import {Consts} from '../inc/Consts';
 import {SendMessageEditSubject} from '../inc/SendMessageEditSubject';
 import {Settings} from '../inc/Settings';
@@ -73,7 +74,7 @@ export class Editsubject {
                 abbreviation: Editsubject._data.settings.filename_abbreviation,
                 add_time_to_name: Editsubject._data.settings.export_filenames_addtime,
                 cutSubject: true,
-                filenameFormat: SubjectBuilder.FILENAME_FORMAT_SIMPLE,
+                filenameFormat: SubjectBuilderFormat.SIMPLE,
                 use_iso_date: true,
                 pattern: ''
             });
