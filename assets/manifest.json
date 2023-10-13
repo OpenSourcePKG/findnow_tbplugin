@@ -3,10 +3,10 @@
     "gecko": {
       "id": "FindNow@hw-softwareentwicklung.de",
       "strict_max_version": "115.*",
-      "strict_min_version": "103.0"
+      "strict_min_version": "115.0"
     }
   },
-  "author": "Stefan Werfling",
+  "author": "Pegenau GmbH & Co. KG",
   "background": {
     "scripts": [
       "chrome/background.js"
@@ -61,5 +61,5 @@
     "tabs",
     "theme"
   ],
-  "version": "2.7"
+  "version": "3.0"
 }
