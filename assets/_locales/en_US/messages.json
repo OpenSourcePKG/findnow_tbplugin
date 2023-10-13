@@ -34,10 +34,10 @@
 		"message": "Abbreviation in the file name:"
 	},
 	"options.editsubject": {
-		"message": "Subject can be changed with extra dialog"
+		"message": "Subject can be changed with an extra dialog."
 	},
 	"options.movetotrash": {
-		"message": "After storing, move the email to the trash"
+		"message": "After storing, move the email to the trash folder."
 	},
 	"options.button.save": {
 		"message": "Save"
@@ -50,16 +50,13 @@
 		"message": "Please indicate your change in the subject:"
 	},
 	"dialog.editsubject.move_to_trash": {
-		"message": "After storing, move the email to the trash"
+		"message": "After storing, move the email to the trash folder."
 	},
 	"dialog.editsubject.save": {
 		"message": "Save"
 	},
 	"dialog.editsubject.cancel": {
 		"message": "Cancel"
-	},
-	"dialog.editsubject.howIsTheWeather": {
-		"message": "Shift without end"
 	},
 	"dialog.pickup.title": {
 		"message": "Save to"

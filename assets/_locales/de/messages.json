@@ -34,10 +34,10 @@
 		"message": "Kürzel im Dateinamen:"
 	},
 	"options.editsubject": {
-		"message": "Betreff kann mit extra Dialog geändert werden"
+		"message": "Betreff kann mit einem Extra-Dialog geändert werden."
 	},
 	"options.movetotrash": {
-		"message": "Nach Ablegen, Email in den Papierkorb schieben"
+		"message": "Nach dem Ablegen die E-Mail in den Papierkorb verschieben."
 	},
 	"options.button.save": {
 		"message": "Speichern"
@@ -50,7 +50,7 @@
 		"message": "Bitte geben Sie ihre Änderung im Betreff an:"
 	},
 	"dialog.editsubject.move_to_trash": {
-		"message": "Nach Ablegen, Email in den Papierkorb schieben"
+		"message": "Nach dem Ablegen die E-Mail in den Papierkorb verschieben."
 	},
 	"dialog.editsubject.save": {
 		"message": "Speichern"
