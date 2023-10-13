@@ -45,6 +45,8 @@ export class Folder {
 
             if (pickFile) {
                 file = pickFile;
+            } else {
+                return null;
             }
         }
 
