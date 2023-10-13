@@ -24,6 +24,9 @@
 	"options.emlexportsub": {
 		"message": "Subfolder for file export:"
 	},
+	"options.emlexportsub_hint": {
+		"message": "The email will only be stored in the subfolder specified here if it already exists. If the subfolder does not exist, the email will be saved directly to the folder selected when the email is filed."
+	},
 	"options.addtimelabel": {
 		"message": "Add time to date"
 	},
