@@ -87,9 +87,7 @@ export class ExporterListner implements nsIStreamListener {
             const emlFile = UtilsFile.fileStrToNsIFile(this._options.savefile, false);
 
             if (emlFile) {
-                const time = this._hdr.dateInSeconds * 1000;
-
-                UtilsWriter.writeDataOnDisk(emlFile, this._emailtext, false, undefined, time);
+                UtilsWriter.writeDataOnDisk(emlFile, this._emailtext, false);
 
                 if (this._options.editsubject_move_to_trash) {
                     if (UtilsFile.existFile(emlFile.path)) {
