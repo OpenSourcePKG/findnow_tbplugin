@@ -29,7 +29,7 @@ body {
 }
 
 #use_export_eml_sub_dir_hint {
-  cursor: pointer;
+  cursor: help;
   width: 15px;
 }
 
