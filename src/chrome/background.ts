@@ -51,7 +51,7 @@ const DEBUG: boolean = true;
                         });
                     } else {
                         const filename = await browser.findnow.buildFilename(header.id, {
-                            subject: '',
+                            subject: header.subject,
                             dirPath: file,
                             filenames_toascii: true,
                             cutFilename: true,
