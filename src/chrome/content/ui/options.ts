@@ -4,6 +4,9 @@ import {FindnowBrowser} from '../../api/findnow/FindnowBrowser';
 
 declare const browser: FindnowBrowser;
 
+type onChangeOptionEvent = (event: Event) => void;
+type onSaveOptionEvent = () => void;
+
 /**
  * Options UI Object.
  */
@@ -12,13 +15,20 @@ export class Options {
     /**
      * Return an HTMLInputElement in short call.
      * @param {string} name - Name of HTMLInputElement
+     * @param {onChangeOptionEvent} onChange - On change event inline function.
      * @returns {HTMLInputElement}
      * @throws {Error}
      */
-    public static getElm(name: string): HTMLInputElement {
+    public static getElm(name: string, onChange?: onChangeOptionEvent): HTMLInputElement {
         const elm = document.getElementById(name);
 
         if (elm) {
+            if (onChange) {
+                elm.addEventListener('change', (event) => {
+                    onChange(event);
+                });
+            }
+
             return elm as HTMLInputElement;
         }
 
@@ -32,19 +42,28 @@ export class Options {
         console.log('Findnow::Options: onLoad');
 
         const options = await new Settings().get();
+        let onSave: onSaveOptionEvent|null = null;
+
+        // save onChange event -----------------------------------------------------------------------------------------
+
+        const onChange: onChangeOptionEvent = () => {
+            if (onSave) {
+                onSave();
+            }
+        };
 
         // inputs & etc ... --------------------------------------------------------------------------------------------
 
-        const inputAddtimeCheckbox = Options.getElm('addtimeCheckbox');
-        const inputExportEmlDir = Options.getElm('export_eml_dir');
-        const inputUseExportEmlDir = Options.getElm('use_export_eml_dir');
-        const inputEmlDirButton = Options.getElm('eml_dir_button');
-        const inputExportEmlSubDir = Options.getElm('export_eml_sub_dir');
-        const inputUseExportEmlSubDir = Options.getElm('use_export_eml_sub_dir');
-        const inputUseFilenameAbbreviation = Options.getElm('use_filename_abbreviation');
-        const inputFilenameAbbreviation = Options.getElm('filename_abbreviation');
-        const inputAllowEditSubject = Options.getElm('allow_edit_subject');
-        const inputMoveToTrash = Options.getElm('move_to_trash');
+        const inputAddtimeCheckbox = Options.getElm('addtimeCheckbox', onChange);
+        const inputExportEmlDir = Options.getElm('export_eml_dir', onChange);
+        const inputUseExportEmlDir = Options.getElm('use_export_eml_dir', onChange);
+        const inputEmlDirButton = Options.getElm('eml_dir_button', onChange);
+        const inputExportEmlSubDir = Options.getElm('export_eml_sub_dir', onChange);
+        const inputUseExportEmlSubDir = Options.getElm('use_export_eml_sub_dir', onChange);
+        const inputUseFilenameAbbreviation = Options.getElm('use_filename_abbreviation', onChange);
+        const inputFilenameAbbreviation = Options.getElm('filename_abbreviation', onChange);
+        const inputAllowEditSubject = Options.getElm('allow_edit_subject', onChange);
+        const inputMoveToTrash = Options.getElm('move_to_trash', onChange);
 
         // row usw export default dir ----------------------------------------------------------------------------------
 
@@ -151,25 +170,19 @@ export class Options {
         }
 
         // save --------------------------------------------------------------------------------------------------------
+        onSave = async(): Promise<void> => {
+            options.export_filenames_addtime = inputAddtimeCheckbox.checked;
+            options.export_eml_dir = inputExportEmlDir.value;
+            options.export_eml_use_dir = inputUseExportEmlDir.checked;
+            options.export_eml_sub_dir = inputExportEmlSubDir.value;
+            options.export_eml_use_sub_dir = inputUseExportEmlSubDir.checked;
+            options.use_filename_abbreviation = inputUseFilenameAbbreviation.checked;
+            options.filename_abbreviation = inputFilenameAbbreviation.value;
+            options.allow_edit_subject = inputAllowEditSubject.checked;
+            options.move_to_trash = inputMoveToTrash.checked;
 
-        const btnSave = document.getElementById('commonsave');
-
-        if (btnSave) {
-            btnSave.onclick = async(): Promise<void> => {
-
-                options.export_filenames_addtime = inputAddtimeCheckbox.checked;
-                options.export_eml_dir = inputExportEmlDir.value;
-                options.export_eml_use_dir = inputUseExportEmlDir.checked;
-                options.export_eml_sub_dir = inputExportEmlSubDir.value;
-                options.export_eml_use_sub_dir = inputUseExportEmlSubDir.checked;
-                options.use_filename_abbreviation = inputUseFilenameAbbreviation.checked;
-                options.filename_abbreviation = inputFilenameAbbreviation.value;
-                options.allow_edit_subject = inputAllowEditSubject.checked;
-                options.move_to_trash = inputMoveToTrash.checked;
-
-                await new Settings().set(options);
-            };
-        }
+            await new Settings().set(options);
+        };
 
         Translation.lang();
     }
