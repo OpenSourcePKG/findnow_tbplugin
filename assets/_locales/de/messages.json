@@ -24,6 +24,9 @@
 	"options.emlexportsub": {
 		"message": "Unterordner für Dateiexport:"
 	},
+	"options.emlexportsub_hint": {
+		"message": "Die E-Mail wird nur im hier angegebenen Unterordner abgelegt, wenn dieser bereits existiert. Wenn der Unterordner nicht existiert, wird die E-Mail direkt in dem Ordner gespeichert, der beim Ablegen ausgewählt wird."
+	},
 	"options.addtimelabel": {
 		"message": "Uhrzeit zum Datum hinzufügen"
 	},

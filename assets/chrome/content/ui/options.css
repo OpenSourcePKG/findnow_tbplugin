@@ -28,6 +28,11 @@ body {
   width: 350px;
 }
 
+#use_export_eml_sub_dir_hint {
+  cursor: pointer;
+  width: 15px;
+}
+
 #eml_dir_button {
   border: 1px solid var(--in-content-box-border-color);
   min-width: 125px;
