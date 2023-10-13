@@ -1,16 +1,16 @@
 {
-  "applications": {
-    "gecko": {
-      "id": "FindNow@hw-softwareentwicklung.de",
-      "strict_max_version": "115.*",
-      "strict_min_version": "115.0"
-    }
-  },
   "author": "Pegenau GmbH & Co. KG",
   "background": {
     "scripts": [
       "chrome/background.js"
     ]
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "findnow@pegenau.de",
+      "strict_max_version": "115.*",
+      "strict_min_version": "115.0"
+    }
   },
   "default_locale": "de",
   "description": "__MSG_extensionDescription__",
@@ -36,7 +36,7 @@
   "icons": {
     "64": "chrome/content/images/findnow.png"
   },
-  "manifest_version": 2,
+  "manifest_version": 3,
   "message_display_action": {
     "default_icon": "chrome/content/images/findnow.png",
     "default_title": "__MSG_message_display_action_default_title__",
@@ -61,5 +61,5 @@
     "tabs",
     "theme"
   ],
-  "version": "3.0"
+  "version": "1.0"
 }

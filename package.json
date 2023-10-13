@@ -32,6 +32,8 @@
     "type": "git",
     "url": "https://git.pegenau.de/pkg/findnow_tbplugin.git"
   },
-  "scripts": {},
+  "scripts": {
+    "npm-check-updates": "npm-check-updates"
+  },
   "version": "1.0.0"
 }
