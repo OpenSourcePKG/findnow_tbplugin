@@ -20,7 +20,19 @@ export class Translation {
             console.log(`Findnow::Translation: messageName: ${messageName}`);
 
             if (messageName) {
-                element.insertAdjacentText('beforeend', browser.i18n.getMessage(messageName));
+                const messageTarget = element.dataset.i18nTarget ?? 'content';
+                const translation = browser.i18n.getMessage(messageName);
+
+                switch (messageTarget) {
+                    case 'content': {
+                        element.insertAdjacentText('beforeend', translation);
+                        break;
+                    }
+                    case 'title': {
+                        element.setAttribute('title', translation);
+                        break;
+                    }
+                }
             }
         }
     }
