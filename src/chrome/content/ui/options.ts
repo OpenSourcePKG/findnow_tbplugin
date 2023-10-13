@@ -77,7 +77,7 @@ export class Options {
             inputUseExportEmlDir.removeAttribute('checked');
         }
 
-        inputExportEmlDir.setAttribute('value', options.export_eml_dir);
+        inputExportEmlDir.value = options.export_eml_dir;
 
         inputUseExportEmlDir.onclick = (): void => {
             const isChecked = inputUseExportEmlDir.checked;
@@ -101,7 +101,7 @@ export class Options {
             );
 
             if (path) {
-                inputExportEmlDir.setAttribute('value', path);
+                inputExportEmlDir.value = path;
             }
 
             if (onSave) {
@@ -121,7 +121,7 @@ export class Options {
             inputUseExportEmlSubDir.removeAttribute('checked');
         }
 
-        inputExportEmlSubDir.setAttribute('value', options.export_eml_sub_dir);
+        inputExportEmlSubDir.value = options.export_eml_sub_dir;
 
         inputUseExportEmlSubDir.onclick = (): void => {
             const isChecked = inputUseExportEmlSubDir.checked;
@@ -149,7 +149,7 @@ export class Options {
             inputFilenameAbbreviation.setAttribute('disabled', 'true');
         }
 
-        inputFilenameAbbreviation.setAttribute('value', options.filename_abbreviation);
+        inputFilenameAbbreviation.value = options.filename_abbreviation;
 
         inputUseFilenameAbbreviation.onclick = (): void => {
             const isChecked = inputUseFilenameAbbreviation.checked;
