@@ -39,16 +39,16 @@ const DEBUG: boolean = true;
 
             if (header) {
                 const settings = await new Settings().get();
-                const file = await Folder.getSaveFolder(settings);
 
-                if (file) {
-                    if (settings.allow_edit_subject) {
-                        await winEditSubject.open({
-                            header,
-                            settings,
-                            file
-                        });
-                    } else {
+                if (settings.allow_edit_subject) {
+                    await winEditSubject.open({
+                        header,
+                        settings
+                    });
+                } else {
+                    const file = await Folder.getSaveFolder(settings);
+
+                    if (file) {
                         const filename = await browser.findnow.buildFilename(header.id, {
                             subject: header.subject,
                             dirPath: file,
@@ -69,9 +69,9 @@ const DEBUG: boolean = true;
                             savefile: newfile,
                             editsubject_move_to_trash: settings.move_to_trash
                         });
+                    } else {
+                        console.log('Destination can not use for email save!');
                     }
-                } else {
-                    console.log('Destination can not use for email save!');
                 }
             }
         }

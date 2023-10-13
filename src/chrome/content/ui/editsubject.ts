@@ -1,9 +1,9 @@
 import {FindnowBrowser} from '../../api/findnow/FindnowBrowser';
-import {SubjectBuilder} from '../../api/findnow/inc/Subject/SubjectBuilder';
 import {SubjectBuilderFormat} from '../../api/findnow/inc/Subject/SubjectBuilderFormat';
 import {Consts} from '../inc/Consts';
 import {SendMessageEditSubject} from '../inc/SendMessageEditSubject';
 import {Settings} from '../inc/Settings';
+import {Folder} from '../inc/Utils/Folder';
 import {Translation} from '../inc/Utils/Translation';
 
 declare const browser: FindnowBrowser;
@@ -65,26 +65,32 @@ export class Editsubject {
         const subText = window.document.getElementById('subject_text') as HTMLInputElement|null;
 
         if (Editsubject._data) {
-            const filename = await browser.findnow.buildFilename(Editsubject._data.header.id, {
-                subject: subText ? subText.value : '',
-                dirPath: Editsubject._data.file,
-                filenames_toascii: true,
-                cutFilename: true,
-                use_abbreviation: Editsubject._data.settings.use_filename_abbreviation,
-                abbreviation: Editsubject._data.settings.filename_abbreviation,
-                add_time_to_name: Editsubject._data.settings.export_filenames_addtime,
-                cutSubject: true,
-                filenameFormat: SubjectBuilderFormat.SIMPLE,
-                use_iso_date: true,
-                pattern: ''
-            });
+            const fileDest = await Folder.getSaveFolder(Editsubject._data.settings);
 
-            const file = await browser.findnow.joinPath(Editsubject._data.file, `${filename}.eml`);
+            if (fileDest) {
+                const filename = await browser.findnow.buildFilename(Editsubject._data.header.id, {
+                    subject: subText ? subText.value : '',
+                    dirPath: fileDest,
+                    filenames_toascii: true,
+                    cutFilename: true,
+                    use_abbreviation: Editsubject._data.settings.use_filename_abbreviation,
+                    abbreviation: Editsubject._data.settings.filename_abbreviation,
+                    add_time_to_name: Editsubject._data.settings.export_filenames_addtime,
+                    cutSubject: true,
+                    filenameFormat: SubjectBuilderFormat.SIMPLE,
+                    use_iso_date: true,
+                    pattern: ''
+                });
 
-            await browser.findnow.saveTo(Editsubject._data.header.id, {
-                savefile: file,
-                editsubject_move_to_trash: mTt ? mTt.checked : false
-            });
+                const file = await browser.findnow.joinPath(fileDest, `${filename}.eml`);
+
+                await browser.findnow.saveTo(Editsubject._data.header.id, {
+                    savefile: file,
+                    editsubject_move_to_trash: mTt ? mTt.checked : false
+                });
+            } else {
+                console.log('Destination can not use for email save!');
+            }
 
             window.close();
         }
