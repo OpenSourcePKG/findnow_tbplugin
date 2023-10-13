@@ -36,7 +36,7 @@
   "icons": {
     "64": "chrome/content/images/findnow.png"
   },
-  "manifest_version": 3,
+  "manifest_version": 2,
   "message_display_action": {
     "default_icon": "chrome/content/images/findnow.png",
     "default_title": "__MSG_message_display_action_default_title__",
