@@ -103,6 +103,10 @@ export class Options {
             if (path) {
                 inputExportEmlDir.setAttribute('value', path);
             }
+
+            if (onSave) {
+                onSave();
+            }
         };
 
         // row use sub dir ---------------------------------------------------------------------------------------------
