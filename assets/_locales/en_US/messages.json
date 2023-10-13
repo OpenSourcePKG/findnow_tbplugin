@@ -66,5 +66,11 @@
 	},
 	"dialog.pickup.btn_title": {
 		"message": "Save"
+	},
+	"options.dialog.pickup.title": {
+		"message": "Choose default directory"
+	},
+	"options.dialog.pickup.btn_title": {
+		"message": "Choose"
 	}
 }

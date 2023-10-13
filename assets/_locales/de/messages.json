@@ -63,5 +63,11 @@
 	},
 	"dialog.pickup.btn_title": {
 		"message": "Speichern"
+	},
+	"options.dialog.pickup.title": {
+		"message": "Vorgabeverzeichnis wählen"
+	},
+	"options.dialog.pickup.btn_title": {
+		"message": "Auswählen"
 	}
 }
