@@ -5,48 +5,23 @@ export class UtilsDate {
      * Convert a date time to string with format ISO.
      * @param {number} secs
      * @param {boolean} addTime
-     * @returns {string}
+     * @returns {string} Format YYYY-MM-DD hh-ii-ss.
      */
     public static dateToIsoStr(secs: number, addTime: boolean): string {
         const msgDate = new Date(secs * 1000);
         const msgDate8601 = msgDate.getFullYear();
 
-        let month: string;
-        let day: string;
-        let hours: string;
-        let min: string;
-        let sec: number;
+        const month = `${msgDate.getMonth() + 1}`.padStart(2, '0');
+        const day = `${msgDate.getDate()}`.padStart(2, '0');
 
-        if (msgDate.getMonth() < 9) {
-            month = `0${msgDate.getMonth() + 1}`;
-        } else {
-            month = `${msgDate.getMonth() + 1}`;
-        }
-
-        if (msgDate.getDate() < 10) {
-            day = `0${msgDate.getDate()}`;
-        } else {
-            day = `${msgDate.getDate()}`;
-        }
-
-        let msgDateIsostring = `${msgDate8601.toString()}-${month.toString()}-${day.toString()}`;
+        let msgDateIsostring = `${msgDate8601.toString()}-${month}-${day}`;
 
         if (addTime) {
-            if (msgDate.getHours() < 10) {
-                hours = `0${msgDate.getHours()}`;
-            } else {
-                hours = `${msgDate.getHours()}`;
-            }
+            const hours = `${msgDate.getHours()}`.padStart(2, '0');
+            const min = `${msgDate.getMinutes()}`.padStart(2, '0');
+            const sec = `${msgDate.getSeconds()}`.padStart(2, '0');
 
-            if (msgDate.getMinutes() < 10) {
-                min = `0${msgDate.getMinutes()}`;
-            } else {
-                min = `${msgDate.getMinutes()}`;
-            }
-
-            sec = msgDate.getSeconds();
-
-            msgDateIsostring += ` ${hours.toString()}-${min.toString()}-${sec.toString()}`;
+            msgDateIsostring += ` ${hours}-${min}-${sec}`;
         }
 
         return msgDateIsostring;
@@ -56,45 +31,22 @@ export class UtilsDate {
      * Convert a date time to string with format 8601.
      * @param {number} secs
      * @param {boolean} addTime
-     * @returns {string}
+     * @returns {string} Format YYYYMMDDhhii.
      */
     public static dateTo8601Str(secs: number, addTime: boolean): string {
         const msgDate = new Date(secs * 1000);
         const msgDate8601 = msgDate.getFullYear();
 
-        let month;
-        let day;
-        let hours;
-        let min;
+        const month = `${msgDate.getMonth() + 1}`.padStart(2, '0');
+        const day = `${msgDate.getDate()}`.padStart(2, '0');
 
-        if (msgDate.getMonth() < 9) {
-            month = `0${msgDate.getMonth() + 1}`;
-        } else {
-            month = `${msgDate.getMonth() + 1}`;
-        }
-
-        if (msgDate.getDate() < 10) {
-            day = `0${msgDate.getDate()}`;
-        } else {
-            day = `${msgDate.getDate()}`;
-        }
-
-        let msgDate8601string = msgDate8601.toString() + month.toString() + day.toString();
+        let msgDate8601string = msgDate8601.toString() + month + day;
 
         if (addTime) {
-            if (msgDate.getHours() < 10) {
-                hours = `0${msgDate.getHours()}`;
-            } else {
-                hours = `${msgDate.getHours()}`;
-            }
+            const hours = `${msgDate.getHours()}`.padStart(2, '0');
+            const min = `${msgDate.getMinutes()}`.padStart(2, '0');
 
-            if (msgDate.getMinutes() < 10) {
-                min = `0${msgDate.getMinutes()}`;
-            } else {
-                min = `${msgDate.getMinutes()}`;
-            }
-
-            msgDate8601string += ` ${hours.toString()}${min.toString()}`;
+            msgDate8601string += ` ${hours}${min}`;
         }
 
         return msgDate8601string;
