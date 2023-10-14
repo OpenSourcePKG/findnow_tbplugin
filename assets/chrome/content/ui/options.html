@@ -1,70 +1,67 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="chrome://global/skin/in-content/common.css"/>
-    <link rel="stylesheet" href="options.css"/>
-    <script type="text/javascript" defer="defer" src="../inc/utils/Translation.js"></script>
-    <script type="text/javascript" defer="defer" src="options.js"></script>
-    <title data-i18n="options.heading.common"></title>
-  </head>
-  <body>
-    <div id="content">
-      <addon-page-header id="page-header" page-options-id="page-options" type="extension">
-        <div class="main-heading">
-          <h1 class="header-name" data-i18n="options.heading.common"></h1>
-        </div>
-      </addon-page-header>
-      <div id="main">
-        <div current-view="list">
-          <addon-list type="extension">
-            <section section="0">
-              <addon-card>
-                <div class="card addon">
-                  <input type="checkbox" id="use_export_eml_dir">
-                  <label for="use_export_eml_dir" data-i18n="options.emlexport"></label>
-                  <input type="text" id="export_eml_dir" value="">
-                  <button id="eml_dir_button" data-i18n="options.button.search"></button>
-                </div>
-              </addon-card>
-              <addon-card>
-                <div class="card addon">
-                  <input type="checkbox" id="use_export_eml_sub_dir">
-                  <label for="use_export_eml_sub_dir" data-i18n="options.emlexportsub"></label>
-                  <img id="use_export_eml_sub_dir_hint" src="images/questionmark.svg"
-                       data-i18n="options.emlexportsub_hint" data-i18n-target="title">
-                  <input type="text" id="export_eml_sub_dir" value="">
-                </div>
-              </addon-card>
-              <addon-card>
-                <div class="card addon">
-                  <input type="checkbox" id="addtimeCheckbox" value="1">
-                  <label for="addtimeCheckbox" data-i18n="options.addtimelabel"></label>
-                </div>
-              </addon-card>
-              <addon-card>
-                <div class="card addon">
-                  <input type="checkbox" id="use_filename_abbreviation">
-                  <label for="use_filename_abbreviation" data-i18n="options.abbreviation"></label>
-                  <input type="text" id="filename_abbreviation" value="">
-                </div>
-              </addon-card>
-              <addon-card>
-                <div class="card addon">
-                  <input type="checkbox" id="allow_edit_subject">
-                  <label for="allow_edit_subject" data-i18n="options.editsubject"></label>
-                </div>
-              </addon-card>
-              <addon-card>
-                <div class="card addon">
-                  <input type="checkbox" id="move_to_trash">
-                  <label for="move_to_trash" data-i18n="options.movetotrash"></label>
-                </div>
-              </addon-card>
-            </section>
-          </addon-list>
-        </div>
-      </div>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="chrome://global/skin/in-content/common.css"/>
+  <link rel="stylesheet" href="options.css"/>
+  <script type="text/javascript" defer="defer" src="options.js"></script>
+  <title data-i18n="optionsHeadingCommon"></title>
+</head>
+<body>
+<div id="content">
+  <addon-page-header id="page-header" page-options-id="page-options" type="extension">
+    <div class="main-heading">
+      <h1 class="header-name" data-i18n="optionsHeadingCommon"></h1>
     </div>
-  </body>
+  </addon-page-header>
+  <div id="main">
+    <addon-list type="extension">
+      <section>
+        <addon-card>
+          <div class="card addon">
+            <input type="checkbox" id="use_export_eml_dir">
+            <label for="use_export_eml_dir" data-i18n="optionsEmlExport"></label>
+            <input type="text" id="export_eml_dir" value="">
+            <button id="eml_dir_button" data-i18n="optionsButtonSearch"></button>
+          </div>
+        </addon-card>
+        <addon-card>
+          <div class="card addon">
+            <input type="checkbox" id="use_export_eml_sub_dir">
+            <label for="use_export_eml_sub_dir" data-i18n="optionsEmlExportSub"></label>
+            <img id="use_export_eml_sub_dir_hint" src="images/questionmark.svg" data-i18n="optionsEmlExportSubHint"
+                 data-i18n-target="title" alt="?">
+            <input type="text" id="export_eml_sub_dir" value="">
+          </div>
+        </addon-card>
+        <addon-card>
+          <div class="card addon">
+            <input type="checkbox" id="add_time_checkbox" value="1">
+            <label for="add_time_checkbox" data-i18n="optionsAddTimeLabel"></label>
+          </div>
+        </addon-card>
+        <addon-card>
+          <div class="card addon">
+            <input type="checkbox" id="use_filename_abbreviation">
+            <label for="use_filename_abbreviation" data-i18n="optionsAbbreviation"></label>
+            <input type="text" id="filename_abbreviation" value="">
+          </div>
+        </addon-card>
+        <addon-card>
+          <div class="card addon">
+            <input type="checkbox" id="allow_edit_subject">
+            <label for="allow_edit_subject" data-i18n="optionsEditSubject"></label>
+          </div>
+        </addon-card>
+        <addon-card>
+          <div class="card addon">
+            <input type="checkbox" id="move_to_trash">
+            <label for="move_to_trash" data-i18n="optionsMoveToTrash"></label>
+          </div>
+        </addon-card>
+      </section>
+    </addon-list>
+  </div>
+</div>
+</body>
 </html>

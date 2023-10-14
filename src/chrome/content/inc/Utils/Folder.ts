@@ -39,8 +39,8 @@ export class Folder {
         if (showPicker) {
             const pickFile = await browser.findnow.pickPath(
                 file ? file : '',
-                browser.i18n.getMessage('dialog.pickup.title'),
-                browser.i18n.getMessage('dialog.pickup.btn_title')
+                browser.i18n.getMessage('dialogPickSaveFolderTitle'),
+                browser.i18n.getMessage('dialogPickSaveFolderButtonOK')
             );
 
             if (pickFile) {

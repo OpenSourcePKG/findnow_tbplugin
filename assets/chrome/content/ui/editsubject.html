@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="utf-8"/>
-    <link rel="stylesheet" href="chrome://global/skin/in-content/common.css"/>
-    <link rel="stylesheet" href="editsubject.css"/>
-    <script type="text/javascript" defer="defer" src="../inc/utils/Translation.js"></script>
-    <script type="text/javascript" defer="defer" src="editsubject.js"></script>
-    <title data-i18n="dialog.editsubject.heading.common"></title>
-  </head>
-  <body>
-    <div class="dialog">
-      <div class="dialog-content">
-        <label id="subject_text_label" data-i18n="dialog.editsubject.subject"></label>
-        <input id="subject_text" type="text" value="">
-        <div id="move_to_trash_container">
-          <input type="checkbox" id="move_to_trash" value="1">
-          <span data-i18n="dialog.editsubject.move_to_trash"></span>
-        </div>
-      </div>
-      <div class="dialog-footer">
-        <button type="button" id="editsubject_save" data-i18n="dialog.editsubject.save"></button>
-        <button type="button" id="editsubject_cancel" data-i18n="dialog.editsubject.cancel"></button>
-      </div>
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="chrome://global/skin/in-content/common.css"/>
+  <link rel="stylesheet" href="editsubject.css"/>
+  <script type="text/javascript" defer="defer" src="editsubject.js"></script>
+  <title data-i18n="dialogEditSubjectHeadingCommon"></title>
+</head>
+<body>
+<div class="dialog">
+  <div class="dialog-content">
+    <label id="subject_text_label" data-i18n="dialogEditSubjectSubject"></label>
+    <input id="subject_text" type="text" value="">
+    <div id="move_to_trash_container">
+      <input type="checkbox" id="move_to_trash" value="1">
+      <span data-i18n="dialogEditSubjectMoveToTrash"></span>
     </div>
-  </body>
+  </div>
+  <div class="dialog-footer">
+    <button type="button" id="editsubject_save" data-i18n="dialogEditSubjectSave"></button>
+    <button type="button" id="editsubject_cancel" data-i18n="dialogEditSubjectCancel"></button>
+  </div>
+</div>
+</body>
 </html>

@@ -1,6 +1,6 @@
 import {Components as C, MailServices as MS} from 'mozilla-webext-types';
 import {ExporterListner} from './ExporterListner';
-import {SaveToOptions} from './../SaveToOptions';
+import {SaveToOptions} from '../SaveToOptions';
 
 declare const Components: C;
 

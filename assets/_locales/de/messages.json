@@ -1,73 +1,65 @@
 {
-	"extensionName": {
-		"message": "FindNow"
-	},
-	"extensionDescription": {
-		"message": "Ermöglicht das Exportieren von Nachrichten und Ordnern für FindNow"
-	},
-	"message_display_action_default_title": {
-		"message": "Ablegen"
-	},
-
-	"options.common": {
-		"message": "Allgemein"
-	},
-	"options.heading.common": {
-		"message": "FindNow Einstellungen"
-	},
-	"options.emlexport": {
-		"message": "Vorgabeverzeichnis für Dateiexport:"
-	},
-	"options.button.search": {
-		"message": "Durchsuchen"
-	},
-	"options.emlexportsub": {
-		"message": "Unterordner für Dateiexport:"
-	},
-	"options.emlexportsub_hint": {
-		"message": "Die E-Mail wird nur im hier angegebenen Unterordner abgelegt, wenn dieser bereits existiert. Wenn der Unterordner nicht existiert, wird die E-Mail direkt in dem Ordner gespeichert, der beim Ablegen ausgewählt wird."
-	},
-	"options.addtimelabel": {
-		"message": "Uhrzeit zum Datum hinzufügen"
-	},
-	"options.abbreviation": {
-		"message": "Kürzel im Dateinamen:"
-	},
-	"options.editsubject": {
-		"message": "Betreff kann mit einem Extra-Dialog geändert werden."
-	},
-	"options.movetotrash": {
-		"message": "Nach dem Ablegen die E-Mail in den Papierkorb verschieben."
-	},
-	"options.button.save": {
-		"message": "Speichern"
-	},
-
-	"dialog.editsubject.heading.common": {
-		"message": "Betreff bearbeiten"
-	},
-	"dialog.editsubject.subject": {
-		"message": "Bitte geben Sie ihre Änderung im Betreff an:"
-	},
-	"dialog.editsubject.move_to_trash": {
-		"message": "Nach dem Ablegen die E-Mail in den Papierkorb verschieben."
-	},
-	"dialog.editsubject.save": {
-		"message": "Speichern"
-	},
-	"dialog.editsubject.cancel": {
-		"message": "Abbrechen"
-	},
-	"dialog.pickup.title": {
-		"message": "Speichern unter"
-	},
-	"dialog.pickup.btn_title": {
-		"message": "Speichern"
-	},
-	"options.dialog.pickup.title": {
-		"message": "Vorgabeverzeichnis wählen"
-	},
-	"options.dialog.pickup.btn_title": {
-		"message": "Auswählen"
-	}
+  "dialogEditSubjectCancel": {
+    "message": "Abbrechen"
+  },
+  "dialogEditSubjectHeadingCommon": {
+    "message": "Betreff bearbeiten"
+  },
+  "dialogEditSubjectMoveToTrash": {
+    "message": "Nach dem Ablegen die E-Mail in den Papierkorb verschieben."
+  },
+  "dialogEditSubjectSave": {
+    "message": "Speichern"
+  },
+  "dialogEditSubjectSubject": {
+    "message": "Bitte geben Sie ihre Änderung im Betreff an:"
+  },
+  "dialogPickSaveFolderButtonOK": {
+    "message": "Speichern"
+  },
+  "dialogPickSaveFolderTitle": {
+    "message": "Speichern unter"
+  },
+  "extensionDescription": {
+    "message": "Ermöglicht das Exportieren von Nachrichten und Ordnern für FindNow"
+  },
+  "extensionName": {
+    "message": "FindNow"
+  },
+  "messageDisplayActionTitle": {
+    "message": "Ablegen"
+  },
+  "optionsAbbreviation": {
+    "message": "Kürzel im Dateinamen:"
+  },
+  "optionsAddTimeLabel": {
+    "message": "Uhrzeit zum Datum hinzufügen"
+  },
+  "optionsButtonSearch": {
+    "message": "Durchsuchen"
+  },
+  "optionsDialogPickDefaultFolderButtonOK": {
+    "message": "Auswählen"
+  },
+  "optionsDialogPickDefaultFolderTitle": {
+    "message": "Vorgabeverzeichnis wählen"
+  },
+  "optionsEditSubject": {
+    "message": "Betreff kann mit einem Extra-Dialog geändert werden."
+  },
+  "optionsEmlExport": {
+    "message": "Vorgabeverzeichnis für Dateiexport:"
+  },
+  "optionsEmlExportSub": {
+    "message": "Unterordner für Dateiexport:"
+  },
+  "optionsEmlExportSubHint": {
+    "message": "Die E-Mail wird nur im hier angegebenen Unterordner abgelegt, wenn dieser bereits existiert. Wenn der Unterordner nicht existiert, wird die E-Mail direkt in dem Ordner gespeichert, der beim Ablegen ausgewählt wird."
+  },
+  "optionsHeadingCommon": {
+    "message": "FindNow Einstellungen"
+  },
+  "optionsMoveToTrash": {
+    "message": "Nach dem Ablegen die E-Mail in den Papierkorb verschieben."
+  }
 }

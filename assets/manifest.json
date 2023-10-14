@@ -39,7 +39,7 @@
   "manifest_version": 2,
   "message_display_action": {
     "default_icon": "chrome/content/images/findnow.png",
-    "default_title": "__MSG_message_display_action_default_title__",
+    "default_title": "__MSG_messageDisplayActionTitle__",
     "type": "button"
   },
   "name": "__MSG_extensionName__",

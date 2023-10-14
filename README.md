@@ -51,7 +51,7 @@ You can now access the Thunderbird via [http://localhost:8080](http://localhost:
 Changes to the code are now live in the Thunderbird container, just close Thunderbird in the interface and it will restart automatically after a few seconds.
 
 ## Grunt
-Now i add Gruntfile, it has a build Task for creating ```Findnow.xpi```. 
+Now I add Gruntfile, it has a build Task for creating ```Findnow.xpi```. 
 
 Open the Terminal:
 ```shell script
@@ -143,19 +143,19 @@ Special thanks to the following contributors:
 <!-- markdownlint-disable -->
 <table>
 	<tr>
-		<td align="center">
+		<td style="text-align: center;">
 			<a href="https://github.com/Choppel">
 				<img src="https://avatars.githubusercontent.com/u/14126324?v=4" width="80" alt=""/>
 				<br /><sub><b>Choppel</b></sub>
 			</a>
 		</td>
-        <td align="center">
+		<td style="text-align: center;">
 			<a href="https://github.com/jobisoft">
 				<img src="https://avatars.githubusercontent.com/u/5830621?v=4" width="80" alt=""/>
 				<br /><sub><b>John Bieling</b></sub>
 			</a>
 		</td>
-	<td align="center">
+		<td style="text-align: center;">
 			<a href="https://github.com/arai-a">
 				<img src="https://avatars.githubusercontent.com/u/6299746?v=4" width="80" alt=""/>
 				<br /><sub><b>arai-a</b></sub>

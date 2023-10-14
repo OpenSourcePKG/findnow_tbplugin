@@ -54,7 +54,7 @@ export class Options {
 
         // inputs & etc ... --------------------------------------------------------------------------------------------
 
-        const inputAddtimeCheckbox = Options.getElm('addtimeCheckbox', onChange);
+        const inputAddTimeCheckbox = Options.getElm('add_time_checkbox', onChange);
         const inputExportEmlDir = Options.getElm('export_eml_dir', onChange);
         const inputUseExportEmlDir = Options.getElm('use_export_eml_dir', onChange);
         const inputEmlDirButton = Options.getElm('eml_dir_button', onChange);
@@ -96,12 +96,12 @@ export class Options {
         inputEmlDirButton.onclick = async(): Promise<void> => {
             const path = await browser.findnow.pickPath(
                 inputExportEmlDir.value,
-                browser.i18n.getMessage('options.dialog.pickup.title'),
-                browser.i18n.getMessage('options.dialog.pickup.btn_title')
+                browser.i18n.getMessage('optionsDialogPickDefaultFolderTitle'),
+                browser.i18n.getMessage('optionsDialogPickDefaultFolderButtonOK')
             );
 
             if (path) {
-                inputExportEmlDir.value = path;
+                Options.getElm('export_eml_dir').value = path;
             }
 
             if (onSave) {
@@ -136,7 +136,7 @@ export class Options {
         // row add time to filename ------------------------------------------------------------------------------------
 
         if (options.export_filenames_addtime) {
-            inputAddtimeCheckbox.setAttribute('checked', 'true');
+            inputAddTimeCheckbox.setAttribute('checked', 'true');
         }
 
         // row filename abbreviation -----------------------------------------------------------------------------------
@@ -175,7 +175,7 @@ export class Options {
 
         // save --------------------------------------------------------------------------------------------------------
         onSave = async(): Promise<void> => {
-            options.export_filenames_addtime = inputAddtimeCheckbox.checked;
+            options.export_filenames_addtime = inputAddTimeCheckbox.checked;
             options.export_eml_dir = inputExportEmlDir.value;
             options.export_eml_use_dir = inputUseExportEmlDir.checked;
             options.export_eml_sub_dir = inputExportEmlSubDir.value;

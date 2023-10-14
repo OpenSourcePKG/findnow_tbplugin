@@ -1,73 +1,65 @@
 {
-	"extensionName": {
-		"message": "FindNow"
-	},
-	"extensionDescription": {
-		"message": "Allows exporting messages and folders for FindNow"
-	},
-	"message_display_action_default_title": {
-		"message": "Store mail"
-	},
-
-	"options.common": {
-		"message": "Common"
-	},
-	"options.heading.common": {
-		"message": "FindNow Settings"
-	},
-	"options.emlexport": {
-		"message": "Default directory for file export:"
-	},
-	"options.button.search": {
-		"message": "Search"
-	},
-	"options.emlexportsub": {
-		"message": "Subfolder for file export:"
-	},
-	"options.emlexportsub_hint": {
-		"message": "The email will only be stored in the subfolder specified here if it already exists. If the subfolder does not exist, the email will be saved directly to the folder selected when the email is filed."
-	},
-	"options.addtimelabel": {
-		"message": "Add time to date"
-	},
-	"options.abbreviation": {
-		"message": "Abbreviation in the file name:"
-	},
-	"options.editsubject": {
-		"message": "Subject can be changed with an extra dialog."
-	},
-	"options.movetotrash": {
-		"message": "After storing, move the email to the trash folder."
-	},
-	"options.button.save": {
-		"message": "Save"
-	},
-
-	"dialog.editsubject.heading.common": {
-		"message": "Edit subject"
-	},
-	"dialog.editsubject.subject": {
-		"message": "Please indicate your change in the subject:"
-	},
-	"dialog.editsubject.move_to_trash": {
-		"message": "After storing, move the email to the trash folder."
-	},
-	"dialog.editsubject.save": {
-		"message": "Save"
-	},
-	"dialog.editsubject.cancel": {
-		"message": "Cancel"
-	},
-	"dialog.pickup.title": {
-		"message": "Save to"
-	},
-	"dialog.pickup.btn_title": {
-		"message": "Save"
-	},
-	"options.dialog.pickup.title": {
-		"message": "Choose default directory"
-	},
-	"options.dialog.pickup.btn_title": {
-		"message": "Choose"
-	}
+  "dialogEditSubjectCancel": {
+    "message": "Cancel"
+  },
+  "dialogEditSubjectHeadingCommon": {
+    "message": "Edit subject"
+  },
+  "dialogEditSubjectMoveToTrash": {
+    "message": "After storing, move the email to the trash folder."
+  },
+  "dialogEditSubjectSave": {
+    "message": "Save"
+  },
+  "dialogEditSubjectSubject": {
+    "message": "Please indicate your change in the subject:"
+  },
+  "dialogPickSaveFolderButtonOK": {
+    "message": "Save"
+  },
+  "dialogPickSaveFolderTitle": {
+    "message": "Save to"
+  },
+  "extensionDescription": {
+    "message": "Allows exporting messages and folders for FindNow"
+  },
+  "extensionName": {
+    "message": "FindNow"
+  },
+  "messageDisplayActionTitle": {
+    "message": "Store mail"
+  },
+  "optionsAbbreviation": {
+    "message": "Abbreviation in the file name:"
+  },
+  "optionsAddTimeLabel": {
+    "message": "Add time to date"
+  },
+  "optionsButtonSearch": {
+    "message": "Search"
+  },
+  "optionsDialogPickDefaultFolderButtonOK": {
+    "message": "Choose"
+  },
+  "optionsDialogPickDefaultFolderTitle": {
+    "message": "Choose default directory"
+  },
+  "optionsEditSubject": {
+    "message": "Subject can be changed with an extra dialog."
+  },
+  "optionsEmlExport": {
+    "message": "Default directory for file export:"
+  },
+  "optionsEmlExportSub": {
+    "message": "Subfolder for file export:"
+  },
+  "optionsEmlExportSubHint": {
+    "message": "The email will only be stored in the subfolder specified here if it already exists. If the subfolder does not exist, the email will be saved directly to the folder selected when the email is filed."
+  },
+  "optionsHeadingCommon": {
+    "message": "FindNow Settings"
+  },
+  "optionsMoveToTrash": {
+    "message": "After storing, move the email to the trash folder."
+  }
 }
