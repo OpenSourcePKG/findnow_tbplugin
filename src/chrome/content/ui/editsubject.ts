@@ -1,6 +1,5 @@
 import {FindnowBrowser} from '../../api/findnow/FindnowBrowser';
 import {SubjectBuilderFormat} from '../../api/findnow/inc/Subject/SubjectBuilderFormat';
-import {Consts} from '../inc/Consts';
 import {SendMessageEditSubject} from '../inc/SendMessageEditSubject';
 import {Settings} from '../inc/Settings';
 import {Folder} from '../inc/Utils/Folder';
@@ -124,9 +123,13 @@ browser.runtime.onMessage.addListener((message, sender) => {
     console.log(message);
     console.log(sender);
 
-    if (sender.id && (sender.id === Consts.ID)) {
+    const manifest = browser.runtime.getManifest();
+
+    if (sender.id && (sender.id === manifest.browser_specific_settings.gecko!.id)) {
         const esMsg = message as SendMessageEditSubject;
 
         Editsubject.setMsgData(esMsg).then();
+    } else {
+        console.error(`Findnow::Editsubject: unknown sender id '${sender.id}' !== '${manifest.browser_specific_settings.gecko!.id}'`);
     }
 });

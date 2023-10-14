@@ -1,22 +1,17 @@
 import {FindnowBrowser} from './api/findnow/FindnowBrowser';
 import {SubjectBuilderFormat} from './api/findnow/inc/Subject/SubjectBuilderFormat';
 import {Settings} from './content/inc/Settings';
+import {Debug} from './content/inc/Utils/Debug';
 import {Folder} from './content/inc/Utils/Folder';
 import {WindowEditsubject} from './content/inc/Window/WindowEditsubject';
 
 declare const browser: FindnowBrowser;
 
 /**
- * DEBUG enable/disable
- * @type {boolean}
- */
-const DEBUG: boolean = true;
-
-/**
  * Main
  */
 (async(): Promise<void> => {
-    if (DEBUG) {
+    if (Debug.is()) {
         console.log('Findnow::background: init');
     }
 
@@ -25,7 +20,7 @@ const DEBUG: boolean = true;
         return;
     }
 
-    if (DEBUG) {
+    if (Debug.is()) {
         console.log('Findnow::background: browser scripts loaded.');
     }
 
@@ -76,7 +71,7 @@ const DEBUG: boolean = true;
             }
         }
 
-        if (DEBUG) {
+        if (Debug.is()) {
             console.log(`Message displayed in tab ${tab.id}`);
         }
     });
