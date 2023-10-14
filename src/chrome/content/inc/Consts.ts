@@ -1,6 +1,6 @@
 
 export class Consts {
 
-    public static ID = 'FindNow@hw-softwareentwicklung.de';
+    public static ID = 'findnow@pegenau.de';
 
 }
