@@ -1,33 +1,11 @@
-import {Components as C, nsIMsgDBHdr} from 'mozilla-webext-types';
+import {nsIMsgDBHdr} from 'mozilla-webext-types';
 import {UtilsDate} from '../Utils/UtilsDate';
 import {UtilsFile} from '../Utils/UtilsFile';
 import {UtilsStr} from '../Utils/UtilsStr';
 import {SubjectOptions} from './SubjectOptions';
 
-declare const Components: C;
-
-const {
-    interfaces: Ci
-} = Components;
 
 export class SubjectBuilder {
-
-    public static getRawSubject(msgHdr: nsIMsgDBHdr): string {
-        let subj = '';
-
-        if (msgHdr) {
-            if (msgHdr.mime2DecodedSubject) {
-                subj = msgHdr.mime2DecodedSubject;
-
-                // eslint-disable-next-line no-bitwise
-                if (msgHdr.flags & Ci.nsMsgMessageFlags.HasRe) {
-                    subj = `Re_${subj}`;
-                }
-            }
-        }
-
-        return subj;
-    }
 
     /**
      * Replace and format the string to useable name.

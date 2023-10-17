@@ -94,7 +94,7 @@ export class Options {
         };
 
         inputEmlDirButton.onclick = async(): Promise<void> => {
-            const path = await browser.findnow.pickPath(
+            const path = await browser.findnow.showDirectoryPicker(
                 inputExportEmlDir.value,
                 browser.i18n.getMessage('optionsDialogPickDefaultFolderTitle'),
                 browser.i18n.getMessage('optionsDialogPickDefaultFolderButtonOK')

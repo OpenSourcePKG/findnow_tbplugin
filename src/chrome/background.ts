@@ -1,5 +1,6 @@
 import {FindnowBrowser} from './api/findnow/FindnowBrowser';
 import {SubjectBuilderFormat} from './api/findnow/inc/Subject/SubjectBuilderFormat';
+import {Exporter} from './content/inc/Exporter/Exporter';
 import {Settings} from './content/inc/Settings';
 import {Debug} from './content/inc/Utils/Debug';
 import {Folder} from './content/inc/Utils/Folder';
@@ -60,7 +61,7 @@ declare const browser: FindnowBrowser;
 
                         const newfile = await browser.findnow.joinPath(file, `${filename}.eml`);
 
-                        await browser.findnow.saveTo(header.id, {
+                        await Exporter.saveTo(header.id, {
                             savefile: newfile,
                             editsubject_move_to_trash: settings.move_to_trash
                         });

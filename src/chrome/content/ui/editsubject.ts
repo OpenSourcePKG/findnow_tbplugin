@@ -1,26 +1,42 @@
 import {FindnowBrowser} from '../../api/findnow/FindnowBrowser';
 import {SubjectBuilderFormat} from '../../api/findnow/inc/Subject/SubjectBuilderFormat';
+import {Exporter} from '../inc/Exporter/Exporter';
 import {SendMessageEditSubject} from '../inc/SendMessageEditSubject';
 import {Settings} from '../inc/Settings';
 import {Folder} from '../inc/Utils/Folder';
+import {Subject} from '../inc/Utils/Subject';
 import {Translation} from '../inc/Utils/Translation';
 
 declare const browser: FindnowBrowser;
 
+/**
+ * Edit subject dialog.
+ */
 export class Editsubject {
 
+    /**
+     * Data from the background.
+     * @member {SendMessageEditSubject|null}
+     */
     protected static _data: SendMessageEditSubject|null;
 
+    /**
+     * Set the Message data from the Background. Fill the formular by data.
+     * @param {SendMessageEditSubject} data
+     */
     public static async setMsgData(data: SendMessageEditSubject): Promise<void> {
         Editsubject._data = data;
 
         const subText = window.document.getElementById('subject_text') as HTMLInputElement | null;
 
         if (subText) {
-            subText.value = await browser.findnow.getRawSubject(data.header.id);
+            subText.value = await Subject.getSubject(data.header.id);
         }
     }
 
+    /**
+     * On load by the browser, load setting and to the formular.
+     */
     public static async onLoad(): Promise<void> {
         console.log('Findnow::Editsubject: onLoad');
 
@@ -57,6 +73,9 @@ export class Editsubject {
         browser.runtime.sendMessage({status: 'loaded'}).then();
     }
 
+    /**
+     * Save all data from formular in the memory and start the eml saving.
+     */
     public static async save(): Promise<void> {
         console.log('Findnow::Editsubject: save');
 
@@ -81,10 +100,8 @@ export class Editsubject {
                     pattern: ''
                 });
 
-                const file = await browser.findnow.joinPath(fileDest, `${filename}.eml`);
-
-                await browser.findnow.saveTo(Editsubject._data.header.id, {
-                    savefile: file,
+                await Exporter.saveTo(Editsubject._data.header.id, {
+                    savefile: filename,
                     editsubject_move_to_trash: mTt ? mTt.checked : false
                 });
             } else {
@@ -95,6 +112,9 @@ export class Editsubject {
         }
     }
 
+    /**
+     * Cancel the dialog (close).
+     */
     public static async cancel(): Promise<void> {
         if ((window as any).arguments) {
             const retVals = (window as any).arguments[0];

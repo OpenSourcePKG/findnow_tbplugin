@@ -1,5 +1,3 @@
-import {SaveToOptions} from './inc/SaveToOptions';
-import {SaveToResulte} from './inc/SaveToResulte';
 import {SubjectOptions} from './inc/Subject/SubjectOptions';
 
 /**
@@ -8,21 +6,13 @@ import {SubjectOptions} from './inc/Subject/SubjectOptions';
 export declare interface IFindnow {
 
     /**
-     * Save a message to file.
-     * @param {number} messageId - ID of a message
-     * @param {SaveToOptions} options
-     * @returns {SaveToResulte}
-     */
-    saveTo(messageId: number, options: SaveToOptions): Promise<SaveToResulte>;
-
-    /**
      * Return a path by user input select.
      * @param {string} defaultPath - The path is ignored when the string is empty.
      * @param {string} dlgTitle - Title for dialog.
      * @param {string} btnTitle - Title for button.
      * @returns {string|null}
      */
-    pickPath(defaultPath: string, dlgTitle: string, btnTitle: string): Promise<string|null>;
+    showDirectoryPicker(defaultPath: string, dlgTitle: string, btnTitle: string): Promise<string|null>;
 
     /**
      * Joint 2 paths to a string
@@ -38,13 +28,6 @@ export declare interface IFindnow {
      * @returns {boolean}
      */
     existPath(path: string): Promise<boolean>;
-
-    /**
-     * Return the raw subject from message ID.
-     * @param {number} messageId
-     * @returns {string}
-     */
-    getRawSubject(messageId: number): Promise<string>;
 
     /**
      * Return a filename for eml.

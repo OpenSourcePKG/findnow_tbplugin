@@ -3,30 +3,6 @@
     "namespace": "findnow",
     "types": [
       {
-        "id": "SaveToOptions",
-        "type": "object",
-        "description": "Save to options.",
-        "properties": {
-          "savefile": {
-            "type": "string",
-            "description": "File destination for save the eml file."
-          },
-
-          "editsubject_subject": {
-            "type": "string",
-            "description": "Subject from user input.",
-            "optional": true
-          },
-
-          "editsubject_move_to_trash": {
-            "type": "boolean",
-            "description": "Move to trash from user input.",
-            "optional": true
-          }
-        }
-      },
-
-      {
         "id": "SubjectOptions",
         "type": "object",
         "description": "Subject to options.",
@@ -91,19 +67,6 @@
 
     "functions": [
       {
-        "name": "getRawSubject",
-        "type": "function",
-        "description": "Return the raw subject from message ID.",
-        "async": true,
-        "parameters": [
-          {
-            "name": "messageId",
-            "type": "number",
-            "description": "message id"
-          }
-        ]
-      },
-      {
         "name": "buildFilename",
         "type": "function",
         "description": "Return the filename from message ID.",
@@ -121,24 +84,7 @@
         ]
       },
       {
-        "name": "saveTo",
-        "type": "function",
-        "description": "Save the email to a eml file.",
-        "async": true,
-        "parameters": [
-          {
-            "name": "messageId",
-            "type": "number",
-            "description": "message id"
-          },
-          {
-            "name": "options",
-            "$ref": "findnow.SaveToOptions"
-          }
-        ]
-      },
-      {
-        "name": "pickPath",
+        "name": "showDirectoryPicker",
         "type": "function",
         "description": "Pick the path by Dialog.",
         "async": true,

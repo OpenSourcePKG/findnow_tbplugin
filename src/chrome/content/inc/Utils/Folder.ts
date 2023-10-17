@@ -25,10 +25,10 @@ export class Folder {
      * @param {FindnowOptions} settings
      */
     public static async getSaveFolder(settings: FindnowOptions): Promise<string|null> {
-        let file = await Folder.getPredefinedFolder(settings);
+        let folder = await Folder.getPredefinedFolder(settings);
         let showPicker = false;
 
-        if (file) {
+        if (folder) {
             showPicker = true;
         }
 
@@ -37,14 +37,14 @@ export class Folder {
         }
 
         if (showPicker) {
-            const pickFile = await browser.findnow.pickPath(
-                file ? file : '',
+            const pickFile = await browser.findnow.showDirectoryPicker(
+                folder ? folder : '',
                 browser.i18n.getMessage('dialogPickSaveFolderTitle'),
                 browser.i18n.getMessage('dialogPickSaveFolderButtonOK')
             );
 
             if (pickFile) {
-                file = pickFile;
+                folder = pickFile;
             } else {
                 return null;
             }
@@ -53,16 +53,16 @@ export class Folder {
         // create sub dir ----------------------------------------------------------------------------------------------
 
         try {
-            if (file && settings.export_eml_use_sub_dir) {
+            if (folder && settings.export_eml_use_sub_dir) {
                 const subdir = settings.export_eml_sub_dir;
 
                 if (subdir === '') {
                     console.log('Folder::getSaveFolder: subdir string is empty!');
                 } else {
-                    const tSubdir = await browser.findnow.joinPath(file, subdir);
+                    const tSubdir = await browser.findnow.joinPath(folder, subdir);
 
                     if (await browser.findnow.existPath(tSubdir)) {
-                        file = tSubdir;
+                        folder = tSubdir;
                     }
                 }
             }
@@ -71,7 +71,7 @@ export class Folder {
             return null;
         }
 
-        return file;
+        return folder;
     }
 
 }

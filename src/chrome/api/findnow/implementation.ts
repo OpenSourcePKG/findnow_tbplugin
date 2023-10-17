@@ -8,9 +8,6 @@ import {
 } from 'mozilla-webext-types';
 import {IFindnow} from './IFindnow';
 
-import {Exporter} from './inc/Exporter/Exporter';
-import {SaveToOptions} from './inc/SaveToOptions';
-import {SaveToResulte} from './inc/SaveToResulte';
 import {SubjectBuilder} from './inc/Subject/SubjectBuilder';
 import {SubjectOptions} from './inc/Subject/SubjectOptions';
 import {UtilsFile} from './inc/Utils/UtilsFile';
@@ -100,19 +97,6 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
             findnow: {
 
                 /**
-                 * Return the raw subject from message ID.
-                 * @param {number} messageId
-                 * @returns {string}
-                 */
-                getRawSubject: async(messageId: number): Promise<string> => {
-                    console.log(`Findnow::implementation::getRawSubject: messageid: ${messageId}`);
-
-                    const msgHdr = this.getMsgHdr(messageId);
-
-                    return msgHdr ? SubjectBuilder.getRawSubject(msgHdr) : '';
-                },
-
-                /**
                  * Return a filename for eml.
                  * @param {number} messageId
                  * @param {SubjectOptions} options
@@ -131,42 +115,14 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
                 },
 
                 /**
-                 * Save a message to file.
-                 * @param {number} messageId - ID of a message
-                 * @param {SaveToOptions} options
-                 * @returns {SaveToResulte}
-                 */
-                saveTo: async(messageId: number, options: SaveToOptions): Promise<SaveToResulte> => {
-                    console.log(`Findnow::implementation::saveTo: messageid: ${messageId}`);
-
-                    const exporter = new Exporter();
-                    const msgUri = this.getMessageUriById(messageId);
-
-                    if (msgUri) {
-                        const saveResulte = await exporter.saveTo(msgUri, options);
-
-                        if (saveResulte) {
-                            return {
-                                success: true
-                            };
-                        }
-                    }
-
-                    return {
-                        success: false,
-                        error: 'Message not found!'
-                    };
-                },
-
-                /**
                  * Pick the path by dialog.
                  * @param {string} defaultPath - The path is ignored when the string is empty.
                  * @param {string} dlgTitle - Title for dialog.
                  * @param {string} btnTitle - Title for button.
                  * @returns {string|null} Selected path from dialog.
                  */
-                pickPath: async(defaultPath: string, dlgTitle: string, btnTitle: string): Promise<string|null> => {
-                    console.log('pickPath');
+                showDirectoryPicker: async(defaultPath: string, dlgTitle: string, btnTitle: string): Promise<string|null> => {
+                    console.log('showDirectoryPicker');
 
                     const fp = Cc['@mozilla.org/filepicker;1'].createInstance(Ci.nsIFilePicker);
 
