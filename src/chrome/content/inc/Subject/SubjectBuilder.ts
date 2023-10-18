@@ -1,10 +1,14 @@
-import {nsIMsgDBHdr} from 'mozilla-webext-types';
+import {FindnowBrowser} from '../../../api/findnow/FindnowBrowser';
+import {File} from '../Utils/File';
+import {Str} from '../Utils/Str';
 import {UtilsDate} from '../Utils/UtilsDate';
-import {UtilsFile} from '../Utils/UtilsFile';
-import {UtilsStr} from '../Utils/UtilsStr';
 import {SubjectOptions} from './SubjectOptions';
 
+declare const browser: FindnowBrowser;
 
+/**
+ * Subject builder object.
+ */
 export class SubjectBuilder {
 
     /**
@@ -27,10 +31,14 @@ export class SubjectBuilder {
 
     /**
      * Create the filename from mail (subject etc...).
-     * @param {nsIMsgDBHdr} msgHdr
+     * @param {number} messageId
      * @param {SubjectOptions} options
      */
-    public static buildFilename(msgHdr: nsIMsgDBHdr, options: SubjectOptions): string {
+    public static async buildFilename(
+        messageId: number,
+        options: SubjectOptions
+    ): Promise<string> {
+        const msg = await browser.messages.get(messageId);
         const subMaxLen = options.cutSubject ? 50 : -1;
         let subj = options.subject;
         let fname = '';
@@ -46,23 +54,22 @@ export class SubjectBuilder {
         // convert to ascii for speciel chars by subject ---------------------------------------------------------------
 
         if (options.filenames_toascii) {
-            subj = UtilsFile.strToFilenameStr(subj);
+            subj = File.strToFilenameStr(subj);
         } else {
-            subj = UtilsStr.strToAscii(subj);
+            subj = Str.strToAscii(subj);
         }
 
         // date --------------------------------------------------------------------------------------------------------
-        const dateInSec = msgHdr.dateInSeconds;
         let strDate = '';
 
         if (options.use_iso_date) {
             strDate = UtilsDate.dateToIsoStr(
-                dateInSec,
+                msg.date,
                 options.add_time_to_name
             );
         } else {
             strDate = UtilsDate.dateTo8601Str(
-                dateInSec,
+                msg.date,
                 options.add_time_to_name
             );
         }
@@ -71,14 +78,14 @@ export class SubjectBuilder {
 
         switch (options.filenameFormat) {
             default:
-                fname = `${strDate} ${subj}-${msgHdr.messageKey}`;
+                fname = `${strDate} ${subj}-${msg.id}`;
         }
 
         // eslint-disable-next-line no-control-regex
         fname = fname.replace(/[\x00-\x1F]/gu, '_');
 
         if (options.filenames_toascii) {
-            fname = UtilsStr.strToAscii(fname);
+            fname = Str.strToAscii(fname);
         } else {
             fname = fname.replace(/[/\\:,<>*?"|']/gu, '_');
         }

@@ -1,10 +1,15 @@
 import {FindnowBrowser} from '../../../api/findnow/FindnowBrowser';
-import {SaveToOptions} from '../../../api/findnow/inc/SaveToOptions';
+import {SaveToOptions} from './SaveToOptions';
 
 declare const browser: FindnowBrowser;
 
 export class Exporter {
 
+    /**
+     * Save a message to options (path, name etc...).
+     * @param {number} messageId
+     * @param {SaveToOptions} options
+     */
     public static async saveTo(messageId: number, options: SaveToOptions): Promise<void> {
         const rawMsgFile = await browser.messages.getRaw(messageId, {
             data_format: 'File'
@@ -15,14 +20,35 @@ export class Exporter {
 
             const msgUrl = URL.createObjectURL(rawMsgFile);
             console.log(msgUrl);
+            console.log(options);
 
-            const dI = await browser.downloads.download({
+            const dId = await browser.downloads.download({
                 url: msgUrl,
                 filename: options.savefile,
                 saveAs: true
             });
 
-            console.log(dI);
+            if (dId) {
+                if (options.moveToTrash) {
+                    const dIs = await browser.downloads.search({
+                        id: dId
+                    });
+
+                    if (dIs.length > 0) {
+                        const dI = dIs[0];
+
+                        if (dI.state === 'complete') {
+                            browser.messages.delete([messageId], false);
+                        } else {
+                            console.log('DownloadItem is not complete!');
+                        }
+                    } else {
+                        console.log('DownloadItems is empty!');
+                    }
+                } else {
+                    console.log('Move to trash not activ.');
+                }
+            }
         }
     }
 

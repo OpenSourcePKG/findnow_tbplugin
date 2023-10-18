@@ -1,5 +1,6 @@
 import {FindnowBrowser} from '../../../api/findnow/FindnowBrowser';
 import {FindnowOptions} from '../Types/FindnowOptions';
+import {Path} from './Path';
 
 declare const browser: FindnowBrowser;
 
@@ -12,9 +13,9 @@ export class Folder {
      * Return the main directory by settings.
      * @param settings
      */
-    public static async getPredefinedFolder(settings: FindnowOptions): Promise<string|null> {
+    public static async getPredefinedFolder(settings: FindnowOptions): Promise<string> {
         if (!settings.export_eml_use_dir) {
-            return null;
+            return '';
         }
 
         return settings.export_eml_dir;
@@ -24,31 +25,8 @@ export class Folder {
      * Return the directory for eml saving by settings, can call pickup dialog.
      * @param {FindnowOptions} settings
      */
-    public static async getSaveFolder(settings: FindnowOptions): Promise<string|null> {
+    public static async getSaveFolder(settings: FindnowOptions): Promise<string> {
         let folder = await Folder.getPredefinedFolder(settings);
-        let showPicker = false;
-
-        if (folder) {
-            showPicker = true;
-        }
-
-        if (!showPicker && !settings.export_save_auto_eml) {
-            showPicker = true;
-        }
-
-        if (showPicker) {
-            const pickFile = await browser.findnow.showDirectoryPicker(
-                folder ? folder : '',
-                browser.i18n.getMessage('dialogPickSaveFolderTitle'),
-                browser.i18n.getMessage('dialogPickSaveFolderButtonOK')
-            );
-
-            if (pickFile) {
-                folder = pickFile;
-            } else {
-                return null;
-            }
-        }
 
         // create sub dir ----------------------------------------------------------------------------------------------
 
@@ -59,7 +37,7 @@ export class Folder {
                 if (subdir === '') {
                     console.log('Folder::getSaveFolder: subdir string is empty!');
                 } else {
-                    const tSubdir = await browser.findnow.joinPath(folder, subdir);
+                    const tSubdir = await Path.join(folder, subdir);
 
                     if (await browser.findnow.existPath(tSubdir)) {
                         folder = tSubdir;
@@ -68,7 +46,7 @@ export class Folder {
             }
         } catch (e) {
             console.log(e);
-            return null;
+            return '';
         }
 
         return folder;

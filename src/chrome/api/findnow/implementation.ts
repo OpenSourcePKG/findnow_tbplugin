@@ -4,12 +4,10 @@ import {
     IExtensionAPI, nsIJSRAIIHelper,
     Services as S,
     ChromeUtils as ChUt,
-    PathUtils as ph, nsIMsgDBHdr
+    PathUtils as ph
 } from 'mozilla-webext-types';
 import {IFindnow} from './IFindnow';
 
-import {SubjectBuilder} from './inc/Subject/SubjectBuilder';
-import {SubjectOptions} from './inc/Subject/SubjectOptions';
 import {UtilsFile} from './inc/Utils/UtilsFile';
 
 declare const Components: C;
@@ -70,49 +68,12 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
         );
     }
 
-    public getMsgHdr(messageId: number): nsIMsgDBHdr | null {
-        return this.extension.messageManager.get(messageId);
-    }
-
-    /**
-     * Return a URI by Message ID.
-     * @param {number} messageId - ID a message.
-     * @returns {string}
-     */
-    public getMessageUriById(messageId: number): string | null {
-        const msgHdr = this.getMsgHdr(messageId);
-
-        if (msgHdr) {
-            return msgHdr.folder.getUriForMsg(msgHdr);
-        }
-
-        return null;
-    }
-
     /**
      * Return apis methods
      */
     public getAPI(): Record<string, unknown> {
         return {
             findnow: {
-
-                /**
-                 * Return a filename for eml.
-                 * @param {number} messageId
-                 * @param {SubjectOptions} options
-                 * @returns {string}
-                 */
-                buildFilename: async(messageId: number, options: SubjectOptions): Promise<string> => {
-                    console.log(`Findnow::implementation::buildSubject: messageid: ${messageId}`);
-
-                    const msgHdr = this.getMsgHdr(messageId);
-
-                    if (msgHdr) {
-                        return SubjectBuilder.buildFilename(msgHdr, options);
-                    }
-
-                    return '';
-                },
 
                 /**
                  * Pick the path by dialog.
@@ -154,16 +115,6 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
                     }
 
                     return null;
-                },
-
-                /**
-                 * Joint two paths to a string
-                 * @param {string} path
-                 * @param {string} subdir
-                 * @returns {string}
-                 */
-                joinPath: async(path: string, subdir: string): Promise<string> => {
-                    return PathUtils.join(path, subdir);
                 },
 
                 /**

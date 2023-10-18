@@ -3,12 +3,11 @@ export class UtilsDate {
 
     /**
      * Convert a date time to string with format ISO.
-     * @param {number} secs
+     * @param {Date} msgDate
      * @param {boolean} addTime
      * @returns {string} Format YYYY-MM-DD hh-ii-ss.
      */
-    public static dateToIsoStr(secs: number, addTime: boolean): string {
-        const msgDate = new Date(secs * 1000);
+    public static dateToIsoStr(msgDate: Date, addTime: boolean): string {
         const msgDate8601 = msgDate.getFullYear();
 
         const month = `${msgDate.getMonth() + 1}`.padStart(2, '0');
@@ -29,12 +28,11 @@ export class UtilsDate {
 
     /**
      * Convert a date time to string with format 8601.
-     * @param {number} secs
+     * @param {Date} msgDate
      * @param {boolean} addTime
      * @returns {string} Format YYYYMMDDhhii.
      */
-    public static dateTo8601Str(secs: number, addTime: boolean): string {
-        const msgDate = new Date(secs * 1000);
+    public static dateTo8601Str(msgDate: Date, addTime: boolean): string {
         const msgDate8601 = msgDate.getFullYear();
 
         const month = `${msgDate.getMonth() + 1}`.padStart(2, '0');

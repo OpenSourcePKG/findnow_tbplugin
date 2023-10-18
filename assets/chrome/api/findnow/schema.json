@@ -106,26 +106,6 @@
           }
         ]
       },
-
-      {
-        "name": "joinPath",
-        "type": "function",
-        "description": "Join 2 paths to a string.",
-        "async": true,
-        "parameters": [
-          {
-            "name": "path",
-            "type": "string",
-            "description": "A main path."
-          },
-          {
-            "name": "subdir",
-            "type": "string",
-            "description": "A sub path."
-          }
-        ]
-      },
-
       {
         "name": "existPath",
         "type": "function",

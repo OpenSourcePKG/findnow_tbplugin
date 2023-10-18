@@ -1,7 +1,7 @@
 /**
- * Helper for string converts.
+ * Str helper object.
  */
-export class UtilsStr {
+export class Str {
 
     /**
      * Convert a string to ascii string.
