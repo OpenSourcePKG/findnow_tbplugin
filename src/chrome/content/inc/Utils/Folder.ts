@@ -28,24 +28,16 @@ export class Folder {
     public static async getSaveFolder(settings: FindnowOptions): Promise<string> {
         let folder = await Folder.getPredefinedFolder(settings);
 
-        let showPicker = false;
+        const pickFile = await browser.findnow.showDirectoryPicker(
+            folder ? folder : '',
+            browser.i18n.getMessage('dialogPickSaveFolderTitle'),
+            browser.i18n.getMessage('dialogPickSaveFolderButtonOK')
+        );
 
-        if (folder.trim() === '') {
-            showPicker = true;
-        }
-
-        if (showPicker) {
-            const pickFile = await browser.findnow.showDirectoryPicker(
-                folder ? folder : '',
-                browser.i18n.getMessage('dialogPickSaveFolderTitle'),
-                browser.i18n.getMessage('dialogPickSaveFolderButtonOK')
-            );
-
-            if (pickFile) {
-                folder = pickFile;
-            } else {
-                return '';
-            }
+        if (pickFile) {
+            folder = pickFile;
+        } else {
+            return '';
         }
 
         // exist sub dir -----------------------------------------------------------------------------------------------
