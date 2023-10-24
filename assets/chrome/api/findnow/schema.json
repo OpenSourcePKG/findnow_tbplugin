@@ -62,6 +62,17 @@
             "description": "a pattern string for build filename, only use by filenameFormat = 2"
           }
         }
+      },
+      {
+        "id": "SaveToOptions",
+        "type": "object",
+        "description": "Save to options.",
+        "properties": {
+          "savefile": {
+            "type": "string",
+            "description": "File destination for save the eml file."
+          }
+        }
       }
     ],
 
@@ -116,6 +127,23 @@
             "name": "path",
             "type": "string",
             "description": "A path for check."
+          }
+        ]
+      },
+      {
+        "name": "saveTo",
+        "type": "function",
+        "description": "Save the email to a eml file.",
+        "async": true,
+        "parameters": [
+          {
+            "name": "messageId",
+            "type": "number",
+            "description": "message id"
+          },
+          {
+            "name": "options",
+            "$ref": "findnow.SaveToOptions"
           }
         ]
       }

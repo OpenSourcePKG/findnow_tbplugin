@@ -1,3 +1,5 @@
+import {SaveToOptions} from './inc/Exporter/SaveToOptions';
+
 /**
  * Interface for Findnow implementation.
  */
@@ -19,4 +21,11 @@ export declare interface IFindnow {
      */
     existPath(path: string): Promise<boolean>;
 
+    /**
+     * Save a message to file.
+     * @param {number} messageId - ID of a message
+     * @param {SaveToOptions} options
+     * @returns {boolean}
+     */
+    saveTo(messageId: number, options: SaveToOptions): Promise<boolean>;
 }

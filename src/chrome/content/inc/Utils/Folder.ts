@@ -28,7 +28,27 @@ export class Folder {
     public static async getSaveFolder(settings: FindnowOptions): Promise<string> {
         let folder = await Folder.getPredefinedFolder(settings);
 
-        // create sub dir ----------------------------------------------------------------------------------------------
+        let showPicker = false;
+
+        if (folder) {
+            showPicker = true;
+        }
+
+        if (showPicker) {
+            const pickFile = await browser.findnow.showDirectoryPicker(
+                folder ? folder : '',
+                browser.i18n.getMessage('dialogPickSaveFolderTitle'),
+                browser.i18n.getMessage('dialogPickSaveFolderButtonOK')
+            );
+
+            if (pickFile) {
+                folder = pickFile;
+            } else {
+                return '';
+            }
+        }
+
+        // exist sub dir -----------------------------------------------------------------------------------------------
 
         try {
             if (folder && settings.export_eml_use_sub_dir) {

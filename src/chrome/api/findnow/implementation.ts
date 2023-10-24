@@ -4,9 +4,12 @@ import {
     IExtensionAPI, nsIJSRAIIHelper,
     Services as S,
     ChromeUtils as ChUt,
-    PathUtils as ph
+    PathUtils as ph,
+    nsIMsgDBHdr
 } from 'mozilla-webext-types';
 import {IFindnow} from './IFindnow';
+import {Exporter} from './inc/Exporter/Exporter';
+import {SaveToOptions} from './inc/Exporter/SaveToOptions';
 
 import {UtilsFile} from './inc/Utils/UtilsFile';
 
@@ -66,6 +69,25 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
                 ]
             ]
         );
+    }
+
+    public getMsgHdr(messageId: number): nsIMsgDBHdr | null {
+        return this.extension.messageManager.get(messageId);
+    }
+
+    /**
+     * Return a URI by Message ID.
+     * @param {number} messageId - ID a message.
+     * @returns {string}
+     */
+    public getMessageUriById(messageId: number): string | null {
+        const msgHdr = this.getMsgHdr(messageId);
+
+        if (msgHdr) {
+            return msgHdr.folder.getUriForMsg(msgHdr);
+        }
+
+        return null;
     }
 
     /**
@@ -134,7 +156,27 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
                     }
 
                     return false;
+                },
+
+                /**
+                 * Save a message to file.
+                 * @param {number} messageId - ID of a message
+                 * @param {SaveToOptions} options
+                 * @returns {boolean}
+                 */
+                saveTo: async(messageId: number, options: SaveToOptions): Promise<boolean> => {
+                    console.log(`Findnow::implementation::saveTo: messageid: ${messageId}`);
+
+                    const exporter = new Exporter();
+                    const msgUri = this.getMessageUriById(messageId);
+
+                    if (msgUri) {
+                        return await exporter.saveTo(msgUri, options);
+                    }
+
+                    return false;
                 }
+
             } as IFindnow
         };
     }

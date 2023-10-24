@@ -1,5 +1,4 @@
 import {FindnowBrowser} from '../../api/findnow/FindnowBrowser';
-import {Exporter} from '../inc/Exporter/Exporter';
 import {SendMessageEditSubject} from '../inc/SendMessageEditSubject';
 import {Settings} from '../inc/Settings';
 import {SubjectBuilder} from '../inc/Subject/SubjectBuilder';
@@ -106,11 +105,13 @@ export class Editsubject {
                 newfile = await Path.join(fileDest, newfile);
             }
 
-            await Exporter.saveTo(Editsubject._data.header.id, {
-                savefile: newfile,
-                moveToTrash: mTt ? mTt.checked : false
-            });
-
+            if (await browser.findnow.saveTo(Editsubject._data.header.id, {
+                savefile: newfile
+            })) {
+                if (mTt ? mTt.checked : false) {
+                    browser.messages.delete([Editsubject._data.header.id], false);
+                }
+            }
 
             window.close();
         }

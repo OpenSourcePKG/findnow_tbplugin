@@ -1,5 +1,4 @@
 import {FindnowBrowser} from './api/findnow/FindnowBrowser';
-import {Exporter} from './content/inc/Exporter/Exporter';
 import {Settings} from './content/inc/Settings';
 import {SubjectBuilder} from './content/inc/Subject/SubjectBuilder';
 import {SubjectBuilderFormat} from './content/inc/Subject/SubjectBuilderFormat';
@@ -65,10 +64,13 @@ declare const browser: FindnowBrowser;
                         newfile = await Path.join(path, newfile);
                     }
 
-                    await Exporter.saveTo(header.id, {
-                        savefile: newfile,
-                        moveToTrash: settings.move_to_trash
-                    });
+                    if (await browser.findnow.saveTo(header.id, {
+                        savefile: newfile
+                    })) {
+                        if (settings.move_to_trash) {
+                            browser.messages.delete([header.id], false);
+                        }
+                    }
                 }
             }
         }
