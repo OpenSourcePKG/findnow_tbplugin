@@ -40,11 +40,11 @@ export class SubjectBuilder {
     ): Promise<string> {
         const msg = await browser.messages.get(messageId);
         const subMaxLen = options.cutSubject ? 50 : -1;
-        let subj = options.subject;
+        let subj = options.subject.trim();
         let fname = '';
 
         if (options.use_abbreviation) {
-            subj = `${options.abbreviation} ${subj}`;
+            subj = `${options.abbreviation.trim()} ${subj}`;
         }
 
         if (subMaxLen > 0) {
