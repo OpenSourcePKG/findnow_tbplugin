@@ -44,7 +44,11 @@ export class SubjectBuilder {
         let fname = '';
 
         if (options.use_abbreviation) {
-            subj = `${options.abbreviation.trim()} ${subj}`;
+            const abbrevication = options.abbreviation.trim();
+
+            if (abbrevication !== '') {
+                subj = `${abbrevication} ${subj}`;
+            }
         }
 
         if (subMaxLen > 0) {
