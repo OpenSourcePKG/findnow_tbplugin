@@ -115,7 +115,9 @@ export class Editsubject {
                 savefile: newfile
             })) {
                 if (mTt ? mTt.checked : false) {
-                    browser.messages.delete([Editsubject._data.header.id], false);
+                    if (Editsubject._data.header.folder && Editsubject._data.header.folder.type !== 'trash') {
+                        browser.messages.delete([Editsubject._data.header.id], false);
+                    }
                 }
             }
 

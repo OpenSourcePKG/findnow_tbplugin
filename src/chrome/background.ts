@@ -73,7 +73,9 @@ declare const browser: FindnowBrowser;
                         savefile: newfile
                     })) {
                         if (settings.move_to_trash) {
-                            browser.messages.delete([header.id], false);
+                            if (header.folder && header.folder.type !== 'trash') {
+                                browser.messages.delete([header.id], false);
+                            }
                         }
                     }
                 }
