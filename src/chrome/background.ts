@@ -43,10 +43,15 @@ declare const browser: FindnowBrowser;
                         settings
                     });
                 } else {
-                    const path = await Folder.getSaveFolder(settings);
+                    const fileDest = await Folder.getSaveFolder(settings);
+
+                    if (fileDest === '') {
+                        return;
+                    }
+
                     const filename = await SubjectBuilder.buildFilename(header.id, {
                         subject: header.subject,
-                        dirPath: path,
+                        dirPath: fileDest,
                         filenames_toascii: true,
                         cutFilename: true,
                         use_abbreviation: settings.use_filename_abbreviation,
@@ -60,8 +65,8 @@ declare const browser: FindnowBrowser;
 
                     let newfile = `${filename}.eml`;
 
-                    if (path !== '') {
-                        newfile = await Path.join(path, newfile);
+                    if (fileDest !== '') {
+                        newfile = await Path.join(fileDest, newfile);
                     }
 
                     if (await browser.findnow.saveTo(header.id, {

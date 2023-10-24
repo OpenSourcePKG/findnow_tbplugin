@@ -85,6 +85,12 @@ export class Editsubject {
 
         if (Editsubject._data) {
             const fileDest = await Folder.getSaveFolder(Editsubject._data.settings);
+
+            if (fileDest === '') {
+                window.close();
+                return;
+            }
+
             const filename = await SubjectBuilder.buildFilename(Editsubject._data.header.id, {
                 subject: subText ? subText.value : '',
                 dirPath: fileDest,

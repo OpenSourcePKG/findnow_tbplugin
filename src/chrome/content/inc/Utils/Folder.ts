@@ -30,7 +30,7 @@ export class Folder {
 
         let showPicker = false;
 
-        if (folder) {
+        if (folder.trim() === '') {
             showPicker = true;
         }
 
