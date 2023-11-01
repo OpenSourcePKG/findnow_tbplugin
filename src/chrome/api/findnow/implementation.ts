@@ -8,10 +8,10 @@ import {
     nsIMsgDBHdr
 } from 'mozilla-webext-types';
 import {IFindnow} from './IFindnow';
-import {Exporter} from './inc/Exporter/Exporter';
-import {SaveToOptions} from './inc/Exporter/SaveToOptions';
+import {SaveToOptions} from './inc/SaveToOptions';
 
 import {UtilsFile} from './inc/Utils/UtilsFile';
+import {UtilsWriter} from './inc/Utils/UtilsWriter';
 
 declare const Components: C;
 declare const Services: S;
@@ -167,11 +167,16 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
                 saveTo: async(messageId: number, options: SaveToOptions): Promise<boolean> => {
                     console.log(`Findnow::implementation::saveTo: messageid: ${messageId}`);
 
-                    const exporter = new Exporter();
                     const msgUri = this.getMessageUriById(messageId);
 
                     if (msgUri) {
-                        return await exporter.saveTo(msgUri, options);
+                        const emlFile = UtilsFile.fileStrToNsIFile(options.savefile, false);
+
+                        if (emlFile) {
+                            UtilsWriter.writeDataOnDisk(emlFile, options.content, false);
+
+                            return true;
+                        }
                     }
 
                     return false;

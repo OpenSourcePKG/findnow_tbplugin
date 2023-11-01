@@ -111,8 +111,11 @@ export class Editsubject {
                 newfile = await Path.join(fileDest, newfile);
             }
 
+            const msgContent = await browser.messages.getRaw(Editsubject._data.header.id) as string;
+
             if (await browser.findnow.saveTo(Editsubject._data.header.id, {
-                savefile: newfile
+                savefile: newfile,
+                content: msgContent
             })) {
                 if (mTt ? mTt.checked : false) {
                     if (Editsubject._data.header.folder && Editsubject._data.header.folder.type !== 'trash') {

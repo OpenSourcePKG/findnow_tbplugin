@@ -71,6 +71,10 @@
           "savefile": {
             "type": "string",
             "description": "File destination for save the eml file."
+          },
+          "content": {
+            "type": "string",
+            "description": "Content of EML."
           }
         }
       }

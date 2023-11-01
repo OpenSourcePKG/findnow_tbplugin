@@ -69,8 +69,11 @@ declare const browser: FindnowBrowser;
                         newfile = await Path.join(fileDest, newfile);
                     }
 
+                    const msgContent = await browser.messages.getRaw(header.id) as string;
+
                     if (await browser.findnow.saveTo(header.id, {
-                        savefile: newfile
+                        savefile: newfile,
+                        content: msgContent
                     })) {
                         if (settings.move_to_trash) {
                             if (header.folder && header.folder.type !== 'trash') {
