@@ -3,14 +3,15 @@ const webpackConfig = require('./webpack.config.js');
 module.exports = (grunt) => {
     const outDir = 'built/';
     const outDirExtracted = 'dist/';
-    const outXpi = `${outDir}/Findnow.xpi`;
+
+    const manifestJSONContent = grunt.file.readJSON('assets/manifest.json');
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        manifest: grunt.file.readJSON('assets/manifest.json'),
+        manifest: manifestJSONContent,
         clean: {
-            initial: [outDir],
-            dist: [`${outDirExtracted}/*`]
+            built: `${outDir}`,
+            dist: `${outDirExtracted}`
         },
         exec: {
             tsc: '"npm run tsc'
@@ -37,7 +38,7 @@ module.exports = (grunt) => {
         compress: {
             main: {
                 options: {
-                    archive: outXpi,
+                    archive: `${outDir}/FindNow-${manifestJSONContent.version}.xpi`,
                     mode: 'zip'
                 },
                 files: [
@@ -60,15 +61,7 @@ module.exports = (grunt) => {
     grunt.loadNpmTasks('grunt-webpack');
 
     grunt.registerTask('default', [
-        // 'clean:initial',
-        'clean:dist',
-        'copy',
-        'webpack:release',
-        'compress'
-    ]);
-
-    grunt.registerTask('release', [
-        // 'clean:initial',
+        'clean:built',
         'clean:dist',
         'copy',
         'webpack:release',
