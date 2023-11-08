@@ -1,11 +1,11 @@
 import {
+    ChromeUtils as ChUt,
     Components as C,
     ExtensionMail,
-    IExtensionAPI, nsIJSRAIIHelper,
-    Services as S,
-    ChromeUtils as ChUt,
+    IExtensionAPI,
+    nsIMsgDBHdr,
     PathUtils as ph,
-    nsIMsgDBHdr
+    Services as S
 } from 'mozilla-webext-types';
 import {IFindnow} from './IFindnow';
 import {SaveToOptions} from './inc/SaveToOptions';
@@ -17,7 +17,7 @@ declare const Components: C;
 declare const Services: S;
 declare const ExtensionAPI: any;
 declare const ChromeUtils: ChUt;
-declare let PathUtils: ph | { join: (...args: string[]) => string;};
+declare let PathUtils: ph | { join: (...args: string[]) => string; };
 
 const {
     classes: Cc,
@@ -39,7 +39,6 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
      * @member {ExtensionMail}
      */
     public extension: ExtensionMail;
-    public chromeHandle: nsIJSRAIIHelper|null = null;
 
     /**
      * Construct FindNow implementation.
@@ -47,6 +46,7 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
      */
     public constructor(ext: ExtensionMail) {
         super(ext);
+
         this.extension = ext;
     }
 
@@ -55,20 +55,6 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
      */
     public onStartup(): void {
         console.log('Findnow on start up');
-
-        const aomStartup = Cc['@mozilla.org/addons/addon-manager-startup;1'].getService(Ci.amIAddonManagerStartup);
-        const manifestURI = Services.io.newURI('manifest.json', null, this.extension.rootURI);
-
-        this.chromeHandle = aomStartup.registerChrome(
-            manifestURI,
-            [
-                [
-                    'content',
-                    'findnow',
-                    'chrome/content/'
-                ]
-            ]
-        );
     }
 
     public getMsgHdr(messageId: number): nsIMsgDBHdr | null {
@@ -104,7 +90,7 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
                  * @param {string} btnTitle - Title for button.
                  * @returns {string|null} Selected path from dialog.
                  */
-                showDirectoryPicker: async(defaultPath: string, dlgTitle: string, btnTitle: string): Promise<string|null> => {
+                showDirectoryPicker: async(defaultPath: string, dlgTitle: string, btnTitle: string): Promise<string | null> => {
                     console.log('showDirectoryPicker');
 
                     const fp = Cc['@mozilla.org/filepicker;1'].createInstance(Ci.nsIFilePicker);
