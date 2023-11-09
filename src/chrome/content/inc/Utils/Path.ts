@@ -13,7 +13,7 @@ export class Path {
 
         let separator = '/';
 
-        if (pf.PlatformOs === 'win') {
+        if (pf.os === 'win') {
             separator = '\\';
         }
 
