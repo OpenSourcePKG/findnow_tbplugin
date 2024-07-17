@@ -97,29 +97,31 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
 
                     const recentWindow = Services.wm.getMostRecentWindow('');
 
-                    fp.init(recentWindow, dlgTitle, Ci.nsIFilePicker.modeGetFolder);
+                    if (recentWindow.browsingContext) {
+                        fp.init(recentWindow.browsingContext, dlgTitle, Ci.nsIFilePicker.modeGetFolder);
 
-                    if (btnTitle !== '') {
-                        fp.okButtonLabel = btnTitle;
-                    }
-
-                    if (defaultPath !== '') {
-                        const localFile = Components.classes['@mozilla.org/file/local;1']
-                        .createInstance(Components.interfaces.nsIFile);
-
-                        localFile.initWithPath(defaultPath);
-
-                        if (localFile.exists()) {
-                            fp.displayDirectory = localFile;
+                        if (btnTitle !== '') {
+                            fp.okButtonLabel = btnTitle;
                         }
-                    }
 
-                    const res = await new Promise((resolve) => {
-                        fp.open(resolve);
-                    });
+                        if (defaultPath !== '') {
+                            const localFile = Components.classes['@mozilla.org/file/local;1']
+                            .createInstance(Components.interfaces.nsIFile);
 
-                    if (res === Ci.nsIFilePicker.returnOK) {
-                        return fp.file.path;
+                            localFile.initWithPath(defaultPath);
+
+                            if (localFile.exists()) {
+                                fp.displayDirectory = localFile;
+                            }
+                        }
+
+                        const res = await new Promise((resolve) => {
+                            fp.open(resolve);
+                        });
+
+                        if (res === Ci.nsIFilePicker.returnOK) {
+                            return fp.file.path;
+                        }
                     }
 
                     return null;
