@@ -26,8 +26,6 @@ declare const browser: FindnowBrowser;
         console.log('Findnow::background: browser scripts loaded.');
     }
 
-    const winEditSubject = new WindowEditsubject();
-
     browser.messageDisplayAction.onClicked.addListener(async(tab) => {
         console.log(`Findnow tab.id: ${tab.id}`);
 
@@ -38,6 +36,7 @@ declare const browser: FindnowBrowser;
                 const settings = await new Settings().get();
 
                 if (settings.allow_edit_subject) {
+                    const winEditSubject = new WindowEditsubject();
                     await winEditSubject.open({
                         header,
                         settings
