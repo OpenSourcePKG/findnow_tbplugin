@@ -1,4 +1,4 @@
-![Version](https://img.shields.io/badge/Version-4.1-blue)
+![Version](https://img.shields.io/badge/Version-4.2-blue)
 [![License: GPL 3.0](https://img.shields.io/badge/License-GPL%203.0-red.png)](https://opensource.org/licenses/GPL-3.0)
 ![Tunderbird: 128.0 - 140.*](https://img.shields.io/badge/Thunderbird-128.0--140.*-brightgreen)
 ![Webpack](https://img.shields.io/badge/Webpack-yes-yellow)
