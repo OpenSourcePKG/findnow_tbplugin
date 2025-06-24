@@ -8,7 +8,9 @@ RUN go mod init build && \
 
 FROM debian:11
 
-ARG TB_URL="https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/128.0esr/linux-x86_64/de/thunderbird-128.0esr.tar.bz2"
+ARG TB_VERSION="140.0b3"
+ARG TB_TAR_FILE="thunderbird-$TB_VERSION.tar.xz"
+ARG TB_URL="https://download-installer.cdn.mozilla.net/pub/thunderbird/releases/$TB_VERSION/linux-x86_64/de/$TB_TAR_FILE"
 
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends openbox tigervnc-standalone-server supervisor gosu && \
@@ -26,13 +28,13 @@ RUN apt-get update -y && \
 
 RUN apt-get update && apt-get upgrade -y --fix-missing
 RUN apt-get install apt-utils -y
-RUN apt-get -y install wget bzip2 pwgen && \
+RUN apt-get -y install wget bzip2 xz-utils pwgen && \
     rm -rf /var/lib/apt/lists
 
 RUN apt-get update && apt-get upgrade -y --fix-missing
 RUN apt-get install libasound2 -y
 
-RUN cd /opt && wget -O thunderbird.tar.bz2 "$TB_URL" && tar -xvf thunderbird.tar.bz2
+RUN cd /opt && wget -O "$TB_TAR_FILE" "$TB_URL" && tar -xvf "$TB_TAR_FILE"
 
 COPY --from=easy-novnc-build /bin/easy-novnc /usr/local/bin/
 COPY menu.xml /etc/xdg/openbox/
