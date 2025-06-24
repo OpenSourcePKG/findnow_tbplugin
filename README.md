@@ -1,11 +1,20 @@
-# FindNow Thunderbird Addon
-The FindNow plugin helps to store emails from Thunderbird in the file system as eml. These can then be scanned by FindNow.
-
-[FindNow on Addons.thunderbird.net](https://addons.thunderbird.net/addon/findnow/)
-
-[Click here to view this add-on’s version history](https://addons.thunderbird.net/addon/findnow/versions/).
-
+![Version](https://img.shields.io/badge/Version-4.1-blue)
 [![License: GPL 3.0](https://img.shields.io/badge/License-GPL%203.0-red.png)](https://opensource.org/licenses/GPL-3.0)
+![Tunderbird: 128.0 - 140.*](https://img.shields.io/badge/Thunderbird-128.0--140.*-brightgreen)
+![Webpack](https://img.shields.io/badge/Webpack-yes-yellow)
+![Grunt](https://img.shields.io/badge/Grunt-yes-yellow)
+
+# FindNow Thunderbird Addon
+<p align="center">
+<img src="doc/images/tbfindnowlogo.png" width="300px" style="border-radius: 15px;transition: transform .2s;object-fit: cover;">
+<br><br>
+The FindNow plugin helps to store emails from Thunderbird in the file system as eml. These can then be scanned by FindNow.
+</p>
+
+* [FindNow on Addons.thunderbird.net](https://addons.thunderbird.net/addon/findnow/)
+* [Click here to view this add-on’s version history](https://addons.thunderbird.net/addon/findnow/versions/).
+
+
 
 # Maintainer
 This is a project of Pegenau GmbH & Co. KG
@@ -13,7 +22,7 @@ This is a project of Pegenau GmbH & Co. KG
 https://www.pegenau.de/
 
 ### Version
-* 128 - 128.*
+* 128 - 140.*
 
 # Developer environment
 ## Docker
