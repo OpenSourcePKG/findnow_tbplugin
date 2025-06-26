@@ -3,6 +3,7 @@
 ![Tunderbird: 128.0 - 140.*](https://img.shields.io/badge/Thunderbird-128.0--140.*-brightgreen)
 ![Webpack](https://img.shields.io/badge/Webpack-yes-yellow)
 ![Grunt](https://img.shields.io/badge/Grunt-yes-yellow)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/OpenSourcePKG/findnow_tbplugin)
 
 # FindNow Thunderbird Addon
 <p align="center">

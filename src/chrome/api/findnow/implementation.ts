@@ -1,4 +1,5 @@
 import {
+    BrowsingContext,
     ChromeUtils as ChUt,
     Components as C,
     ExtensionMail,
@@ -76,6 +77,24 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
         return null;
     }
 
+    private showNativeNotification(message: string): void {
+        try {
+            const alertsService = Cc['@mozilla.org/alerts-service;1']
+            .getService(Ci.nsIAlertsService);
+
+            alertsService.showAlertNotification(
+                null,
+                'FindNow',
+                message,
+                false,
+                null,
+                null
+            );
+        } catch (error) {
+            console.error('Failed to show native notification:', error);
+        }
+    }
+
     /**
      * Return apis methods
      */
@@ -93,25 +112,66 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
                 showDirectoryPicker: async(defaultPath: string, dlgTitle: string, btnTitle: string): Promise<string | null> => {
                     console.log('showDirectoryPicker');
 
-                    const fp = Cc['@mozilla.org/filepicker;1'].createInstance(Ci.nsIFilePicker);
+                    try {
+                        const fp = Cc['@mozilla.org/filepicker;1'].createInstance(Ci.nsIFilePicker);
 
-                    const recentWindow = Services.wm.getMostRecentWindow('');
+                        const recentWindow = Services.wm.getMostRecentWindow('');
 
-                    if (recentWindow.browsingContext) {
-                        fp.init(recentWindow.browsingContext, dlgTitle, Ci.nsIFilePicker.modeGetFolder);
+                        if (!recentWindow) {
+                            console.error('showDirectoryPicker: No window available');
+                            return null;
+                        }
+
+                        if (recentWindow.closed) {
+                            console.error('showDirectoryPicker: Window is closed');
+                            return null;
+                        }
+
+                        let browsingContext = recentWindow.browsingContext;
+
+                        if (!browsingContext) {
+                            console.warn('showDirectoryPicker: Primary window context not available, trying fallback');
+
+                            const allWindows = Services.wm.getEnumerator('');
+
+                            let fallbackWindow: any|null = null;
+
+                            while (allWindows.hasMoreElements()) {
+                                const win = allWindows.getNext();
+
+                                if (win && !win.closed && win.browsingContext) {
+                                    fallbackWindow = win;
+                                    break;
+                                }
+                            }
+
+                            if (fallbackWindow && fallbackWindow.browsingContext) {
+                                browsingContext = fallbackWindow.browsingContext as BrowsingContext;
+                                console.log('showDirectoryPicker: Using fallback window');
+                            } else {
+                                console.error('showDirectoryPicker: No valid window context available');
+                                return null;
+                            }
+                        }
+
+                        fp.init(browsingContext, dlgTitle, Ci.nsIFilePicker.modeGetFolder);
 
                         if (btnTitle !== '') {
                             fp.okButtonLabel = btnTitle;
                         }
 
                         if (defaultPath !== '') {
-                            const localFile = Components.classes['@mozilla.org/file/local;1']
-                            .createInstance(Components.interfaces.nsIFile);
+                            try {
+                                const localFile = Components.classes['@mozilla.org/file/local;1']
+                                .createInstance(Components.interfaces.nsIFile);
 
-                            localFile.initWithPath(defaultPath);
+                                localFile.initWithPath(defaultPath);
 
-                            if (localFile.exists()) {
-                                fp.displayDirectory = localFile;
+                                if (localFile.exists() && localFile.isDirectory()) {
+                                    fp.displayDirectory = localFile;
+                                }
+                            } catch (pathError) {
+                                console.error('showDirectoryPicker: Error setting default path:', pathError);
                             }
                         }
 
@@ -121,7 +181,12 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
 
                         if (res === Ci.nsIFilePicker.returnOK) {
                             return fp.file.path;
+                        } else if (res === Ci.nsIFilePicker.returnCancel) {
+                            console.log('showDirectoryPicker: User cancelled dialog');
+                            return null;
                         }
+                    } catch (error) {
+                        console.error('showDirectoryPicker: Fatal error:', error);
                     }
 
                     return null;
@@ -133,13 +198,35 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
                  * @returns {boolean}
                  */
                 existPath: async(path: string): Promise<boolean> => {
+                    if (!path || path.trim() === '') {
+                        console.warn('existPath: Invalid path parameter provided');
+                        return false;
+                    }
+
                     try {
                         const localFile = UtilsFile.fileStrToNsIFile(path, true);
 
                         if (localFile) {
                             return true;
                         }
+
+                        console.debug(`existPath: Path does not exist: ${path}`);
                     } catch (ex) {
+                        const error = ex instanceof Error ? ex : new Error(String(ex));
+
+                        if (error.name === 'NS_ERROR_FILE_UNRECOGNIZED_PATH') {
+                            console.warn(`existPath: Invalid path format: ${path}`, ex);
+                        } else if (error.name === 'NS_ERROR_FILE_ACCESS_DENIED') {
+                            console.error(`existPath: Access denied for path: ${path}`, ex);
+
+                            this.showUserNotification('error', 'File access denied',
+                                `Cannot access path: ${path}. Please check permissions.`);
+                        } else if (error.name === 'NS_ERROR_FILE_NOT_FOUND') {
+                            console.debug(`existPath: Path not found: ${path}`);
+                        } else {
+                            console.error(`existPath: Unexpected error checking path: ${path}`, ex);
+                        }
+
                         console.log(ex);
                     }
 
