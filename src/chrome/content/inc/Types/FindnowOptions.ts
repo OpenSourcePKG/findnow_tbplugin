@@ -18,4 +18,7 @@ export type FindnowOptions = {
     move_to_trash: boolean;
 
     export_save_auto_eml: boolean;
+
+    // tmp settings
+    last_used_directory: string;
 };

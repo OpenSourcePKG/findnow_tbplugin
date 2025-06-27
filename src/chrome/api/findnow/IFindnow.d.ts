@@ -1,4 +1,4 @@
-import {SaveToOptions} from './inc/Exporter/SaveToOptions';
+import {SaveToOptions} from './inc/SaveToOptions';
 
 /**
  * Interface for Findnow implementation.

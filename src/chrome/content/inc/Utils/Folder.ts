@@ -1,4 +1,5 @@
 import {FindnowBrowser} from '../../../api/findnow/FindnowBrowser';
+import {Settings} from '../Settings';
 import {FindnowOptions} from '../Types/FindnowOptions';
 import {Path} from './Path';
 
@@ -11,10 +12,14 @@ export class Folder {
 
     /**
      * Return the main directory by settings.
-     * @param settings
+     * @param {FindnowOptions} settings
      */
     public static async getPredefinedFolder(settings: FindnowOptions): Promise<string> {
         if (!settings.export_eml_use_dir) {
+            if (settings.last_used_directory) {
+                return settings.last_used_directory;
+            }
+
             return '';
         }
 
@@ -29,7 +34,7 @@ export class Folder {
         let folder = await Folder.getPredefinedFolder(settings);
 
         const pickFile = await browser.findnow.showDirectoryPicker(
-            folder ? folder : '',
+            folder,
             browser.i18n.getMessage('dialogPickSaveFolderTitle'),
             browser.i18n.getMessage('dialogPickSaveFolderButtonOK')
         );
@@ -60,6 +65,15 @@ export class Folder {
             console.log(e);
             return '';
         }
+
+        // save last used settings -------------------------------------------------------------------------------------
+
+        const tmpSettings = await new Settings().get();
+        tmpSettings.last_used_directory = folder;
+
+        await new Settings().set(tmpSettings);
+
+        // -------------------------------------------------------------------------------------------------------------
 
         return folder;
     }

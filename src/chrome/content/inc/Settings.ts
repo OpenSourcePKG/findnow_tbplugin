@@ -29,7 +29,9 @@ export class Settings {
             export_eml_use_sub_dir: false,
             export_eml_sub_dir: '',
 
-            export_save_auto_eml: false
+            export_save_auto_eml: false,
+
+            last_used_directory: ''
         };
     }
 
