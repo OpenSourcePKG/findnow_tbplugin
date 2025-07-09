@@ -58,6 +58,11 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
         console.log('Findnow on start up');
     }
 
+    /**
+     * getMsgHdr
+     * @param {number} messageId
+     * @return {nsIMsgDBHdr|null}
+     */
     public getMsgHdr(messageId: number): nsIMsgDBHdr | null {
         return this.extension.messageManager.get(messageId);
     }
@@ -75,24 +80,6 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
         }
 
         return null;
-    }
-
-    private showNativeNotification(message: string): void {
-        try {
-            const alertsService = Cc['@mozilla.org/alerts-service;1']
-            .getService(Ci.nsIAlertsService);
-
-            alertsService.showAlertNotification(
-                null,
-                'FindNow',
-                message,
-                false,
-                null,
-                null
-            );
-        } catch (error) {
-            console.error('Failed to show native notification:', error);
-        }
     }
 
     /**
@@ -218,9 +205,6 @@ export default class implementation extends ExtensionAPI implements IExtensionAP
                             console.warn(`existPath: Invalid path format: ${path}`, ex);
                         } else if (error.name === 'NS_ERROR_FILE_ACCESS_DENIED') {
                             console.error(`existPath: Access denied for path: ${path}`, ex);
-
-                            this.showUserNotification('error', 'File access denied',
-                                `Cannot access path: ${path}. Please check permissions.`);
                         } else if (error.name === 'NS_ERROR_FILE_NOT_FOUND') {
                             console.debug(`existPath: Path not found: ${path}`);
                         } else {
